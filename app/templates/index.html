@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WES/WGS Pre-Authorization Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pre-Authorization Request</h1>
+      <div class="subtle">Whole Exome/Genome Sequencing (WES/WGS)</div>
+
+      <div id="alert-box" class="alert" style="display:none"></div>
+      <div id="form-errors" class="error" style="display:none"></div>
+
+      <form id="pa-form">
+        <!-- Step 1: Patient & Subscriber Information -->
+        <section class="form-step active">
+          <h2>Patient & Insurance</h2>
+          <div class="grid">
+            <div class="col-6">
+              <label for="patient_first_name">First Name</label>
+              <input id="patient_first_name" name="patient_first_name" required />
+            </div>
+            <div class="col-6">
+              <label for="patient_last_name">Last Name</label>
+              <input id="patient_last_name" name="patient_last_name" required />
+            </div>
+            <div class="col-4">
+              <label for="dob">Date of Birth</label>
+              <input id="dob" name="dob" type="date" required />
+            </div>
+            <div class="col-4">
+              <label for="sex">Sex</label>
+              <select id="sex" name="sex">
+                <option value="">Select…</option>
+                <option>Female</option>
+                <option>Male</option>
+                <option>Intersex</option>
+                <option>Unknown</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <label for="member_id">Medicaid/Member ID</label>
+              <input id="member_id" name="member_id" required />
+            </div>
+            <div class="col-12">
+              <label for="patient_address">Patient Address</label>
+              <input id="patient_address" name="patient_address" />
+            </div>
+            <div class="col-6">
+              <label for="subscriber_name">Subscriber Name (if not patient)</label>
+              <input id="subscriber_name" name="subscriber_name" />
+            </div>
+            <div class="col-6">
+              <label for="subscriber_relation">Subscriber Relationship</label>
+              <select id="subscriber_relation" name="subscriber_relation">
+                <option value="">Select…</option>
+                <option>Self</option>
+                <option>Parent</option>
+                <option>Guardian</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" data-next="1">Next</button>
+          </div>
+        </section>
+
+        <!-- Step 2: Ordering Provider & Laboratory -->
+        <section class="form-step">
+          <h2>Ordering Provider & Laboratory</h2>
+          <div class="grid">
+            <div class="col-8">
+              <label for="provider_name">Provider Name</label>
+              <input id="provider_name" name="provider_name" required />
+            </div>
+            <div class="col-4">
+              <label for="provider_npi">Provider NPI</label>
+              <input id="provider_npi" name="provider_npi" placeholder="10 digits" required />
+            </div>
+            <div class="col-6">
+              <label for="provider_phone">Provider Phone</label>
+              <input id="provider_phone" name="provider_phone" placeholder="(555) 555-5555" />
+            </div>
+            <div class="col-6">
+              <label for="provider_fax">Provider Fax</label>
+              <input id="provider_fax" name="provider_fax" placeholder="(555) 555-5555" />
+            </div>
+            <div class="col-12">
+              <label for="provider_address">Provider Address</label>
+              <input id="provider_address" name="provider_address" />
+            </div>
+          </div>
+          <hr />
+          <div class="grid">
+            <div class="col-8">
+              <label for="lab_name">Performing Laboratory</label>
+              <input id="lab_name" name="lab_name" />
+            </div>
+            <div class="col-4">
+              <label for="lab_npi">Lab NPI</label>
+              <input id="lab_npi" name="lab_npi" />
+            </div>
+            <div class="col-12">
+              <label for="lab_address">Lab Address</label>
+              <input id="lab_address" name="lab_address" />
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" class="secondary" data-prev="0">Back</button>
+            <button type="button" data-next="2">Next</button>
+          </div>
+        </section>
+
+        <!-- Step 3: Test Requested -->
+        <section class="form-step">
+          <h2>Test Requested</h2>
+          <div class="grid">
+            <div class="col-4">
+              <label for="test_type">Test Type</label>
+              <select id="test_type" name="test_type" required>
+                <option value="" selected disabled>Select…</option>
+                <option value="WES">WES — Whole Exome Sequencing</option>
+                <option value="WGS">WGS — Whole Genome Sequencing</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <label for="test_configuration">Configuration</label>
+              <select id="test_configuration" name="test_configuration">
+                <option value="Proband" selected>Proband</option>
+                <option value="Duo">Duo</option>
+                <option value="Trio">Trio</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <label for="urgency">Urgency</label>
+              <select id="urgency" name="urgency">
+                <option value="Routine" selected>Routine</option>
+                <option value="Expedited">Expedited</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label for="specimen_type">Specimen Type</label>
+              <select id="specimen_type" name="specimen_type">
+                <option value="Blood" selected>Blood</option>
+                <option value="Saliva">Saliva</option>
+                <option value="Buccal">Buccal</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label for="collection_date">Collection Date</label>
+              <input id="collection_date" name="collection_date" type="date" />
+            </div>
+            <div class="col-12">
+              <label>CPT Codes</label>
+              <div class="grid">
+                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81415" /> 81415</label></div>
+                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81416" /> 81416</label></div>
+                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81425" /> 81425</label></div>
+                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81426" /> 81426</label></div>
+                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81427" /> 81427</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" class="secondary" data-prev="1">Back</button>
+            <button type="button" data-next="3">Next</button>
+          </div>
+        </section>
+
+        <!-- Step 4: Diagnoses & Clinical Information -->
+        <section class="form-step">
+          <h2>Diagnoses & Clinical Information</h2>
+          <div class="grid">
+            <div class="col-12">
+              <label>ICD-10 Codes</label>
+              <div id="icd-list"></div>
+              <div class="actions">
+                <button type="button" class="secondary" id="add-icd">Add ICD Code</button>
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="primary_diagnosis">Primary Diagnosis Description</label>
+              <input id="primary_diagnosis" name="primary_diagnosis" />
+            </div>
+            <div class="col-12">
+              <label for="clinical_indication">Clinical Indication / Summary</label>
+              <textarea id="clinical_indication" name="clinical_indication" rows="4" placeholder="Brief clinical summary"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" class="secondary" data-prev="2">Back</button>
+            <button type="button" data-next="4">Next</button>
+          </div>
+        </section>
+
+        <!-- Step 5: Prior Testing & Family History -->
+        <section class="form-step">
+          <h2>Prior Testing & Family History</h2>
+          <div class="grid">
+            <div class="col-12">
+              <label>Prior Genetic Testing</label>
+              <div id="prior-tests-list"></div>
+              <div class="actions">
+                <button type="button" class="secondary" id="add-prior-test">Add Prior Test</button>
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="family_history">Family History</label>
+              <textarea id="family_history" name="family_history" rows="3" placeholder="Affected relatives, consanguinity, etc."></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" class="secondary" data-prev="3">Back</button>
+            <button type="button" data-next="5">Next</button>
+          </div>
+        </section>
+
+        <!-- Step 6: Medical Necessity & Consent -->
+        <section class="form-step">
+          <h2>Medical Necessity & Consent</h2>
+          <div class="grid">
+            <div class="col-12">
+              <label><input type="checkbox" name="mn_suspected_genetic" /> Suspected genetic etiology</label>
+              <label><input type="checkbox" name="mn_results_influence_management" /> Results will influence clinical management</label>
+              <label><input type="checkbox" name="mn_genetic_counseling" /> Genetic counseling provided/arranged</label>
+            </div>
+            <div class="col-12">
+              <label>
+                <input type="checkbox" id="consent_ack" name="consent_ack" required />
+                I confirm consent for testing and sharing information for authorization.
+              </label>
+            </div>
+            <div class="col-6">
+              <label for="provider_signature">Ordering Provider Signature (type name)</label>
+              <input id="provider_signature" name="provider_signature" />
+            </div>
+            <div class="col-6">
+              <label for="signature_date">Signature Date</label>
+              <input id="signature_date" name="signature_date" type="date" />
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" class="secondary" data-prev="4">Back</button>
+            <button id="submitBtn" type="submit">Submit</button>
+          </div>
+        </section>
+      </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
