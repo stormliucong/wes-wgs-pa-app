@@ -21,6 +21,111 @@ app.secret_key = os.getenv("SECRET_KEY", "dev-key-change-in-production")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
 
 
+def validate_submission_against_test_patients(submission_data):
+    """
+    Validate a submission against test_patients_sample.jsonl
+    Returns: dict with status ("matched", "new_patient", "not_matched") and details
+    """
+    test_file = Path(__file__).resolve().parent.parent / "test_patients_sample.jsonl"
+    
+    if not test_file.exists():
+        return {
+            "status": "error",
+            "message": "Test patients file not found",
+            "details": {}
+        }
+    
+    # Key fields to match for patient identification
+    key_fields = [
+        "patient_first_name", "patient_last_name", "dob", "member_id"
+    ]
+    
+    # Additional fields to validate for consistency
+    validation_fields = [
+        "sex", "patient_address", "provider_name", "provider_npi", 
+        "test_type", "primary_diagnosis"
+    ]
+    
+    try:
+        with open(test_file, 'r') as f:
+            for line_num, line in enumerate(f, 1):
+                line = line.strip()
+                if not line:
+                    continue
+                    
+                try:
+                    test_patient = json.loads(line)
+                    
+                    # Check if this is the same patient (exact match on key fields)
+                    key_match = all(
+                        submission_data.get(field, "").strip().lower() == 
+                        str(test_patient.get(field, "")).strip().lower()
+                        for field in key_fields
+                        if submission_data.get(field) and test_patient.get(field)
+                    )
+                    
+                    if key_match:
+                        # Found matching patient, now check for data consistency
+                        mismatches = []
+                        matches = []
+                        
+                        for field in validation_fields:
+                            sub_val = str(submission_data.get(field, "")).strip().lower()
+                            test_val = str(test_patient.get(field, "")).strip().lower()
+                            
+                            if sub_val and test_val:  # Both values exist
+                                if sub_val == test_val:
+                                    matches.append(field)
+                                else:
+                                    mismatches.append({
+                                        "field": field,
+                                        "submission_value": submission_data.get(field, ""),
+                                        "test_patient_value": test_patient.get(field, "")
+                                    })
+                        
+                        # Determine overall status
+                        if not mismatches:
+                            status = "matched"
+                        elif len(mismatches) <= 2:  # Allow minor discrepancies
+                            status = "matched"
+                        else:
+                            status = "not_matched"
+                        
+                        return {
+                            "status": status,
+                            "test_patient_line": line_num,
+                            "test_patient_name": f"{test_patient.get('patient_first_name', '')} {test_patient.get('patient_last_name', '')}".strip(),
+                            "matches": matches,
+                            "mismatches": mismatches,
+                            "details": {
+                                "total_fields_checked": len(validation_fields),
+                                "matching_fields": len(matches),
+                                "mismatched_fields": len(mismatches)
+                            }
+                        }
+                        
+                except json.JSONDecodeError:
+                    continue
+        
+        # No matching patient found
+        return {
+            "status": "new_patient",
+            "message": "Patient not found in test database",
+            "details": {
+                "patient_name": f"{submission_data.get('patient_first_name', '')} {submission_data.get('patient_last_name', '')}".strip(),
+                "member_id": submission_data.get('member_id', ''),
+                "dob": submission_data.get('dob', '')
+            }
+        }
+        
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": f"Error reading test patients file: {str(e)}",
+            "details": {}
+        }
+
+
 @app.get("/")
 def index():
     """Render the main multi-step form page."""
@@ -376,6 +481,40 @@ def api_search_patients():
     
     # Limit results to prevent overwhelming UI
     return jsonify({"patients": results[:20]})
+
+
+@app.post("/api/validate-submission")
+def api_validate_submission():
+    """Validate a submission against test patients database."""
+    if not session.get("admin_authenticated"):
+        return jsonify({"error": "Admin authentication required"}), 401
+    
+    data = request.get_json()
+    if not data or "filename" not in data:
+        return jsonify({"error": "Filename required"}), 400
+    
+    filename = data["filename"]
+    submissions_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    filepath = submissions_dir / filename
+    
+    if not filepath.exists():
+        return jsonify({"error": "Submission file not found"}), 404
+    
+    try:
+        with open(filepath, 'r') as f:
+            submission = json.load(f)
+        
+        submission_data = submission.get("data", {})
+        validation_result = validate_submission_against_test_patients(submission_data)
+        
+        return jsonify({
+            "success": True,
+            "validation": validation_result,
+            "filename": filename
+        })
+        
+    except Exception as e:
+        return jsonify({"error": f"Failed to validate submission: {str(e)}"}), 500
 
 
 # For local debugging: `python -m flask --app app.main run --debug`

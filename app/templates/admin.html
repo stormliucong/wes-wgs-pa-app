@@ -173,6 +173,55 @@
             white-space: nowrap;
         }
         
+        .validation-cell {
+            white-space: nowrap;
+            min-width: 120px;
+        }
+        
+        .validation-result {
+            font-size: 0.8em;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            margin-top: 0.25rem;
+        }
+        
+        .validation-result.matched {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .validation-result.new-patient {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .validation-result.not-matched {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .validation-result.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .validation-details {
+            font-size: 0.7em;
+            margin-top: 0.25rem;
+            padding: 0.25rem;
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 2px;
+        }
+        
+        .mismatch-item {
+            margin: 0.1rem 0;
+            color: #6c757d;
+        }
+        
         .no-submissions {
             text-align: center;
             padding: 3rem;
@@ -284,6 +333,7 @@
                         <th>Patient Name</th>
                         <th>Provider</th>
                         <th>Test Type</th>
+                        <th>Validation</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -304,6 +354,14 @@
                         </td>
                         <td>
                             {{ submission.test_type or 'N/A' }}
+                        </td>
+                        <td class="validation-cell">
+                            <button onclick="validateSubmission('{{ submission.filename }}', this)"
+                                    class="btn btn-info btn-sm validation-btn"
+                                    data-filename="{{ submission.filename }}">
+                                🔍 Validate
+                            </button>
+                            <div class="validation-result" id="validation-{{ submission.filename }}" style="display: none; margin-top: 0.5rem;"></div>
                         </td>
                         <td class="actions-cell">
                             <a href="{{ url_for('admin_download_single', filename=submission.filename) }}" 
@@ -414,6 +472,100 @@
                 });
             });
         }
+            }
+
+        // Validate submission function
+        async function validateSubmission(filename, buttonElement) {
+            const resultDiv = document.getElementById(`validation-${filename}`);
+            const originalButtonText = buttonElement.innerHTML;
+            
+            // Show loading state
+            buttonElement.disabled = true;
+            buttonElement.innerHTML = '⏳ Validating...';
+            resultDiv.style.display = 'none';
+            
+            try {
+                const response = await fetch('/api/validate-submission', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ filename: filename })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success && data.validation) {
+                    displayValidationResult(filename, data.validation);
+                    buttonElement.innerHTML = '✓ Validated';
+                } else {
+                    displayValidationError(filename, data.error || 'Unknown validation error');
+                    buttonElement.innerHTML = originalButtonText;
+                    buttonElement.disabled = false;
+                }
+                
+            } catch (error) {
+                console.error('Validation error:', error);
+                displayValidationError(filename, 'Network error during validation');
+                buttonElement.innerHTML = originalButtonText;
+                buttonElement.disabled = false;
+            }
+        }
+        
+        function displayValidationResult(filename, validation) {
+            const resultDiv = document.getElementById(`validation-${filename}`);
+            let html = '';
+            let cssClass = '';
+            
+            switch (validation.status) {
+                case 'matched':
+                    cssClass = 'matched';
+                    html = `<strong>✅ MATCHED</strong><br>Test Patient: ${validation.test_patient_name}`;
+                    if (validation.mismatches && validation.mismatches.length > 0) {
+                        html += `<div class="validation-details">Minor discrepancies: ${validation.mismatches.length}</div>`;
+                    }
+                    break;
+                    
+                case 'new_patient':
+                    cssClass = 'new-patient';
+                    html = `<strong>🆕 NEW PATIENT</strong><br>Not found in test database`;
+                    if (validation.details && validation.details.patient_name) {
+                        html += `<div class="validation-details">${validation.details.patient_name}</div>`;
+                    }
+                    break;
+                    
+                case 'not_matched':
+                    cssClass = 'not-matched';
+                    html = `<strong>❌ NOT MATCHED</strong><br>Test Patient: ${validation.test_patient_name}`;
+                    if (validation.mismatches && validation.mismatches.length > 0) {
+                        html += `<div class="validation-details">Mismatches: ${validation.mismatches.length}`;
+                        validation.mismatches.slice(0, 3).forEach(mismatch => {
+                            html += `<div class="mismatch-item">${mismatch.field}: "${mismatch.submission_value}" vs "${mismatch.test_patient_value}"</div>`;
+                        });
+                        if (validation.mismatches.length > 3) {
+                            html += `<div class="mismatch-item">... and ${validation.mismatches.length - 3} more</div>`;
+                        }
+                        html += '</div>';
+                    }
+                    break;
+                    
+                default:
+                    cssClass = 'error';
+                    html = `<strong>⚠️ ERROR</strong><br>${validation.message || 'Unknown error'}`;
+            }
+            
+            resultDiv.className = `validation-result ${cssClass}`;
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+        }
+        
+        function displayValidationError(filename, error) {
+            const resultDiv = document.getElementById(`validation-${filename}`);
+            resultDiv.className = 'validation-result error';
+            resultDiv.innerHTML = `<strong>⚠️ ERROR</strong><br>${error}`;
+            resultDiv.style.display = 'block';
+        }
+
     </script>
 </body>
 </html>
