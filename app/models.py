@@ -20,6 +20,9 @@ REQUIRED_FIELDS = [
     "icd_codes",  # list[str] or comma-separated string
     # Consent
     "consent_ack",  # boolean
+    # Signature
+    "provider_signature",
+    "signature_date",
 ]
 
 
