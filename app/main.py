@@ -287,6 +287,97 @@ def admin_logout():
     return redirect(url_for("admin_login"))
 
 
+@app.get("/ehr")
+def ehr_search():
+    """Render the EHR patient search page."""
+    return render_template("ehr.html")
+
+
+@app.get("/api/search-patients")
+def api_search_patients():
+    """Search patients in JSONL files based on query parameters."""
+    query = request.args.get("q", "").strip().lower()
+    if not query:
+        return jsonify({"patients": []})
+
+    # Search in both test patients and actual submissions
+    results = []
+    
+    # Search test patients JSONL file
+    test_file = Path(__file__).resolve().parent.parent / "test_patients_sample.jsonl"
+    if test_file.exists():
+        try:
+            with open(test_file, 'r') as f:
+                for line_num, line in enumerate(f, 1):
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        patient = json.loads(line)
+                        # Search in key patient fields
+                        searchable_text = " ".join([
+                            patient.get("patient_first_name", ""),
+                            patient.get("patient_last_name", ""),
+                            patient.get("member_id", ""),
+                            patient.get("dob", ""),
+                            patient.get("provider_name", "")
+                        ]).lower()
+                        
+                        if query in searchable_text:
+                            patient["_source"] = "test_patients"
+                            patient["_line"] = line_num
+                            results.append(patient)
+                    except json.JSONDecodeError:
+                        continue
+        except FileNotFoundError:
+            pass
+    
+    # Search actual submissions
+    submissions_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    if submissions_dir.exists():
+        for json_file in submissions_dir.glob("*.json"):
+            try:
+                with open(json_file, 'r') as f:
+                    submission = json.load(f)
+                    patient = submission.get("data", {})
+                    
+                    # Search in key patient fields
+                    searchable_text = " ".join([
+                        patient.get("patient_first_name", ""),
+                        patient.get("patient_last_name", ""),
+                        patient.get("member_id", ""),
+                        patient.get("dob", ""),
+                        patient.get("provider_name", "")
+                    ]).lower()
+                    
+                    if query in searchable_text:
+                        patient["_source"] = "submissions"
+                        patient["_file"] = json_file.name
+                        patient["_submitted_at"] = submission.get("submitted_at")
+                        results.append(patient)
+            except (json.JSONDecodeError, FileNotFoundError):
+                continue
+    
+    # Sort results by relevance (exact matches first, then partial)
+    def sort_key(patient):
+        name = f"{patient.get('patient_first_name', '')} {patient.get('patient_last_name', '')}".lower()
+        member_id = patient.get('member_id', '').lower()
+        
+        # Exact name match gets highest priority
+        if query == name.strip():
+            return 0
+        # Exact member ID match gets second priority
+        if query == member_id:
+            return 1
+        # Partial matches get lower priority
+        return 2
+    
+    results.sort(key=sort_key)
+    
+    # Limit results to prevent overwhelming UI
+    return jsonify({"patients": results[:20]})
+
+
 # For local debugging: `python -m flask --app app.main run --debug`
 if __name__ == "__main__":
     app.run(debug=True)

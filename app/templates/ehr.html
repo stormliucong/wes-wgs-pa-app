@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EHR Patient Search - Pre-Authorization System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    .ehr-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .search-section {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+    }
+    
+    .search-results {
+      margin-top: 1rem;
+    }
+    
+    .patient-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+      cursor: pointer;
+    }
+    
+    .patient-card:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    
+    .patient-header {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .patient-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+      margin: 0;
+    }
+    
+    .patient-info {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0.25rem 0 0 0;
+    }
+    
+    .patient-details {
+      padding: 1rem;
+      display: none;
+    }
+    
+    .patient-card.expanded .patient-details {
+      display: block;
+    }
+    
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    
+    .detail-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .detail-item:last-child {
+      border-bottom: none;
+    }
+    
+    .detail-label {
+      font-weight: bold;
+      color: #555;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    
+    .detail-value {
+      color: #333;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-style: italic;
+    }
+    
+    .search-hint {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 1rem;
+      color: #666;
+    }
+    
+    .source-badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      background: #007bff;
+      color: white;
+      border-radius: 3px;
+      margin-left: 0.5rem;
+    }
+    
+    .source-badge.test {
+      background: #28a745;
+    }
+    
+    .navigation {
+      margin-bottom: 2rem;
+    }
+    
+    .nav-link {
+      color: #007bff;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="ehr-container">
+    <div class="navigation">
+      <a href="/" class="nav-link">← Back to Pre-Authorization Form</a>
+      <a href="/admin" class="nav-link">Admin Panel</a>
+    </div>
+    
+    <header style="text-align: center; margin-bottom: 2rem;">
+      <h1>EHR Patient Search</h1>
+      <p>Search for patient records and view detailed information</p>
+    </header>
+    
+    <div class="search-section">
+      <input 
+        type="search" 
+        id="patientSearch" 
+        class="search-input" 
+        placeholder="Search by patient name, member ID, date of birth, or provider name..."
+        autocomplete="off"
+      />
+      <div class="search-hint">
+        Enter at least 2 characters to search. Results will include test patients and submitted forms.
+      </div>
+    </div>
+    
+    <div id="searchResults" class="search-results">
+      <div class="no-results">
+        Enter a search term above to find patient records
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const searchInput = document.getElementById('patientSearch');
+      const searchResults = document.getElementById('searchResults');
+      let searchTimeout;
+      
+      // Debounce search to avoid too many API calls
+      searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        const query = this.value.trim();
+        
+        if (query.length < 2) {
+          showNoResults('Enter at least 2 characters to search');
+          return;
+        }
+        
+        searchTimeout = setTimeout(() => searchPatients(query), 300);
+      });
+      
+      async function searchPatients(query) {
+        showLoading();
+        
+        try {
+          const response = await fetch(`/api/search-patients?q=${encodeURIComponent(query)}`);
+          const data = await response.json();
+          
+          if (data.patients && data.patients.length > 0) {
+            displayResults(data.patients);
+          } else {
+            showNoResults('No patients found matching your search');
+          }
+        } catch (error) {
+          console.error('Search error:', error);
+          showNoResults('Error searching patients. Please try again.');
+        }
+      }
+      
+      function showLoading() {
+        searchResults.innerHTML = '<div class="loading">Searching patients...</div>';
+      }
+      
+      function showNoResults(message) {
+        searchResults.innerHTML = `<div class="no-results">${message}</div>`;
+      }
+      
+      function displayResults(patients) {
+        const html = patients.map(patient => createPatientCard(patient)).join('');
+        searchResults.innerHTML = html;
+        
+        // Add click handlers for expanding cards
+        document.querySelectorAll('.patient-card').forEach(card => {
+          card.addEventListener('click', function() {
+            this.classList.toggle('expanded');
+          });
+        });
+      }
+      
+      function createPatientCard(patient) {
+        const sourceBadge = patient._source === 'test_patients' 
+          ? '<span class="source-badge test">Test Patient</span>'
+          : '<span class="source-badge">Submitted</span>';
+          
+        const submittedInfo = patient._submitted_at 
+          ? `<br>Submitted: ${new Date(patient._submitted_at).toLocaleDateString()}`
+          : '';
+        
+        return `
+          <div class="patient-card">
+            <div class="patient-header">
+              <h3 class="patient-name">
+                ${escapeHtml(patient.patient_first_name || '')} ${escapeHtml(patient.patient_last_name || '')}
+                ${sourceBadge}
+              </h3>
+              <p class="patient-info">
+                Member ID: ${escapeHtml(patient.member_id || 'N/A')} | 
+                DOB: ${escapeHtml(patient.dob || 'N/A')} | 
+                Sex: ${escapeHtml(patient.sex || 'N/A')}
+                ${submittedInfo}
+              </p>
+            </div>
+            <div class="patient-details">
+              <div class="detail-grid">
+                <div class="detail-item">
+                  <span class="detail-label">Patient Information</span>
+                  <div class="detail-value">
+                    ${escapeHtml(patient.patient_first_name || '')} ${escapeHtml(patient.patient_last_name || '')}<br>
+                    DOB: ${escapeHtml(patient.dob || 'N/A')}<br>
+                    Sex: ${escapeHtml(patient.sex || 'N/A')}<br>
+                    Member ID: ${escapeHtml(patient.member_id || 'N/A')}<br>
+                    Address: ${escapeHtml(patient.patient_address || 'N/A')}
+                  </div>
+                </div>
+                
+                <div class="detail-item">
+                  <span class="detail-label">Subscriber Information</span>
+                  <div class="detail-value">
+                    Name: ${escapeHtml(patient.subscriber_name || 'N/A')}<br>
+                    Relation: ${escapeHtml(patient.subscriber_relation || 'N/A')}
+                  </div>
+                </div>
+                
+                <div class="detail-item">
+                  <span class="detail-label">Provider Information</span>
+                  <div class="detail-value">
+                    Name: ${escapeHtml(patient.provider_name || 'N/A')}<br>
+                    NPI: ${escapeHtml(patient.provider_npi || 'N/A')}<br>
+                    Phone: ${escapeHtml(patient.provider_phone || 'N/A')}<br>
+                    Fax: ${escapeHtml(patient.provider_fax || 'N/A')}<br>
+                    Address: ${escapeHtml(patient.provider_address || 'N/A')}
+                  </div>
+                </div>
+                
+                <div class="detail-item">
+                  <span class="detail-label">Lab Information</span>
+                  <div class="detail-value">
+                    Name: ${escapeHtml(patient.lab_name || 'N/A')}<br>
+                    NPI: ${escapeHtml(patient.lab_npi || 'N/A')}<br>
+                    Address: ${escapeHtml(patient.lab_address || 'N/A')}
+                  </div>
+                </div>
+                
+                <div class="detail-item">
+                  <span class="detail-label">Test Information</span>
+                  <div class="detail-value">
+                    Test Type: ${escapeHtml(patient.test_type || 'N/A')}<br>
+                    Configuration: ${escapeHtml(patient.test_configuration || 'N/A')}<br>
+                    Urgency: ${escapeHtml(patient.urgency || 'N/A')}<br>
+                    Specimen: ${escapeHtml(patient.specimen_type || 'N/A')}<br>
+                    Collection Date: ${escapeHtml(patient.collection_date || 'N/A')}
+                  </div>
+                </div>
+                
+                <div class="detail-item">
+                  <span class="detail-label">Clinical Information</span>
+                  <div class="detail-value">
+                    CPT Codes: ${formatArray(patient.cpt_codes)}<br>
+                    ICD Codes: ${formatArray(patient.icd_codes)}<br>
+                    Primary Diagnosis: ${escapeHtml(patient.primary_diagnosis || 'N/A')}<br>
+                    Clinical Indication: ${escapeHtml(patient.clinical_indication || 'N/A')}<br>
+                    Family History: ${escapeHtml(patient.family_history || 'N/A')}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+      
+      function formatArray(arr) {
+        if (!arr || !Array.isArray(arr)) return 'N/A';
+        return arr.join(', ') || 'N/A';
+      }
+    })();
+  </script>
+</body>
+</html>
