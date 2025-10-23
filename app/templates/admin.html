@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - WES/WGS Pre-Authorization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .admin-header h1 {
+            color: #333;
+            margin: 0;
+        }
+        
+        .admin-nav {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .admin-nav a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .admin-nav a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .filters-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .filters-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .filter-group input,
+        .filter-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        .btn:hover {
+            opacity: 0.8;
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #e9ecef;
+            border-radius: 4px;
+        }
+        
+        .submissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .submissions-table th,
+        .submissions-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .submissions-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .submissions-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .filename-cell {
+            font-family: monospace;
+            font-size: 0.9em;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .date-cell {
+            white-space: nowrap;
+            font-size: 0.9em;
+        }
+        
+        .actions-cell {
+            white-space: nowrap;
+        }
+        
+        .no-submissions {
+            text-align: center;
+            padding: 3rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .filters-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .submissions-table {
+                font-size: 0.8rem;
+            }
+            
+            .submissions-table th,
+            .submissions-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Admin Dashboard</h1>
+            <nav class="admin-nav">
+                <a href="{{ url_for('index') }}">← Form</a>
+                <a href="{{ url_for('admin_logout') }}">Logout</a>
+            </nav>
+        </header>
+        
+        <section class="filters-section">
+            <form method="GET" class="filters-form">
+                <div class="filter-group">
+                    <label for="search">Search (Name, Provider, File):</label>
+                    <input type="text" id="search" name="search" value="{{ current_filters.search }}" 
+                           placeholder="Enter search term...">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="date_from">From Date:</label>
+                    <input type="date" id="date_from" name="date_from" value="{{ current_filters.date_from }}">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="date_to">To Date:</label>
+                    <input type="date" id="date_to" name="date_to" value="{{ current_filters.date_to }}">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="test_type">Test Type:</label>
+                    <select id="test_type" name="test_type">
+                        <option value="">All Types</option>
+                        {% for test_type in test_types %}
+                        <option value="{{ test_type }}" 
+                                {% if current_filters.test_type == test_type %}selected{% endif %}>
+                            {{ test_type }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="filter-buttons">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Clear</a>
+                </div>
+            </form>
+        </section>
+        
+        <div class="stats-bar">
+            <div>
+                <strong>{{ submissions|length }}</strong> submission(s) found
+            </div>
+            <div>
+                {% if submissions %}
+                <a href="{{ url_for('admin_export_csv') }}?{{ request.query_string.decode() }}" 
+                   class="btn btn-success btn-sm">
+                    📊 Export CSV
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        
+        {% if submissions %}
+        <div class="table-responsive">
+            <table class="submissions-table">
+                <thead>
+                    <tr>
+                        <th>File</th>
+                        <th>Submitted</th>
+                        <th>Patient Name</th>
+                        <th>Provider</th>
+                        <th>Test Type</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for submission in submissions %}
+                    <tr>
+                        <td class="filename-cell" title="{{ submission.filename }}">
+                            {{ submission.filename }}
+                        </td>
+                        <td class="date-cell">
+                            {{ submission.submitted_at.replace('T', ' ').replace('Z', '').split('.')[0] if submission.submitted_at else 'N/A' }}
+                        </td>
+                        <td>
+                            {{ submission.patient_name or 'N/A' }}
+                        </td>
+                        <td>
+                            {{ submission.provider_name or 'N/A' }}
+                        </td>
+                        <td>
+                            {{ submission.test_type or 'N/A' }}
+                        </td>
+                        <td class="actions-cell">
+                            <a href="{{ url_for('admin_download_single', filename=submission.filename) }}" 
+                               class="btn btn-primary btn-sm">
+                                📥 Download
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="no-submissions">
+            <p>No submissions found matching your criteria.</p>
+            <p>Try adjusting your filters or check if any submissions have been made.</p>
+        </div>
+        {% endif %}
+    </div>
+    
+    <script>
+        // Auto-focus search field if no other inputs have values
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            const hasFilters = document.getElementById('date_from').value || 
+                             document.getElementById('date_to').value || 
+                             document.getElementById('test_type').value;
+            
+            if (!hasFilters && !searchInput.value) {
+                searchInput.focus();
+            }
+        });
+        
+        // Add Enter key handler for quick filtering
+        document.getElementById('search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                this.form.submit();
+            }
+        });
+    </script>
+</body>
+</html>

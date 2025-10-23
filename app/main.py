@@ -1,17 +1,24 @@
 from __future__ import annotations
 
+import csv
 import json
+import os
 import uuid
 from datetime import datetime
 from pathlib import Path
+from io import StringIO
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, send_file, session, redirect, url_for, make_response
 
 # Local imports
 from app.models import validate_submission, normalize_payload
 
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
+app.secret_key = os.getenv("SECRET_KEY", "dev-key-change-in-production")
+
+# Simple admin password - in production, use environment variable
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
 
 
 @app.get("/")
@@ -55,6 +62,202 @@ def submit():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+def get_submissions_data():
+    """Load all submission files and return as list with metadata."""
+    data_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    submissions = []
+    
+    if not data_dir.exists():
+        return submissions
+    
+    for file_path in data_dir.glob("*.json"):
+        try:
+            with file_path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+                
+            # Extract metadata
+            submission = {
+                "filename": file_path.name,
+                "submitted_at": data.get("submitted_at", ""),
+                "payload": data.get("payload", {}),
+                "file_size": file_path.stat().st_size,
+                "file_path": str(file_path)
+            }
+            
+            # Add searchable fields from payload
+            payload = submission["payload"]
+            submission["patient_name"] = f"{payload.get('patient_first_name', '')} {payload.get('patient_last_name', '')}".strip()
+            submission["provider_name"] = payload.get("provider_name", "")
+            submission["test_type"] = payload.get("test_type", "")
+            
+            submissions.append(submission)
+            
+        except (json.JSONDecodeError, KeyError) as e:
+            # Skip corrupted files
+            continue
+    
+    # Sort by submission date (newest first)
+    submissions.sort(key=lambda x: x["submitted_at"], reverse=True)
+    return submissions
+
+
+@app.get("/admin")
+def admin_login():
+    """Admin login page."""
+    if session.get("admin_authenticated"):
+        return redirect(url_for("admin_dashboard"))
+    return render_template("admin_login.html")
+
+
+@app.post("/admin/login")
+def admin_authenticate():
+    """Handle admin login."""
+    password = request.form.get("password", "")
+    if password == ADMIN_PASSWORD:
+        session["admin_authenticated"] = True
+        return redirect(url_for("admin_dashboard"))
+    else:
+        return render_template("admin_login.html", error="Invalid password")
+
+
+@app.get("/admin/dashboard")
+def admin_dashboard():
+    """Admin dashboard to view submissions."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+    
+    # Get filter parameters
+    search = request.args.get("search", "").strip()
+    date_from = request.args.get("date_from", "")
+    date_to = request.args.get("date_to", "")
+    test_type = request.args.get("test_type", "")
+    
+    submissions = get_submissions_data()
+    
+    # Apply filters
+    if search:
+        submissions = [s for s in submissions if 
+                      search.lower() in s["patient_name"].lower() or 
+                      search.lower() in s["provider_name"].lower() or
+                      search.lower() in s["filename"].lower()]
+    
+    if date_from:
+        submissions = [s for s in submissions if s["submitted_at"] >= date_from]
+    
+    if date_to:
+        # Add time to make it end of day
+        date_to_end = date_to + "T23:59:59Z" if "T" not in date_to else date_to
+        submissions = [s for s in submissions if s["submitted_at"] <= date_to_end]
+    
+    if test_type:
+        submissions = [s for s in submissions if s["test_type"] == test_type]
+    
+    # Get unique test types for filter dropdown
+    all_submissions = get_submissions_data()
+    test_types = sorted(set(s["test_type"] for s in all_submissions if s["test_type"]))
+    
+    return render_template("admin.html", 
+                         submissions=submissions, 
+                         test_types=test_types,
+                         current_filters={
+                             "search": search,
+                             "date_from": date_from,
+                             "date_to": date_to,
+                             "test_type": test_type
+                         })
+
+
+@app.get("/admin/download/<filename>")
+def admin_download_single(filename):
+    """Download a single submission JSON file."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+    
+    data_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    file_path = data_dir / filename
+    
+    if not file_path.exists() or not file_path.suffix == ".json":
+        return "File not found", 404
+    
+    return send_file(file_path, as_attachment=True, download_name=filename)
+
+
+@app.get("/admin/export")
+def admin_export_csv():
+    """Export filtered submissions as CSV."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+    
+    # Get the same filters as dashboard
+    search = request.args.get("search", "").strip()
+    date_from = request.args.get("date_from", "")
+    date_to = request.args.get("date_to", "")
+    test_type = request.args.get("test_type", "")
+    
+    submissions = get_submissions_data()
+    
+    # Apply same filters as dashboard
+    if search:
+        submissions = [s for s in submissions if 
+                      search.lower() in s["patient_name"].lower() or 
+                      search.lower() in s["provider_name"].lower() or
+                      search.lower() in s["filename"].lower()]
+    
+    if date_from:
+        submissions = [s for s in submissions if s["submitted_at"] >= date_from]
+    
+    if date_to:
+        date_to_end = date_to + "T23:59:59Z" if "T" not in date_to else date_to
+        submissions = [s for s in submissions if s["submitted_at"] <= date_to_end]
+    
+    if test_type:
+        submissions = [s for s in submissions if s["test_type"] == test_type]
+    
+    # Create CSV
+    output = StringIO()
+    writer = csv.writer(output)
+    
+    # Header row
+    headers = [
+        "Filename", "Submitted At", "Patient Name", "Provider Name", 
+        "Test Type", "Patient DOB", "Provider NPI", "Diagnosis Code", 
+        "Clinical History", "Prior Testing"
+    ]
+    writer.writerow(headers)
+    
+    # Data rows
+    for submission in submissions:
+        payload = submission["payload"]
+        row = [
+            submission["filename"],
+            submission["submitted_at"],
+            submission["patient_name"],
+            submission["provider_name"],
+            submission["test_type"],
+            payload.get("patient_dob", ""),
+            payload.get("provider_npi", ""),
+            payload.get("diagnosis_code", ""),
+            payload.get("clinical_history", ""),
+            payload.get("prior_testing", "")
+        ]
+        writer.writerow(row)
+    
+    # Create response
+    output.seek(0)
+    response = make_response(output.getvalue())
+    response.headers["Content-Type"] = "text/csv"
+    response.headers["Content-Disposition"] = f"attachment; filename=submissions_export_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.csv"
+    
+    return response
+
+
+@app.get("/admin/logout")
+def admin_logout():
+    """Logout admin user."""
+    session.pop("admin_authenticated", None)
+    return redirect(url_for("admin_login"))
 
 
 # For local debugging: `python -m flask --app app.main run --debug`
