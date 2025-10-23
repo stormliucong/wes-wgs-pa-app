@@ -105,6 +105,11 @@
             color: white;
         }
         
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        
         .btn-sm {
             padding: 0.25rem 0.5rem;
             font-size: 0.8rem;
@@ -305,6 +310,11 @@
                                class="btn btn-primary btn-sm">
                                 📥 Download
                             </a>
+                            <button onclick="deleteSubmission('{{ submission.filename }}', '{{ submission.patient_name }}')"
+                                    class="btn btn-danger btn-sm"
+                                    style="margin-left: 0.5rem;">
+                                🗑️ Delete
+                            </button>
                         </td>
                     </tr>
                     {% endfor %}
@@ -338,6 +348,72 @@
                 this.form.submit();
             }
         });
+        
+        // Delete submission function
+        function deleteSubmission(filename, patientName) {
+            const confirmMessage = `Are you sure you want to delete the submission for "${patientName}"?\n\nFilename: ${filename}\n\nThis action cannot be undone.`;
+            
+            if (!confirm(confirmMessage)) {
+                return;
+            }
+            
+            // Show loading state
+            const deleteButtons = document.querySelectorAll(`button[onclick*="${filename}"]`);
+            deleteButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.innerHTML = '⏳ Deleting...';
+            });
+            
+            // Send delete request
+            fetch(`{{ url_for('admin_delete_submission', filename='') }}${filename}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Remove the row from the table
+                    const row = document.querySelector(`button[onclick*="${filename}"]`).closest('tr');
+                    if (row) {
+                        row.remove();
+                    }
+                    
+                    // Update the submission count
+                    const statsText = document.querySelector('.stats-bar strong');
+                    if (statsText) {
+                        const currentCount = parseInt(statsText.textContent);
+                        statsText.textContent = currentCount - 1;
+                    }
+                    
+                    // Show success message
+                    alert(`Successfully deleted submission for ${patientName}`);
+                    
+                    // If no submissions left, reload page to show empty state
+                    const remainingRows = document.querySelectorAll('.submissions-table tbody tr').length;
+                    if (remainingRows === 0) {
+                        window.location.reload();
+                    }
+                } else {
+                    alert(`Failed to delete submission: ${data.error}`);
+                    // Restore button state
+                    deleteButtons.forEach(btn => {
+                        btn.disabled = false;
+                        btn.innerHTML = '🗑️ Delete';
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while deleting the submission. Please try again.');
+                // Restore button state
+                deleteButtons.forEach(btn => {
+                    btn.disabled = false;
+                    btn.innerHTML = '🗑️ Delete';
+                });
+            });
+        }
     </script>
 </body>
 </html>

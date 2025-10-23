@@ -35,10 +35,10 @@
               <label for="sex">Sex</label>
               <select id="sex" name="sex">
                 <option value="">Select…</option>
-                <option>Female</option>
-                <option>Male</option>
-                <option>Intersex</option>
-                <option>Unknown</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Intersex">Intersex</option>
+                <option value="Unknown">Unknown</option>
               </select>
             </div>
             <div class="col-4">
@@ -57,10 +57,10 @@
               <label for="subscriber_relation">Subscriber Relationship</label>
               <select id="subscriber_relation" name="subscriber_relation">
                 <option value="">Select…</option>
-                <option>Self</option>
-                <option>Parent</option>
-                <option>Guardian</option>
-                <option>Other</option>
+                <option value="Self">Self</option>
+                <option value="Parent">Parent</option>
+                <option value="Guardian">Guardian</option>
+                <option value="Other">Other</option>
               </select>
             </div>
           </div>
@@ -79,7 +79,9 @@
             </div>
             <div class="col-4">
               <label for="provider_npi">Provider NPI</label>
-              <input id="provider_npi" name="provider_npi" placeholder="10 digits" required />
+              <input id="provider_npi" name="provider_npi" placeholder="10 digits" required 
+                     pattern="[0-9]{10}" title="NPI must be exactly 10 digits" 
+                     minlength="10" maxlength="10" inputmode="numeric" />
             </div>
             <div class="col-6">
               <label for="provider_phone">Provider Phone</label>
@@ -102,7 +104,9 @@
             </div>
             <div class="col-4">
               <label for="lab_npi">Lab NPI</label>
-              <input id="lab_npi" name="lab_npi" />
+              <input id="lab_npi" name="lab_npi" 
+                     pattern="[0-9]{10}" title="NPI must be exactly 10 digits" 
+                     minlength="10" maxlength="10" inputmode="numeric" />
             </div>
             <div class="col-12">
               <label for="lab_address">Lab Address</label>

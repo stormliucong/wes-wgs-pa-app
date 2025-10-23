@@ -84,14 +84,42 @@
   function validateStep(i) {
     const stepEl = steps[i];
     const required = stepEl.querySelectorAll('[required]');
+    const allInputs = stepEl.querySelectorAll('input, select, textarea');
     let ok = true;
+    let errorMessages = [];
+    
+    // Check required fields
     required.forEach((el) => {
       if (el.type === 'checkbox') {
-        if (!el.checked) ok = false;
+        if (!el.checked) {
+          ok = false;
+          errorMessages.push(`${el.name} is required`);
+        }
       } else if (!el.value || el.value.trim() === '') {
         ok = false;
+        errorMessages.push(`${el.labels[0]?.textContent || el.name} is required`);
       }
     });
+    
+    // Additional format validation for all fields (not just required ones)
+    allInputs.forEach((el) => {
+      const value = el.value?.trim();
+      if (value) { // Only validate if field has a value
+        if (el.name === 'provider_npi' || el.name === 'lab_npi') {
+          if (!/^\d{10}$/.test(value)) {
+            ok = false;
+            const fieldLabel = el.labels[0]?.textContent || el.name;
+            errorMessages.push(`${fieldLabel} must be exactly 10 digits`);
+          }
+        }
+      }
+    });
+    
+    // Show specific error messages if validation fails
+    if (!ok && errorMessages.length > 0) {
+      showError(errorMessages.join('. '));
+    }
+    
     return ok;
   }
 

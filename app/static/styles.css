@@ -36,7 +36,12 @@ h1 { font-size: 1.6rem; margin: 0 0 8px; }
   gap: 16px;
 }
 
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
 .col-6 { grid-column: span 6; }
+.col-8 { grid-column: span 8; }
 .col-12 { grid-column: span 12; }
 
 label { display: block; font-weight: 600; margin-bottom: 6px; }
@@ -46,6 +51,13 @@ input, select, textarea {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   font-size: 1rem;
+}
+
+select {
+  cursor: pointer;
+  background-color: white;
+  position: relative;
+  z-index: 1;
 }
 
 input:invalid, select:invalid, textarea:invalid { border-color: var(--danger); }

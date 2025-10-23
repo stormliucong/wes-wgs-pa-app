@@ -253,6 +253,33 @@ def admin_export_csv():
     return response
 
 
+@app.post("/admin/delete/<filename>")
+def admin_delete_submission(filename):
+    """Delete a single submission file."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+    
+    data_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    file_path = data_dir / filename
+    
+    # Security check: ensure filename is safe and file exists
+    if not file_path.exists() or not file_path.suffix == ".json":
+        return jsonify({"success": False, "error": "File not found"}), 404
+    
+    # Additional security: ensure file is within the submissions directory
+    try:
+        file_path.resolve().relative_to(data_dir.resolve())
+    except ValueError:
+        return jsonify({"success": False, "error": "Invalid file path"}), 400
+    
+    try:
+        # Delete the file
+        file_path.unlink()
+        return jsonify({"success": True, "message": f"Successfully deleted {filename}"})
+    except OSError as e:
+        return jsonify({"success": False, "error": f"Failed to delete file: {str(e)}"}), 500
+
+
 @app.get("/admin/logout")
 def admin_logout():
     """Logout admin user."""
