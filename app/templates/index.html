@@ -80,16 +80,16 @@
             <div class="col-4">
               <label for="provider_npi">Provider NPI</label>
               <input id="provider_npi" name="provider_npi" placeholder="10 digits" required 
-                     pattern="[0-9]{10}" title="NPI must be exactly 10 digits" 
+                     pattern="[0-9]{10}" title="Provider NPI must be exactly 10 digits (numbers only, no spaces or dashes)" 
                      minlength="10" maxlength="10" inputmode="numeric" />
             </div>
             <div class="col-6">
               <label for="provider_phone">Provider Phone</label>
-              <input id="provider_phone" name="provider_phone" placeholder="(555) 555-5555" />
+              <input id="provider_phone" name="provider_phone" type="tel" placeholder="(555) 555-5555" title="Enter a 10-digit phone number" />
             </div>
             <div class="col-6">
               <label for="provider_fax">Provider Fax</label>
-              <input id="provider_fax" name="provider_fax" placeholder="(555) 555-5555" />
+              <input id="provider_fax" name="provider_fax" type="tel" placeholder="(555) 555-5555" title="Enter a 10-digit fax number" />
             </div>
             <div class="col-12">
               <label for="provider_address">Provider Address</label>
@@ -105,7 +105,7 @@
             <div class="col-4">
               <label for="lab_npi">Lab NPI</label>
               <input id="lab_npi" name="lab_npi" 
-                     pattern="[0-9]{10}" title="NPI must be exactly 10 digits" 
+                     pattern="[0-9]{10}" title="Lab NPI must be exactly 10 digits (numbers only, no spaces or dashes)" 
                      minlength="10" maxlength="10" inputmode="numeric" />
             </div>
             <div class="col-12">

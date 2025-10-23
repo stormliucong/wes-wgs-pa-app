@@ -96,7 +96,22 @@ def validate_submission(payload: Dict[str, Any]) -> Tuple[bool, Dict[str, str]]:
     # NPI simple pattern check (10 digits)
     npi = str(payload.get("provider_npi", "")).strip()
     if npi and (not npi.isdigit() or len(npi) != 10):
-        errors["provider_npi"] = "NPI must be 10 digits."
+        errors["provider_npi"] = "Provider NPI must be exactly 10 digits (numbers only, no spaces or dashes)."
+
+    # Lab NPI validation (optional field, but if provided must be valid)
+    lab_npi = str(payload.get("lab_npi", "")).strip()
+    if lab_npi and (not lab_npi.isdigit() or len(lab_npi) != 10):
+        errors["lab_npi"] = "Lab NPI must be exactly 10 digits (numbers only, no spaces or dashes)."
+
+    # Phone and fax validation (10 digits after removing formatting)
+    for field in ["provider_phone", "provider_fax"]:
+        phone_value = str(payload.get(field, "")).strip()
+        if phone_value:
+            # Remove all non-digit characters
+            digits_only = ''.join(c for c in phone_value if c.isdigit())
+            if len(digits_only) != 10:
+                field_name = field.replace("_", " ").title()
+                errors[field] = f"{field_name} must be a valid 10-digit phone number."
 
     # CPT optional but if provided ensure valid codes
     valid_cpt = {"81415", "81416", "81425", "81426", "81427"}

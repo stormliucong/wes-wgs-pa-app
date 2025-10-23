@@ -109,7 +109,17 @@
           if (!/^\d{10}$/.test(value)) {
             ok = false;
             const fieldLabel = el.labels[0]?.textContent || el.name;
-            errorMessages.push(`${fieldLabel} must be exactly 10 digits`);
+            errorMessages.push(`${fieldLabel} must be exactly 10 digits (numbers only, no spaces or dashes)`);
+          }
+        }
+        // Phone and fax validation - accept formats like (555) 555-5555, 555-555-5555, 555.555.5555, or 5555555555
+        if (el.name === 'provider_phone' || el.name === 'provider_fax') {
+          // Remove all non-digit characters and check if we have exactly 10 digits
+          const digitsOnly = value.replace(/\D/g, '');
+          if (!/^\d{10}$/.test(digitsOnly)) {
+            ok = false;
+            const fieldLabel = el.labels[0]?.textContent || el.name;
+            errorMessages.push(`${fieldLabel} must be a valid 10-digit phone number`);
           }
         }
       }
