@@ -2,7 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta n            <div class="col-6">
+              <label for            <div class="col-6">
+              <label for="test_type">Test Type<span class="required-asterisk">*</span>            <div class="col-6">
+              <label for="provider_signature">Ordering Provider Signature (type name)<span class="required-asterisk">*</span></label>
+              <input id="provider_signature" name="provider_signature" required />
+            </div>
+            <div class="col-6">
+              <label for="signature_date">Date<span class="required-asterisk">*</span></label>
+              <input id="signature_date" name="signature_date" type="date" required />
+            </div>
+              <select id="test_type" name="test_type" required>rovider_name">Provider Name<span class="required-asterisk">*</span></label>
+              <input id="provider_name" name="provider_name" required />
+            </div>
+            <div class="col-4">
+              <label for="provider_npi">Provider NPI<span class="required-asterisk">*</span></label>
+              <input id="provider_npi" name="provider_npi" placeholder="10 digits" requiredewport" content="width=device-width, initial-scale=1" />
     <title>WES/WGS Pre-Authorization Form</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   </head>
@@ -17,21 +32,25 @@
       <div id="alert-box" class="alert" style="display:none"></div>
       <div id="form-errors" class="error" style="display:none"></div>
 
+      <div class="required-fields-note">
+        <p><span class="required-asterisk">*</span> indicates required fields</p>
+      </div>
+
       <form id="pa-form">
         <!-- Step 1: Patient & Subscriber Information -->
         <section class="form-step active">
           <h2>Patient & Insurance</h2>
           <div class="grid">
             <div class="col-6">
-              <label for="patient_first_name">First Name</label>
+              <label for="patient_first_name">First Name<span class="required-asterisk">*</span></label>
               <input id="patient_first_name" name="patient_first_name" required />
             </div>
             <div class="col-6">
-              <label for="patient_last_name">Last Name</label>
+              <label for="patient_last_name">Last Name<span class="required-asterisk">*</span></label>
               <input id="patient_last_name" name="patient_last_name" required />
             </div>
             <div class="col-4">
-              <label for="dob">Date of Birth</label>
+              <label for="dob">Date of Birth<span class="required-asterisk">*</span></label>
               <input id="dob" name="dob" type="date" required />
             </div>
             <div class="col-4">
@@ -45,7 +64,7 @@
               </select>
             </div>
             <div class="col-4">
-              <label for="member_id">Medicaid/Member ID</label>
+              <label for="member_id">Medicaid/Member ID<span class="required-asterisk">*</span></label>
               <input id="member_id" name="member_id" required />
             </div>
             <div class="col-12">
@@ -184,7 +203,7 @@
           <h2>Diagnoses & Clinical Information</h2>
           <div class="grid">
             <div class="col-12">
-              <label>ICD-10 Codes</label>
+              <label>ICD-10 Codes<span class="required-asterisk">*</span></label>
               <div id="icd-list"></div>
               <div class="actions">
                 <button type="button" class="secondary" id="add-icd">Add ICD Code</button>
@@ -239,7 +258,7 @@
             <div class="col-12">
               <label>
                 <input type="checkbox" id="consent_ack" name="consent_ack" required />
-                I confirm consent for testing and sharing information for authorization.
+                I confirm consent for testing and sharing information for authorization.<span class="required-asterisk">*</span>
               </label>
             </div>
             <div class="col-6">
