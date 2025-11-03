@@ -101,26 +101,3 @@ button:disabled {
   margin-bottom: 16px;
 }
 .alert.error { background: #fee2e2; border-color: #fecaca; color: #991b1b; }
-
-/* Required fields styling */
-.required-fields-note {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 6px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-  color: #6c757d;
-}
-
-.required-asterisk {
-  color: #dc3545;
-  font-weight: bold;
-  margin-right: 0.25rem;
-}
-
-label .required-asterisk {
-  color: #dc3545;
-  font-weight: bold;
-  margin-left: 0.25rem;
-}
