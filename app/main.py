@@ -304,7 +304,7 @@ def api_search_patients():
     results = []
     
     # Search test patients JSONL file
-    test_file = Path(__file__).resolve().parent.parent / "test_patients_sample.jsonl"
+    test_file = Path(__file__).resolve().parent.parent / "test_patients.jsonl"
     if test_file.exists():
         try:
             with open(test_file, 'r') as f:
