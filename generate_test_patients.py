@@ -5,6 +5,30 @@ Synthetic Patient Data Generator for WES/WGS Pre-Authorization Form
 This script generates realistic synthetic patient profiles that can be used to test
 the pre-authorization form. All data is completely fictional and for testing purposes only.
 
+This version generates THREE TYPES of patients, labeled via `label_type`:
+
+  label_type = 1 (CONSISTENT):
+    - ICD codes are consistent with clinical indication and primary diagnosis
+    - CPT codes are consistent with test_type and test_configuration
+    - No intentional data errors
+
+  label_type = 2 (ICD INCONSISTENT):
+    - Clinical indication and primary diagnosis are internally consistent
+    - ICD codes are intentionally mismatched with the indication / primary dx
+    - No other errors
+    
+  label_type = 3 (CPT INCONSISTENT):
+    - CPT codes are intentionally mismatched with the test_type / configuration
+    - No other errors
+
+  label_type = 4 (ERROR PROFILES):
+    - Starts from a consistent base (like label 1)
+    - Then injects one or more random errors, e.g.:
+        * invalid / unexpected ICD and CPT codes
+        * invalid state codes (e.g., 'TT')
+        * impossible date of birth values (e.g., 2019-02-29)
+        * sample collection dates that occur BEFORE the date of birth
+
 Usage:
     python generate_test_patients.py -n 50 -o test_patients.jsonl
     python generate_test_patients.py --count 100 --output bulk_test_data.jsonl
@@ -15,13 +39,17 @@ import json
 import random
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Tuple
 
 
 class PatientDataGenerator:
-    """Generates synthetic patient data for testing pre-authorization forms."""
+    """Generates synthetic patient data for testing pre-authorization forms (with controllable consistency/error labels)."""
     
     def __init__(self):
+        # --- Label distribution for (1, 2, 3, 4) ---
+        # 1 = fully consistent, 2 = ICD-inconsistent, 3 = CPT-inconsistent, 4 = error profiles
+        self.label_distribution: Tuple[float, float, float, float] = (0.2, 0.2, 0.2, 0.4)
+
         # Sample data for realistic generation
         self.first_names = {
             'Male': ['James', 'John', 'Robert', 'Michael', 'William', 'David', 'Richard', 'Joseph', 'Thomas', 'Christopher', 'Charles', 'Daniel', 'Matthew', 'Anthony', 'Mark', 'Donald', 'Steven', 'Paul', 'Andrew', 'Joshua', 'Kenneth', 'Kevin', 'Brian', 'George', 'Timothy'],
@@ -68,9 +96,23 @@ class PatientDataGenerator:
             'Internal Medicine', 'Family Medicine', 'Maternal-Fetal Medicine'
         ]
         
+        # Test types & configurations
         self.test_types = ['WES', 'WGS']
-        
         self.test_configurations = ['Proband', 'Duo', 'Trio']
+
+        # Deterministic mapping: (test_type, test_configuration) -> CPT codes
+        # These represent the “consistent” CPT codes for label_type 1 & 2 (before error injection in label 3).
+        self.test_cpt_map: Dict[Tuple[str, str], List[str]] = {
+            ('WES', 'Proband'): ['81415'],
+            ('WES', 'Duo'): ['81416'],
+            ('WES', 'Trio'): ['81415', '81416'],
+            ('WGS', 'Proband'): ['81425'],
+            ('WGS', 'Duo'): ['81426'],
+            ('WGS', 'Trio'): ['81425', '81426', '81427'],
+        }
+
+        # This is only kept for reference / fallback; normal generation uses self.test_cpt_map
+        self.cpt_codes = ['81415', '81416', '81425', '81426', '81427']
         
         self.urgency_levels = ['Routine', 'Expedited']
         
@@ -80,26 +122,49 @@ class PatientDataGenerator:
         
         self.subscriber_relations = ['Self', 'Parent', 'Guardian', 'Other']
         
-        # Medical data
+        # Medical data: ICD codes aligned to clinical_indications by index
         self.icd_codes = [
-            'Z87.891', 'Q87.89', 'G80.9', 'F84.0', 'Q93.9', 'Q91.3', 'Z13.79', 'Z87.41',
-            'C78.00', 'D49.9', 'Z85.3', 'Q87.1', 'F70', 'G40.909', 'Q87.0', 'Z87.891',
-            'Q99.9', 'F79', 'G93.1', 'Q90.9', 'Z83.79', 'Q87.2', 'C50.911', 'Z15.01'
+            ["F81.9", "F79", "R62.50"],       # 0: Suspected genetic etiology for developmental delay
+            ["Z80.9", "Z84.81"],              # 1: Family history of hereditary cancer syndrome
+            ["Q89.7", "Q99.9"],               # 2: Multiple congenital anomalies of unknown etiology
+            ["G32.8", "G31.9"],               # 3: Progressive neurological symptoms, genetic cause
+            ["F84.0", "Q89.7"],               # 4: Autism with dysmorphic features
+            ["G40.909", "R62.50"],            # 5: Seizure disorder with developmental delay
+            ["E88.9"],                        # 6: Suspected metabolic disorder
+            ["C80.1", "Z84.81"],              # 7: Multiple primary cancers, hereditary cancer syndrome
+            ["Z84.2"],                        # 8: Consanguinity with affected children
+            ["F89", "Z84.81"]                 # 9: Neurodevelopmental disorder + family history
         ]
         
-        self.cpt_codes = ['81415', '81416', '81425', '81426', '81427']
+        # Purposely invalid / unexpected codes for error injection (label_type 3)
+        self.invalid_icd_codes = ['XXX.999', 'A00.0000', '123.456', 'Z99.ZZ9']
+        self.invalid_cpt_codes = ['99999', 'ABCDE', '81X15', '00000']
         
         self.clinical_indications = [
-            'Suspected genetic etiology for developmental delay and intellectual disability',
-            'Family history of hereditary cancer syndrome requiring genetic evaluation',
-            'Multiple congenital anomalies of unknown etiology',
-            'Progressive neurological symptoms with suspected genetic cause',
-            'Autism spectrum disorder with associated dysmorphic features',
-            'Unexplained seizure disorder with developmental delay',
-            'Suspected metabolic disorder based on clinical presentation',
-            'Multiple primary cancers suggesting hereditary cancer syndrome',
-            'Consanguineous family with multiple affected children',
-            'Neurodevelopmental disorder with family history of similar symptoms'
+            "Suspected genetic etiology for developmental delay and intellectual disability",
+            "Family history of hereditary cancer syndrome requiring genetic evaluation",
+            "Multiple congenital anomalies of unknown etiology",
+            "Progressive neurological symptoms with suspected genetic cause",
+            "Autism spectrum disorder with associated dysmorphic features",
+            "Unexplained seizure disorder with developmental delay",
+            "Suspected metabolic disorder based on clinical presentation",
+            "Multiple primary cancers suggesting hereditary cancer syndrome",
+            "Consanguineous family with multiple affected children",
+            "Neurodevelopmental disorder with family history of similar symptoms"
+        ]
+
+        # Primary diagnoses aligned by index to clinical_indications/icd_codes
+        self.primary_diagnoses = [
+            "Developmental delay and intellectual disability",
+            "Hereditary cancer syndrome",
+            "Multiple congenital anomalies",
+            "Progressive neurological disorder",
+            "Autism spectrum disorder with dysmorphic features",
+            "Seizure disorder with developmental delay",
+            "Suspected metabolic disorder",
+            "Multiple primary cancers",
+            "Genetic disorder in consanguineous family",
+            "Neurodevelopmental disorder with family history"
         ]
         
         self.clinical_histories = [
@@ -127,9 +192,16 @@ class PatientDataGenerator:
             'Consanguineous marriage, previous child with similar presentation deceased in infancy',
             'Family history of hearing loss and vision problems in multiple relatives'
         ]
+
+        # Prior testing options (including "empty")
+        self.prior_tests = ['CMA', 'Gene panel', '']  # empty string = no prior test documented
+    
+    # -------------------------------------------------------------------------
+    # Basic generators
+    # -------------------------------------------------------------------------
     
     def generate_address(self) -> str:
-        """Generate a realistic Connecticut address."""
+        """Generate a realistic Connecticut address (state may later be corrupted)."""
         number = random.randint(1, 9999)
         street = random.choice(self.street_names)
         city = random.choice(self.ct_cities)
@@ -165,9 +237,100 @@ class PatientDataGenerator:
         days_ago = random.randint(0, 30)
         recent_date = datetime.now() - timedelta(days=days_ago)
         return recent_date.strftime('%Y-%m-%d')
+
+    @staticmethod
+    def _is_leap_year(year: int) -> bool:
+        """Check if a given year is a leap year."""
+        return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+
+    # -------------------------------------------------------------------------
+    # Label sampling & error injection
+    # -------------------------------------------------------------------------
+
+    def _sample_label(self) -> int:
+        """Sample a label_type ∈ {1,2,3, 4} according to self.label_distribution."""
+        p1, p2, p3, p4 = self.label_distribution
+        r = random.random()
+        if r < p1:
+            return 1
+        elif r < p1 + p2:
+            return 2
+        elif r < p1 + p2 + p3:
+            return 3
+        else:
+            return 4
+
+    def introduce_random_errors(self, profile: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Randomly introduce various data errors into the profile for negative testing.
+        Used ONLY for label_type = 3.
+        
+        Possible errors:
+          - wrong_icd: inject an invalid / unexpected ICD code
+          - wrong_cpt: inject an invalid / unexpected CPT code
+          - wrong_state: change address state to 'TT'
+          - bad_dob_feb29: set DOB to 02-29 on a non-leap year
+          - collection_before_birth: set collection date before DOB
+        """
+        possible_errors = ['wrong_icd', 'wrong_cpt', 'wrong_state', 'bad_dob_feb29', 'collection_before_birth']
+        num_errors = random.randint(1, len(possible_errors))
+        selected_errors = random.sample(possible_errors, num_errors)
+
+        # Cache original DOB as datetime where possible, for some errors
+        original_dob_str = profile.get('dob')
+        dob_dt = None
+        if original_dob_str:
+            try:
+                dob_dt = datetime.strptime(original_dob_str, '%Y-%m-%d')
+            except ValueError:
+                dob_dt = None
+
+        # Apply each selected error
+        for error in selected_errors:
+            if error == 'wrong_icd':
+                # Replace one ICD code with an obviously invalid one
+                if profile.get('icd_codes'):
+                    idx = random.randrange(len(profile['icd_codes']))
+                    profile['icd_codes'][idx] = random.choice(self.invalid_icd_codes)
+
+            elif error == 'wrong_cpt':
+                # Replace one CPT code with invalid one
+                if profile.get('cpt_codes'):
+                    idx = random.randrange(len(profile['cpt_codes']))
+                    profile['cpt_codes'][idx] = random.choice(self.invalid_cpt_codes)
+
+            elif error == 'wrong_state':
+                # Change CT state to TT in one or more addresses
+                for key in ['patient_address', 'provider_address', 'lab_address']:
+                    addr = profile.get(key)
+                    if addr and ', CT ' in addr:
+                        # Only change some of the addresses to keep variety
+                        if random.random() < 0.8:
+                            profile[key] = addr.replace(', CT ', ', TT ', 1)
+
+            elif error == 'bad_dob_feb29':
+                # Force DOB to be Feb 29 on a non-leap year (invalid date)
+                non_leap_year = 2019  # clearly non-leap year; intentionally fixed
+                profile['dob'] = f"{non_leap_year}-02-29"
+
+            elif error == 'collection_before_birth':
+                # Make collection date before birth date
+                if dob_dt:
+                    days_before = random.randint(1, 365)
+                    earlier_date = dob_dt - timedelta(days=days_before)
+                    profile['collection_date'] = earlier_date.strftime('%Y-%m-%d')
+                else:
+                    # Fallback: use static clearly-old date
+                    profile['collection_date'] = '1900-01-01'
+
+        return profile
+
+    # -------------------------------------------------------------------------
+    # Core patient generation
+    # -------------------------------------------------------------------------
     
-    def generate_patient_profile(self) -> Dict[str, Any]:
-        """Generate a complete synthetic patient profile."""
+    def _generate_base_profile_common(self) -> Dict[str, Any]:
+        """Generate the common (non-label-specific) portion of a profile."""
         sex = random.choice(self.sexes)
         first_name = random.choice(self.first_names.get(sex, self.first_names['Male']))
         last_name = random.choice(self.last_names)
@@ -200,27 +363,9 @@ class PatientDataGenerator:
             'lab_npi': self.generate_npi() if random.choice([True, False]) else '',
             'lab_address': self.generate_address() if random.choice([True, False]) else '',
             
-            # Test Information
-            'test_type': random.choice(self.test_types),
-            'test_configuration': random.choice(self.test_configurations),
-            'urgency': random.choice(self.urgency_levels),
-            'specimen_type': random.choice(self.specimen_types),
-            'collection_date': self.generate_recent_date(),
-            
-            # CPT Codes (1-3 codes typically)
-            'cpt_codes': random.sample(self.cpt_codes, random.randint(1, 3)),
-            
-            # Diagnosis Information
-            'icd_codes': random.sample(self.icd_codes, random.randint(1, 3)),
-            'primary_diagnosis': random.choice([
-                'Developmental delay', 'Intellectual disability', 'Autism spectrum disorder',
-                'Seizure disorder', 'Multiple congenital anomalies', 'Hereditary cancer syndrome',
-                'Neuromuscular disorder', 'Metabolic disorder', 'Chromosomal abnormality'
-            ]),
-            'clinical_indication': random.choice(self.clinical_indications),
-            
             # Prior Testing
             'family_history': random.choice(self.family_histories),
+            'prior_test': random.choice(self.prior_tests),  # "CMA", "Gene panel", or ""
             
             # Medical Necessity checkboxes
             'mn_suspected_genetic': random.choice([True, False]),
@@ -228,11 +373,100 @@ class PatientDataGenerator:
             'mn_genetic_counseling': random.choice([True, True, False]),  # More likely True
             
             # Consent and Signature
-            'consent_ack': True,  # Always True for valid submissions
+            'consent_ack': True,  # Always True for submissions
             'provider_signature': random.choice(self.provider_names),
             'signature_date': self.generate_recent_date(),
         }
+        return profile
+
+    def _assign_consistent_test_and_cpt(self, profile: Dict[str, Any]) -> None:
+        """Assign test_type, test_configuration, urgency, specimen_type and consistent CPT codes."""
+        test_key = random.choice(list(self.test_cpt_map.keys()))
+        test_type, test_config = test_key
+        cpt_codes = self.test_cpt_map[test_key]
+
+        profile['test_type'] = test_type
+        profile['test_configuration'] = test_config
+        profile['urgency'] = random.choice(self.urgency_levels)
+        profile['specimen_type'] = random.choice(self.specimen_types)
+        profile['collection_date'] = self.generate_recent_date()
+        profile['cpt_codes'] = list(cpt_codes)  # copy
         
+    def _assign_inconsistent_test_and_cpt(self, profile: Dict[str, Any]) -> None:
+        """Assign test_type and test_configuration, but inconsistent CPT codes."""
+        test_key = random.choice(list(self.test_cpt_map.keys()))
+        test_type, test_config = test_key
+        # Choose a different CPT code set
+        possible_cpt_keys = [k for k in self.test_cpt_map.keys() if k != test_key]
+        inconsistent_key = random.choice(possible_cpt_keys)
+        cpt_codes = self.test_cpt_map[inconsistent_key]
+
+        profile['test_type'] = test_type
+        profile['test_configuration'] = test_config
+        profile['urgency'] = random.choice(self.urgency_levels)
+        profile['specimen_type'] = random.choice(self.specimen_types)
+        profile['collection_date'] = self.generate_recent_date()
+        profile['cpt_codes'] = list(cpt_codes)  # copy
+
+    def _assign_consistent_icd_and_indication(self, profile: Dict[str, Any]) -> None:
+        """Assign clinical_indication, primary_diagnosis, and matching ICD codes."""
+        idx = random.randrange(len(self.clinical_indications))
+        profile['clinical_indication'] = self.clinical_indications[idx]
+        profile['primary_diagnosis'] = self.primary_diagnoses[idx]
+        profile['icd_codes'] = list(self.icd_codes[idx])  # flat list of strings
+
+    def _assign_inconsistent_icd(self, profile: Dict[str, Any]) -> None:
+        """
+        Assign indication + primary_diagnosis from one index,
+        but ICD codes from a different index (logical inconsistency, but syntactically valid).
+        """
+        n = len(self.clinical_indications)
+        idx_ind = random.randrange(n)
+        # Choose a different index for ICD codes
+        possible_icd_indices = [i for i in range(n) if i != idx_ind]
+        idx_icd = random.choice(possible_icd_indices)
+
+        profile['clinical_indication'] = self.clinical_indications[idx_ind]
+        profile['primary_diagnosis'] = self.primary_diagnoses[idx_ind]
+        profile['icd_codes'] = list(self.icd_codes[idx_icd]) # flat list of strings
+
+    def generate_patient_profile(self) -> Dict[str, Any]:
+        """
+        Generate a complete synthetic patient profile and assign label_type:
+
+          1 = Consistent ICD + indication + primary diagnosis AND consistent CPT + tests
+          2 = Inconsistent ICD vs indication / primary dx; CPT/tests still consistent
+          3 = Start from (1) and then inject random data errors (ICD, CPT, DOB, state, collection_before_birth)
+        """
+        label_type = self._sample_label()
+        profile = self._generate_base_profile_common()
+
+        # ICD / indication / primary diagnosis logic by label_type
+        if label_type == 1:
+            # Fully consistent
+            self._assign_consistent_icd_and_indication(profile)
+            self._assign_consistent_test_and_cpt(profile)
+
+        elif label_type == 2:
+            # ICD inconsistent with indication / primary diagnosis
+            self._assign_inconsistent_icd(profile)
+            self._assign_consistent_test_and_cpt(profile)
+        elif label_type == 3:
+            # CPT inconsistent with test_type / configuration
+            self._assign_consistent_icd_and_indication(profile)
+            self._assign_inconsistent_test_and_cpt(profile) 
+        else:  # label_type == 4
+            # Start from fully consistent state, then inject errors
+            self._assign_consistent_icd_and_indication(profile)
+            self._assign_consistent_test_and_cpt(profile)
+            profile = self.introduce_random_errors(profile)
+
+        # Clinical history (used for all labels)
+        profile['clinical_history'] = random.choice(self.clinical_histories)
+
+        # Attach label_type for downstream classification/analysis
+        profile['label_type'] = label_type
+
         return profile
     
     def generate_bulk_profiles(self, count: int) -> List[Dict[str, Any]]:
@@ -254,8 +488,7 @@ class PatientDataGenerator:
         print(f"Generated {len(profiles)} patient profiles saved to: {output_file}")
     
     def validate_profile(self, profile: Dict[str, Any]) -> bool:
-        """Validate that a generated profile meets form requirements."""
-        # Import validation from models
+        """Validate that a generated profile meets form requirements (may fail due to intentional errors)."""
         try:
             from app.models import validate_submission, normalize_payload
             normalized = normalize_payload(profile)
@@ -271,7 +504,7 @@ class PatientDataGenerator:
 def main():
     """Main CLI interface."""
     parser = argparse.ArgumentParser(
-        description='Generate synthetic patient profiles for WES/WGS pre-authorization form testing',
+        description='Generate synthetic patient profiles for WES/WGS pre-authorization form testing (with labeled consistency/error types)',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -284,7 +517,7 @@ Examples:
     parser.add_argument(
         '-n', '--count',
         type=int,
-        default=10,
+        default=50,
         help='Number of patient profiles to generate (default: 10)'
     )
     
@@ -325,14 +558,14 @@ Examples:
     
     # Preview mode
     if args.preview:
-        print("Preview of generated patient profile:")
+        print("Preview of generated patient profile (with label_type and possible intentional errors for label_type=3):")
         print("-" * 50)
         profile = generator.generate_patient_profile()
         print(json.dumps(profile, indent=2, ensure_ascii=False))
         return
     
     # Generate profiles
-    print(f"Generating {args.count} synthetic patient profiles...")
+    print(f"Generating {args.count} synthetic patient profiles (mixture of label_type 1, 2, and 3)...")
     profiles = generator.generate_bulk_profiles(args.count)
     
     # Validate if requested
@@ -343,12 +576,12 @@ Examples:
             if generator.validate_profile(profile):
                 valid_count += 1
             else:
-                print(f"Profile {i+1} failed validation")
+                print(f"Profile {i+1} failed validation (this may be expected for label_type=3 error profiles)")
         
         print(f"Validation results: {valid_count}/{len(profiles)} profiles are valid")
         
         if valid_count < len(profiles):
-            response = input("Some profiles failed validation. Continue anyway? (y/N): ")
+            response = input("Some profiles failed validation (expected for error profiles). Continue anyway? (y/N): ")
             if response.lower() != 'y':
                 print("Aborted.")
                 return
@@ -367,6 +600,15 @@ Examples:
     wes_count = test_types.count('WES')
     wgs_count = test_types.count('WGS')
     print(f"  Test types: {wes_count} WES, {wgs_count} WGS")
+
+    # Label distribution summary
+    labels = [p['label_type'] for p in profiles]
+    label_counts = {1: 0, 2: 0, 3: 0, 4: 0}
+    for lbl in labels:
+        label_counts[lbl] += 1
+    print("  Label distribution:")
+    for lbl, count in label_counts.items():
+        print(f"    Label {lbl}: {count} profiles ({(count / len(profiles)) * 100:.1f}%)")
 
 
 if __name__ == '__main__':
