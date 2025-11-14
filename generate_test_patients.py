@@ -98,16 +98,14 @@ class PatientDataGenerator:
         
         # Test types & configurations
         self.test_types = ['WES', 'WGS']
-        self.test_configurations = ['Proband', 'Duo', 'Trio']
+        self.test_configurations = ['Proband', 'Trio']
 
         # Deterministic mapping: (test_type, test_configuration) -> CPT codes
         # These represent the “consistent” CPT codes for label_type 1 & 2 (before error injection in label 3).
         self.test_cpt_map: Dict[Tuple[str, str], List[str]] = {
             ('WES', 'Proband'): ['81415'],
-            ('WES', 'Duo'): ['81416'],
             ('WES', 'Trio'): ['81415', '81416'],
             ('WGS', 'Proband'): ['81425'],
-            ('WGS', 'Duo'): ['81426'],
             ('WGS', 'Trio'): ['81425', '81426', '81427'],
         }
 
@@ -194,7 +192,7 @@ class PatientDataGenerator:
         ]
 
         # Prior testing options (including "empty")
-        self.prior_tests = ['CMA', 'Gene panel', '']  # empty string = no prior test documented
+        self.prior_tests = ['CMA', 'Gene panel', 'Single gene', '']  # empty string = no prior test documented
     
     # -------------------------------------------------------------------------
     # Basic generators
@@ -248,7 +246,7 @@ class PatientDataGenerator:
     # -------------------------------------------------------------------------
 
     def _sample_label(self) -> int:
-        """Sample a label_type ∈ {1,2,3, 4} according to self.label_distribution."""
+        """Sample a label_type ∈ {1,2,3,4} according to self.label_distribution."""
         p1, p2, p3, p4 = self.label_distribution
         r = random.random()
         if r < p1:
@@ -264,16 +262,17 @@ class PatientDataGenerator:
         """
         Randomly introduce various data errors into the profile for negative testing.
         Used ONLY for label_type = 3.
-        
+
         Possible errors:
           - wrong_icd: inject an invalid / unexpected ICD code
           - wrong_cpt: inject an invalid / unexpected CPT code
           - wrong_state: change address state to 'TT'
           - bad_dob_feb29: set DOB to 02-29 on a non-leap year
-          - collection_before_birth: set collection date before DOB
+          - collection_before_prior_test: sample collection occurs before prior testing
         """
-        possible_errors = ['wrong_icd', 'wrong_cpt', 'wrong_state', 'bad_dob_feb29', 'collection_before_birth']
-        num_errors = random.randint(1, len(possible_errors))
+        possible_errors = ['wrong_icd', 'wrong_cpt', 'wrong_state', 'bad_dob_feb29', 'collection_before_prior_test']
+        # num_errors = random.randint(1, len(possible_errors))
+        num_errors = 1
         selected_errors = random.sample(possible_errors, num_errors)
 
         # Cache original DOB as datetime where possible, for some errors
@@ -288,40 +287,35 @@ class PatientDataGenerator:
         # Apply each selected error
         for error in selected_errors:
             if error == 'wrong_icd':
-                # Replace one ICD code with an obviously invalid one
                 if profile.get('icd_codes'):
                     idx = random.randrange(len(profile['icd_codes']))
                     profile['icd_codes'][idx] = random.choice(self.invalid_icd_codes)
 
             elif error == 'wrong_cpt':
-                # Replace one CPT code with invalid one
                 if profile.get('cpt_codes'):
                     idx = random.randrange(len(profile['cpt_codes']))
                     profile['cpt_codes'][idx] = random.choice(self.invalid_cpt_codes)
 
             elif error == 'wrong_state':
-                # Change CT state to TT in one or more addresses
                 for key in ['patient_address', 'provider_address', 'lab_address']:
                     addr = profile.get(key)
-                    if addr and ', CT ' in addr:
-                        # Only change some of the addresses to keep variety
-                        if random.random() < 0.8:
-                            profile[key] = addr.replace(', CT ', ', TT ', 1)
+                    if addr and ', CT ' in addr and random.random() < 0.8:
+                        profile[key] = addr.replace(', CT ', ', TT ', 1)
 
             elif error == 'bad_dob_feb29':
-                # Force DOB to be Feb 29 on a non-leap year (invalid date)
                 non_leap_year = 2019  # clearly non-leap year; intentionally fixed
                 profile['dob'] = f"{non_leap_year}-02-29"
 
-            elif error == 'collection_before_birth':
-                # Make collection date before birth date
-                if dob_dt:
-                    days_before = random.randint(1, 365)
-                    earlier_date = dob_dt - timedelta(days=days_before)
+            elif error == 'collection_before_prior_test':
+                prior_test = profile.get('prior_test')
+                prior_test_date_str = profile.get('prior_test_date')
+                if prior_test and prior_test_date_str:
+                    try:
+                        prior_dt = datetime.strptime(prior_test_date_str, '%Y-%m-%d')
+                    except ValueError:
+                        prior_dt = datetime.now()
+                    earlier_date = prior_dt - timedelta(days=random.randint(1, 60))
                     profile['collection_date'] = earlier_date.strftime('%Y-%m-%d')
-                else:
-                    # Fallback: use static clearly-old date
-                    profile['collection_date'] = '1900-01-01'
 
         return profile
 
@@ -365,17 +359,7 @@ class PatientDataGenerator:
             
             # Prior Testing
             'family_history': random.choice(self.family_histories),
-            'prior_test': random.choice(self.prior_tests),  # "CMA", "Gene panel", or ""
-            
-            # Medical Necessity checkboxes
-            'mn_suspected_genetic': random.choice([True, False]),
-            'mn_results_influence_management': random.choice([True, True, False]),  # More likely True
-            'mn_genetic_counseling': random.choice([True, True, False]),  # More likely True
-            
-            # Consent and Signature
-            'consent_ack': True,  # Always True for submissions
-            'provider_signature': random.choice(self.provider_names),
-            'signature_date': self.generate_recent_date(),
+            'prior_test': random.choice(self.prior_tests),  # "CMA", "Gene panel", "Single gene", or ""
         }
         return profile
 
@@ -391,6 +375,7 @@ class PatientDataGenerator:
         profile['specimen_type'] = random.choice(self.specimen_types)
         profile['collection_date'] = self.generate_recent_date()
         profile['cpt_codes'] = list(cpt_codes)  # copy
+        self._assign_prior_test_details(profile)
         
     def _assign_inconsistent_test_and_cpt(self, profile: Dict[str, Any]) -> None:
         """Assign test_type and test_configuration, but inconsistent CPT codes."""
@@ -407,6 +392,28 @@ class PatientDataGenerator:
         profile['specimen_type'] = random.choice(self.specimen_types)
         profile['collection_date'] = self.generate_recent_date()
         profile['cpt_codes'] = list(cpt_codes)  # copy
+        self._assign_prior_test_details(profile)
+
+    def _assign_prior_test_details(self, profile: Dict[str, Any]) -> None:
+        """Populate prior test result/date if a prior test exists."""
+        prior_test = profile.get('prior_test')
+        if not prior_test:
+            profile['prior_test_result'] = ''
+            profile['prior_test_date'] = ''
+            return
+
+        profile['prior_test_result'] = random.choice(['Positive', 'Negative'])
+        collection_date_str = profile.get('collection_date')
+        try:
+            collection_dt = datetime.strptime(collection_date_str, '%Y-%m-%d') if collection_date_str else None
+        except ValueError:
+            collection_dt = None
+
+        if collection_dt is None:
+            collection_dt = datetime.now()
+
+        prior_dt = collection_dt - timedelta(days=random.randint(7, 180))
+        profile['prior_test_date'] = prior_dt.strftime('%Y-%m-%d')
 
     def _assign_consistent_icd_and_indication(self, profile: Dict[str, Any]) -> None:
         """Assign clinical_indication, primary_diagnosis, and matching ICD codes."""

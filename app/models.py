@@ -56,7 +56,7 @@ def normalize_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
     norm["cpt_codes"] = [str(c).strip() for c in _as_list(cpt) if str(c).strip()]
 
     # Normalize prior testing rows
-    pt_type = _as_list(norm.get("prior_test_type"))
+    pt_type = _as_list(norm.get("prior_test"))
     pt_result = _as_list(norm.get("prior_test_result"))
     pt_date = _as_list(norm.get("prior_test_date"))
     prior_tests = []

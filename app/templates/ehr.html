@@ -252,6 +252,7 @@
         const submittedInfo = patient._submitted_at 
           ? `<br>Submitted: ${new Date(patient._submitted_at).toLocaleDateString()}`
           : '';
+        const priorTestingBlock = formatPriorTesting(patient);
         
         return `
           <div class="patient-card">
@@ -327,6 +328,7 @@
                     Primary Diagnosis: ${escapeHtml(patient.primary_diagnosis || 'N/A')}<br>
                     Clinical Indication: ${escapeHtml(patient.clinical_indication || 'N/A')}<br>
                     Family History: ${escapeHtml(patient.family_history || 'N/A')}
+                    ${priorTestingBlock}
                   </div>
                 </div>
               </div>
@@ -344,6 +346,21 @@
       function formatArray(arr) {
         if (!arr || !Array.isArray(arr)) return 'N/A';
         return arr.join(', ') || 'N/A';
+      }
+
+      function formatPriorTesting(patient) {
+        const rows = [
+          { label: 'Prior Test', value: patient.prior_test },
+          { label: 'Prior Test Date', value: patient.prior_test_date },
+          { label: 'Prior Test Result', value: patient.prior_test_result },
+        ].filter(({ value }) => typeof value === 'string' ? value.trim() !== '' : Boolean(value))
+         .map(({ label, value }) => `${label}: ${escapeHtml(value || '')}`);
+
+        if (!rows.length) {
+          return '';
+        }
+
+        return `<br>${rows.join('<br>')}`;
       }
     })();
   </script>
