@@ -12,7 +12,7 @@ This version generates THREE TYPES of patients, labeled via `label_type`:
     - CPT codes are consistent with test_type and test_configuration
     - No intentional data errors
 
-  label_type = 2 (ICD INCONSISTENT):
+  label_type = 2 (ICD INCONSISTENT)
     - Clinical indication and primary diagnosis are internally consistent
     - ICD codes are intentionally mismatched with the indication / primary dx
     - No other errors
@@ -27,7 +27,7 @@ This version generates THREE TYPES of patients, labeled via `label_type`:
         * invalid / unexpected ICD and CPT codes
         * invalid state codes (e.g., 'TT')
         * impossible date of birth values (e.g., 2019-02-29)
-        * sample collection dates that occur BEFORE the date of birth
+        * sample collection date before prior testing date
 
 Usage:
     python generate_test_patients.py -n 50 -o test_patients.jsonl

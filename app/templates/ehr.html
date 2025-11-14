@@ -126,20 +126,6 @@
       color: #666;
     }
     
-    .source-badge {
-      display: inline-block;
-      padding: 0.25rem 0.5rem;
-      font-size: 0.75rem;
-      background: #007bff;
-      color: white;
-      border-radius: 3px;
-      margin-left: 0.5rem;
-    }
-    
-    .source-badge.test {
-      background: #28a745;
-    }
-    
     .navigation {
       margin-bottom: 2rem;
     }
@@ -175,9 +161,6 @@
         placeholder="Search by patient name, member ID, date of birth, or provider name..."
         autocomplete="off"
       />
-      <div class="search-hint">
-        Enter at least 2 characters to search. Results will include test patients and submitted forms.
-      </div>
     </div>
     
     <div id="searchResults" class="search-results">
@@ -245,10 +228,6 @@
       }
       
       function createPatientCard(patient) {
-        const sourceBadge = patient._source === 'test_patients' 
-          ? '<span class="source-badge test">Test Patient</span>'
-          : '<span class="source-badge">Submitted</span>';
-          
         const submittedInfo = patient._submitted_at 
           ? `<br>Submitted: ${new Date(patient._submitted_at).toLocaleDateString()}`
           : '';
@@ -259,7 +238,6 @@
             <div class="patient-header">
               <h3 class="patient-name">
                 ${escapeHtml(patient.patient_first_name || '')} ${escapeHtml(patient.patient_last_name || '')}
-                ${sourceBadge}
               </h3>
               <p class="patient-info">
                 Member ID: ${escapeHtml(patient.member_id || 'N/A')} | 
