@@ -164,12 +164,27 @@
             </div>
             <div class="col-12">
               <label>CPT Codes</label>
-              <div class="grid">
-                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81415" /> 81415</label></div>
-                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81416" /> 81416</label></div>
-                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81425" /> 81425</label></div>
-                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81426" /> 81426</label></div>
-                <div class="col-3"><label><input type="checkbox" name="cpt_codes" value="81427" /> 81427</label></div>
+              <div class="cpt-grid">
+                <div class="cpt-item">
+                  <input type="checkbox" id="cpt_81415" name="cpt_codes" value="81415" />
+                  <label for="cpt_81415">81415</label>
+                </div>
+                <div class="cpt-item">
+                  <input type="checkbox" id="cpt_81416" name="cpt_codes" value="81416" />
+                  <label for="cpt_81416">81416</label>
+                </div>
+                <div class="cpt-item">
+                  <input type="checkbox" id="cpt_81425" name="cpt_codes" value="81425" />
+                  <label for="cpt_81425">81425</label>
+                </div>
+                <div class="cpt-item">
+                  <input type="checkbox" id="cpt_81426" name="cpt_codes" value="81426" />
+                  <label for="cpt_81426">81426</label>
+                </div>
+                <div class="cpt-item">
+                  <input type="checkbox" id="cpt_81427" name="cpt_codes" value="81427" />
+                  <label for="cpt_81427">81427</label>
+                </div>
               </div>
             </div>
           </div>
@@ -232,15 +247,27 @@
           <h2>Medical Necessity & Consent</h2>
           <div class="grid">
             <div class="col-12">
-              <label><input type="checkbox" name="mn_suspected_genetic" /> Suspected genetic etiology</label>
-              <label><input type="checkbox" name="mn_results_influence_management" /> Results will influence clinical management</label>
-              <label><input type="checkbox" name="mn_genetic_counseling" /> Genetic counseling provided/arranged</label>
+              <label>Medical Necessity (check all that apply):</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="mn_suspected_genetic" name="mn_suspected_genetic" />
+                  <label for="mn_suspected_genetic">Suspected genetic etiology</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="mn_results_influence_management" name="mn_results_influence_management" />
+                  <label for="mn_results_influence_management">Results will influence clinical management</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="mn_genetic_counseling" name="mn_genetic_counseling" />
+                  <label for="mn_genetic_counseling">Genetic counseling provided/arranged</label>
+                </div>
+              </div>
             </div>
-            <div class="col-12">
-              <label>
+            <div class="col-12" style="margin-top: 20px;">
+              <div class="checkbox-item">
                 <input type="checkbox" id="consent_ack" name="consent_ack" required />
-                I confirm consent for testing and sharing information for authorization.
-              </label>
+                <label for="consent_ack">I confirm consent for testing and sharing information for authorization.</label>
+              </div>
             </div>
             <div class="col-6">
               <label for="provider_signature">Ordering Provider Signature (type name)</label>

@@ -101,3 +101,60 @@ button:disabled {
   margin-bottom: 16px;
 }
 .alert.error { background: #fee2e2; border-color: #fecaca; color: #991b1b; }
+
+/* Checkbox styling */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  transform: scale(1.2);
+}
+
+.checkbox-item label {
+  margin: 0;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* CPT codes grid styling */
+.cpt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.cpt-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #f9fafb;
+}
+
+.cpt-item input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.cpt-item label {
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
