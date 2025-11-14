@@ -81,6 +81,34 @@
   }
   showStep(0);
 
+  function getHumanReadableLabel(fieldName, element) {
+    // Map of field names to human-readable labels
+    const labelMap = {
+      'patient_first_name': 'First Name',
+      'patient_last_name': 'Last Name',
+      'dob': 'Date of Birth',
+      'member_id': 'Member/Policy ID',
+      'provider_name': 'Provider Name',
+      'provider_npi': 'Provider NPI',
+      'test_type': 'Test Type',
+      'icd_codes': 'ICD Codes',
+      'consent_ack': 'Consent'
+    };
+    
+    // Try to get from our map first
+    if (labelMap[fieldName]) {
+      return labelMap[fieldName];
+    }
+    
+    // Try to get from associated label element
+    if (element && element.labels && element.labels[0]) {
+      return element.labels[0].textContent.trim();
+    }
+    
+    // Fallback: convert field name to title case
+    return fieldName.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  }
+
   function validateStep(i) {
     const stepEl = steps[i];
     const required = stepEl.querySelectorAll('[required]');
@@ -93,13 +121,25 @@
       if (el.type === 'checkbox') {
         if (!el.checked) {
           ok = false;
-          errorMessages.push(`${el.name} is required`);
+          const fieldLabel = getHumanReadableLabel(el.name, el);
+          errorMessages.push(`${fieldLabel} is required`);
         }
       } else if (!el.value || el.value.trim() === '') {
         ok = false;
-        errorMessages.push(`${el.labels[0]?.textContent || el.name} is required`);
+        const fieldLabel = getHumanReadableLabel(el.name, el);
+        errorMessages.push(`${fieldLabel} is required`);
       }
     });
+    
+    // Special validation for ICD codes - at least one non-empty ICD code is required
+    if (stepEl.querySelector('#icd-list')) {
+      const icdInputs = stepEl.querySelectorAll('input[name="icd_codes"]');
+      const hasValidIcd = Array.from(icdInputs).some(input => input.value && input.value.trim() !== '');
+      if (!hasValidIcd) {
+        ok = false;
+        errorMessages.push('At least one ICD code is required');
+      }
+    }
     
     // Additional format validation for all fields (not just required ones)
     allInputs.forEach((el) => {
@@ -108,7 +148,7 @@
         if (el.name === 'provider_npi' || el.name === 'lab_npi') {
           if (!/^\d{10}$/.test(value)) {
             ok = false;
-            const fieldLabel = el.labels[0]?.textContent || el.name;
+            const fieldLabel = getHumanReadableLabel(el.name, el);
             errorMessages.push(`${fieldLabel} must be exactly 10 digits (numbers only, no spaces or dashes)`);
           }
         }
@@ -118,7 +158,7 @@
           const digitsOnly = value.replace(/\D/g, '');
           if (!/^\d{10}$/.test(digitsOnly)) {
             ok = false;
-            const fieldLabel = el.labels[0]?.textContent || el.name;
+            const fieldLabel = getHumanReadableLabel(el.name, el);
             errorMessages.push(`${fieldLabel} must be a valid 10-digit phone number`);
           }
         }
