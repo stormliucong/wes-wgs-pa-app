@@ -315,14 +315,14 @@
                     Configuration: ${escapeHtml(patient.test_configuration || 'N/A')}<br>
                     Urgency: ${escapeHtml(patient.urgency || 'N/A')}<br>
                     Specimen: ${escapeHtml(patient.specimen_type || 'N/A')}<br>
-                    Collection Date: ${escapeHtml(patient.collection_date || 'N/A')}
+                    Collection Date: ${escapeHtml(patient.collection_date || 'N/A')}<br>
+                    CPT Codes: ${formatArray(patient.cpt_codes)}
                   </div>
                 </div>
                 
                 <div class="detail-item">
                   <span class="detail-label">Clinical Information</span>
                   <div class="detail-value">
-                    CPT Codes: ${formatArray(patient.cpt_codes)}<br>
                     ICD Codes: ${formatArray(patient.icd_codes)}<br>
                     Primary Diagnosis: ${escapeHtml(patient.primary_diagnosis || 'N/A')}<br>
                     Clinical Indication: ${escapeHtml(patient.clinical_indication || 'N/A')}<br>

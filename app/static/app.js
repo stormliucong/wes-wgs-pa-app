@@ -137,7 +137,7 @@
     btn.addEventListener('click', () => {
       const idx = parseInt(btn.dataset.next, 10);
       if (!validateStep(current)) {
-        showError('Please complete required fields before continuing.');
+        // validateStep() already calls showError() with specific messages
         return;
       }
       clearError();
@@ -202,7 +202,7 @@
     submitBtn.addEventListener('click', async (e) => {
       e.preventDefault();
       if (!validateStep(current)) {
-        showError('Please complete required fields before submitting.');
+        // validateStep() already calls showError() with specific messages
         return;
       }
       clearError();
