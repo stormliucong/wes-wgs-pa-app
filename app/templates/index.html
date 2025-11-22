@@ -206,14 +206,97 @@
               </div>
             </div>
             <div class="col-12">
-              <label for="primary_diagnosis">Primary Diagnosis Description</label>
-              <input id="primary_diagnosis" name="primary_diagnosis" />
+              
             </div>
             <div class="col-12">
-              <label for="clinical_indication">Clinical Indication / Summary</label>
-              <textarea id="clinical_indication" name="clinical_indication" rows="4" placeholder="Brief clinical summary"></textarea>
+              <h3>Rationale for testing</h3>
+              <p>Please select all that apply:</p>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="rt_suspected_monogenic"
+                    name="rationale_for_testing"
+                    value="suspected_monogenic_disorder"
+                  />
+                  <label for="rt_suspected_monogenic">Suspected monogenic disorder</label>
+                </div>
+
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="rt_previous_testing_negative"
+                    name="rationale_for_testing"
+                    value="previous_targeted_testing_negative"
+                  />
+                  <label for="rt_previous_testing_negative">
+                    Previous targeted testing negative / inconclusive
+                  </label>
+                </div>
+
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="rt_multiple_congenital"
+                    name="rationale_for_testing"
+                    value="multiple_congenital_anomalies"
+                  />
+                  <label for="rt_multiple_congenital">
+                    Multiple congenital anomalies and/or complex phenotype
+                  </label>
+                </div>
+
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="rt_family_history"
+                    name="rationale_for_testing"
+                    value="strong_family_history"
+                  />
+                  <label for="rt_family_history">
+                    Strong family history suggestive of inherited condition
+                  </label>
+                </div>
+
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="rt_diagnostic_odyssey"
+                    name="rationale_for_testing"
+                    value="diagnostic_odyssey"
+                  />
+                  <label for="rt_diagnostic_odyssey">
+                    Ongoing diagnostic odyssey / unclear etiology
+                  </label>
+                </div>
+
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="rt_management_impact"
+                    name="rationale_for_testing"
+                    value="treatment_or_management_impact"
+                  />
+                  <label for="rt_management_impact">
+                    Results expected to impact treatment or management
+                  </label>
+                </div>
+
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="rt_other"
+                    name="rationale_for_testing"
+                    value="other"
+                  />
+                  <label for="rt_other">
+                    Other (please specify in the clinical information box below)
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
+          
           <div class="actions">
             <button type="button" class="secondary" data-prev="2">Back</button>
             <button type="button" data-next="4">Next</button>

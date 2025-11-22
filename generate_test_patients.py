@@ -5,19 +5,20 @@ Synthetic Patient Data Generator for WES/WGS Pre-Authorization Form
 This script generates realistic synthetic patient profiles that can be used to test
 the pre-authorization form. All data is completely fictional and for testing purposes only.
 
-This version generates THREE TYPES of patients, labeled via `label_type`:
+This version generates THREE TYPES of patient profiles, labeled via `label_type`:
 
-  label_type = 1 (CONSISTENT):
+  label_type = 1 (Perfect):
     - ICD codes are consistent with clinical indication and primary diagnosis
     - CPT codes are consistent with test_type and test_configuration
-    - No intentional data errors
+    - Clinical information is relevant to WES / WGS testing
+    - No intentional data errors or invalid values
 
-  label_type = 2 (ICD INCONSISTENT)
-    - Clinical indication and primary diagnosis are internally consistent
+  label_type = 2 (Intentional Clinical Issues)
+    - ICD codes are intentionally invalid
     - ICD codes are intentionally mismatched with the indication / primary dx
-    - No other errors
+    - The ICD codes, diagnosis and indication provided are not relevant to WES / WGS (e.g., fever, cough)
     
-  label_type = 3 (CPT INCONSISTENT):
+  label_type = 3 (Other Clinical Issues):
     - CPT codes are intentionally mismatched with the test_type / configuration
     - No other errors
 
@@ -106,11 +107,11 @@ class PatientDataGenerator:
             ('WES', 'Proband'): ['81415'],
             ('WES', 'Trio'): ['81415', '81416'],
             ('WGS', 'Proband'): ['81425'],
-            ('WGS', 'Trio'): ['81425', '81426', '81427'],
+            ('WGS', 'Trio'): ['81425', '81426'],
         }
 
         # This is only kept for reference / fallback; normal generation uses self.test_cpt_map
-        self.cpt_codes = ['81415', '81416', '81425', '81426', '81427']
+        self.cpt_codes = ['81415', '81416', '81425', '81426']
         
         self.urgency_levels = ['Routine', 'Expedited']
         
