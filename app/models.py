@@ -56,19 +56,19 @@ def normalize_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
     norm["cpt_codes"] = [str(c).strip() for c in _as_list(cpt) if str(c).strip()]
 
     # Normalize prior testing rows
-    pt_type = _as_list(norm.get("prior_test"))
-    pt_result = _as_list(norm.get("prior_test_result"))
-    pt_date = _as_list(norm.get("prior_test_date"))
-    prior_tests = []
-    for i in range(max(len(pt_type), len(pt_result), len(pt_date))):
-        prior_tests.append(
-            {
-                "type": pt_type[i] if i < len(pt_type) else "",
-                "result": pt_result[i] if i < len(pt_result) else "",
-                "date": pt_date[i] if i < len(pt_date) else "",
-            }
-        )
-    norm["prior_tests"] = [row for row in prior_tests if any(v for v in row.values())]
+    # pt_type = _as_list(norm.get("prior_test"))
+    # pt_result = _as_list(norm.get("prior_test_result"))
+    # pt_date = _as_list(norm.get("prior_test_date"))
+    # prior_tests = []
+    # for i in range(max(len(pt_type), len(pt_result), len(pt_date))):
+    #     prior_tests.append(
+    #         {
+    #             "type": pt_type[i] if i < len(pt_type) else "",
+    #             "result": pt_result[i] if i < len(pt_result) else "",
+    #             "date": pt_date[i] if i < len(pt_date) else "",
+    #         }
+    #     )
+    # norm["prior_tests"] = [row for row in prior_tests if any(v for v in row.values())]
 
     # Normalize consent_ack
     consent_raw = str(norm.get("consent_ack", "")).strip().lower()
