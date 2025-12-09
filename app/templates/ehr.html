@@ -303,10 +303,17 @@
                   <span class="detail-label">Clinical Information</span>
                   <div class="detail-value">
                     ICD Codes: ${formatArray(patient.icd_codes)}<br>
-                    Primary Diagnosis: ${escapeHtml(patient.primary_diagnosis || 'N/A')}<br>
-                    Clinical Indication: ${escapeHtml(patient.clinical_indication || 'N/A')}<br>
+                    Rationale for Testing:<br>
+                    ${patient.rationale && patient.rationale.length > 0 ? patient.rationale.map(escapeHtml).join('<br>') : 'N/A'}<br>
                     Family History: ${escapeHtml(patient.family_history || 'N/A')}
                     ${priorTestingBlock}
+                  </div>
+                </div>
+                
+                <div class="detail-item">
+                  <span class="detail-label">Internal Test Code</span>
+                  <div class="detail-value">
+                    ${escapeHtml(patient.internal_test_code || 'N/A')}
                   </div>
                 </div>
               </div>

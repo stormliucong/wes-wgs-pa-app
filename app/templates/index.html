@@ -46,7 +46,7 @@
             </div>
             <div class="col-4">
               <label for="member_id">Medicaid/Member ID</label>
-              <input id="member_id" name="member_id" required />
+              <input id="member_id" name="member_id" placeholder="1234567890" />
             </div>
             <div class="col-12">
               <label for="patient_address">Patient Address</label>
@@ -189,6 +189,76 @@
                 </div>
               </div>
             </div>
+            <div class="col-12">
+              <label for="internal_test_code">Internal Test Code (Optional)</label>
+              <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+              <input id="internal_test_code" name="internal_test_code" type="text" placeholder="Enter internal test code" />
+              <button type="button" id="search-test-code-btn" class="secondary" style="white-space: nowrap;">Search Lab Codes</button>
+              </div>
+            </div>
+
+            <!-- Modal for Lab Test Codes -->
+            <div id="lab-codes-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+              <div style="background: white; margin: 2rem auto; padding: 2rem; border-radius: 8px; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+              <h3>Lab Internal Test Codes</h3>
+              <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                <tr style="border-bottom: 2px solid #ddd;">
+                  <th style="padding: 0.5rem; text-align: left;">Lab</th>
+                  <th style="padding: 0.5rem; text-align: left;">Configuration</th>
+                  <th style="padding: 0.5rem; text-align: left;">Test Code</th>
+                </tr>
+                </thead>
+                <tbody id="lab-codes-tbody">
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WES proband, regular</td><td style="padding: 0.5rem;">561b</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WES duo, regular</td><td style="padding: 0.5rem;">561e</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WES trio, regular</td><td style="padding: 0.5rem;">561a</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WES proband, expedited</td><td style="padding: 0.5rem;">896b</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WES duo, expedited</td><td style="padding: 0.5rem;">896e</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WES trio, expedited</td><td style="padding: 0.5rem;">896a</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WGS proband, regular</td><td style="padding: 0.5rem;">J774b</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WGS duo, regular</td><td style="padding: 0.5rem;">J774e</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WGS trio, regular</td><td style="padding: 0.5rem;">J774a</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WGS proband, expedited</td><td style="padding: 0.5rem;">TH78b</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WGS duo, expedited</td><td style="padding: 0.5rem;">TH78e</td></tr>
+                <tr><td style="padding: 0.5rem;">GeneDx</td><td style="padding: 0.5rem;">WGS trio, expedited</td><td style="padding: 0.5rem;">TH78a</td></tr>
+                <tr><td style="padding: 0.5rem;">Labcorp</td><td style="padding: 0.5rem;">WES proband, for both regular and expedited</td><td style="padding: 0.5rem;">620024</td></tr>
+                <tr><td style="padding: 0.5rem;">Labcorp</td><td style="padding: 0.5rem;">WES duo, for both regular and expedited</td><td style="padding: 0.5rem;">620023</td></tr>
+                <tr><td style="padding: 0.5rem;">Labcorp</td><td style="padding: 0.5rem;">WES trio, for both regular and expedited</td><td style="padding: 0.5rem;">620022</td></tr>
+                <tr><td style="padding: 0.5rem;">Labcorp</td><td style="padding: 0.5rem;">WGS proband, regular</td><td style="padding: 0.5rem;">WGS003</td></tr>
+                <tr><td style="padding: 0.5rem;">Labcorp</td><td style="padding: 0.5rem;">WGS duo, regular</td><td style="padding: 0.5rem;">WGS008</td></tr>
+                <tr><td style="padding: 0.5rem;">Labcorp</td><td style="padding: 0.5rem;">WGS trio, regular</td><td style="padding: 0.5rem;">WES001</td></tr>
+                <tr><td style="padding: 0.5rem;">Labcorp</td><td style="padding: 0.5rem;">WGS proband, expedited</td><td style="padding: 0.5rem;">WGS003X</td></tr>
+                <tr><td style="padding: 0.5rem;">Labcorp</td><td style="padding: 0.5rem;">WGS duo, expedited</td><td style="padding: 0.5rem;">WES008X</td></tr>
+                <tr><td style="padding: 0.5rem;">Labcorp</td><td style="padding: 0.5rem;">WGS trio, expedited</td><td style="padding: 0.5rem;">WES001X</td></tr>
+                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WES proband, for both regular and expedited</td><td style="padding: 0.5rem;">80001</td></tr>
+                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WES duo, for both regular and expedited</td><td style="padding: 0.5rem;">80002</td></tr>
+                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WES trio, for both regular and expedited</td><td style="padding: 0.5rem;">80003</td></tr>
+                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS proband</td><td style="padding: 0.5rem;">INV4001</td></tr>
+                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS duo, regular</td><td style="padding: 0.5rem;">INV4002</td></tr>
+                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS trio, regular</td><td style="padding: 0.5rem;">INV4003</td></tr>
+                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS proband, expedited</td><td style="padding: 0.5rem;">INV4001X</td></tr>
+                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS duo, expedited</td><td style="padding: 0.5rem;">INV4002X</td></tr>
+                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS trio, expedited</td><td style="padding: 0.5rem;">INV4003X</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES proband</td><td style="padding: 0.5rem;">QD7201</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES duo</td><td style="padding: 0.5rem;">QD7202</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES trio</td><td style="padding: 0.5rem;">QD7203</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES proband, expedited</td><td style="padding: 0.5rem;">QD7201X</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES duo, expedited</td><td style="padding: 0.5rem;">QD7202X</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES trio, expedited</td><td style="padding: 0.5rem;">QD7203X</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS proband, regular</td><td style="padding: 0.5rem;">QD8201</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS duo, regular</td><td style="padding: 0.5rem;">QD8202</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS trio, regular</td><td style="padding: 0.5rem;">QD8203</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS proband, expedited</td><td style="padding: 0.5rem;">QD8201X</td></tr>
+                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS duo, expedited</td><td style="padding: 0.5rem;">QD8202X</td></tr>
+              <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS trio, expedited</td><td style="padding: 0.5rem;">QD8203X</td></tr>
+              </tbody>
+              </table>
+              <div style="margin-top: 1rem; text-align: right;">
+                <button type="button" class="secondary" id="close-modal-btn">Close</button>
+              </div>
+              </div>
+            </div>
           </div>
           <div class="actions">
             <button type="button" class="secondary" data-prev="1">Back</button>
@@ -200,7 +270,7 @@
         <section class="form-step">
           <h2>Diagnoses & Clinical Information</h2>
           <!-- add a subtitle insturction to fill in relevant clinical and fx indication for required test -->
-          <p>Fill in relevant clinical and family history indications for the required test.</p>
+          <p>Fill in relevant clinical indications for the required test.</p>
           <div class="grid">
             <div class="col-12">
               <label>ICD-10 Codes</label>
@@ -210,12 +280,61 @@
               </div>
             </div>
             <div class="col-12">
-              <label for="primary_diagnosis">Primary Diagnosis Description</label>
-              <input id="primary_diagnosis" name="primary_diagnosis" />
-            </div>
-            <div class="col-12">
-              <label for="clinical_indication">Clinical Indication / Summary</label>
-              <textarea id="clinical_indication" name="clinical_indication" rows="4" placeholder="Brief clinical summary"></textarea>
+              <label>Rationale for Testing</label>
+              <div>
+                <p>The patient's clinical presentation is strongly suggestive of an underlying genetic disorder (select applicable features):</p>
+                <div class="checkbox-group" style="margin-top:0.5rem;">
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="genetic_disorder" name="genetic_disorder" value="genetic_disorder" />
+                    <label for="genetic_disorder">The patient's clinical presentation is strongly suggestive of an underlying genetic disorder (select applicable features):</label>
+                  </div>
+                  <div style="margin-left: 1.5rem;">
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="mca" name="mca" value="congenital_anomalies" />
+                      <label for="mca">Multiple congenital anomalies</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="dd_or_id" name="dd_or_id" value="developmental_delay" />
+                      <label for="dd_or_id">Global developmental delay or intellectual disabilities</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="dysmorphic" name="dysmorphic" value="dysmorphic_features" />
+                      <label for="dysmorphic">Dysmorphic features or physical findings suggestive of syndromic diagnosis</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="neurological" name="neurological" value="neurological_symptoms" />
+                      <label for="neurological">Unexplained neurological symptoms (e.g., epilepsy, movement disorder, dystonia, ataxia)</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="metabolic" name="metabolic" value="metabolic" />
+                      <label for="metabolic">Unexplained metabolic phenotype (e.g., lactic acidosis, hypoglycemia, metabolic decompensation)</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="autism" name="autism" value="autism_disorder" />
+                      <label for="autism">Autism spectrum disorder with additional red-flag features (e.g., seizures, dysmorphism, regression)</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="early_onset" name="early_onset" value="early_onset" />
+                      <label for="early_onset">Early-onset, progressive, or multisystem disease</label>
+                    </div>
+                  </div>
+                  <div class="checkbox-item" style="margin-top:0.5rem;">
+                    <input type="checkbox" id="prior_test_negative" name="prior_test_negative" value="prior_testing" />
+                    <label for="prior_test_negative">Previous testing (CMA, gene-panel, or single gene) did not yield a diagnosis, and WES/WGS is the most appropriate next step</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="family_history" name="family_history" value="family_history" />
+                    <label for="family_history">Family history is significant for conditions suggesting a genetic disorder, or pedigree information raises suspicion for heritable etiology</label>
+                  </div>
+                  <div class="checkbox-item" style="margin-top:0.5rem;">
+                    <input type="checkbox" id="rationale_other" name="rationale_other" value="other" />
+                    <label for="rationale_other">Other</label>
+                  </div>
+                </div>
+                  <textarea id="other_details" name="other_details" rows="3" placeholder="Please provide more details" style="width:100%;"></textarea>
+                </div>
+              </div>
+              </div>
             </div>
           </div>
           <div class="actions">
@@ -224,9 +343,9 @@
           </div>
         </section>
 
-        <!-- Step 5: Prior Testing & Family History -->
+        <!-- Step 5: Prior Testing -->
         <section class="form-step">
-          <h2>Prior Testing & Family History</h2>
+          <h2>Prior Testing</h2>
           <div class="grid">
             <div class="col-12">
               <label>Prior Genetic Testing</label>
@@ -234,10 +353,6 @@
               <div class="actions">
                 <button type="button" class="secondary" id="add-prior-test">Add Prior Test</button>
               </div>
-            </div>
-            <div class="col-12">
-              <label for="family_history">Family History</label>
-              <textarea id="family_history" name="family_history" rows="3" placeholder="Affected relatives, consanguinity, etc."></textarea>
             </div>
           </div>
           <div class="actions">

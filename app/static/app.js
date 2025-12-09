@@ -174,14 +174,25 @@
   }
 
   nextBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const idx = parseInt(btn.dataset.next, 10);
-      if (!validateStep(current)) {
-        // validateStep() already calls showError() with specific messages
-        return;
+    btn.addEventListener('click', (e) => {
+      const currentStep = steps.find((step) => step.classList.contains('active'));
+      const internalTestCodeInput = document.querySelector('#internal_test_code');
+      const internalTestCodeError = document.querySelector('#internal_test_code_error');
+
+      if (currentStep && currentStep.contains(internalTestCodeInput)) {
+        if (!internalTestCodeInput.value.trim()) {
+          internalTestCodeError.style.display = 'block';
+          return;
+        } else {
+          internalTestCodeError.style.display = 'none';
+        }
       }
-      clearError();
-      showStep(idx);
+
+      const nextStepIndex = steps.indexOf(currentStep) + 1;
+      if (nextStepIndex < steps.length) {
+        currentStep.classList.remove('active');
+        steps[nextStepIndex].classList.add('active');
+      }
     });
   });
 

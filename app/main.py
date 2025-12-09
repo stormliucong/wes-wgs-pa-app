@@ -31,7 +31,7 @@ def index():
 def submit():
     """Accept form submission and store as a JSON file after validation."""
     # Prefer JSON payload; fall back to form-encoded
-    payload = request.get_json(silent=True) or request.form.to_dict(flat=True)
+    payload = request.get_json(silent=True) or request.form.to_dict()
 
     # Normalize types (lists, booleans, etc.)
     payload = normalize_payload(payload)
