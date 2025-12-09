@@ -115,7 +115,7 @@
     const allInputs = stepEl.querySelectorAll('input, select, textarea');
     let ok = true;
     let errorMessages = [];
-    
+
     // Check required fields
     required.forEach((el) => {
       if (el.type === 'checkbox') {
@@ -130,7 +130,7 @@
         errorMessages.push(`${fieldLabel} is required`);
       }
     });
-    
+
     // Special validation for ICD codes - at least one non-empty ICD code is required
     if (stepEl.querySelector('#icd-list')) {
       const icdInputs = stepEl.querySelectorAll('input[name="icd_codes"]');
@@ -140,7 +140,7 @@
         errorMessages.push('At least one ICD code is required');
       }
     }
-    
+
     // Additional format validation for all fields (not just required ones)
     allInputs.forEach((el) => {
       const value = el.value?.trim();
@@ -149,50 +149,33 @@
           if (!/^\d{10}$/.test(value)) {
             ok = false;
             const fieldLabel = getHumanReadableLabel(el.name, el);
-            errorMessages.push(`${fieldLabel} must be exactly 10 digits (numbers only, no spaces or dashes)`);
-          }
-        }
-        // Phone and fax validation - accept formats like (555) 555-5555, 555-555-5555, 555.555.5555, or 5555555555
-        if (el.name === 'provider_phone' || el.name === 'provider_fax') {
-          // Remove all non-digit characters and check if we have exactly 10 digits
-          const digitsOnly = value.replace(/\D/g, '');
-          if (!/^\d{10}$/.test(digitsOnly)) {
-            ok = false;
-            const fieldLabel = getHumanReadableLabel(el.name, el);
-            errorMessages.push(`${fieldLabel} must be a valid 10-digit phone number`);
+            errorMessages.push(`${fieldLabel} must be exactly 10 digits`);
           }
         }
       }
     });
-    
-    // Show specific error messages if validation fails
-    if (!ok && errorMessages.length > 0) {
-      showError(errorMessages.join('. '));
+
+    // Display error messages
+    if (errorsBox) {
+      if (errorMessages.length > 0) {
+        errorsBox.innerHTML = errorMessages.map(msg => `<p>${msg}</p>`).join('');
+        errorsBox.style.display = 'block';
+      } else {
+        errorsBox.style.display = 'none';
+      }
     }
-    
+
     return ok;
   }
 
   nextBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      const currentStep = steps.find((step) => step.classList.contains('active'));
-      const internalTestCodeInput = document.querySelector('#internal_test_code');
-      const internalTestCodeError = document.querySelector('#internal_test_code_error');
-
-      if (currentStep && currentStep.contains(internalTestCodeInput)) {
-        if (!internalTestCodeInput.value.trim()) {
-          internalTestCodeError.style.display = 'block';
-          return;
-        } else {
-          internalTestCodeError.style.display = 'none';
-        }
+      const stepIndex = steps.indexOf(btn.closest('.form-step'));
+      if (!validateStep(stepIndex)) {
+        e.preventDefault();
+        return;
       }
-
-      const nextStepIndex = steps.indexOf(currentStep) + 1;
-      if (nextStepIndex < steps.length) {
-        currentStep.classList.remove('active');
-        steps[nextStepIndex].classList.add('active');
-      }
+      showStep(stepIndex + 1);
     });
   });
 
