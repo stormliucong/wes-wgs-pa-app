@@ -75,7 +75,12 @@
 
   let current = 0;
   function showStep(i) {
-    steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    console.log(`Switching to step index: ${i}`);
+    steps.forEach((s, idx) => {
+      const isActive = idx === i;
+      s.classList.toggle('active', isActive);
+      console.log(`Step ${idx} is ${isActive ? 'active' : 'inactive'}`);
+    });
     current = i;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -141,6 +146,16 @@
       }
     }
 
+    // Special validation for rationale checkboxes - at least one must be selected
+    if (stepEl.querySelector('.checkbox-group')) {
+      const rationaleCheckboxes = stepEl.querySelectorAll('.checkbox-group input[type="checkbox"]');
+      const hasSelectedRationale = Array.from(rationaleCheckboxes).some(checkbox => checkbox.checked);
+      if (!hasSelectedRationale) {
+        ok = false;
+        errorMessages.push('At least one rationale checkbox must be selected');
+      }
+    }
+
     // Additional format validation for all fields (not just required ones)
     allInputs.forEach((el) => {
       const value = el.value?.trim();
@@ -173,6 +188,8 @@
       const stepIndex = steps.indexOf(btn.closest('.form-step'));
       if (!validateStep(stepIndex)) {
         e.preventDefault();
+        // Ensure error messages are displayed immediately
+        errorsBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
       showStep(stepIndex + 1);
