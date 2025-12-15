@@ -46,7 +46,7 @@
             </div>
             <div class="col-4">
               <label for="member_id">Medicaid/Member ID</label>
-              <input id="member_id" name="member_id" placeholder="1234567890" />
+              <input id="member_id" name="member_id" placeholder="1234567890" required />
             </div>
             <div class="col-12">
               <label for="patient_address">Patient Address</label>
@@ -176,6 +176,10 @@
                   <label for="cpt_81416">81416</label>
                 </div>
                 <div class="cpt-item">
+                  <input type="checkbox" id="cpt_81417" name="cpt_codes" value="81417" />
+                  <label for="cpt_81417">81417</label>
+                </div>
+                <div class="cpt-item">
                   <input type="checkbox" id="cpt_81425" name="cpt_codes" value="81425" />
                   <label for="cpt_81425">81425</label>
                 </div>
@@ -234,24 +238,6 @@
                 <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WES proband, for both regular and expedited</td><td style="padding: 0.5rem;">80001</td></tr>
                 <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WES duo, for both regular and expedited</td><td style="padding: 0.5rem;">80002</td></tr>
                 <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WES trio, for both regular and expedited</td><td style="padding: 0.5rem;">80003</td></tr>
-                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS proband</td><td style="padding: 0.5rem;">INV4001</td></tr>
-                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS duo, regular</td><td style="padding: 0.5rem;">INV4002</td></tr>
-                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS trio, regular</td><td style="padding: 0.5rem;">INV4003</td></tr>
-                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS proband, expedited</td><td style="padding: 0.5rem;">INV4001X</td></tr>
-                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS duo, expedited</td><td style="padding: 0.5rem;">INV4002X</td></tr>
-                <tr><td style="padding: 0.5rem;">Invitae</td><td style="padding: 0.5rem;">WGS trio, expedited</td><td style="padding: 0.5rem;">INV4003X</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES proband</td><td style="padding: 0.5rem;">QD7201</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES duo</td><td style="padding: 0.5rem;">QD7202</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES trio</td><td style="padding: 0.5rem;">QD7203</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES proband, expedited</td><td style="padding: 0.5rem;">QD7201X</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES duo, expedited</td><td style="padding: 0.5rem;">QD7202X</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WES trio, expedited</td><td style="padding: 0.5rem;">QD7203X</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS proband, regular</td><td style="padding: 0.5rem;">QD8201</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS duo, regular</td><td style="padding: 0.5rem;">QD8202</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS trio, regular</td><td style="padding: 0.5rem;">QD8203</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS proband, expedited</td><td style="padding: 0.5rem;">QD8201X</td></tr>
-                <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS duo, expedited</td><td style="padding: 0.5rem;">QD8202X</td></tr>
-              <tr><td style="padding: 0.5rem;">Quest Diagnostics</td><td style="padding: 0.5rem;">WGS trio, expedited</td><td style="padding: 0.5rem;">QD8203X</td></tr>
               </tbody>
               </table>
               <div style="margin-top: 1rem; text-align: right;">
@@ -330,13 +316,12 @@
                     <input type="checkbox" id="rationale_other" name="rationale_other" value="other" />
                     <label for="rationale_other">Other</label>
                   </div>
-                </div>
                   <textarea id="other_details" name="other_details" rows="3" placeholder="Please provide more details" style="width:100%;"></textarea>
                 </div>
               </div>
-              </div>
             </div>
           </div>
+          
           <div class="actions">
             <button type="button" class="secondary" data-prev="2">Back</button>
             <button type="button" data-next="4">Next</button>

@@ -8,6 +8,11 @@
   const alertBox = document.querySelector('#alert-box');
   const errorsBox = document.querySelector('#form-errors');
 
+  // Lab code modal controls
+  const searchLabCodeBtn = document.querySelector('#search-test-code-btn');
+  const labCodesModal = document.querySelector('#lab-codes-modal');
+  const closeModalBtn = document.querySelector('#close-modal-btn');
+
   // Dynamic lists containers
   const icdList = document.querySelector('#icd-list');
   const addIcdBtn = document.querySelector('#add-icd');
@@ -71,6 +76,18 @@
   }
   if (addPriorTestBtn) {
     addPriorTestBtn.addEventListener('click', () => priorTestsList.appendChild(createPriorTestRow()));
+  }
+
+  // Wire up lab code modal
+  if (searchLabCodeBtn && labCodesModal) {
+    searchLabCodeBtn.addEventListener('click', () => {
+      labCodesModal.style.display = 'block';
+    });
+  }
+  if (closeModalBtn && labCodesModal) {
+    closeModalBtn.addEventListener('click', () => {
+      labCodesModal.style.display = 'none';
+    });
   }
 
   let current = 0;
