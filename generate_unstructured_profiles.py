@@ -17,19 +17,60 @@ openai.api_key = "sk-proj-dfk9kli0F-FywE_PKSf_FtGuGc0BTKlF_1QGu0lURxMo8ooQmMcodf
 def generate_text(structured_profile: Dict) -> str:
     """Call the LLM using the existing prompt and include the structured profile for context."""
     prompt = (
-        "The input dictionary represents a structured patient profile. Generate a realistic clinical note based on the following fields: "
-        "relevant_clinical_features, irrelevant_clinical_features, icd_codes, relevant_family_history, irrelevant_family_history, and prior_testing. "
-        "Please follow the instructions below. \n"
-        "1) Write clinical indications and describe all clinical features (both relevant and irrelevant) marked true with details by referring to the ICD codes, "
-        "but do not explicitly cite the ICD codes or specify whether the features are relevant or irrelevant. Also, do NOT make any conclusive statements such as, "
-        "the patient has been evaluated to demonstrate multiple congenital anomalies, developmental delay or intellectual disabilities, and neurological symptoms. \n"
-        "2) If any fields under relevant_clinical_features or irrelevant_clinical_features are marked false, completely ignore them and do NOT explicitly mention that the patient does not have these conditions. \n"
-        "3) If the fields under relevant_family_history are marked true, generate records for affected relatives or consanguinity with details rather than a generic statement."
-        "If irrelevant_family_history is marked true, generate records for affected relatives with diseases that are completely irrelevant to the patient's relevant_clinical_features. "
-        "In case where both relevant and irrelevant family history are marked, mix them together without specifying if they are relevant or irrelevant. \n"
-        "4) If all fields under relevant_family_history and irrelevant_family_history are marked False, leave a statement indicating no significant family history reported."
-        "5) Do not mention about the WES/WGS or justify the need for testing. \n"
-        "Return one text paragraph including everything and make sure that it reads like a realistic clinical note from EHR."
+        "The input dictionary represents a structured patient profile. "
+        "Generate a realistic clinical note based on the following fields: "
+        "relevant_clinical_features, irrelevant_clinical_features, icd_codes, "
+        "relevant_family_history, irrelevant_family_history, and prior_testing.\n\n"
+        
+        "Please follow the instructions below:\n\n"
+        
+        "1) Write clinical indications and describe all clinical features "
+        "(both relevant and irrelevant) marked true with details by referring to the ICD codes, "
+        "but do not explicitly cite the ICD codes or specify whether the features are relevant or irrelevant. "
+        "Also, do NOT make any conclusive statements such as, "
+        "\"the patient has been evaluated to demonstrate multiple congenital anomalies, "
+        "developmental delay or intellectual disabilities, and neurological symptoms.\"\n\n"
+        
+        "2) If any fields under relevant_clinical_features or irrelevant_clinical_features are marked false, "
+        "completely ignore them and do NOT explicitly mention that the patient does not have these conditions "
+        "(or, just do not mention at all).\n\n"
+        
+        "3) If the fields under relevant_family_history are marked true, "
+        "generate records for affected relatives or consanguinity with details rather than a generic statement. "
+        "If irrelevant_family_history is marked true, "
+        "generate records for affected relatives with diseases that are completely irrelevant "
+        "to the patient's relevant_clinical_features. "
+        "In case where both relevant and irrelevant family history are marked, "
+        "mix them together without specifying if they are relevant or irrelevant.\n\n"
+        
+        "4) If all fields under relevant_family_history and irrelevant_family_history are marked False, "
+        "leave a statement indicating no significant family history reported.\n\n"
+        
+        "5) Do not mention about the WES/WGS or justify the need for testing.\n\n"
+        
+        "Return one text paragraph including everything and make sure that it reads like "
+        "a realistic clinical note from EHR.\n\n"
+        
+        "Example: Suppose in a structured patient profile, "
+        "ONLY the multiple_congenital_anomalies, global_developmental_delay_or_ID, and unexplained_neurological_symptoms under"
+        "relevant_clinical_history are marked True (i.e., all fields under irrelevant_clinical_features, relevant_family_history "
+        "and irrelevant_family_history are marked False), "
+        "and prior test includes a single-gene test with a negative result. "
+        "The clinical note is written as:\n\n"
+        
+        "\"The patient has abnormal skull and facial shape noted since infancy, "
+        "with persistent craniofacial asymmetry and atypical head contour on physical examination, "
+        "raising concern for an underlying disorder of cranial or skeletal development. "
+        "The patient also has a history of significant delays across multiple domains; "
+        "he walked and talked later than expected and currently demonstrates moderate limitations "
+        "in intellectual functioning and adaptive skills. "
+        "Additionally, he has a diagnosis of focal epilepsy with impairment of consciousness "
+        "and intractable seizures, with episodes characterized by focal onset progressing to "
+        "bilateral tonic-clonic activity and prolonged postictal confusion, "
+        "despite treatment with multiple antiseizure medications. "
+        "No significant family history is reported, and there is no known parental consanguinity. "
+        "Prior genetic evaluation includes a single-gene test which was negative "
+        "and did not identify a molecular diagnosis.\""
     )
 
     try:
@@ -40,7 +81,7 @@ def generate_text(structured_profile: Dict) -> str:
             {"role": "user", "content": prompt},
             {"role": "user", "content": f"Structured profile:\n{json.dumps(structured_profile, ensure_ascii=False)}"},
             ],
-            max_completion_tokens=300,
+            max_completion_tokens=200,
             temperature=0.7,
         )
         content = response.choices[0].message.content or ""

@@ -22,10 +22,11 @@ def generate_structured_profile(groundtruth: Dict) -> Dict:
             "early_onset_or_multisystem_disease": False     
         },
         "irrelevant_clinical_features":{
-            "chest_pain": False,
-            "shortness_of_breath":False,
-            "paralysis":False,
-            "headache":False
+            "burn": False,
+            "poisoning":False,
+            "sprain":False,
+            "concussion":False,
+            "laceration":False
         },
         "icd_codes": groundtruth.get("icd_codes", []),
         "relevant_family_history": {
@@ -53,15 +54,15 @@ def generate_structured_profile(groundtruth: Dict) -> Dict:
     if groundtruth.get("autism"):
         clinical_profile["relevant_clinical_features"]["autism_with_red_flags"] = True
         clinical_profile['relevant_family_history']["affected_relatives"] = True
-        clinical_profile['relevant_family_history']["consanguinity"] = random.choice([True, False])
-        
+        clinical_profile['relevant_family_history']["consanguinity"] = random.choice([True, False])        
 
     if sample in ("3a", "3b"):
         irrelevant_icd = {
-            "R07.2": "chest_pain",
-            "R06.02": "shortness_of_breath",
-            "G81.91": "paralysis",
-            "R51.9": "headache"
+            "T20.00XA": "burn",
+            "T36.0X1A": "poisoning",
+            "S93.401A": "sprain",
+            "S06.0X0A": "concussion",
+            "S01.01XA": "laceration"
         }   
         for icd_code, feature in irrelevant_icd.items():
             if icd_code in clinical_profile["icd_codes"]:

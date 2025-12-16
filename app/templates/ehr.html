@@ -303,9 +303,8 @@
                   <span class="detail-label">Clinical Information</span>
                   <div class="detail-value">
                     ICD Codes: ${formatArray(patient.icd_codes)}<br>
-                    Rationale for Testing:<br>
-                    ${patient.rationale && patient.rationale.length > 0 ? patient.rationale.map(escapeHtml).join('<br>') : 'N/A'}<br>
-                    Family History: ${escapeHtml(patient.family_history || 'N/A')}
+                    Clinical Note:<br>
+                    ${escapeHtml(patient.clinical_note || 'N/A')}
                     ${priorTestingBlock}
                   </div>
                 </div>
@@ -334,18 +333,16 @@
       }
 
       function formatPriorTesting(patient) {
+        const pt = patient && typeof patient.prior_testing === 'object' ? patient.prior_testing : null;
+        if (!pt) return '';
         const rows = [
-          { label: 'Prior Test', value: patient.prior_test },
-          { label: 'Prior Test Date', value: patient.prior_test_date },
-          { label: 'Prior Test Result', value: patient.prior_test_result },
+          { label: 'Prior Test', value: pt.test_type },
+          { label: 'Prior Test Date', value: pt.test_date },
+          { label: 'Prior Test Result', value: pt.test_result },
         ].filter(({ value }) => typeof value === 'string' ? value.trim() !== '' : Boolean(value))
          .map(({ label, value }) => `${label}: ${escapeHtml(value || '')}`);
 
-        if (!rows.length) {
-          return '';
-        }
-
-        return `<br>${rows.join('<br>')}`;
+        return rows.length ? `<br>${rows.join('<br>')}` : '';
       }
     })();
   </script>

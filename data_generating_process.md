@@ -66,8 +66,6 @@ We predefine two different checkbox answers for rationale of testing section:
     ***rationale = 2: Autism with red flags + relevant family history***
 The rationale is randomly selected and relevant clinical features will be assigned to the initialized profile (E.g., if rationale = 2, 'autism' & 'family_history' fields of the profile will be set to True). Functions are defined for each subsample category (line 275 ~ 390), and the initialized profile is updated according to the subsample (for more details, see line 392 ~ 456).
 
-The 
-
 
 ## Stage 2: Structured Profile Generation (generate_structured_profiles.py)
 

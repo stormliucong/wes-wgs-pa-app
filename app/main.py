@@ -339,7 +339,8 @@ def api_search_patients():
             try:
                 with open(json_file, 'r') as f:
                     submission = json.load(f)
-                    patient = submission.get("data", {})
+                    # Stored structure uses key 'payload'
+                    patient = submission.get("payload", {}) or submission.get("data", {})
                     
                     # Search in key patient fields
                     searchable_text = " ".join([
@@ -357,6 +358,30 @@ def api_search_patients():
                         results.append(patient)
             except (json.JSONDecodeError, FileNotFoundError):
                 continue
+
+    # Search unstructured profiles JSON (generated synthetic EHR-like data)
+    unstructured_file = Path(__file__).resolve().parent.parent / "unstructured_profiles.json"
+    if unstructured_file.exists():
+        try:
+            with open(unstructured_file, 'r', encoding='utf-8') as f:
+                unstructured = json.load(f)
+                if isinstance(unstructured, list):
+                    for patient in unstructured:
+                        if not isinstance(patient, dict):
+                            continue
+                        searchable_text = " ".join([
+                            patient.get("patient_first_name", ""),
+                            patient.get("patient_last_name", ""),
+                            patient.get("member_id", ""),
+                            patient.get("dob", ""),
+                            patient.get("provider_name", "")
+                        ]).lower()
+                        if query in searchable_text:
+                            p = dict(patient)
+                            p["_source"] = "unstructured"
+                            results.append(p)
+        except (json.JSONDecodeError, OSError):
+            pass
     
     # Sort results by relevance (exact matches first, then partial)
     def sort_key(patient):

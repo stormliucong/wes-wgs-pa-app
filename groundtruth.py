@@ -93,8 +93,37 @@ class GroundtruthGenerator:
             ('WGS', 'Proband'): ['81425'],
             ('WGS', 'Trio'): ['81425', '81426'],
         }
+
+        self.lab_test_code_map = {
+            "GeneDx":{
+                "WES":{
+                    "Regular":{"Proband":"561b", "Duo": "561e", "Trio":"561a"},
+                    "Expedited":{"Proband":"896b", "Duo":"896e", "Trio":"896a"}
+                },
+                "WGS":{
+                    "Regular":{"Proband":"J744b", "Duo": "J744e", "Trio":"J744a"},
+                    "Expedited":{"Proband":"TH78b", "Duo":"TH78e", "Trio":"TH78a"}
+                }
+            },
+            "Invitae":{
+                "WES":{
+                    "Regular":{"Proband":"80001", "Duo": "80002", "Trio":"80003"},
+                    "Expedited":{"Proband":"80001", "Duo":"80002", "Trio":"80003"}   
+                }
+            },
+            "LabCorp":{
+                "WES":{
+                    "Regular":{"Proband":"620024", "Duo": "620023", "Trio":"620022"},
+                    "Expedited":{"Proband":"620024", "Duo":"620024", "Trio":"620024"}
+                },
+                "WGS":{
+                    "Regular":{"Proband":"WGS003", "Duo": "WGS008", "Trio":"WGS001"},
+                    "Expedited":{"Proband":"WGS003X", "Duo":"WGS008X", "Trio":"WGS001X"}
+                }
+            }
+        }
         
-        self.urgency_levels = ['Routine', 'Expedited']
+        self.urgency_levels = ['Regular', 'Expedited']
         
         self.specimen_types = ['Blood', 'Saliva', 'Buccal', 'Other']
         
@@ -360,17 +389,20 @@ class GroundtruthGenerator:
         c) Insert irrelevant family history  
         """
         irrelevant_icd_code_mapping = {
-            "chest_pain": {
-                "R07.2": "Precordial pain",           
+            "burn": {
+                "T20.00XA": "Burn of unspecified degree of head, face, and neck, unspecified site, initial encounter",           
             },
-            "shortness_of_breath": {
-                "R06.02": "Shortness of breath (dyspnea)",
+            "poisoning": {
+                "T36.0X1A": "Poisoning by penicillins, accidental (unintentional), initial encounter",
             },
-            "paralysis": {
-                "G81.91": "Hemiplegia, unspecified affecting right dominant side",  # Example paralytic symptom code :contentReference[oaicite:8]{index=8}
+            "sprain": {
+                "S93.401A": "Sprain of unspecified ligament of right ankle, initial encounter",
             },
-            "headache": {
-                "R51.9": "Headache, unspecified"
+            "concussion": {
+                "S06.0X0A": "Concussion without loss of consciousness, initial encounter"
+            },
+            "laceration": {
+                "S01.01XA": "Laceration without foreign body of scalp, initial encounter",
             }
         }
 
@@ -394,11 +426,21 @@ class GroundtruthGenerator:
         first_name = random.choice(self.first_names.get(sex, self.first_names['Male']))
         last_name = random.choice(self.last_names)   
         is_self_subscriber = random.choice([True, True, True, False, False]) # 60% chance self
+        
+        # Assign lab and internal test code based on test_info
+        lab_name = random.choice(['LabCorp', 'GeneDx', 'Invitae'])
+        test_info = self.generate_testing_info()
+        test_type = test_info['test_type']
+        urgency = test_info['urgency']
+        config = test_info['test_configuration']
+        
+        # Get internal test code from lab_test_code_map
+        internal_test_code = self.lab_test_code_map.get(lab_name, {}).get(test_type, {}).get(urgency, {}).get(config, "")
+
         rationale = random.choice([1, 2])  # 1 = MCA + DD/ID + Neuro + Prior; 2 = Autism + Red flags + Family history
         # Force rationale 1 for sample 2d so prior testing exists (needed to set an earlier collection date)
         if sample_label == "2d":
             rationale = 1
-        test_info = self.generate_testing_info()
 
         profile = {
             'sample_type': sample_label,
@@ -415,25 +457,25 @@ class GroundtruthGenerator:
             'provider_phone': self.generate_phone(),
             'provider_fax': self.generate_phone(),
             'provider_address': self.generate_address(),         
-            'lab_name': random.choice(['LabCorp', 'Quest Diagnostics', 'GeneDx', 'Invitae', '']),
+            'lab_name': lab_name,
             'lab_npi': self.generate_npi() if random.choice([True, False]) else '',
             'lab_address': self.generate_address() if random.choice([True, False]) else '',
-            'test_type': test_info['test_type'],
-            'test_configuration': test_info['test_configuration'],
+            'test_type': test_type,
+            'test_configuration': config,
             'cpt_codes': test_info['cpt_codes'],
-            'urgency': test_info['urgency'],
+            'urgency': urgency,
             'specimen_type': test_info['specimen_type'],
             'collection_date': self.generate_recent_date(),
-            'internal_test_code':"",
-            'mca':"",
-            'dd_id':"",
-            'dysmorphic':"",
-            'neurological':"",
-            'metabolic':"",
-            'autism':"",
-            'early_onset':"",
-            'previous_test_negative':"",
-            'family_history':"",
+            'internal_test_code':internal_test_code,
+            'mca': False,
+            'dd_id': False,
+            'dysmorphic': False,
+            'neurological': False,
+            'metabolic': False,
+            'autism': False,
+            'early_onset': False,
+            'previous_test_negative': False,
+            'family_history': False,
             'other_details':"",
             'mn_suspected_genetic': True,
             "mn_results_influence_management": True,
