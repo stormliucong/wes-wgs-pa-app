@@ -133,78 +133,74 @@ class GroundtruthGenerator:
          
         self.prior_tests = ['CMA', 'Gene panel', 'Single gene']  # empty string = no prior test documented
 
-        self.icd_code_mappings = {  
-        "MCA": {
-            "Q89.7": "Multiple congenital anomalies, not elsewhere classified",
-            "Q89.9": "Congenital malformation, unspecified",
-            "Q04.0": "Congenital malformations of corpus callosum",
-            "Q04.6": "Congenital cerebral cysts",
-            "Q04.9": "Unspecified congenital malformation of brain",
-            "Q21.0": "Ventricular septal defect",
-            "Q21.1": "Atrial septal defect",
-            "Q20.0": "Common arterial truncus",
-            "Q20.3": "Transposition of great vessels",
-            "Q61.4": "Renal hypoplasia",
-            "Q60.0": "Renal agenesis, unilateral",
-            "Q60.2": "Renal dysplasia",
-            "Q67.4": "Other congenital deformities of skull, face and jaw",
-            "Q78.9": "Osteochondrodysplasia, unspecified",
-            "Q66.89": "Other congenital deformities of feet"
-        },
+        self.icd_code_mappings = {
 
-        "DD or ID": {
-            "R62.50": "Unspecified lack of expected normal physiological development",
-            "R62.0": "Delayed milestone in childhood",
-            "F88": "Other disorders of psychological development",
-            "F70": "Mild intellectual disability",
-            "F71": "Moderate intellectual disability",
-            "F72": "Severe intellectual disability",
-            "F73": "Profound intellectual disability",
-            "F84.2": "Rett syndrome",
-        },
+            "MCA": {
+                "Q89.7": "Multiple congenital anomalies, not elsewhere classified",
+                "Q89.9": "Congenital malformation, unspecified",
+                "Q04.0": "Congenital malformations of corpus callosum",
+                "Q04.6": "Congenital cerebral cysts",
+                "Q04.9": "Unspecified congenital malformation of brain",
+                "Q21.0": "Ventricular septal defect",
+                "Q21.1": "Atrial septal defect",
+                "Q20.0": "Common arterial truncus",
+                "Q20.3": "Transposition of great vessels",
+                "Q61.4": "Renal hypoplasia",
+                "Q60.0": "Renal agenesis, unilateral",
+                "Q60.2": "Renal dysplasia",
+                "Q67.4": "Other congenital deformities of skull, face and jaw",
+                "Q78.9": "Osteochondrodysplasia, unspecified",
+                "Q66.89": "Other congenital deformities of feet"
+            },
 
-        "Neurological": {
-            "R56.9": "Unspecified convulsions",
-            "G40.919": "Epilepsy, unspecified, intractable",
-            "G40.311": "Generalized idiopathic epilepsy, intractable",
-            "G25.9": "Extrapyramidal and movement disorder, unspecified",
-            "G25.0": "Essential tremor",
-            "G25.3": "Myoclonus",
-            "G24.9": "Dystonia, unspecified",
-            "G24.0": "Drug-induced dystonia",
-            "G24.8": "Other dystonia",
-            "R27.0": "Ataxia, unspecified",
-            "G11.1": "Early-onset cerebellar ataxia",
-            "G11.4": "Hereditary spastic paraplegia",
-            "P94.2": "Congenital hypotonia",
-            "M62.81": "Muscle weakness (generalized)",
-            "G71.0": "Muscular dystrophy"
-        },
+            "DD or ID": {
+                "R62.50": "Unspecified lack of expected normal physiological development",
+                "R62.0": "Delayed milestone in childhood",
+                "F88": "Other disorders of psychological development",
+                "F70": "Mild intellectual disability",
+                "F71": "Moderate intellectual disability",
+                "F72": "Severe intellectual disability",
+                "F73": "Profound intellectual disability",
+                "F84.2": "Rett syndrome",
+            },
 
-        "Autsim": {
-            "F84.0": "Autistic disorder",
-            "F84.5": "Asperger's syndrome",
-            "F84.9": "Pervasive developmental disorder, unspecified",
-        },
+            "Neurological": {
+                "R56.9": "Unspecified convulsions",
+                "G40.919": "Epilepsy, unspecified, intractable",
+                "G40.311": "Generalized idiopathic epilepsy, intractable",
+                "G25.9": "Extrapyramidal and movement disorder, unspecified",
+                "G25.0": "Essential tremor",
+                "G25.3": "Myoclonus",
+                "G24.9": "Dystonia, unspecified",
+                "G24.0": "Drug-induced dystonia",
+                "G24.8": "Other dystonia",
+                "R27.0": "Ataxia, unspecified",
+                "G11.1": "Early-onset cerebellar ataxia",
+                "G11.4": "Hereditary spastic paraplegia",
+                "P94.2": "Congenital hypotonia",
+                "M62.81": "Muscle weakness (generalized)",
+                "G71.0": "Muscular dystrophy"
+            },
 
-        "Red flags":{
-            "F98.4": "Stereotyped movement disorders",
-            "F98.8": "Other specified behavioral and emotional disorders with onset usually occurring in childhood",
-            "F80.9": "Developmental disorder of speech and language, unspecified",
-            "F82": "Specific developmental disorder of motor function",
-            "R48.8": "Other symbolic dysfunctions (e.g., atypical social communication)",
-            "R63.3": "Feeding difficulties (often present with ASD regression)",
-            "R46.89": "Other symptoms and signs involving appearance and behavior",
-            "R41.840": "Attention and concentration deficit",
-            "R41.83": "Borderline intellectual functioning",
-        },
+            "Metabolic": {
+                'E70.0': 'Classical phenylketonuria',
+                'E71.0': 'Maple-syrup-urine disease',
+                'E72.11': 'Homocystinuria',
+                'E74.12': 'Hereditary fructose intolerance',
+                'E74.21': 'Galactosemia',
+                'E74.0': 'Glycogen storage disease',
+                'E78.01': 'Familial hypercholesterolemia',
+                'E78.6': 'Lipoprotein deficiency',
+                'E88.40': 'Disorder of mitochondrial metabolism, unspecified',
+                'E71.42': 'Primary carnitine deficiency'
+            },
 
-        "Family history":{
-            "Z84.81": "Family history of carrier of genetic disease",
-            "Z82.0": "Family history of epilepsy",
-            "Z81.8": "Family history of other mental and behavioral disorders"
+            "Family history":{
+                'Z83.49': 'Family history of other endocrine, nutritional and metabolic diseases (General)',
+                'Z84.81': 'Family history of carrier of genetic disease (Strong for recessive disorders)',
+                'Z83.1': 'Family history of endocrine/metabolic disease affecting immune mechanism',
+            }
         }
-    }
     
     def generate_address(self) -> str:
         """Generate a realistic Connecticut address (state may later be corrupted)."""
@@ -250,19 +246,17 @@ class GroundtruthGenerator:
     
     def generate_icd_codes(self, rationale) -> list:
         icd_codes = []
-        if rationale == 1: # MCA + DD + prior_test
+        if rationale == 1: # MCA + DD + neurologic symptoms + prior_test
             mca_icd = self.choose_icd("MCA")
             ddid_icd = self.choose_icd("DD or ID")
             neuro_icd = self.choose_icd("Neurological")
             icd_codes = [mca_icd, ddid_icd, neuro_icd]
        
-        elif rationale == 2: #autism + family history
-            autism_icd = self.choose_icd("Autsim")
-            redflag_icd = self.choose_icd("Red flags")
+        elif rationale == 2: # metabolic phenotypes + family history
+            metabolic_icd = self.choose_icd("Metabolic")
             fam_icd = self.choose_icd("Family history")
+            icd_codes = [metabolic_icd, fam_icd]
 
-            icd_codes = [autism_icd, redflag_icd, fam_icd]
-        
         return icd_codes
 
     def assign_prior_test_and_rationale(self, rationale: int, profile: Dict):
@@ -279,7 +273,7 @@ class GroundtruthGenerator:
             profile['previous_test_negative'] = True
         
         else:
-            profile['autism'] = True
+            profile['metabolic'] = True
             profile['family_history'] = True
 
     def generate_testing_info(self) -> Dict:
@@ -304,26 +298,26 @@ class GroundtruthGenerator:
     def _2a_assign_invalid_icd(self, profile: Dict[str, Any]) -> None:
         """Insert an invalid ICD code to the list"""
         invalid_icd_codes = [ 
-        "Q12.345",
-        "X99.9",
-        "M54.5A",
-        "F88.99",
-        "R62.501",
-        "G40.A01",
-        "Q04.99X",
-        "Z82.999",
-        "H91.A0",
-        "B25.123",
-        "K21.A9",
-        "P94.200",
-        "M79.Z91",
-        "T88.999A",
-        "E11.90X",
-        "L30.90Z",
-        "S10.1XXZ",
-        "J02.901",
-        "N39.000",
-        "R05.A9"
+            "Q12.345",
+            "X99.9",
+            "M54.5A",
+            "F88.99",
+            "R62.501",
+            "G40.A01",
+            "Q04.99X",
+            "Z82.999",
+            "H91.A0",
+            "B25.123",
+            "K21.A9",
+            "P94.200",
+            "M79.Z91",
+            "T88.999A",
+            "E11.90X",
+            "L30.90Z",
+            "S10.1XXZ",
+            "J02.901",
+            "N39.000",
+            "R05.A9"
         ]
         original_icd_codes = profile.get('icd_codes', [])
         # Insert a random invalid ICD code

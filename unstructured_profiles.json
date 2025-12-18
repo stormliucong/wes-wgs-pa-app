@@ -27,17 +27,36 @@
     "specimen_type": "Blood",
     "collection_date": "2025-11-21",
     "internal_test_code": "",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q66.89",
       "F73",
       "G71.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Gene panel",
       "test_date": "2025-02-11",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "1",
@@ -66,17 +85,36 @@
     "specimen_type": "Buccal",
     "collection_date": "2025-12-12",
     "internal_test_code": "J744b",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q20.3",
       "R62.0",
       "R56.9"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Single gene",
       "test_date": "2025-05-28",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "1",
@@ -106,17 +144,36 @@
     "specimen_type": "Blood",
     "collection_date": "2025-12-02",
     "internal_test_code": "WGS001",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.9",
       "R48.8",
       "Z81.8"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "1",
@@ -145,17 +202,36 @@
     "specimen_type": "Blood",
     "collection_date": "2025-12-14",
     "internal_test_code": "WGS003",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.0",
       "F80.9",
       "Z82.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "1",
@@ -184,17 +260,36 @@
     "specimen_type": "Buccal",
     "collection_date": "2025-11-25",
     "internal_test_code": "",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.5",
       "R46.89",
       "Z84.81"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2a",
@@ -224,18 +319,37 @@
     "specimen_type": "Blood",
     "collection_date": "2025-11-16",
     "internal_test_code": "TH78a",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q20.3",
       "F70",
       "P94.2",
       "P94.200"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Gene panel",
       "test_date": "2025-08-24",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2a",
@@ -265,18 +379,37 @@
     "specimen_type": "Blood",
     "collection_date": "2025-12-12",
     "internal_test_code": "80003",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.5",
       "R48.8",
       "Z84.81",
       "T88.999A"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2a",
@@ -306,18 +439,37 @@
     "specimen_type": "Other",
     "collection_date": "2025-11-24",
     "internal_test_code": "80003",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.0",
       "F80.9",
       "Z81.8",
       "E11.90X"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2a",
@@ -347,18 +499,37 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-12-13",
     "internal_test_code": "WGS001X",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q89.9",
       "F73",
       "G71.0",
       "H91.A0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "CMA",
       "test_date": "2025-03-14",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2a",
@@ -387,18 +558,37 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-11-29",
     "internal_test_code": "80001",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q67.4",
       "F72",
       "R56.9",
       "S10.1XXZ"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Single gene",
       "test_date": "2025-10-04",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2b",
@@ -427,17 +617,36 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-12-14",
     "internal_test_code": "WGS001X",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.0",
       "F98.8",
       "Z84.81"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2b",
@@ -466,17 +675,36 @@
     "specimen_type": "Blood",
     "collection_date": "2025-11-27",
     "internal_test_code": "",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.9",
       "F98.4",
       "Z81.8"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2b",
@@ -506,17 +734,36 @@
     "specimen_type": "Other",
     "collection_date": "2025-11-22",
     "internal_test_code": "620024",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q66.89",
       "F88",
       "M62.81"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Single gene",
       "test_date": "2025-03-08",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2b",
@@ -545,17 +792,36 @@
     "specimen_type": "Blood",
     "collection_date": "2025-12-15",
     "internal_test_code": "620022",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.5",
       "R41.840",
       "Z84.81"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2b",
@@ -585,17 +851,36 @@
     "specimen_type": "Buccal",
     "collection_date": "2025-11-28",
     "internal_test_code": "80001",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.9",
       "F98.8",
       "Z82.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2c",
@@ -624,17 +909,36 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-12-10",
     "internal_test_code": "80001",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.5",
       "R41.83",
       "Z84.81"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2c",
@@ -663,17 +967,36 @@
     "specimen_type": "Buccal",
     "collection_date": "2025-11-20",
     "internal_test_code": "",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q66.89",
       "F73",
       "G40.919"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Single gene",
       "test_date": "2025-05-19",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2c",
@@ -702,17 +1025,36 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-12-16",
     "internal_test_code": "",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q89.7",
       "F71",
       "G25.9"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Gene panel",
       "test_date": "2025-10-02",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2c",
@@ -742,17 +1084,36 @@
     "specimen_type": "Other",
     "collection_date": "2025-11-19",
     "internal_test_code": "TH78b",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.5",
       "R48.8",
       "Z81.8"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2c",
@@ -781,17 +1142,36 @@
     "specimen_type": "Buccal",
     "collection_date": "2025-11-24",
     "internal_test_code": "WGS003X",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.5",
       "R63.3",
       "Z81.8"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2d",
@@ -821,17 +1201,36 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-04-12",
     "internal_test_code": "",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q04.9",
       "R62.0",
       "M62.81"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Single gene",
       "test_date": "2025-04-13",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2d",
@@ -860,17 +1259,36 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-10-20",
     "internal_test_code": "620024",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q66.89",
       "F70",
       "G40.919"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Gene panel",
       "test_date": "2025-10-28",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2d",
@@ -899,17 +1317,36 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-08-21",
     "internal_test_code": "620024",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q04.6",
       "R62.50",
       "R27.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "CMA",
       "test_date": "2025-08-27",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2d",
@@ -939,17 +1376,36 @@
     "specimen_type": "Blood",
     "collection_date": "2025-08-25",
     "internal_test_code": "620024",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q21.1",
       "F73",
       "G71.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "CMA",
       "test_date": "2025-08-31",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2d",
@@ -978,17 +1434,36 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-02-26",
     "internal_test_code": "WGS003",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q20.3",
       "R62.0",
       "G71.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "CMA",
       "test_date": "2025-02-27",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2e",
@@ -1017,17 +1492,36 @@
     "specimen_type": "Saliva",
     "collection_date": "",
     "internal_test_code": "",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q21.1",
       "F72",
       "G71.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Single gene",
       "test_date": "2025-03-14",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2e",
@@ -1056,17 +1550,36 @@
     "specimen_type": "Other",
     "collection_date": "",
     "internal_test_code": "620024",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.0",
       "R63.3",
       "Z84.81"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2e",
@@ -1095,17 +1608,36 @@
     "specimen_type": "Saliva",
     "collection_date": "",
     "internal_test_code": "896b",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.5",
       "F80.9",
       "Z81.8"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2e",
@@ -1134,17 +1666,36 @@
     "specimen_type": "Saliva",
     "collection_date": "",
     "internal_test_code": "",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q21.1",
       "F72",
       "R27.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Gene panel",
       "test_date": "2025-08-22",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "2e",
@@ -1174,17 +1725,36 @@
     "specimen_type": "Buccal",
     "collection_date": "",
     "internal_test_code": "80003",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.0",
       "R41.83",
       "Z84.81"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3a",
@@ -1214,6 +1784,21 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-11-24",
     "internal_test_code": "80003",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": true,
+      "laceration": true
+    },
     "icd_codes": [
       "F84.9",
       "R41.840",
@@ -1221,12 +1806,16 @@
       "S06.0X0A",
       "S01.01XA"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3a",
@@ -1255,6 +1844,21 @@
     "specimen_type": "Buccal",
     "collection_date": "2025-11-24",
     "internal_test_code": "TH78b",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": true,
+      "sprain": false,
+      "concussion": true,
+      "laceration": false
+    },
     "icd_codes": [
       "Q67.4",
       "F72",
@@ -1262,12 +1866,16 @@
       "T36.0X1A",
       "S06.0X0A"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "Single gene",
       "test_date": "2025-10-11",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3a",
@@ -1296,6 +1904,21 @@
     "specimen_type": "Blood",
     "collection_date": "2025-12-01",
     "internal_test_code": "WGS003X",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": true,
+      "poisoning": false,
+      "sprain": true,
+      "concussion": true,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.5",
       "F82",
@@ -1304,12 +1927,16 @@
       "S06.0X0A",
       "S93.401A"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3a",
@@ -1339,6 +1966,21 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-11-30",
     "internal_test_code": "80003",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": true,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": true
+    },
     "icd_codes": [
       "F84.5",
       "F82",
@@ -1346,12 +1988,16 @@
       "S01.01XA",
       "T20.00XA"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3a",
@@ -1380,6 +2026,21 @@
     "specimen_type": "Other",
     "collection_date": "2025-12-11",
     "internal_test_code": "620024",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": true,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": true,
+      "laceration": true
+    },
     "icd_codes": [
       "F84.5",
       "R63.3",
@@ -1388,12 +2049,16 @@
       "S01.01XA",
       "S06.0X0A"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3b",
@@ -1422,17 +2087,36 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-12-05",
     "internal_test_code": "TH78b",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": true,
+      "poisoning": false,
+      "sprain": true,
+      "concussion": true,
+      "laceration": false
+    },
     "icd_codes": [
       "T20.00XA",
       "S93.401A",
       "S06.0X0A"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3b",
@@ -1462,17 +2146,36 @@
     "specimen_type": "Other",
     "collection_date": "2025-12-07",
     "internal_test_code": "TH78a",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": true,
+      "poisoning": true,
+      "sprain": false,
+      "concussion": true,
+      "laceration": false
+    },
     "icd_codes": [
       "T20.00XA",
       "S06.0X0A",
       "T36.0X1A"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3b",
@@ -1501,16 +2204,35 @@
     "specimen_type": "Blood",
     "collection_date": "2025-12-04",
     "internal_test_code": "80001",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": true,
+      "concussion": false,
+      "laceration": true
+    },
     "icd_codes": [
       "S93.401A",
       "S01.01XA"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3b",
@@ -1540,16 +2262,35 @@
     "specimen_type": "Saliva",
     "collection_date": "2025-11-16",
     "internal_test_code": "620024",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": true,
+      "concussion": false,
+      "laceration": true
+    },
     "icd_codes": [
       "S93.401A",
       "S01.01XA"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": "John Perez is a minor who presented for evaluation following recent musculoskeletal and soft tissue injuries. He sustained a sprain of an unspecified ligament of the right ankle, initial encounter, after twisting his ankle while playing sports; he reports localized pain, mild swelling, and difficulty bearing full weight immediately after the incident, with gradual improvement over time with rest, ice, and use of an ankle brace. In addition, he was seen for a laceration of the scalp without foreign body, initial encounter, incurred when he struck his head on a low-hanging object; the wound required cleaning and local wound care, with no reported loss of consciousness, neurologic symptoms, or signs of deeper structural injury at the time of assessment. No significant family history is reported, and there is no known parental consanguinity. No prior genetic testing has been documented."
+    }
   },
   {
     "sample_type": "3b",
@@ -1578,16 +2319,35 @@
     "specimen_type": "Other",
     "collection_date": "2025-11-24",
     "internal_test_code": "TH78b",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": true,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": true
+    },
     "icd_codes": [
       "S01.01XA",
       "T20.00XA"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": false,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": "Helen Robinson is a young female who presented for evaluation following an acute injury associated with thermal trauma. She sustained a burn involving the head and face, described as a superficial to partial-thickness thermal injury without initial evidence of inhalation involvement or deeper tissue destruction; the affected areas were erythematous and tender on examination, with intact capillary refill and no circumferential involvement noted. In addition, she was found to have a laceration involving the scalp and forehead region, with a linear open wound and localized soft tissue disruption in the frontal area; there was no exposed bone, and bleeding was controlled with local measures in the clinical setting. Wound borders were approximated and evaluated for contamination, and there were no signs of foreign bodies at the time of assessment. No prior genetic or other specialized diagnostic testing has been documented. No significant family history is reported, and there is no known parental consanguinity."
+    }
   },
   {
     "sample_type": "3c",
@@ -1616,17 +2376,36 @@
     "specimen_type": "Blood",
     "collection_date": "2025-12-16",
     "internal_test_code": "80001",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q60.2",
       "F70",
       "G71.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": true,
     "prior_testing": {
       "test_type": "Gene panel",
       "test_date": "2025-05-29",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3c",
@@ -1656,17 +2435,36 @@
     "specimen_type": "Blood",
     "collection_date": "2025-12-15",
     "internal_test_code": "WGS001X",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": false,
+      "global_developmental_delay_or_ID": false,
+      "unexplained_neurological_symptoms": false,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": true,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "F84.9",
       "F80.9",
       "Z82.0"
     ],
+    "relevant_family_history": {
+      "affected_relatives": true,
+      "consanguinity": true
+    },
+    "irrelevant_family_history": true,
     "prior_testing": {
       "test_type": "",
       "test_date": "",
       "test_result": ""
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3c",
@@ -1696,17 +2494,36 @@
     "specimen_type": "Buccal",
     "collection_date": "2025-12-11",
     "internal_test_code": "WGS001",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q04.6",
       "R62.0",
       "G11.1"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": true,
     "prior_testing": {
       "test_type": "CMA",
       "test_date": "2025-05-19",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3c",
@@ -1736,17 +2553,36 @@
     "specimen_type": "Blood",
     "collection_date": "2025-11-19",
     "internal_test_code": "80003",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q21.0",
       "F70",
       "G11.1"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": true,
     "prior_testing": {
       "test_type": "Single gene",
       "test_date": "2025-11-08",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   },
   {
     "sample_type": "3c",
@@ -1776,16 +2612,35 @@
     "specimen_type": "Buccal",
     "collection_date": "2025-12-12",
     "internal_test_code": "WGS001",
+    "relevant_clinical_features": {
+      "multiple_congenital_anomalies": true,
+      "global_developmental_delay_or_ID": true,
+      "unexplained_neurological_symptoms": true,
+      "unexplained_metabolic_phenotype": false,
+      "autism_with_red_flags": false,
+      "early_onset_or_multisystem_disease": false
+    },
+    "irrelevant_clinical_features": {
+      "burn": false,
+      "poisoning": false,
+      "sprain": false,
+      "concussion": false,
+      "laceration": false
+    },
     "icd_codes": [
       "Q20.0",
       "R62.0",
       "G25.9"
     ],
+    "relevant_family_history": {
+      "affected_relatives": false,
+      "consanguinity": false
+    },
+    "irrelevant_family_history": true,
     "prior_testing": {
       "test_type": "CMA",
       "test_date": "2025-01-07",
       "test_result": "negative"
-    },
-    "clinical_note": ""
+    }
   }
 ]

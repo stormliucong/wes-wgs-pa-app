@@ -87,6 +87,39 @@
       gap: 1rem;
     }
     
+    /* Make wide items span all columns */
+    .detail-item.wide {
+      grid-column: 1 / -1;
+    }
+    
+    /* Improve clinical note readability */
+    .clinical-note {
+      white-space: pre-wrap; /* preserve line breaks */
+      overflow-wrap: anywhere; /* wrap long words/URLs */
+    }
+
+    /* Split layout for Test + Clinical sections */
+    .split-row {
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .split-row { grid-template-columns: 1fr; }
+    }
+    
+    /* Horizontal info row for patient/subscriber/provider/lab */
+    .info-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .info-row { grid-template-columns: 1fr; }
+    }
+    
     .detail-item {
       padding: 0.5rem 0;
       border-bottom: 1px solid #eee;
@@ -248,71 +281,65 @@
             </div>
             <div class="patient-details">
               <div class="detail-grid">
-                <div class="detail-item">
-                  <span class="detail-label">Patient Information</span>
-                  <div class="detail-value">
-                    ${escapeHtml(patient.patient_first_name || '')} ${escapeHtml(patient.patient_last_name || '')}<br>
-                    DOB: ${escapeHtml(patient.dob || 'N/A')}<br>
-                    Sex: ${escapeHtml(patient.sex || 'N/A')}<br>
-                    Member ID: ${escapeHtml(patient.member_id || 'N/A')}<br>
-                    Address: ${escapeHtml(patient.patient_address || 'N/A')}
+                <div class="detail-item wide">
+                  <div class="info-row">
+                    <div>
+                      <span class="detail-label">Patient Information</span>
+                      <div class="detail-value">
+                        ${escapeHtml(patient.patient_first_name || '')} ${escapeHtml(patient.patient_last_name || '')}<br>
+                        DOB: ${escapeHtml(patient.dob || 'N/A')}<br>
+                        Sex: ${escapeHtml(patient.sex || 'N/A')}<br>
+                        Member ID: ${escapeHtml(patient.member_id || 'N/A')}<br>
+                        Address: ${escapeHtml(patient.patient_address || 'N/A')}
+                      </div>
+                    </div>
+                    <div>
+                      <span class="detail-label">Subscriber Information</span>
+                      <div class="detail-value">
+                        Name: ${escapeHtml(patient.subscriber_name || 'N/A')}<br>
+                        Relation: ${escapeHtml(patient.subscriber_relation || 'N/A')}
+                      </div>
+                    </div>
+                    <div>
+                      <span class="detail-label">Provider Information</span>
+                      <div class="detail-value">
+                        Name: ${escapeHtml(patient.provider_name || 'N/A')}<br>
+                        NPI: ${escapeHtml(patient.provider_npi || 'N/A')}<br>
+                        Phone: ${escapeHtml(patient.provider_phone || 'N/A')}<br>
+                        Fax: ${escapeHtml(patient.provider_fax || 'N/A')}<br>
+                        Address: ${escapeHtml(patient.provider_address || 'N/A')}
+                      </div>
+                    </div>
+                    <div>
+                      <span class="detail-label">Lab Information</span>
+                      <div class="detail-value">
+                        Name: ${escapeHtml(patient.lab_name || 'N/A')}<br>
+                        NPI: ${escapeHtml(patient.lab_npi || 'N/A')}<br>
+                        Address: ${escapeHtml(patient.lab_address || 'N/A')}
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
-                <div class="detail-item">
-                  <span class="detail-label">Subscriber Information</span>
-                  <div class="detail-value">
-                    Name: ${escapeHtml(patient.subscriber_name || 'N/A')}<br>
-                    Relation: ${escapeHtml(patient.subscriber_relation || 'N/A')}
-                  </div>
-                </div>
-                
-                <div class="detail-item">
-                  <span class="detail-label">Provider Information</span>
-                  <div class="detail-value">
-                    Name: ${escapeHtml(patient.provider_name || 'N/A')}<br>
-                    NPI: ${escapeHtml(patient.provider_npi || 'N/A')}<br>
-                    Phone: ${escapeHtml(patient.provider_phone || 'N/A')}<br>
-                    Fax: ${escapeHtml(patient.provider_fax || 'N/A')}<br>
-                    Address: ${escapeHtml(patient.provider_address || 'N/A')}
-                  </div>
-                </div>
-                
-                <div class="detail-item">
-                  <span class="detail-label">Lab Information</span>
-                  <div class="detail-value">
-                    Name: ${escapeHtml(patient.lab_name || 'N/A')}<br>
-                    NPI: ${escapeHtml(patient.lab_npi || 'N/A')}<br>
-                    Address: ${escapeHtml(patient.lab_address || 'N/A')}
-                  </div>
-                </div>
-                
-                <div class="detail-item">
+                <div class="detail-item wide">
                   <span class="detail-label">Test Information</span>
-                  <div class="detail-value">
-                    Test Type: ${escapeHtml(patient.test_type || 'N/A')}<br>
-                    Configuration: ${escapeHtml(patient.test_configuration || 'N/A')}<br>
-                    Urgency: ${escapeHtml(patient.urgency || 'N/A')}<br>
-                    Specimen: ${escapeHtml(patient.specimen_type || 'N/A')}<br>
-                    Collection Date: ${escapeHtml(patient.collection_date || 'N/A')}<br>
-                    CPT Codes: ${formatArray(patient.cpt_codes)}
-                  </div>
-                </div>
-                
-                <div class="detail-item">
-                  <span class="detail-label">Clinical Information</span>
-                  <div class="detail-value">
-                    ICD Codes: ${formatArray(patient.icd_codes)}<br>
-                    Clinical Note:<br>
-                    ${escapeHtml(patient.clinical_note || 'N/A')}
-                    ${priorTestingBlock}
-                  </div>
-                </div>
-                
-                <div class="detail-item">
-                  <span class="detail-label">Internal Test Code</span>
-                  <div class="detail-value">
-                    ${escapeHtml(patient.internal_test_code || 'N/A')}
+                  <div class="split-row">
+                    <div class="detail-value">
+                      Test Type: ${escapeHtml(patient.test_type || 'N/A')}<br>
+                      Configuration: ${escapeHtml(patient.test_configuration || 'N/A')}<br>
+                      Urgency: ${escapeHtml(patient.urgency || 'N/A')}<br>
+                      Specimen: ${escapeHtml(patient.specimen_type || 'N/A')}<br>
+                      Collection Date: ${escapeHtml(patient.collection_date || 'N/A')}<br>
+                      CPT Codes: ${formatArray(patient.cpt_codes)}<br>
+                      Lab Internal Test Code: ${escapeHtml(patient.internal_test_code || 'N/A')}
+                    </div>
+                    <div class="detail-value">
+                      <span class="detail-label">Clinical Information</span>
+                      ICD Codes: ${formatArray(patient.icd_codes)}<br>
+                      Clinical Note:<br>
+                      <div class="clinical-note">${escapeHtml(patient.clinical_note || 'N/A')}</div>
+                      ${priorTestingBlock}
+                    </div>
                   </div>
                 </div>
               </div>

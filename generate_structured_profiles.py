@@ -51,8 +51,8 @@ def generate_structured_profile(groundtruth: Dict) -> Dict:
         clinical_profile["prior_testing"]["test_date"] = groundtruth.get("prior_test_date", "")
         clinical_profile["prior_testing"]["test_result"] = "negative"
     
-    if groundtruth.get("autism"):
-        clinical_profile["relevant_clinical_features"]["autism_with_red_flags"] = True
+    if groundtruth.get("metabolic"):
+        clinical_profile["relevant_clinical_features"]["unexplained_metabolic_phenotype"] = True
         clinical_profile['relevant_family_history']["affected_relatives"] = True
         clinical_profile['relevant_family_history']["consanguinity"] = random.choice([True, False])        
 
