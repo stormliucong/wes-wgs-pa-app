@@ -88,15 +88,15 @@ def process_batch(batch_input: str) -> List[str] | None:
         print("Batch ID:", batch_job.id)
 
         while True:
-            batch_status = client.batches.retrieve(batch_job.id)
-            print(f"Current batch status: {batch_status.status}")         
-            if batch_status.status in ["completed", "failed", "cancelled", "expired"]:
-                logger.info(f"Batch job finished with status: {batch_status.status}")
+            batch = client.batches.retrieve(batch_job.id)
+            print(f"Current batch status: {batch.status}")         
+            if batch.status in ["completed", "failed", "cancelled", "expired"]:
+                logger.info(f"Batch job finished with status: {batch.status}")
                 break
             time.sleep(30)  # Wait for 30 seconds before checking again
 
-        if batch_status.status == "completed":
-            output_file_id = getattr(batch_status, "output_file_id", None)
+        if batch.status == "completed":
+            output_file_id = getattr(batch, "output_file_id", None)
             if output_file_id is None:
                 logger.error("Batch completed but output_file_id is None")
                 return None
@@ -105,7 +105,6 @@ def process_batch(batch_input: str) -> List[str] | None:
             clinical_notes = []
             for line in raw_responses.strip().split('\n'):
                 result = json.loads(line)
-                custom_id = result.get('custom_id')
                 note = result.get('response', {}).get('body', {}).get('output', [''])[0]
                 clinical_notes.append(note)
 
