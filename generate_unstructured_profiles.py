@@ -160,6 +160,6 @@ def main():
     if clinical_notes is None:
         logger.error("No clinical notes returned from batch processing.")
         return
-    create_unstructured_profiles(groundtruth_profiles, clinical_notes, output_path='unstructured_profile.json')
+    create_unstructured_profiles(groundtruth_profiles, clinical_notes, output_path='unstructured_profiles.json')
 
 main()

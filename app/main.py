@@ -102,14 +102,12 @@ def get_submissions_data():
     submissions.sort(key=lambda x: x["submitted_at"], reverse=True)
     return submissions
 
-
 @app.get("/admin")
 def admin_login():
     """Admin login page."""
     if session.get("admin_authenticated"):
         return redirect(url_for("admin_dashboard"))
     return render_template("admin_login.html")
-
 
 @app.post("/admin/login")
 def admin_authenticate():
@@ -167,7 +165,6 @@ def admin_dashboard():
                              "date_to": date_to,
                              "test_type": test_type
                          })
-
 
 @app.get("/admin/download/<filename>")
 def admin_download_single(filename):
@@ -304,10 +301,10 @@ def api_search_patients():
     results = []
     
     # Search test patients JSONL file
-    test_file = Path(__file__).resolve().parent.parent / "test_patients.jsonl"
+    test_file = Path(__file__).resolve().parent.parent / "unstructured_profiles.json"
     if test_file.exists():
         try:
-            with open(test_file, 'r') as f:
+            with open(test_file, 'r', encoding='utf-8') as f:
                 for line_num, line in enumerate(f, 1):
                     line = line.strip()
                     if not line:

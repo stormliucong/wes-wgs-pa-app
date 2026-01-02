@@ -135,7 +135,6 @@ class GroundtruthGenerator:
         self.icd_code_mapping = {
             "neurological": {
                 "G40.419": "Other generalized epilepsy and epileptic syndromes, intractable, without status epilepticus",
-                "R25.2": "Cramp and spasm",
                 "R27.0": "Ataxia, unspecified",
                 "P94.2": "Congenital hypotonia",
                 "R56.9": "Unspecified convulsions"
@@ -520,7 +519,7 @@ if __name__ == '__main__':
     generator = GroundtruthGenerator()
 
     # Generate 5 profiles for each sample category
-    sample_categories = ['1']
+    sample_categories = ['1', '2a', '2b', '2c', '2d', '2e', '3a', '3b', '3c']
     profiles = []
     
     n = 5
