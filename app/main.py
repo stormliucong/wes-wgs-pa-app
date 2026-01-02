@@ -301,35 +301,6 @@ def api_search_patients():
     # Search in both test patients and actual submissions
     results = []
     
-    # Search test patients JSON file
-    test_file = Path(__file__).resolve().parent.parent / "unstructured_profiles.json"
-    if test_file.exists():
-        try:
-            with test_file.open('r', encoding='utf-8') as f:
-                for line_num, line in enumerate(f, 1):
-                    line = line.strip()
-                    if not line:
-                        continue
-                    try:
-                        patient = json.loads(line)
-                        # Search in key patient fields
-                        searchable_text = " ".join([
-                            patient.get("patient_first_name", ""),
-                            patient.get("patient_last_name", ""),
-                            patient.get("member_id", ""),
-                            patient.get("dob", ""),
-                            patient.get("provider_name", "")
-                        ]).lower()
-                        
-                        if query in searchable_text:
-                            patient["_source"] = "test_patients"
-                            patient["_line"] = line_num
-                            results.append(patient)
-                    except json.JSONDecodeError:
-                        continue
-        except FileNotFoundError:
-            pass
-    
     # Search actual submissions
     submissions_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
     if submissions_dir.exists():
