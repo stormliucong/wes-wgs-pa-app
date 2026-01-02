@@ -5,7 +5,6 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Any, Tuple
 
-
 def generate_structured_profile(groundtruth: Dict) -> Dict:
     """
     Sample = 3a (partially irrelevant ICD codes)
@@ -28,7 +27,6 @@ def generate_structured_profile(groundtruth: Dict) -> Dict:
             "concussion":False,
             "laceration":False
         },
-        "icd_codes": groundtruth.get("icd_codes", []),
         "relevant_family_history": {
             "affected_relatives": False,
             "consanguinity": False,
@@ -38,7 +36,8 @@ def generate_structured_profile(groundtruth: Dict) -> Dict:
             "test_type": "",
             "test_date": "",
             "test_result": ""
-        }
+        },
+        "icd_codes": groundtruth.get("icd_codes", [])
     }
 
     sample = groundtruth.get("sample_type", "")

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Synthetic Patient Data Generator for WES/WGS Pre-Authorization Form
 This script generates groundtruth profiles (i.e., think of completely correct submitted forms). All data is completely fictional and for testing purposes only.
@@ -125,7 +124,7 @@ class GroundtruthGenerator:
         
         self.urgency_levels = ['Regular', 'Expedited']
         
-        self.specimen_types = ['Blood', 'Saliva', 'Buccal', 'Other']
+        self.specimen_types = ['Blood', 'Saliva', 'Buccal']
         
         self.sexes = ['Male', 'Female', 'Intersex', 'Unknown']
         
@@ -133,73 +132,58 @@ class GroundtruthGenerator:
          
         self.prior_tests = ['CMA', 'Gene panel', 'Single gene']  # empty string = no prior test documented
 
-        self.icd_code_mappings = {
-
-            "MCA": {
-                "Q89.7": "Multiple congenital anomalies, not elsewhere classified",
-                "Q89.9": "Congenital malformation, unspecified",
-                "Q04.0": "Congenital malformations of corpus callosum",
-                "Q04.6": "Congenital cerebral cysts",
-                "Q04.9": "Unspecified congenital malformation of brain",
-                "Q21.0": "Ventricular septal defect",
-                "Q21.1": "Atrial septal defect",
-                "Q20.0": "Common arterial truncus",
-                "Q20.3": "Transposition of great vessels",
-                "Q61.4": "Renal hypoplasia",
-                "Q60.0": "Renal agenesis, unilateral",
-                "Q60.2": "Renal dysplasia",
-                "Q67.4": "Other congenital deformities of skull, face and jaw",
-                "Q78.9": "Osteochondrodysplasia, unspecified",
-                "Q66.89": "Other congenital deformities of feet"
+        self.icd_code_mapping = {
+            "neurological": {
+                "G40.419": "Other generalized epilepsy and epileptic syndromes, intractable, without status epilepticus",
+                "R25.2": "Cramp and spasm",
+                "R27.0": "Ataxia, unspecified",
+                "P94.2": "Congenital hypotonia",
+                "R56.9": "Unspecified convulsions"
             },
-
-            "DD or ID": {
+            "dd_id": {
                 "R62.50": "Unspecified lack of expected normal physiological development",
-                "R62.0": "Delayed milestone in childhood",
-                "F88": "Other disorders of psychological development",
-                "F70": "Mild intellectual disability",
                 "F71": "Moderate intellectual disability",
                 "F72": "Severe intellectual disability",
-                "F73": "Profound intellectual disability",
-                "F84.2": "Rett syndrome",
+                "R41.840": "Cognitive communication deficit"
             },
-
-            "Neurological": {
-                "R56.9": "Unspecified convulsions",
-                "G40.919": "Epilepsy, unspecified, intractable",
-                "G40.311": "Generalized idiopathic epilepsy, intractable",
-                "G25.9": "Extrapyramidal and movement disorder, unspecified",
-                "G25.0": "Essential tremor",
-                "G25.3": "Myoclonus",
-                "G24.9": "Dystonia, unspecified",
-                "G24.0": "Drug-induced dystonia",
-                "G24.8": "Other dystonia",
-                "R27.0": "Ataxia, unspecified",
-                "G11.1": "Early-onset cerebellar ataxia",
-                "G11.4": "Hereditary spastic paraplegia",
-                "P94.2": "Congenital hypotonia",
-                "M62.81": "Muscle weakness (generalized)",
-                "G71.0": "Muscular dystrophy"
+            "early_onset_progressive": {
+                "R41.840": "Cognitive communication deficit (for regression)",
+                "R79.89": "Other specified abnormal findings of blood chemistry (for deterioration)",
+                "R62.51": "Failure to thrive (adult) (for growth faltering)"
             },
-
-            "Metabolic": {
-                'E70.0': 'Classical phenylketonuria',
-                'E71.0': 'Maple-syrup-urine disease',
-                'E72.11': 'Homocystinuria',
-                'E74.12': 'Hereditary fructose intolerance',
-                'E74.21': 'Galactosemia',
-                'E74.0': 'Glycogen storage disease',
-                'E78.01': 'Familial hypercholesterolemia',
-                'E78.6': 'Lipoprotein deficiency',
-                'E88.40': 'Disorder of mitochondrial metabolism, unspecified',
-                'E71.42': 'Primary carnitine deficiency'
+            "mca": {   # Structural or functional defects present at birth          
+                "Q21.1": "Atrial septal defect",
+                "Q22.2": "Congenital malformation of pulmonary valve",               
+                "Q61.4": "Renal hypoplasia",              
+                "Q66.89": "Other congenital deformities of feet",                 
+                "Q04.0": "Congenital malformations of corpus callosum",
+                "Q39.1": "Atresia of esophagus", 
+                "Q67.4": "Other congenital deformities of skull, face and jaw", 
+                "Q10.3": "Other congenital malformations of eyelid",    
+                "Q17.0": "Accessory auricle"
             },
-
-            "Family history":{
-                'Z83.49': 'Family history of other endocrine, nutritional and metabolic diseases (General)',
-                'Z84.81': 'Family history of carrier of genetic disease (Strong for recessive disorders)',
-                'Z83.1': 'Family history of endocrine/metabolic disease affecting immune mechanism',
+            "dysmorphic": {   # Unusual physical features
+                "Q87.0": "Congenital malformation syndromes predominantly affecting facial appearance",  
+            },
+            "metabolic": {
+                "E70.20": "Disorders of tyrosine metabolism",
+                "E73.0": "Congenital lactase deficiency",
+                "E88.40": "Disorder of mitochondrial metabolism, unspecified",
+                "R79.89": "Other specified abnormal findings of blood chemistry",
+                "E87.2": "Acidosis"
+            },
+            "family_history":{
+                "Z82.0": "Family history of epilepsy and other diseases of the nervous system",
+                "Z83.4":  "Family history of metabolic disorders"
             }
+        }
+        
+        self.irrelevant_icd_code_mapping = {
+            "T20.00XA": "burn",
+            "T36.0X1A": "poisoning",
+            "S93.401A": "sprain",
+            "S06.0X0A": "concussion",
+            "S01.01XA": "laceration"
         }
     
     def generate_address(self) -> str:
@@ -240,25 +224,31 @@ class GroundtruthGenerator:
         recent_date = datetime.now() - timedelta(days=days_ago)
         return recent_date.strftime('%Y-%m-%d')
     
-    def choose_icd(self,category):
-        """Return a random ICD-10 code from a dict-of-dict category."""
-        return random.choice(list(self.icd_code_mappings[category].keys()))
+    def pick_icd_code(self,phenotype:str):
+        """Pick a random ICD code from the given phenotype category."""
+        codes = list(self.icd_code_mapping.get(phenotype, {}).keys())
+        if phenotype == 'mca': 
+            k = min(len(codes), random.randint(2, 3))  # For MCA, pick more than one ICD code from the list
+            return random.sample(codes, k)
+        return random.choice(codes)
     
-    def generate_icd_codes(self, rationale) -> list:
+    def generate_icd_codes(self, rationale: int) -> list:
+        """Generate ICD codes based on the rationale."""
         icd_codes = []
-        if rationale == 1: # MCA + DD + neurologic symptoms + prior_test
-            mca_icd = self.choose_icd("MCA")
-            ddid_icd = self.choose_icd("DD or ID")
-            neuro_icd = self.choose_icd("Neurological")
-            icd_codes = [mca_icd, ddid_icd, neuro_icd]
-       
-        elif rationale == 2: # metabolic phenotypes + family history
-            metabolic_icd = self.choose_icd("Metabolic")
-            fam_icd = self.choose_icd("Family history")
-            icd_codes = [metabolic_icd, fam_icd]
-
+        phenotypes = []
+        if rationale == 1: 
+            phenotypes = ["mca", "dd_id", "dysmorphic"] # prior testing negative
+        else:
+            phenotypes = ["metabolic", "neurological"] # family history
+        
+        for phenotype in phenotypes:
+            code = self.pick_icd_code(phenotype)
+            if isinstance(code, list):
+                icd_codes.extend(code)
+            else:
+                icd_codes.append(code)
         return icd_codes
-
+    
     def assign_prior_test_and_rationale(self, rationale: int, profile: Dict):
         """Populate prior test only if rationale = 1."""
         if rationale == 1:
@@ -269,11 +259,12 @@ class GroundtruthGenerator:
             profile['prior_test_date'] = prior_test_date.strftime('%Y-%m-%d')  
             profile['mca'] = True
             profile['dd_id'] = True
-            profile['neurological'] = True
+            profile['dysmorphic'] = True
             profile['previous_test_negative'] = True
         
         else:
             profile['metabolic'] = True
+            profile['neurological'] = True
             profile['family_history'] = True
 
     def generate_testing_info(self) -> Dict:
@@ -290,40 +281,67 @@ class GroundtruthGenerator:
                 'specimen_type': specimen_type,
                 'cpt_codes': list(cpt_codes)
             }
+    
     @staticmethod
     def _is_leap_year(year: int) -> bool:
         """Check if a given year is a leap year."""
         return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
     
-    def _2a_assign_invalid_icd(self, profile: Dict[str, Any]) -> None:
+    def _2a_assign_invalid_icd(self, profile: Dict):
         """Insert an invalid ICD code to the list"""
-        invalid_icd_codes = [ 
-            "Q12.345",
-            "X99.9",
-            "M54.5A",
-            "F88.99",
-            "R62.501",
-            "G40.A01",
-            "Q04.99X",
-            "Z82.999",
-            "H91.A0",
-            "B25.123",
-            "K21.A9",
-            "P94.200",
-            "M79.Z91",
-            "T88.999A",
-            "E11.90X",
-            "L30.90Z",
-            "S10.1XXZ",
-            "J02.901",
-            "N39.000",
-            "R05.A9"
-        ]
+        invalid_icd_codes = {
+            "neurological": {
+                "G40.419": "G40.410",
+                "R25.2": "R25.20",
+                "R27.0": "R270",
+                "P94.2": "P94.20",
+                "R56.9": "R56.90"
+            },
+            "dd_id": {
+                "R62.50": "R62.500",
+                "F71": "F7.1",
+                "F72": "F7.2",
+                "R41.840": "R418.40"
+            },
+            "mca": {
+                "Q21.1": "Q2.11",
+                "Q22.2": "Q222",
+                "Q61.4": "Q61.40",
+                "Q66.89": "Q66.890",
+                "Q04.0": "Q4.00",
+                "Q39.1": "Q39.10"
+            },
+            "dysmorphic": {
+                "Q87.0": "Q8.70",
+                "Q67.4": "Q6.74",
+                "Q10.3": "Q10.30",
+                "Q17.0": "Q17.00"
+            },
+            "metabolic": {
+                "E70.20": "E7.02",
+                "E73.0": "E73.00",
+                "E88.40": "E88.400",
+                "R79.89": "R79.88",
+                "E87.2": "E87.02"
+            },
+            "family_history":{
+                "Z82.0":"Z82.00",
+                "Z83.4": "Z83.40"
+            }
+        }
+    
         original_icd_codes = profile.get('icd_codes', [])
-        # Insert a random invalid ICD code
-        invalid_code = random.choice(invalid_icd_codes)
-        original_icd_codes.append(invalid_code)
-        profile['icd_codes'] = original_icd_codes
+        
+        # Randomly pick an original ICD code to replace
+        original_code = random.choice(original_icd_codes)
+        
+        # Find the corresponding invalid code
+        for original, invalid in invalid_icd_codes.items():
+            if original == original_code:
+                profile['icd_codes'].remove(original_code)
+                profile['icd_codes'].append(invalid)        
+            break
+        logging.warning(f"No invalid replacement found for ICD code: {original_code}")
 
     def _2b_assign_wrong_cpt(self, profile: Dict) -> None:
         """Assign test_type and test_configuration, but inconsistent CPT codes."""
@@ -358,7 +376,7 @@ class GroundtruthGenerator:
             """Assign empty collection date for WES/WGS."""
             profile['collection_date'] = ''
 
-    def introduce_sample_2_errors(self, profile: Dict, sub_label: str) -> Dict:
+    def introduce_sample_2_errors(self, profile: Dict, sub_label: str):
         """
         Introduce specific data errors into the profile for negative testing.
         Used ONLY for label_type = 2 subcategories (2a, 2b, 2c, 2d, 2e).
@@ -373,48 +391,23 @@ class GroundtruthGenerator:
             self._2d_assign_wrong_collection_date(profile)
         else:
             self._2e_assign_empty_collection_date(profile)
-        return profile
 
-    def add_irrelevant_info(self, subsample, profile: Dict) -> Dict:
+    def _3_irrelevant_info(self, label, profile: Dict):
         """
         Add some irrelevant ICD codes and family history to the profile for label_type = 3.
         a) Keep the original ICD codes and add some irrelevant ones
         b) ICD codes completely irrelevant (not for genetic testing) #irrelevant clinical features
-        c) Insert irrelevant family history  
+        c) Irrelevant family history only
         """
-        irrelevant_icd_code_mapping = {
-            "burn": {
-                "T20.00XA": "Burn of unspecified degree of head, face, and neck, unspecified site, initial encounter",           
-            },
-            "poisoning": {
-                "T36.0X1A": "Poisoning by penicillins, accidental (unintentional), initial encounter",
-            },
-            "sprain": {
-                "S93.401A": "Sprain of unspecified ligament of right ankle, initial encounter",
-            },
-            "concussion": {
-                "S06.0X0A": "Concussion without loss of consciousness, initial encounter"
-            },
-            "laceration": {
-                "S01.01XA": "Laceration without foreign body of scalp, initial encounter",
-            }
-        }
-
         # Randomly pick 2 or 3 unique irrelevant ICD codes
-        all_irrelevant_codes = [
-            code 
-            for category_codes in irrelevant_icd_code_mapping.values() 
-            for code in category_codes.keys()
-        ]
-
+        all_irrelevant_codes = list(self.irrelevant_icd_code_mapping.keys())
         num_irrelevant = random.randint(2, 3)
         irrelevant_codes = random.sample(all_irrelevant_codes, num_irrelevant)
-        if subsample == "3a":
+        if label == "3a":
             profile['icd_codes'].extend(irrelevant_codes)
-        elif subsample == "3b":
-            profile['icd_codes'] = irrelevant_codes          
-        return profile
-    
+        if label == "3b":
+            profile['icd_codes'] = irrelevant_codes            
+       
     def generate_groundtruth_profile(self, sample_label) -> Dict:
         sex = random.choice(self.sexes)
         first_name = random.choice(self.first_names.get(sex, self.first_names['Male']))
@@ -431,11 +424,11 @@ class GroundtruthGenerator:
         # Get internal test code from lab_test_code_map
         internal_test_code = self.lab_test_code_map.get(lab_name, {}).get(test_type, {}).get(urgency, {}).get(config, "")
 
-        rationale = random.choice([1, 2])  # 1 = MCA + DD/ID + Neuro + Prior; 2 = Autism + Red flags + Family history
         # Force rationale 1 for sample 2d so prior testing exists (needed to set an earlier collection date)
+        rationale = random.choice([1, 2])
         if sample_label == "2d":
             rationale = 1
-
+        
         profile = {
             'sample_type': sample_label,
             'patient_first_name': first_name,
@@ -467,28 +460,24 @@ class GroundtruthGenerator:
             'neurological': False,
             'metabolic': False,
             'autism': False,
-            'early_onset': False,
+            'early_onset': False,          
             'previous_test_negative': False,
             'family_history': False,
-            'other_details':"",
-            'mn_suspected_genetic': True,
-            "mn_results_influence_management": True,
-            "mn_genetic_counseling": True,
-            "consent_ack": True,
-            'icd_codes': self.generate_icd_codes(rationale),
+            'icd_codes': [],
             'icd_descriptions': ""
         }
         
         if sample_label == "3b": # irrelevant to genetic testing, no need to assign rationale or prior test
-            profile = self.add_irrelevant_info(sample_label, profile)
+            self._3_irrelevant_info(sample_label, profile)
             return profile
         
         self.assign_prior_test_and_rationale(rationale, profile)
+        profile["icd_codes"] = self.generate_icd_codes(rationale)
 
         if sample_label.startswith("2"):
-            profile = self.introduce_sample_2_errors(profile, sample_label)
-        elif sample_label.startswith("3") and sample_label != "3b":
-            profile = self.add_irrelevant_info(sample_label, profile)
+            self.introduce_sample_2_errors(profile, sample_label)
+        elif sample_label.startswith("3"):
+            self._3_irrelevant_info(sample_label, profile)
         return profile
  
     def generate_bulk_profiles(self, sample_label, count: int) -> List[Dict[str, Any]]:
@@ -531,13 +520,14 @@ if __name__ == '__main__':
     generator = GroundtruthGenerator()
 
     # Generate 5 profiles for each sample category
-    sample_categories = ['1', '2a', '2b', '2c', '2d', '2e', '3a', '3b', '3c']
+    sample_categories = ['1']
     profiles = []
-
+    
+    n = 5
     for category in sample_categories:
-        category_profiles = generator.generate_bulk_profiles(category, 5)
+        category_profiles = generator.generate_bulk_profiles(category, n)
         profiles.extend(category_profiles)
-        print(f"Generated 5 profiles for category {category}")
+        print(f"Generated {n} profiles for category {category}")
 
     # Save all profiles to JSON file
     generator.save_as_json(profiles, args.output)
