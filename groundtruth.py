@@ -16,7 +16,7 @@ Sample categories:
     - 2b) CPT codes are inconsistent with test_type
     - 2c) Invalid CPT codes - code does not exist
     - 2d) Data Collection date before Prior Test Date #issue
-    - 2e) Data Collection is empty
+    - 2e) Data Collection date is empty
 
   label_type = 3 (IRRELEVANT):
     - 3a) Partially irrelevant ICD codes: original relevant ICD codes + some irrelevant ICD codes
@@ -330,17 +330,26 @@ class GroundtruthGenerator:
         }
     
         original_icd_codes = profile.get('icd_codes', [])
-        
-        # Randomly pick an original ICD code to replace
-        original_code = random.choice(original_icd_codes)
-        
-        # Find the corresponding invalid code
-        for original, invalid in invalid_icd_codes.items():
-            if original == original_code:
-                profile['icd_codes'].remove(original_code)
-                profile['icd_codes'].append(invalid)        
-            break
-        logging.warning(f"No invalid replacement found for ICD code: {original_code}")
+        if not original_icd_codes:
+            logging.warning("No ICD codes present to corrupt for 2a")
+            return
+
+        # Try to replace one of the existing codes with its invalid counterpart
+        replaced = False
+
+        # First, attempt on a random chosen code
+        candidate = random.choice(original_icd_codes)
+        for category_map in invalid_icd_codes.values():
+            if candidate in category_map:
+                invalid_code = category_map[candidate]
+                # Replace in-place to preserve order
+                idx = profile['icd_codes'].index(candidate)
+                profile['icd_codes'][idx] = invalid_code
+                replaced = True
+                break
+
+        if not replaced:
+            logging.warning("No invalid replacement found for any ICD code in profile")
 
     def _2b_assign_wrong_cpt(self, profile: Dict) -> None:
         """Assign test_type and test_configuration, but inconsistent CPT codes."""
@@ -424,7 +433,7 @@ class GroundtruthGenerator:
         internal_test_code = self.lab_test_code_map.get(lab_name, {}).get(test_type, {}).get(urgency, {}).get(config, "")
 
         # Force rationale 1 for sample 2d so prior testing exists (needed to set an earlier collection date)
-        rationale = random.choice([1, 2])
+        rationale = 2
         if sample_label == "2d":
             rationale = 1
         

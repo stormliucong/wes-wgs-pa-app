@@ -15,7 +15,7 @@ client = OpenAI()
 def create_prompt_dict(profile: Dict) -> dict:
     # Create a copy of the input profile with only the required fields
     key_fields = ['sample_type', 'patient_first_name', 'patient_last_name', 'dob', 'sex', 
-                  'mca', 'dd_id', 'dysmorphic', 'neurological', 'metabolic', 'autism', 'early_onset', 'previous_test_negative',
+                  'mca', 'dd_id', 'dysmorphic', 'neurological', 'metabolic', 'autism', 'early_onset',
                   'family_history', 'icd_codes','prior_test_type', 'prior_test_result']
     input_dict = {}
     for key in key_fields:
@@ -34,11 +34,12 @@ def create_patient_prompt(input_dict: Dict) -> str:
         3) If family_history is marked true, generate records for affected relatives and/or consanguinity with details.Provide details 
         such as the relative's relationship and condition.
         4) If any of the mca, dd_id, dysmorphic, neurological, metabolic, autism, early_onset flags are False, completely ignore them
-        and do not refer to them in any way. Do NOT state their absence.
-        5) If sample_type is "3c", write family history details that are medically plausible but unrelated to the patient's phenotypes.
-        If family_history is also set to true, mix both relevant and irrelevant family history details. Integrate these details naturally, without 
-        labeling them as relevant / irrelevant or explaining their relation to the presentation.
-        6) If prior_test_type and prior_test_result are provided, include a brief summary of prior genetic testing and its outcome.
+        and do not refer to them in any way. Do NOT state their absence. 
+        5) If sample_type is "3c", ALWAYS write family history details that are medically plausible but unrelated to the patient's phenotypes,
+        regardless of whether family_history is true or false. If family_history is also set to true, mix both relevant and irrelevant family history details. 
+        Integrate these details naturally, without labeling them as relevant / irrelevant or explaining their relation to the presentation.
+        6) If prior_test_type and prior_test_result values are provided, include a brief summary of prior genetic testing and its outcome. If they are not provided, 
+        do not mention anything about prior test at all.
         7) Return a single paragraph of no more than 180 words, ensure the clinical note is coherent and reads like a real clinical document.  
         Input Dictionary:
     """
@@ -62,7 +63,6 @@ def create_batch_input(structured_profiles: List[dict], output: str):
                     "temperature": 0.7,
                 },
             }
-
             json_line = json.dumps(request_object, ensure_ascii=False)
             outfile.write(json_line + '\n')
 
