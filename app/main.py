@@ -26,7 +26,6 @@ def index():
     """Render the main multi-step form page."""
     return render_template("index.html")
 
-
 @app.post("/submit")
 def submit():
     """Accept form submission and store as a JSON file after validation."""
@@ -58,11 +57,9 @@ def submit():
 
     return jsonify({"ok": True, "file": filename})
 
-
 @app.get("/health")
 def health():
     return {"status": "ok"}
-
 
 def get_submissions_data():
     """Load all submission files and return as list with metadata."""
@@ -300,11 +297,11 @@ def api_search_patients():
     # Search in both test patients and actual submissions
     results = []
     
-    # Search test patients JSONL file
+    # Search test patients JSON file
     test_file = Path(__file__).resolve().parent.parent / "unstructured_profiles.json"
     if test_file.exists():
         try:
-            with open(test_file, 'r', encoding='utf-8') as f:
+            with test_file.open('r', encoding='utf-8') as f:
                 for line_num, line in enumerate(f, 1):
                     line = line.strip()
                     if not line:
@@ -355,30 +352,6 @@ def api_search_patients():
                         results.append(patient)
             except (json.JSONDecodeError, FileNotFoundError):
                 continue
-
-    # Search unstructured profiles JSON (generated synthetic EHR-like data)
-    unstructured_file = Path(__file__).resolve().parent.parent / "unstructured_profiles.json"
-    if unstructured_file.exists():
-        try:
-            with open(unstructured_file, 'r', encoding='utf-8') as f:
-                unstructured = json.load(f)
-                if isinstance(unstructured, list):
-                    for patient in unstructured:
-                        if not isinstance(patient, dict):
-                            continue
-                        searchable_text = " ".join([
-                            patient.get("patient_first_name", ""),
-                            patient.get("patient_last_name", ""),
-                            patient.get("member_id", ""),
-                            patient.get("dob", ""),
-                            patient.get("provider_name", "")
-                        ]).lower()
-                        if query in searchable_text:
-                            p = dict(patient)
-                            p["_source"] = "unstructured"
-                            results.append(p)
-        except (json.JSONDecodeError, OSError):
-            pass
     
     # Sort results by relevance (exact matches first, then partial)
     def sort_key(patient):
