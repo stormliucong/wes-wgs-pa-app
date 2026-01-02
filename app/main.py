@@ -8,6 +8,10 @@ from datetime import datetime
 from pathlib import Path
 from io import StringIO
 
+def _safe_str(value):
+    """Safely convert a value to a string, handling None."""
+    return str(value) if value is not None else ""
+
 from flask import Flask, jsonify, render_template, request, send_file, session, redirect, url_for, make_response
 
 # Local imports
@@ -352,6 +356,30 @@ def api_search_patients():
                         results.append(patient)
             except (json.JSONDecodeError, FileNotFoundError):
                 continue
+    
+    # Search unstructured profiles JSON (generated synthetic EHR-like data)
+    unstructured_file = Path(__file__).resolve().parent.parent / "unstructured_profiles.json"
+    if unstructured_file.exists():
+        try:
+            with open(unstructured_file, 'r', encoding='utf-8') as f:
+                unstructured = json.load(f)
+                if isinstance(unstructured, list):
+                    for patient in unstructured:
+                        if not isinstance(patient, dict):
+                            continue
+                        searchable_text = " ".join([
+                            _safe_str(patient.get("patient_first_name", "")),
+                            _safe_str(patient.get("patient_last_name", "")),
+                            _safe_str(patient.get("member_id", "")),
+                            _safe_str(patient.get("dob", "")),
+                            _safe_str(patient.get("provider_name", ""))
+                        ]).lower()
+                        if query in searchable_text:
+                            p = dict(patient)
+                            p["_source"] = "unstructured"
+                            results.append(p)
+        except (json.JSONDecodeError, OSError):
+            pass
     
     # Sort results by relevance (exact matches first, then partial)
     def sort_key(patient):
