@@ -16,7 +16,7 @@ def create_prompt_dict(profile: Dict) -> dict:
     # Create a copy of the input profile with only the required fields
     key_fields = ['sample_type', 'patient_first_name', 'patient_last_name', 'dob', 'sex', 
                   'mca', 'dd_id', 'dysmorphic', 'neurological', 'metabolic', 'autism', 'early_onset',
-                  'family_history', 'icd_codes','prior_test_type', 'prior_test_result']
+                  'family_history', 'icd_codes','prior_test_type', 'prior_test_result', 'prior_test_date']
     input_dict = {}
     for key in key_fields:
         value = profile.get(key)
@@ -38,9 +38,9 @@ def create_patient_prompt(input_dict: Dict) -> str:
         5) If sample_type is "3c", ALWAYS write family history details that are medically plausible but unrelated to the patient's phenotypes,
         regardless of whether family_history is true or false. If family_history is also set to true, mix both relevant and irrelevant family history details. 
         Integrate these details naturally, without labeling them as relevant / irrelevant or explaining their relation to the presentation.
-        6) If prior_test_type and prior_test_result values are provided, include a brief summary of prior genetic testing and its outcome. If they are not provided, 
-        do not mention anything about prior test at all.
-        7) Return a single paragraph of no more than 180 words, ensure the clinical note is coherent and reads like a real clinical document.  
+        6) If prior_test_type, prior_test_result, and prior_test_date values are provided, generate a brief summary of the prior genetic testing including both 
+        date and outcome. If they are not provided, do not mention anything about prior test at all.
+        7) Return a single paragraph of no more than 180 words, ensure the clinical note is coherent and reads like a real-world clinical document.  
         Input Dictionary:
     """
     profile_string = json.dumps(input_dict, separators=(',', ':'), ensure_ascii=False)

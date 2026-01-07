@@ -126,7 +126,7 @@ class GroundtruthGenerator:
         
         self.specimen_types = ['Blood', 'Saliva', 'Buccal']
         
-        self.sexes = ['Male', 'Female', 'Intersex', 'Unknown']
+        self.sexes = ['Male', 'Female']
         
         self.subscriber_relations = ['Self', 'Parent', 'Guardian', 'Other'] 
          
@@ -211,8 +211,8 @@ class GroundtruthGenerator:
         return str(random.randint(1000000000, 9999999999))
     
     def generate_date_of_birth(self) -> str:
-        """Generate a realistic date of birth (1-30 years ago)."""
-        years_ago = random.randint(1, 20)
+        """Generate a realistic date of birth (3-18 years old)."""
+        years_ago = random.randint(3, 18)
         days_ago = random.randint(0, 365)
         birth_date = datetime.now() - timedelta(days=years_ago * 365 + days_ago)
         return birth_date.strftime('%Y-%m-%d')
