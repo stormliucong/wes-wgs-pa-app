@@ -1,6 +1,7 @@
 import argparse
 import json
 import logging
+import random
 import time
 from typing import Dict, List, Optional
 from openai import OpenAI
@@ -40,7 +41,8 @@ def create_patient_prompt(input_dict: Dict) -> str:
         Integrate these details naturally, without labeling them as relevant / irrelevant or explaining their relation to the presentation.
         6) If prior_test_type, prior_test_result, and prior_test_date values are provided, generate a brief summary of the prior genetic testing including both 
         date and outcome. If they are not provided, do not mention anything about prior test at all.
-        7) Return a single paragraph of no more than 180 words, ensure the clinical note is coherent and reads like a real-world clinical document.  
+        7) Make sure to calculate the patient's age correctly (i.e., from the date of birth (dob) and the current date). If dob is not provided, do not mention age.
+        8) Return a single paragraph of no more than 180 words, ensure the clinical note is coherent and reads like a real-world clinical document.  
         Input Dictionary:
     """
     profile_string = json.dumps(input_dict, separators=(',', ':'), ensure_ascii=False)
@@ -125,14 +127,77 @@ def extract_clinical_notes(raw_responses):
 
     return clinical_notes
     
-def create_unstructured_profiles(groundtruth_profiles: List[dict], clinical_notes: List[str], output_path: str = 'unstructured_profiles.json'):
+def _2a_assign_invalid_icd(profile: Dict):
+        """Insert an invalid ICD code to the list"""
+        invalid_icd_codes = {
+            "neurological": {
+                "G40.419": "G40.410",
+                "R25.2": "R25.20",
+                "R27.0": "R270",
+                "P94.2": "P94.20",
+                "R56.9": "R56.90"
+            },
+            "dd_id": {
+                "R62.50": "R62.500",
+                "F71": "F7.1",
+                "F72": "F7.2",
+                "R41.840": "R418.40"
+            },
+            "mca": {
+                "Q21.1": "Q2.11",
+                "Q22.2": "Q222",
+                "Q61.4": "Q61.40",
+                "Q66.89": "Q66.890",
+                "Q04.0": "Q4.00",
+                "Q39.1": "Q39.10"
+            },
+            "dysmorphic": {
+                "Q87.0": "Q8.70",
+                "Q67.4": "Q6.74",
+                "Q10.3": "Q10.30",
+                "Q17.0": "Q17.00"
+            },
+            "metabolic": {
+                "E70.20": "E7.02",
+                "E73.0": "E73.00",
+                "E88.40": "E88.400",
+                "E87.2": "E87.02"
+            },
+        }
+    
+        original_icd_codes = profile.get('icd_codes', [])
+        if not original_icd_codes:
+            logging.warning("No ICD codes present to corrupt for 2a")
+            return
+
+        # Try to replace one of the existing codes with its invalid counterpart
+        replaced = False
+
+        # First, attempt on a random chosen code
+        candidate = random.choice(original_icd_codes)
+        for category_map in invalid_icd_codes.values():
+            if candidate in category_map:
+                invalid_code = category_map[candidate]
+                # Replace in-place to preserve order
+                idx = profile['icd_codes'].index(candidate)
+                profile['icd_codes'][idx] = invalid_code
+                replaced = True
+                break
+
+        if not replaced:
+            logging.warning("No invalid replacement found for any ICD code in profile")
+                
+def create_unstructured_profiles(all_samples: List[dict], clinical_notes: List[str], output_path: str = 'unstructured_profiles.json'):
     unstructured_profiles = []
-    for groundtruth_profile, note in zip(groundtruth_profiles, clinical_notes):
+    for groundtruth_profile, note in zip(all_samples, clinical_notes):
         unstructured_profile = {key: value for key, value in groundtruth_profile.items() 
                                 if key not in 
                                 ['mca', 'dd_id', 'dysmorphic', 'neurological', 'metabolic', 
                                  'autism', 'early_onset', 'previous_test_negative', 'family_history']}
         unstructured_profile["clinical_note"] = note
+        
+        if unstructured_profile['sample_type'] == "2a":
+            _2a_assign_invalid_icd(unstructured_profile)     
         unstructured_profiles.append(unstructured_profile)
     
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -141,13 +206,13 @@ def create_unstructured_profiles(groundtruth_profiles: List[dict], clinical_note
 
 def main():
     try:
-        with open("test_patients_groundtruth.json", "r", encoding="utf-8") as f:
+        with open("all_samples.json", "r", encoding="utf-8") as f:
             groundtruth_profiles = json.load(f)
         if not isinstance(groundtruth_profiles, list):
             logger.error("Input JSON must be a list of patient profiles.")
             return
     except FileNotFoundError:
-        logging.error(f"File not found: test_patients_groundtruth.json")
+        logging.error(f"File not found: all_samples.json")
         return
     except json.JSONDecodeError as e:
         logging.error(f"Error decoding JSON: {e}")

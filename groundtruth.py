@@ -32,6 +32,7 @@ import json
 import logging
 import random
 from datetime import datetime, timedelta
+from copy import deepcopy
 from pathlib import Path
 from typing import Dict, List, Any, Tuple
 random.seed(120)
@@ -184,6 +185,8 @@ class GroundtruthGenerator:
             "S06.0X0A": "concussion",
             "S01.01XA": "laceration"
         }
+
+        self.sample_categories = {'1':5, '2a':5, '2b':5, '2c':5, '2d':5, '2e':5, '3a':5, '3b':5, '3c':5}
     
     def generate_address(self) -> str:
         """Generate a realistic Connecticut address (state may later be corrupted)."""
@@ -285,71 +288,6 @@ class GroundtruthGenerator:
     def _is_leap_year(year: int) -> bool:
         """Check if a given year is a leap year."""
         return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
-    
-    def _2a_assign_invalid_icd(self, profile: Dict):
-        """Insert an invalid ICD code to the list"""
-        invalid_icd_codes = {
-            "neurological": {
-                "G40.419": "G40.410",
-                "R25.2": "R25.20",
-                "R27.0": "R270",
-                "P94.2": "P94.20",
-                "R56.9": "R56.90"
-            },
-            "dd_id": {
-                "R62.50": "R62.500",
-                "F71": "F7.1",
-                "F72": "F7.2",
-                "R41.840": "R418.40"
-            },
-            "mca": {
-                "Q21.1": "Q2.11",
-                "Q22.2": "Q222",
-                "Q61.4": "Q61.40",
-                "Q66.89": "Q66.890",
-                "Q04.0": "Q4.00",
-                "Q39.1": "Q39.10"
-            },
-            "dysmorphic": {
-                "Q87.0": "Q8.70",
-                "Q67.4": "Q6.74",
-                "Q10.3": "Q10.30",
-                "Q17.0": "Q17.00"
-            },
-            "metabolic": {
-                "E70.20": "E7.02",
-                "E73.0": "E73.00",
-                "E88.40": "E88.400",
-                "R79.89": "R79.88",
-                "E87.2": "E87.02"
-            },
-            "family_history":{
-                "Z82.0":"Z82.00",
-                "Z83.4": "Z83.40"
-            }
-        }
-    
-        original_icd_codes = profile.get('icd_codes', [])
-        if not original_icd_codes:
-            logging.warning("No ICD codes present to corrupt for 2a")
-            return
-
-        # Try to replace one of the existing codes with its invalid counterpart
-        replaced = False
-
-        # First, attempt on a random chosen code
-        candidate = random.choice(original_icd_codes)
-        for category_map in invalid_icd_codes.values():
-            if candidate in category_map:
-                invalid_code = category_map[candidate]
-                # Replace in-place to preserve order
-                idx = profile['icd_codes'].index(candidate)
-                profile['icd_codes'][idx] = invalid_code
-                replaced = True
-                break
-
-        if not replaced:
-            logging.warning("No invalid replacement found for any ICD code in profile")
 
     def _2b_assign_wrong_cpt(self, profile: Dict) -> None:
         """Assign test_type and test_configuration, but inconsistent CPT codes."""
@@ -388,16 +326,14 @@ class GroundtruthGenerator:
         """
         Introduce specific data errors into the profile for negative testing.
         Used ONLY for label_type = 2 subcategories (2a, 2b, 2c, 2d, 2e).
-        """
-        if sub_label == "2a":
-            self._2a_assign_invalid_icd(profile)
-        elif sub_label == "2b":
+        """    
+        if sub_label == "2b":
             self._2b_assign_wrong_cpt(profile)
         elif sub_label == "2c":
             self._2c_assign_invalid_cpt(profile)
         elif sub_label == "2d":
             self._2d_assign_wrong_collection_date(profile)
-        else:
+        elif sub_label == "2e":
             self._2e_assign_empty_collection_date(profile)
 
     def _3_irrelevant_info(self, label, profile: Dict):
@@ -416,12 +352,13 @@ class GroundtruthGenerator:
         if label == "3b":
             profile['icd_codes'] = irrelevant_codes            
        
-    def generate_groundtruth_profile(self, sample_label) -> Dict:
+    def generate_groundtruth_profile(self) -> Dict:
         sex = random.choice(self.sexes)
         first_name = random.choice(self.first_names.get(sex, self.first_names['Male']))
         last_name = random.choice(self.last_names)   
         is_self_subscriber = random.choice([True, True, True, False, False]) # 60% chance self
-        
+        rationale = random.choice([1, 2])
+
         # Assign lab and internal test code based on test_info
         lab_name = random.choice(['LabCorp', 'GeneDx', 'Invitae'])
         test_info = self.generate_testing_info()
@@ -433,12 +370,8 @@ class GroundtruthGenerator:
         internal_test_code = self.lab_test_code_map.get(lab_name, {}).get(test_type, {}).get(urgency, {}).get(config, "")
 
         # Force rationale 1 for sample 2d so prior testing exists (needed to set an earlier collection date)
-        rationale = 2
-        if sample_label == "2d":
-            rationale = 1
         
         profile = {
-            'sample_type': sample_label,
             'patient_first_name': first_name,
             'patient_last_name': last_name,
             'dob': self.generate_date_of_birth(),
@@ -474,26 +407,48 @@ class GroundtruthGenerator:
             'icd_codes': [],
             'icd_descriptions': ""
         }
-        
-        if sample_label == "3b": # irrelevant to genetic testing, no need to assign rationale or prior test
-            self._3_irrelevant_info(sample_label, profile)
-            return profile
-        
+         
         self.assign_prior_test_and_rationale(rationale, profile)
         profile["icd_codes"] = self.generate_icd_codes(rationale)
-
-        if sample_label.startswith("2"):
-            self.introduce_sample_2_errors(profile, sample_label)
-        elif sample_label.startswith("3"):
-            self._3_irrelevant_info(sample_label, profile)
         return profile
- 
-    def generate_bulk_profiles(self, sample_label, count: int) -> List[Dict[str, Any]]:
+    
+    def generate_bulk_groundtruth_profiles(self, count: int) -> List[Dict[str, Any]]:
         """Generate multiple patient profiles of a given sample type."""
         profiles = []
         for _ in range(count):
-            profiles.append(self.generate_groundtruth_profile(sample_label))
+            profiles.append(self.generate_groundtruth_profile())
         return profiles
+    
+    def generate_imperfect_profile(self, groundtruth, sample_label) -> Dict:
+        """Generate an imperfect profile by introducing specific errors based on the sample label."""
+        gt = groundtruth.copy()  # or groundtruth.copy() if no nested mutation
+
+        if sample_label.startswith("2"):
+            self.introduce_sample_2_errors(gt, sample_label)
+        elif sample_label.startswith("3"):
+            self._3_irrelevant_info(sample_label, gt)
+        labelled_profile = {'sample_type': sample_label, **gt}
+        
+        return labelled_profile
+       
+    def generate_all_sample_profiles(self, groundtruth_profiles, sample_categories):  
+        # Make a shallow copy to avoid mutating the caller's list
+        groundtruth_copy = groundtruth_profiles.copy()
+        labelled_profiles = []
+
+        for label, count in sample_categories.items():
+            for _ in range(count):
+                if not groundtruth_copy:
+                    raise ValueError("Not enough groundtruth profiles to generate the requested number of samples.")
+                
+                base_profile = groundtruth_copy.pop(0)
+                
+                if label == '2d' and not base_profile.get('prior_test_date'):
+                    self.assign_prior_test_and_rationale(1, base_profile)  # Ensure prior test exists for 2d samples
+                
+                labelled_profiles.append(self.generate_imperfect_profile(base_profile, label))
+
+        return labelled_profiles
     
     def save_as_json(self, profiles: List[Dict[str, Any]], output_file: str) -> None:
         """Save profiles as JSON format."""
@@ -526,16 +481,24 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     generator = GroundtruthGenerator()
-
-    # Generate 5 profiles for each sample category
-    sample_categories = ['1', '2a', '2b', '2c', '2d', '2e', '3a', '3b', '3c']
-    profiles = []
     
-    n = 5
-    for category in sample_categories:
-        category_profiles = generator.generate_bulk_profiles(category, n)
-        profiles.extend(category_profiles)
-        print(f"Generated {n} profiles for category {category}")
+    n = 45
+    groundtruth_profiles = generator.generate_bulk_groundtruth_profiles(n)
+    generator.save_as_json(groundtruth_profiles, "groundtruth.json")
 
-    # Save all profiles to JSON file
-    generator.save_as_json(profiles, args.output)
+    # Define desired distribution across sample categories (must sum to 1.0)
+    sample_categories = {
+        '1': 5,
+        '2a': 5,
+        '2b': 5,
+        '2c': 5,
+        '2d': 5,
+        '2e': 5,
+        '3a': 5,
+        '3b': 5,
+        '3c': 5,
+    }
+
+    # Create labeled profiles according to self.sample_categories distribution
+    all_sample_profiles = generator.generate_all_sample_profiles(groundtruth_profiles, sample_categories)
+    generator.save_as_json(all_sample_profiles, "all_samples.json")
