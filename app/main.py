@@ -253,7 +253,6 @@ def admin_dashboard():
     return render_template("admin.html", 
                          submissions=submissions, 
                          test_types=test_types,
-                         drafts=get_drafts_data(),
                          current_filters={
                              "search": search,
                              "date_from": date_from,

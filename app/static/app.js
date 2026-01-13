@@ -7,8 +7,7 @@
   const form = document.querySelector('#pa-form');
   const alertBox = document.querySelector('#alert-box');
   const errorsBox = document.querySelector('#form-errors');
-  const startNewFormBtn = document.querySelector('#startNewFormBtn');
-  const deleteFormBtn = document.querySelector('#deleteFormBtn');
+  const resetFormBtn = document.querySelector('#resetFormBtn');
 
   // Lab code modal controls
   const searchLabCodeBtn = document.querySelector('#search-test-code-btn');
@@ -422,33 +421,9 @@
     setInterval(() => { saveDraft(true); }, 20000);
   });
 
-  // Start New Form
-  if (startNewFormBtn) {
-    startNewFormBtn.addEventListener('click', async (e) => {
-      e.preventDefault();
-      await saveDraft(true);
-      try {
-        const res = await fetch('/draft/start_new', { method: 'POST' });
-        const body = await res.json();
-        if (res.ok && body.ok) {
-          setNewFormMeta(body.form_id, body.started_at);
-          form.reset();
-          if (icdList) { icdList.innerHTML = ''; icdList.appendChild(createIcdRow()); }
-          if (priorTestsList) { priorTestsList.innerHTML = ''; priorTestsList.appendChild(createPriorTestRow()); }
-          showStep(0);
-          showAlert('success', 'Started a new form');
-        } else {
-          showAlert('error', body?.error || 'Failed to start a new form');
-        }
-      } catch (_) {
-        showAlert('error', 'Network error while starting a new form');
-      }
-    });
-  }
-
-  // Delete Current Form
-  if (deleteFormBtn) {
-    deleteFormBtn.addEventListener('click', async (e) => {
+  // Delete current form and start a new one
+  if (resetFormBtn) {
+    resetFormBtn.addEventListener('click', async (e) => {
       e.preventDefault();
       const formId = localStorage.getItem('pa_form_id');
       if (!formId) { form.reset(); showStep(0); return; }
@@ -472,7 +447,7 @@
           if (icdList) { icdList.innerHTML = ''; icdList.appendChild(createIcdRow()); }
           if (priorTestsList) { priorTestsList.innerHTML = ''; priorTestsList.appendChild(createPriorTestRow()); }
           showStep(0);
-          showAlert('success', 'Current form deleted. New blank form ready.');
+          showAlert('success', 'Deleted current form and started a new one.');
         } else {
           showAlert('error', body?.error || 'Failed to delete current form');
         }
