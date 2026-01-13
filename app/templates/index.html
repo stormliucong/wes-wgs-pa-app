@@ -8,8 +8,14 @@
   </head>
   <body>
     <div class="container">
-      <div style="text-align: right; margin-bottom: 1rem;">
-        <a href="/ehr" style="color: #007bff; text-decoration: none;">🔍 Patient Search (EHR)</a>
+      <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom: 1rem;">
+        <div>
+          <a href="/ehr" style="color: #007bff; text-decoration: none;">🔍 Patient Search (EHR)</a>
+        </div>
+        <div style="display:flex; gap:0.5rem; align-items:center;">
+          <button type="button" id="saveDraftBtn" class="secondary">Save Draft</button>
+          <a href="/logout" class="secondary" style="text-decoration:none; padding:0.4rem 0.8rem; border:1px solid #ccc; border-radius:6px;">Logout</a>
+        </div>
       </div>
       <h1>Pre-Authorization Request</h1>
       <div class="subtle">Whole Exome/Genome Sequencing (WES/WGS)</div>
@@ -162,7 +168,7 @@
             </div>
             <div class="col-6">
               <label for="collection_date">Collection Date</label>
-              <input id="collection_date" name="collection_date" type="date" />
+              <input id="collection_date" name="collection_date" type="date" required />
             </div>
             <div class="col-12">
               <label>CPT Codes</label>
@@ -388,12 +394,7 @@
             <button id="submitBtn" type="submit">Submit</button>
           </div>
         </section>
-      </form>
-      
-      <!-- Admin link (discrete) -->
-      <div style="text-align: center; margin-top: 3rem; opacity: 0.5;">
-        <a href="{{ url_for('admin_login') }}" style="color: #666; text-decoration: none; font-size: 0.8rem;">Admin</a>
-      </div>
+      </form>     
     </div>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>

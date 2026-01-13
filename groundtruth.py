@@ -15,17 +15,13 @@ Sample categories:
     - 2a) Invalid ICD codes - invalid icd code assigned (code does not exist)
     - 2b) CPT codes are inconsistent with test_type
     - 2c) Invalid CPT codes - code does not exist
-    - 2d) Data Collection date before Prior Test Date #issue
+    - 2d) Data Collection date before Prior Test Date
     - 2e) Data Collection date is empty
 
   label_type = 3 (IRRELEVANT):
     - 3a) Partially irrelevant ICD codes: original relevant ICD codes + some irrelevant ICD codes
     - 3b) Irrelevant ICD codes only 
     - 3c) Irrelevant family history
-
-Usage:
-    python generate_test_patients.py -n 50 -o test_patients.jsonl
-    python generate_test_patients.py --count 100 --output bulk_test_data.jsonl
 """
 import argparse
 import json
@@ -336,6 +332,12 @@ class GroundtruthGenerator:
         elif sub_label == "2e":
             self._2e_assign_empty_collection_date(profile)
 
+    def reset_profile_for_3b(self, profile: Dict):        
+        for key in ('mca', 'dd_id', 'dysmorphic', 'neurological', 'metabolic', 'family_history', 'previous_test_negative'):
+            profile[key] = False
+        for key in ('prior_test_type', 'prior_test_result', 'prior_test_date'):
+            profile.pop(key, None)
+    
     def _3_irrelevant_info(self, label, profile: Dict):
         """
         Add some irrelevant ICD codes and family history to the profile for label_type = 3.
@@ -350,7 +352,8 @@ class GroundtruthGenerator:
         if label == "3a":
             profile['icd_codes'].extend(irrelevant_codes)
         if label == "3b":
-            profile['icd_codes'] = irrelevant_codes            
+            profile['icd_codes'] = irrelevant_codes
+            self.reset_profile_for_3b(profile)    
        
     def generate_groundtruth_profile(self) -> Dict:
         sex = random.choice(self.sexes)

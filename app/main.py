@@ -13,6 +13,7 @@ def _safe_str(value):
     return str(value) if value is not None else ""
 
 from flask import Flask, jsonify, render_template, request, send_file, session, redirect, url_for, make_response
+import logging
 
 # Local imports
 from app.models import validate_submission, normalize_payload
@@ -21,6 +22,9 @@ from app.models import validate_submission, normalize_payload
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.secret_key = os.getenv("SECRET_KEY", "dev-key-change-in-production")
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s: %(message)s')
+logger = logging.getLogger(__name__)
+
 # Simple admin password - in production, use environment variable
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
 
@@ -28,7 +32,105 @@ ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
 @app.get("/")
 def index():
     """Render the main multi-step form page."""
+    # Require user login before showing form
+    if not session.get("user_authenticated"):
+        return redirect(url_for("login"))
     return render_template("index.html")
+
+@app.get("/login")
+def login():
+    """Render user login page."""
+    if session.get("user_authenticated"):
+        return redirect(url_for("index"))
+    return render_template("user_login.html")
+
+@app.post("/login")
+def do_login():
+    """Simple username/password login with file-backed storage."""
+    # Accept form-encoded or JSON
+    data = {}
+    if request.is_json:
+        data = request.get_json(silent=True) or {}
+    else:
+        data = request.form.to_dict() if request.form else {}
+    username = (data.get("username") or "").strip()
+    password = (data.get("password") or "").strip()
+    logger.info("Login attempt for username=%s (json=%s)", username or "<empty>", request.is_json)
+    if not username:
+        return render_template("user_login.html", error="Username is required"), 400
+
+    users_dir = Path(__file__).resolve().parent.parent / "data"
+    users_dir.mkdir(parents=True, exist_ok=True)
+    users_file = users_dir / "users.json"
+
+    users = {}
+    if users_file.exists():
+        try:
+            with users_file.open("r", encoding="utf-8") as f:
+                users = json.load(f) or {}
+        except json.JSONDecodeError:
+            users = {}
+
+    # If user exists, check password; else create user entry
+    if username in users:
+        saved_pw = users.get(username, {}).get("password", "")
+        if saved_pw and password != saved_pw:
+            logger.warning("Login failed for username=%s: bad password", username)
+            return render_template("user_login.html", error="Invalid credentials"), 401
+    else:
+        users[username] = {"password": password}
+        with users_file.open("w", encoding="utf-8") as f:
+            json.dump(users, f, indent=2, ensure_ascii=False)
+        logger.info("Created new user account for username=%s", username)
+
+    session["user_authenticated"] = True
+    session["username"] = username
+    logger.info("Login success for username=%s", username)
+    return redirect(url_for("index"))
+
+@app.get("/logout")
+def logout():
+    session.pop("user_authenticated", None)
+    session.pop("username", None)
+    return redirect(url_for("login"))
+
+@app.post("/draft/save")
+def save_draft():
+    """Save current form as a server-side draft for the authenticated user."""
+    if not session.get("user_authenticated"):
+        return jsonify({"ok": False, "error": "Not authenticated"}), 401
+    payload = request.get_json(silent=True) or request.form.to_dict()
+    payload = normalize_payload(payload)
+
+    drafts_dir = Path(__file__).resolve().parent.parent / "data" / "drafts"
+    drafts_dir.mkdir(parents=True, exist_ok=True)
+    username = session.get("username", "anonymous")
+    draft_path = drafts_dir / f"{username}.json"
+
+    record = {
+        "saved_at": datetime.utcnow().isoformat() + "Z",
+        "payload": payload,
+    }
+    with draft_path.open("w", encoding="utf-8") as f:
+        json.dump(record, f, ensure_ascii=False, indent=2)
+    return jsonify({"ok": True})
+
+@app.get("/draft/load")
+def load_draft():
+    """Load server-side draft for the authenticated user."""
+    if not session.get("user_authenticated"):
+        return jsonify({"ok": False, "error": "Not authenticated"}), 401
+    drafts_dir = Path(__file__).resolve().parent.parent / "data" / "drafts"
+    username = session.get("username", "anonymous")
+    draft_path = drafts_dir / f"{username}.json"
+    if not draft_path.exists():
+        return jsonify({"ok": True, "payload": {}})
+    try:
+        with draft_path.open("r", encoding="utf-8") as f:
+            record = json.load(f)
+        return jsonify({"ok": True, "payload": record.get("payload", {})})
+    except json.JSONDecodeError:
+        return jsonify({"ok": True, "payload": {}})
 
 @app.post("/submit")
 def submit():
@@ -282,7 +384,7 @@ def admin_delete_submission(filename):
 def admin_logout():
     """Logout admin user."""
     session.pop("admin_authenticated", None)
-    return redirect(url_for("admin_login"))
+    return redirect(url_for("login"))
 
 
 @app.get("/ehr")

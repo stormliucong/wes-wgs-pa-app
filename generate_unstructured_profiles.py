@@ -90,10 +90,32 @@ def process_batch(batch_input: str) -> Optional[List[str]]:
                 break
             time.sleep(30)  # Wait for 30 seconds before checking again
 
+        def _pick_output_file_id(b) -> Optional[str]:
+            for key in ("output_file_id", "response_file_id", "result_file_id"):
+                fid = getattr(b, key, None)
+                if fid:
+                    return fid
+            for key in ("output_file_ids", "response_file_ids", "result_file_ids"):
+                fids = getattr(b, key, None)
+                if fids and isinstance(fids, (list, tuple)) and fids[0]:
+                    return fids[0]
+            return None
+
         if batch.status == "completed":
-            output_file_id = getattr(batch, "output_file_id", None)
+            output_file_id = _pick_output_file_id(batch)
             if output_file_id is None:
-                logger.error("Batch completed but output_file_id is None")
+                err_id = getattr(batch, "error_file_id", None)
+                if err_id:
+                    try:
+                        err_raw = client.files.content(err_id)
+                        err_text = getattr(err_raw, "text", None)
+                        if err_text is None:
+                            err_text = err_raw.read().decode("utf-8")
+                        logger.error("Batch completed but no output file id. Error file content: %s", err_text[:2000])
+                    except Exception as ex:
+                        logger.error("Batch completed without outputs and failed to read error file: %s", ex)
+                else:
+                    logger.error("Batch completed but could not locate any output file id field (API shape change?)")
                 return None
             raw = client.files.content(output_file_id)
             raw_text = getattr(raw, "text", None)
@@ -104,7 +126,7 @@ def process_batch(batch_input: str) -> Optional[List[str]]:
                     logger.error("Unable to read batch output content")
                     return None
             return raw_text.strip().split('\n')
-           
+
     except Exception as e:
         logger.error(f"Error processing the batch: {e}")
 

@@ -7,6 +7,7 @@
   const form = document.querySelector('#pa-form');
   const alertBox = document.querySelector('#alert-box');
   const errorsBox = document.querySelector('#form-errors');
+  const saveDraftBtn = document.querySelector('#saveDraftBtn');
 
   // Lab code modal controls
   const searchLabCodeBtn = document.querySelector('#search-test-code-btn');
@@ -99,6 +100,7 @@
       console.log(`Step ${idx} is ${isActive ? 'active' : 'inactive'}`);
     });
     current = i;
+    try { localStorage.setItem('pa_current_step', String(i)); } catch (_) {}
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   showStep(0);
@@ -265,6 +267,134 @@
     }
     return data;
   }
+
+  function populateForm(data) {
+    if (!data || typeof data !== 'object') return;
+
+    // Simple inputs and selects
+    const fields = form.querySelectorAll('input[name], select[name], textarea[name]');
+    fields.forEach((f) => {
+      const name = f.name;
+      if (!name) return;
+      if (name === 'icd_codes' || name === 'icd_desc' || name === 'prior_test_type' || name === 'prior_test_result' || name === 'prior_test_date' || name === 'cpt_codes') {
+        return; // handled separately
+      }
+      const val = data[name];
+      if (typeof val === 'undefined') return;
+      if (f.type === 'checkbox') {
+        f.checked = !!val;
+      } else {
+        f.value = val;
+      }
+    });
+
+    // CPT codes (array)
+    const cptVals = Array.isArray(data.cpt_codes) ? data.cpt_codes : [];
+    cptVals.forEach((code) => {
+      const el = form.querySelector(`input[type="checkbox"][name="cpt_codes"][value="${code}"]`);
+      if (el) el.checked = true;
+    });
+
+    // ICD rows
+    const icds = Array.isArray(data.icd_codes) ? data.icd_codes : [];
+    if (icdList) {
+      icdList.innerHTML = '';
+      if (icds.length === 0) {
+        icdList.appendChild(createIcdRow());
+      } else {
+        icds.forEach((code) => icdList.appendChild(createIcdRow(code)));
+      }
+    }
+
+    // Prior tests rows
+    const ptTypes = Array.isArray(data.prior_test_type) ? data.prior_test_type : [];
+    const ptResults = Array.isArray(data.prior_test_result) ? data.prior_test_result : [];
+    const ptDates = Array.isArray(data.prior_test_date) ? data.prior_test_date : [];
+    const maxLen = Math.max(ptTypes.length, ptResults.length, ptDates.length);
+    if (priorTestsList) {
+      priorTestsList.innerHTML = '';
+      if (maxLen === 0) {
+        priorTestsList.appendChild(createPriorTestRow());
+      } else {
+        for (let i = 0; i < maxLen; i++) {
+          const row = createPriorTestRow();
+          const typeSel = row.querySelector('select[name="prior_test_type"]');
+          const resInp = row.querySelector('input[name="prior_test_result"]');
+          const dateInp = row.querySelector('input[name="prior_test_date"]');
+          if (typeSel) typeSel.value = ptTypes[i] || typeSel.value;
+          if (resInp) resInp.value = ptResults[i] || '';
+          if (dateInp) dateInp.value = ptDates[i] || '';
+          priorTestsList.appendChild(row);
+        }
+      }
+    }
+  }
+
+  async function saveDraft() {
+    const payload = collectFormData();
+    payload.current_step = current;
+    try {
+      const res = await fetch('/draft/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const body = await res.json();
+      if (!res.ok || !body.ok) {
+        showAlert('error', body?.error || 'Failed to save draft');
+      } else {
+        showAlert('success', 'Draft saved');
+      }
+    } catch (err) {
+      showAlert('error', 'Network or server error while saving draft');
+    }
+  }
+
+  // Load draft on page ready
+  window.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const res = await fetch('/draft/load');
+      const body = await res.json();
+      if (res.ok && body.ok && body.payload) {
+        populateForm(body.payload);
+        const stepFromServer = parseInt(body.payload.current_step, 10);
+        if (!Number.isNaN(stepFromServer) && stepFromServer >= 0 && stepFromServer < steps.length) {
+          showStep(stepFromServer);
+        } else {
+          // Fallback to localStorage if server didn't include current_step
+          const lsStep = parseInt((localStorage.getItem('pa_current_step') || ''), 10);
+          if (!Number.isNaN(lsStep) && lsStep >= 0 && lsStep < steps.length) showStep(lsStep);
+        }
+      } else {
+        const lsStep = parseInt((localStorage.getItem('pa_current_step') || ''), 10);
+        if (!Number.isNaN(lsStep) && lsStep >= 0 && lsStep < steps.length) showStep(lsStep);
+      }
+    } catch (_) {
+      // On error, still try localStorage
+      const lsStep = parseInt((localStorage.getItem('pa_current_step') || ''), 10);
+      if (!Number.isNaN(lsStep) && lsStep >= 0 && lsStep < steps.length) showStep(lsStep);
+    }
+  });
+
+  // Save Draft button
+  if (saveDraftBtn) {
+    saveDraftBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      saveDraft();
+    });
+  }
+
+  // Auto-save on page unload using Beacon
+  window.addEventListener('beforeunload', () => {
+    try {
+      const payload = collectFormData();
+      payload.current_step = current;
+      const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+      navigator.sendBeacon('/draft/save', blob);
+    } catch (_) {
+      // ignore errors
+    }
+  });
 
   if (submitBtn) {
     submitBtn.addEventListener('click', async (e) => {
