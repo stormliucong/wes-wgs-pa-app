@@ -29,6 +29,18 @@ logger = logging.getLogger(__name__)
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
 
 
+def data_root() -> Path:
+    """Return a writable data directory, defaulting to /tmp for cloud platforms."""
+    # Use env var if provided; otherwise fall back to /tmp
+    root = os.getenv("APP_DATA_DIR")
+    if root:
+        base = Path(root)
+    else:
+        base = Path("/tmp") / "wes-wgs-pa-app-data"
+    base.mkdir(parents=True, exist_ok=True)
+    return base
+
+
 @app.get("/")
 def index():
     """Render the main multi-step form page."""
@@ -59,7 +71,7 @@ def do_login():
     if not username:
         return render_template("user_login.html", error="Username is required"), 400
 
-    users_dir = Path(__file__).resolve().parent.parent / "data"
+    users_dir = data_root()
     users_dir.mkdir(parents=True, exist_ok=True)
     users_file = users_dir / "users.json"
 
@@ -109,7 +121,7 @@ def submit():
         return jsonify({"ok": False, "errors": errors}), 400
 
     # Ensure data directory exists
-    data_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    data_dir = data_root() / "submissions"
     data_dir.mkdir(parents=True, exist_ok=True)
 
     # Persist to file with timestamp + uuid
@@ -377,7 +389,7 @@ def ehr_search():
 # ---------------- Draft management (multi-draft, autosave) ----------------
 
 def _drafts_dir() -> Path:
-    return Path(__file__).resolve().parent.parent / "data" / "drafts"
+    return data_root() / "drafts"
 
 def _ensure_drafts_dir():
     d = _drafts_dir()
