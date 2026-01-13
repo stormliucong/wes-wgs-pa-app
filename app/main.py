@@ -7,13 +7,15 @@ import uuid
 from datetime import datetime
 from pathlib import Path
 from io import StringIO
+import logging
+
+logger = logging.getLogger(__name__)
 
 def _safe_str(value):
     """Safely convert a value to a string, handling None."""
     return str(value) if value is not None else ""
 
 from flask import Flask, jsonify, render_template, request, send_file, session, redirect, url_for, make_response
-import logging
 
 # Local imports
 from app.models import validate_submission, normalize_payload
@@ -29,17 +31,48 @@ logger = logging.getLogger(__name__)
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
 
 
+# Writable data root (App Platform: /tmp; local: project /data if APP_DATA_DIR unset)
 def data_root() -> Path:
-    """Return a writable data directory, defaulting to /tmp for cloud platforms."""
-    # Use env var if provided; otherwise fall back to /tmp
-    root = os.getenv("APP_DATA_DIR")
-    if root:
-        base = Path(root)
-    else:
-        base = Path("/tmp") / "wes-wgs-pa-app-data"
-    base.mkdir(parents=True, exist_ok=True)
-    return base
+    p = os.environ.get("APP_DATA_DIR")
+    if p:
+        return Path(p)
+    # Fallback to /tmp in production
+    if os.environ.get("FLASK_ENV") == "production" or os.environ.get("GUNICORN_CMD_ARGS"):
+        return Path("/tmp/wes-wgs-pa-app-data")
+    # Local dev default
+    return Path(__file__).resolve().parents[1] / "data"
 
+DATA_DIR = data_root()
+SUBMISSIONS_DIR = DATA_DIR / "submissions"
+DRAFTS_DIR = DATA_DIR / "drafts"
+USERS_FILE = DATA_DIR / "users.json"
+
+def ensure_data_store():
+    try:
+        SUBMISSIONS_DIR.mkdir(parents=True, exist_ok=True)
+        DRAFTS_DIR.mkdir(parents=True, exist_ok=True)
+        if not USERS_FILE.exists():
+            DATA_DIR.mkdir(parents=True, exist_ok=True)
+            USERS_FILE.write_text("{}", encoding="utf-8")
+    except Exception as e:
+        logger.exception("Failed to initialize data store at %s", DATA_DIR)
+        raise
+
+def load_users() -> dict:
+    ensure_data_store()
+    try:
+        return json.loads(USERS_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        logger.exception("Failed to read users file")
+        return {}
+
+def save_users(users: dict):
+    ensure_data_store()
+    USERS_FILE.write_text(json.dumps(users, indent=2), encoding="utf-8")
+
+@app.before_request
+def _init_store():
+    ensure_data_store()
 
 @app.get("/")
 def index():
