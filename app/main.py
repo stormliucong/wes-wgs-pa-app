@@ -94,43 +94,6 @@ def logout():
     session.pop("username", None)
     return redirect(url_for("login"))
 
-@app.post("/draft/save")
-def save_draft():
-    """Save current form as a server-side draft for the authenticated user."""
-    if not session.get("user_authenticated"):
-        return jsonify({"ok": False, "error": "Not authenticated"}), 401
-    payload = request.get_json(silent=True) or request.form.to_dict()
-    payload = normalize_payload(payload)
-
-    drafts_dir = Path(__file__).resolve().parent.parent / "data" / "drafts"
-    drafts_dir.mkdir(parents=True, exist_ok=True)
-    username = session.get("username", "anonymous")
-    draft_path = drafts_dir / f"{username}.json"
-
-    record = {
-        "saved_at": datetime.utcnow().isoformat() + "Z",
-        "payload": payload,
-    }
-    with draft_path.open("w", encoding="utf-8") as f:
-        json.dump(record, f, ensure_ascii=False, indent=2)
-    return jsonify({"ok": True})
-
-@app.get("/draft/load")
-def load_draft():
-    """Load server-side draft for the authenticated user."""
-    if not session.get("user_authenticated"):
-        return jsonify({"ok": False, "error": "Not authenticated"}), 401
-    drafts_dir = Path(__file__).resolve().parent.parent / "data" / "drafts"
-    username = session.get("username", "anonymous")
-    draft_path = drafts_dir / f"{username}.json"
-    if not draft_path.exists():
-        return jsonify({"ok": True, "payload": {}})
-    try:
-        with draft_path.open("r", encoding="utf-8") as f:
-            record = json.load(f)
-        return jsonify({"ok": True, "payload": record.get("payload", {})})
-    except json.JSONDecodeError:
-        return jsonify({"ok": True, "payload": {}})
 
 @app.post("/submit")
 def submit():
@@ -153,8 +116,22 @@ def submit():
     filename = f"{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}_{uuid.uuid4().hex}.json"
     filepath = data_dir / filename
 
+    # Capture timing metadata
+    submitted_at = datetime.utcnow().isoformat() + "Z"
+    started_at = payload.get("started_at")
+    completion_seconds = None
+    if started_at:
+        try:
+            # Compute completion time in seconds
+            start_dt = datetime.fromisoformat(started_at.replace("Z", ""))
+            completion_seconds = (datetime.utcnow() - start_dt).total_seconds()
+        except Exception:
+            completion_seconds = None
+
     record = {
-        "submitted_at": datetime.utcnow().isoformat() + "Z",
+        "submitted_at": submitted_at,
+        "started_at": started_at,
+        "completion_seconds": completion_seconds,
         "payload": payload,
     }
 
@@ -184,6 +161,8 @@ def get_submissions_data():
             submission = {
                 "filename": file_path.name,
                 "submitted_at": data.get("submitted_at", ""),
+                "started_at": data.get("started_at", ""),
+                "completion_seconds": data.get("completion_seconds"),
                 "payload": data.get("payload", {}),
                 "file_size": file_path.stat().st_size,
                 "file_path": str(file_path)
@@ -201,8 +180,8 @@ def get_submissions_data():
             # Skip corrupted files
             continue
     
-    # Sort by submission date (newest first)
-    submissions.sort(key=lambda x: x["submitted_at"], reverse=True)
+    # Sort by submission date (newest first) with safe fallback
+    submissions.sort(key=lambda x: x.get("submitted_at") or "", reverse=True)
     return submissions
 
 @app.get("/admin")
@@ -262,6 +241,7 @@ def admin_dashboard():
     return render_template("admin.html", 
                          submissions=submissions, 
                          test_types=test_types,
+                         drafts=get_drafts_data(),
                          current_filters={
                              "search": search,
                              "date_from": date_from,
@@ -321,7 +301,7 @@ def admin_export_csv():
     
     # Header row
     headers = [
-        "Filename", "Submitted At", "Patient Name", "Provider Name", 
+        "Filename", "Started At", "Submitted At", "Completion Seconds", "Patient Name", "Provider Name", 
         "Test Type", "Patient DOB", "Provider NPI", "Diagnosis Code", 
         "Clinical History", "Prior Testing"
     ]
@@ -332,7 +312,9 @@ def admin_export_csv():
         payload = submission["payload"]
         row = [
             submission["filename"],
+            submission.get("started_at", ""),
             submission["submitted_at"],
+            submission.get("completion_seconds", ""),
             submission["patient_name"],
             submission["provider_name"],
             submission["test_type"],
@@ -391,6 +373,138 @@ def admin_logout():
 def ehr_search():
     """Render the EHR patient search page."""
     return render_template("ehr.html")
+
+# ---------------- Draft management (multi-draft, autosave) ----------------
+
+def _drafts_dir() -> Path:
+    return Path(__file__).resolve().parent.parent / "data" / "drafts"
+
+def _ensure_drafts_dir():
+    d = _drafts_dir()
+    d.mkdir(parents=True, exist_ok=True)
+
+def get_drafts_data():
+    """Load all draft files and return metadata for admin panel."""
+    ddir = _drafts_dir()
+    drafts = []
+    if not ddir.exists():
+        return drafts
+    for file_path in ddir.glob("*.json"):
+        try:
+            with file_path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+            drafts.append({
+                "filename": file_path.name,
+                "form_id": data.get("form_id"),
+                "username": data.get("username"),
+                "started_at": data.get("started_at"),
+                "last_saved_at": data.get("last_saved_at"),
+                "payload": data.get("payload", {}),
+            })
+        except Exception:
+            continue
+    # Sort drafts by last_saved_at safely, coalescing None to empty string
+    drafts.sort(key=lambda x: x.get("last_saved_at") or "", reverse=True)
+    return drafts
+
+@app.post("/draft/save")
+def save_draft():
+    """Save current form as a server-side draft for the authenticated user.
+    Supports multiple drafts via form_id.
+    """
+    if not session.get("user_authenticated"):
+        return jsonify({"ok": False, "error": "Not authenticated"}), 401
+    data = request.get_json(silent=True) or request.form.to_dict()
+    payload = normalize_payload(data or {})
+
+    form_id = (data or {}).get("form_id") or str(uuid.uuid4())
+    username = session.get("username", "anonymous")
+    started_at = (data or {}).get("started_at") or datetime.utcnow().isoformat() + "Z"
+    current_step = (data or {}).get("current_step")
+
+    _ensure_drafts_dir()
+    draft_path = _drafts_dir() / f"{form_id}.json"
+
+    record = {
+        "status": "in_progress",
+        "form_id": form_id,
+        "username": username,
+        "started_at": started_at,
+        "last_saved_at": datetime.utcnow().isoformat() + "Z",
+        "current_step": current_step,
+        "payload": payload,
+    }
+    with draft_path.open("w", encoding="utf-8") as f:
+        json.dump(record, f, ensure_ascii=False, indent=2)
+    return jsonify({"ok": True, "form_id": form_id, "started_at": started_at})
+
+@app.get("/draft/load")
+def load_draft():
+    if not session.get("user_authenticated"):
+        return jsonify({"ok": False, "error": "Not authenticated"}), 401
+    form_id = request.args.get("form_id")
+    if not form_id:
+        return jsonify({"ok": True, "payload": {}})
+    draft_path = _drafts_dir() / f"{form_id}.json"
+    if not draft_path.exists():
+        return jsonify({"ok": True, "payload": {}})
+    try:
+        with draft_path.open("r", encoding="utf-8") as f:
+            record = json.load(f)
+        return jsonify({
+            "ok": True,
+            "payload": record.get("payload", {}),
+            "form_id": record.get("form_id"),
+            "started_at": record.get("started_at"),
+            "current_step": record.get("current_step"),
+        })
+    except json.JSONDecodeError:
+        return jsonify({"ok": True, "payload": {}})
+
+@app.post("/draft/start_new")
+def start_new_form():
+    if not session.get("user_authenticated"):
+        return jsonify({"ok": False, "error": "Not authenticated"}), 401
+    # Optionally save current draft if provided
+    current = request.get_json(silent=True) or {}
+    if current:
+        try:
+            save_draft()  # save existing state
+        except Exception:
+            pass
+    # Create new blank form
+    form_id = str(uuid.uuid4())
+    started_at = datetime.utcnow().isoformat() + "Z"
+    # Initialize an empty draft file for tracking
+    _ensure_drafts_dir()
+    draft_path = _drafts_dir() / f"{form_id}.json"
+    with draft_path.open("w", encoding="utf-8") as f:
+        json.dump({
+            "status": "in_progress",
+            "form_id": form_id,
+            "username": session.get("username", "anonymous"),
+            "started_at": started_at,
+            "last_saved_at": started_at,
+            "current_step": 0,
+            "payload": {},
+        }, f, ensure_ascii=False, indent=2)
+    return jsonify({"ok": True, "form_id": form_id, "started_at": started_at})
+
+@app.post("/draft/delete")
+def delete_draft():
+    if not session.get("user_authenticated"):
+        return jsonify({"ok": False, "error": "Not authenticated"}), 401
+    data = request.get_json(silent=True) or request.form.to_dict()
+    form_id = (data or {}).get("form_id")
+    if not form_id:
+        return jsonify({"ok": False, "error": "Missing form_id"}), 400
+    draft_path = _drafts_dir() / f"{form_id}.json"
+    try:
+        if draft_path.exists():
+            draft_path.unlink()
+        return jsonify({"ok": True})
+    except OSError as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
 
 
 @app.get("/api/search-patients")

@@ -7,7 +7,8 @@
   const form = document.querySelector('#pa-form');
   const alertBox = document.querySelector('#alert-box');
   const errorsBox = document.querySelector('#form-errors');
-  const saveDraftBtn = document.querySelector('#saveDraftBtn');
+  const startNewFormBtn = document.querySelector('#startNewFormBtn');
+  const deleteFormBtn = document.querySelector('#deleteFormBtn');
 
   // Lab code modal controls
   const searchLabCodeBtn = document.querySelector('#search-test-code-btn');
@@ -237,6 +238,31 @@
     alertBox.style.display = 'block';
   }
 
+  // Persistent form identifiers and timestamps
+  function getFormId() {
+    let id = localStorage.getItem('pa_form_id');
+    if (!id && window.crypto && crypto.randomUUID) {
+      id = crypto.randomUUID();
+      localStorage.setItem('pa_form_id', id);
+    }
+    return id || '';
+  }
+
+  function getStartedAt() {
+    let s = localStorage.getItem('pa_started_at');
+    if (!s) {
+      s = new Date().toISOString();
+      localStorage.setItem('pa_started_at', s);
+    }
+    return s;
+  }
+
+  function setNewFormMeta(formId, startedAt) {
+    localStorage.setItem('pa_form_id', formId);
+    localStorage.setItem('pa_started_at', startedAt);
+    localStorage.setItem('pa_current_step', '0');
+  }
+
   function collectFormData() {
     const data = {};
     const fields = form.querySelectorAll('input, select, textarea');
@@ -265,6 +291,9 @@
     for (const [k, v] of arrFields.entries()) {
       data[k] = v;
     }
+    // Include meta
+    data.form_id = getFormId();
+    data.started_at = getStartedAt();
     return data;
   }
 
@@ -330,7 +359,7 @@
     }
   }
 
-  async function saveDraft() {
+  async function saveDraft(silent = true) {
     const payload = collectFormData();
     payload.current_step = current;
     try {
@@ -341,23 +370,38 @@
       });
       const body = await res.json();
       if (!res.ok || !body.ok) {
-        showAlert('error', body?.error || 'Failed to save draft');
+        if (!silent) showAlert('error', body?.error || 'Failed to save draft');
       } else {
-        showAlert('success', 'Draft saved');
+        if (body.form_id) localStorage.setItem('pa_form_id', body.form_id);
+        if (body.started_at) localStorage.setItem('pa_started_at', body.started_at);
+        if (!silent) showAlert('success', 'Draft saved');
       }
     } catch (err) {
-      showAlert('error', 'Network or server error while saving draft');
+      if (!silent) showAlert('error', 'Network or server error while saving draft');
     }
   }
 
   // Load draft on page ready
   window.addEventListener('DOMContentLoaded', async () => {
     try {
-      const res = await fetch('/draft/load');
+      // Ensure a form exists server-side
+      let formId = getFormId();
+      let startedAt = getStartedAt();
+      if (!formId || !startedAt) {
+        const resNew = await fetch('/draft/start_new', { method: 'POST' });
+        const bodyNew = await resNew.json();
+        if (resNew.ok && bodyNew.ok) {
+          setNewFormMeta(bodyNew.form_id, bodyNew.started_at);
+          formId = bodyNew.form_id;
+          startedAt = bodyNew.started_at;
+        }
+      }
+
+      const res = await fetch('/draft/load?form_id=' + encodeURIComponent(formId));
       const body = await res.json();
       if (res.ok && body.ok && body.payload) {
         populateForm(body.payload);
-        const stepFromServer = parseInt(body.payload.current_step, 10);
+        const stepFromServer = parseInt(body.current_step, 10);
         if (!Number.isNaN(stepFromServer) && stepFromServer >= 0 && stepFromServer < steps.length) {
           showStep(stepFromServer);
         } else {
@@ -374,13 +418,67 @@
       const lsStep = parseInt((localStorage.getItem('pa_current_step') || ''), 10);
       if (!Number.isNaN(lsStep) && lsStep >= 0 && lsStep < steps.length) showStep(lsStep);
     }
+    // Autosave periodically
+    setInterval(() => { saveDraft(true); }, 20000);
   });
 
-  // Save Draft button
-  if (saveDraftBtn) {
-    saveDraftBtn.addEventListener('click', (e) => {
+  // Start New Form
+  if (startNewFormBtn) {
+    startNewFormBtn.addEventListener('click', async (e) => {
       e.preventDefault();
-      saveDraft();
+      await saveDraft(true);
+      try {
+        const res = await fetch('/draft/start_new', { method: 'POST' });
+        const body = await res.json();
+        if (res.ok && body.ok) {
+          setNewFormMeta(body.form_id, body.started_at);
+          form.reset();
+          if (icdList) { icdList.innerHTML = ''; icdList.appendChild(createIcdRow()); }
+          if (priorTestsList) { priorTestsList.innerHTML = ''; priorTestsList.appendChild(createPriorTestRow()); }
+          showStep(0);
+          showAlert('success', 'Started a new form');
+        } else {
+          showAlert('error', body?.error || 'Failed to start a new form');
+        }
+      } catch (_) {
+        showAlert('error', 'Network error while starting a new form');
+      }
+    });
+  }
+
+  // Delete Current Form
+  if (deleteFormBtn) {
+    deleteFormBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const formId = localStorage.getItem('pa_form_id');
+      if (!formId) { form.reset(); showStep(0); return; }
+      if (!confirm('Delete the current form in progress?')) return;
+      try {
+        const res = await fetch('/draft/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ form_id: formId })
+        });
+        const body = await res.json();
+        if (res.ok && body.ok) {
+          const resNew = await fetch('/draft/start_new', { method: 'POST' });
+          const bodyNew = await resNew.json();
+          if (resNew.ok && bodyNew.ok) {
+            setNewFormMeta(bodyNew.form_id, bodyNew.started_at);
+          } else {
+            setNewFormMeta((crypto.randomUUID && crypto.randomUUID()) || String(Date.now()), new Date().toISOString());
+          }
+          form.reset();
+          if (icdList) { icdList.innerHTML = ''; icdList.appendChild(createIcdRow()); }
+          if (priorTestsList) { priorTestsList.innerHTML = ''; priorTestsList.appendChild(createPriorTestRow()); }
+          showStep(0);
+          showAlert('success', 'Current form deleted. New blank form ready.');
+        } else {
+          showAlert('error', body?.error || 'Failed to delete current form');
+        }
+      } catch (_) {
+        showAlert('error', 'Network error while deleting form');
+      }
     });
   }
 
@@ -426,6 +524,14 @@
           return;
         }
         showAlert('success', 'Submitted successfully. Reference: ' + (body.file || 'n/a'));
+        // After submission, start a new form automatically
+        try {
+          const resNew = await fetch('/draft/start_new', { method: 'POST' });
+          const bodyNew = await resNew.json();
+          if (resNew.ok && bodyNew.ok) {
+            setNewFormMeta(bodyNew.form_id, bodyNew.started_at);
+          }
+        } catch (_) {}
         form.reset();
         // reset dynamic lists to one row each
         if (icdList) {

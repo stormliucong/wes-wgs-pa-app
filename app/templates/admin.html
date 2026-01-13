@@ -279,7 +279,9 @@
                 <thead>
                     <tr>
                         <th>File</th>
+                        <th>Started</th>
                         <th>Submitted</th>
+                        <th>Completion (s)</th>
                         <th>Patient Name</th>
                         <th>Provider</th>
                         <th>Test Type</th>
@@ -293,7 +295,13 @@
                             {{ submission.filename }}
                         </td>
                         <td class="date-cell">
+                            {{ submission.started_at.replace('T', ' ').replace('Z', '').split('.')[0] if submission.started_at else 'N/A' }}
+                        </td>
+                        <td class="date-cell">
                             {{ submission.submitted_at.replace('T', ' ').replace('Z', '').split('.')[0] if submission.submitted_at else 'N/A' }}
+                        </td>
+                        <td>
+                            {{ submission.completion_seconds if submission.completion_seconds is not none else 'N/A' }}
                         </td>
                         <td>
                             {{ submission.patient_name or 'N/A' }}
@@ -326,6 +334,43 @@
             <p>Try adjusting your filters or check if any submissions have been made.</p>
         </div>
         {% endif %}
+
+        <!-- Drafts/In-Progress Panel -->
+        <section class="filters-section" style="margin-top:2rem;">
+            <h2 style="margin-top:0;">In-Progress Drafts</h2>
+            {% if drafts %}
+            <div class="table-responsive">
+                <table class="submissions-table">
+                    <thead>
+                        <tr>
+                            <th>Form ID</th>
+                            <th>User</th>
+                            <th>Started</th>
+                            <th>Last Saved</th>
+                            <th>Patient Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for draft in drafts %}
+                        <tr>
+                            <td class="filename-cell" title="{{ draft.form_id }}">{{ draft.form_id }}</td>
+                            <td>{{ draft.username or 'N/A' }}</td>
+                            <td class="date-cell">{{ draft.started_at.replace('T', ' ').replace('Z', '').split('.')[0] if draft.started_at else 'N/A' }}</td>
+                            <td class="date-cell">{{ draft.last_saved_at.replace('T', ' ').replace('Z', '').split('.')[0] if draft.last_saved_at else 'N/A' }}</td>
+                            <td>{{ (draft.payload.patient_first_name ~ ' ' ~ draft.payload.patient_last_name)|trim if draft.payload else 'N/A' }}</td>
+                            <td class="actions-cell">
+                                <button onclick="deleteDraft('{{ draft.form_id }}')" class="btn btn-danger btn-sm">🗑️ Delete</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="no-submissions">No drafts found.</div>
+            {% endif %}
+        </section>
     </div>
     
     <script>
@@ -412,6 +457,22 @@
                     btn.innerHTML = '🗑️ Delete';
                 });
             });
+        }
+
+        // Delete draft
+        function deleteDraft(formId) {
+            if (!confirm('Delete draft ' + formId + '?')) return;
+            fetch("{{ url_for('delete_draft') }}", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ form_id: formId })
+            }).then(r => r.json()).then(d => {
+                if (d.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Failed to delete draft: ' + (d.error || 'unknown error'));
+                }
+            }).catch(e => alert('Error deleting draft'));
         }
     </script>
 </body>
