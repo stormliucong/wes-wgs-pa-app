@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ABC Insurance — WES/WGS Pre-Authorization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <style>
+      .brand { text-align: center; margin: 3rem 0 2rem; }
+      .brand h1 { margin: 0; font-size: 1.8rem; }
+      .brand .subtle { color: #555; margin-top: .25rem; }
+      .login-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+      @media (min-width: 860px) { .login-grid { grid-template-columns: 1fr 1fr; } }
+      .panel { padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; background: #fff; }
+      .panel h2 { margin-top: 0; }
+      .error { color: #b00020; margin-bottom: 1rem; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="brand">
+        <h1>ABC Insurance</h1>
+        <div class="subtle">WES/WGS Pre-Authorization Submission Portal</div>
+      </div>
+
+      <div class="login-grid">
+        <div class="panel">
+          <h2>User Sign In</h2>
+          <p class="subtle">Fill out and submit a pre-authorization form</p>
+          {% if error %}
+            <div class="error">{{ error }}</div>
+          {% endif %}
+          <form method="post" action="{{ url_for('do_login') }}">
+            <div class="grid">
+              <div class="col-12">
+                <label for="username">Username</label>
+                <input id="username" name="username" required />
+              </div>
+              <div class="col-12">
+                <label for="password">Password (optional)</label>
+                <input id="password" name="password" type="password" />
+              </div>
+            </div>
+            <div class="actions" style="margin-top: 1rem;">
+              <button type="submit">Sign In</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>Admin Access</h2>
+          <p class="subtle">Review and manage submitted forms</p>
+          <form method="post" action="{{ url_for('admin_authenticate') }}">
+            <div class="grid">
+              <div class="col-12">
+                <label for="admin_password">Admin Password</label>
+                <input id="admin_password" name="password" type="password" placeholder="Enter admin password" required />
+              </div>
+            </div>
+            <div class="actions" style="margin-top: 1rem;">
+              <button type="submit">Sign In as Admin</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
