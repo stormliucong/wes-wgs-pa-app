@@ -6,12 +6,12 @@
 from typing import Dict
 
 
-def check_submission(submission_payload: Dict, groundtruth: Dict) -> bool: #
+def check_submission(submission: Dict, groundtruth: Dict) -> bool: #
     """Check if the submission matches the groundtruth"""
-    for key in groundtruth:
-        if key not in submission_payload:
-
-            return False
-        if submission_payload[key] != groundtruth[key]:
+    payload = submission.get("payload", {})
+    check_result = {key: True for key in payload}
+    for key in payload:
+        if payload[key] != groundtruth[key]:
+            check_result[key] = False
             return False
     return True

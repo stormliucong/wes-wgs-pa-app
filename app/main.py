@@ -47,6 +47,16 @@ SUBMISSIONS_DIR = DATA_DIR / "submissions"
 DRAFTS_DIR = DATA_DIR / "drafts"
 USERS_FILE = DATA_DIR / "users.json"
 
+# Ensure writable store at import time (per process)
+try:
+    SUBMISSIONS_DIR.mkdir(parents=True, exist_ok=True)
+    DRAFTS_DIR.mkdir(parents=True, exist_ok=True)
+    if not USERS_FILE.exists():
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        USERS_FILE.write_text("{}", encoding="utf-8")
+except Exception:
+    logger.exception("Failed to initialize data store at startup: %s", DATA_DIR)
+
 def ensure_data_store():
     try:
         SUBMISSIONS_DIR.mkdir(parents=True, exist_ok=True)
@@ -191,7 +201,7 @@ def health():
 
 def get_submissions_data():
     """Load all submission files and return as list with metadata."""
-    data_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    data_dir = data_root() / "submissions"
     submissions = []
     
     if not data_dir.exists():
@@ -299,7 +309,7 @@ def admin_download_single(filename):
     if not session.get("admin_authenticated"):
         return redirect(url_for("admin_login"))
     
-    data_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    data_dir = data_root() / "submissions"
     file_path = data_dir / filename
     
     if not file_path.exists() or not file_path.suffix == ".json":
@@ -562,7 +572,7 @@ def api_search_patients():
     results = []
     
     # Search actual submissions
-    submissions_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    submissions_dir = data_root() / "submissions"
     if submissions_dir.exists():
         for json_file in submissions_dir.glob("*.json"):
             try:
