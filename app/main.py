@@ -173,20 +173,8 @@ def submit():
 
     # Capture timing metadata
     submitted_at = datetime.utcnow().isoformat() + "Z"
-    started_at = payload.get("started_at")
-    completion_seconds = None
-    if started_at:
-        try:
-            # Compute completion time in seconds
-            start_dt = datetime.fromisoformat(started_at.replace("Z", ""))
-            completion_seconds = (datetime.utcnow() - start_dt).total_seconds()
-        except Exception:
-            completion_seconds = None
-
     record = {
         "submitted_at": submitted_at,
-        "started_at": started_at,
-        "completion_seconds": completion_seconds,
         "payload": payload,
     }
 
@@ -215,8 +203,8 @@ def get_submissions_data():
             # Extract metadata
             submission = {
                 "filename": file_path.name,
+                "patient_id": data.get("patient_id", ""),
                 "submitted_at": data.get("submitted_at", ""),
-                "started_at": data.get("started_at", ""),
                 "completion_seconds": data.get("completion_seconds"),
                 "payload": data.get("payload", {}),
                 "file_size": file_path.stat().st_size,
@@ -317,7 +305,6 @@ def admin_download_single(filename):
     
     return send_file(file_path, as_attachment=True, download_name=filename)
 
-
 @app.get("/admin/export")
 def admin_export_csv():
     """Export filtered submissions as CSV."""
@@ -388,14 +375,14 @@ def admin_export_csv():
     
     return response
 
-
 @app.post("/admin/delete/<filename>")
 def admin_delete_submission(filename):
     """Delete a single submission file."""
     if not session.get("admin_authenticated"):
         return redirect(url_for("admin_login"))
     
-    data_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
+    # Use the same submissions directory as other admin routes
+    data_dir = data_root() / "submissions"
     file_path = data_dir / filename
     
     # Security check: ensure filename is safe and file exists
@@ -559,7 +546,6 @@ def delete_draft():
         return jsonify({"ok": True})
     except OSError as e:
         return jsonify({"ok": False, "error": str(e)}), 500
-
 
 @app.get("/api/search-patients")
 def api_search_patients():

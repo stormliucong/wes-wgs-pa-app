@@ -375,6 +375,7 @@ class GroundtruthGenerator:
         # Force rationale 1 for sample 2d so prior testing exists (needed to set an earlier collection date)
         
         profile = {
+            'patient_id': f"PAT-{random.randint(1000, 9999)}",
             'patient_first_name': first_name,
             'patient_last_name': last_name,
             'dob': self.generate_date_of_birth(),
