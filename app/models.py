@@ -98,6 +98,11 @@ def validate_submission(payload: Dict[str, Any]) -> Tuple[bool, Dict[str, str]]:
     if npi and (not npi.isdigit() or len(npi) != 10):
         errors["provider_npi"] = "Provider NPI must be exactly 10 digits (numbers only, no spaces or dashes)."
 
+    # Member ID must be digits only
+    member_id = str(payload.get("member_id", "")).strip()
+    if member_id and not member_id.isdigit():
+        errors["member_id"] = "Please only fill in digits for member ID"
+
     # Lab NPI validation (optional field, but if provided must be valid)
     lab_npi = str(payload.get("lab_npi", "")).strip()
     if lab_npi and (not lab_npi.isdigit() or len(lab_npi) != 10):

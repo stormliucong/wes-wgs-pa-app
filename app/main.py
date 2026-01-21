@@ -554,35 +554,8 @@ def api_search_patients():
     if not query:
         return jsonify({"patients": []})
 
-    # Search in both test patients and actual submissions
+    # Search only in synthetic/unstructured EHR-like profiles
     results = []
-    
-    # Search actual submissions
-    submissions_dir = data_root() / "submissions"
-    if submissions_dir.exists():
-        for json_file in submissions_dir.glob("*.json"):
-            try:
-                with open(json_file, 'r') as f:
-                    submission = json.load(f)
-                    # Stored structure uses key 'payload'
-                    patient = submission.get("payload", {}) or submission.get("data", {})
-                    
-                    # Search in key patient fields
-                    searchable_text = " ".join([
-                        patient.get("patient_first_name", ""),
-                        patient.get("patient_last_name", ""),
-                        patient.get("member_id", ""),
-                        patient.get("dob", ""),
-                        patient.get("provider_name", "")
-                    ]).lower()
-                    
-                    if query in searchable_text:
-                        patient["_source"] = "submissions"
-                        patient["_file"] = json_file.name
-                        patient["_submitted_at"] = submission.get("submitted_at")
-                        results.append(patient)
-            except (json.JSONDecodeError, FileNotFoundError):
-                continue
     
     # Search unstructured profiles JSON (generated synthetic EHR-like data)
     unstructured_file = Path(__file__).resolve().parent.parent / "unstructured_profiles.json"

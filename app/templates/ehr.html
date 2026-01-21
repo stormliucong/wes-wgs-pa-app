@@ -261,9 +261,6 @@
       }
       
       function createPatientCard(patient) {
-        const submittedInfo = patient._submitted_at 
-          ? `<br>Submitted: ${new Date(patient._submitted_at).toLocaleDateString()}`
-          : '';
         const priorTestingBlock = formatPriorTesting(patient);
         
         return `
@@ -276,7 +273,6 @@
                 Member ID: ${escapeHtml(patient.member_id || 'N/A')} | 
                 DOB: ${escapeHtml(patient.dob || 'N/A')} | 
                 Sex: ${escapeHtml(patient.sex || 'N/A')}
-                ${submittedInfo}
               </p>
             </div>
             <div class="patient-details">

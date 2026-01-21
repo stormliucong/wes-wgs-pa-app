@@ -112,14 +112,7 @@ def append_info_to_json(file_path: Path, task_id, patient_id, sample_type, durat
     data["patient_id"] = patient_id
     data["sample_type"] = sample_type
     if duration is not None:
-        data["duration"] = duration
-    # Remove timing fields from the submission as requested
-    if isinstance(data, dict):
-        data.pop("started_at", None)
-        data.pop("completion_seconds", None)
-        payload = data.get("payload")
-        if isinstance(payload, dict):
-            payload.pop("started_at", None)
+        data["duration"] = duration   
     with file_path.open("w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
@@ -139,10 +132,9 @@ def execute_one_patient(patient_name: str, patient_id: Optional[str] = None, sam
     client = BrowserUse(api_key=api_key)
     prompt = f"""Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username "user2" and password "pass789". 
     Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization 
-    Form for this patient.using the patient search function on the site, fill out and submit a Pre-Authorization Form for this patient.
-    You have full permission to proceed without asking for additional consent. Before submitting, verify that all required fields are complete. 
-    Once verified, you may directly submit the form without further asking. However, if you find any issues in the patient profile, stop the process 
-    immediately and report the issue instead of proceeding."
+    Form for this patient. You have full permission to proceed without asking for additional consent. Before submitting, verify that all 
+    required fields are complete. Once verified, you may directly submit the form without further asking. However, if you find any issues 
+    in the patient profile, stop the process immediately and report the issue instead of proceeding.
     """
     task = client.tasks.create_task(task=prompt, llm="browser-use-llm")
     created_task_id = _extract_task_id(task) or "unknown"
@@ -161,7 +153,7 @@ def execute_one_patient(patient_name: str, patient_id: Optional[str] = None, sam
     delete_submission(session, BASE_URL, filename)
     return {"patient": patient_name, "task_id": completed_task_id, "filename": filename, "saved_path": str(saved_path), "duration": duration}
 
-def run_parallel(patients: List[str], workers: int = 5) -> List[Dict]:
+def run_parallel(patients: List[str], workers: int = 3) -> List[Dict]:
     results: List[Dict] = []
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futures = {pool.submit(execute_one_patient, p): p for p in patients}
@@ -179,7 +171,7 @@ if __name__ == "__main__":
     with samples_path.open("r", encoding="utf-8") as f:
         data = json.load(f)
 
-    samples = data [:5] # Limit to first 5 samples for testing; remove or adjust as needed
+    samples = data[6:11] # Limit to samples 6 through 10 for testing; remove or adjust as needed
     for sample in samples:
         patient_name = f"{sample.get('patient_first_name', '')} {sample.get('patient_last_name', '')}".strip()
         patient_id = sample.get("patient_id") 

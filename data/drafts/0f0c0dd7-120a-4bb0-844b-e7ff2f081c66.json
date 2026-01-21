@@ -3,14 +3,14 @@
   "form_id": "0f0c0dd7-120a-4bb0-844b-e7ff2f081c66",
   "username": "user2",
   "started_at": "2026-01-14T03:59:08.968014Z",
-  "last_saved_at": "2026-01-14T04:00:17.817433Z",
-  "current_step": 0,
+  "last_saved_at": "2026-01-21T19:17:41.887741Z",
+  "current_step": 1,
   "payload": {
-    "patient_first_name": "",
-    "patient_last_name": "",
-    "dob": "",
-    "sex": "",
-    "member_id": "",
+    "patient_first_name": "Richard",
+    "patient_last_name": "Green",
+    "dob": "2018-02-13",
+    "sex": "Male",
+    "member_id": "123456789",
     "patient_address": "",
     "subscriber_name": "",
     "subscriber_relation": "",
@@ -62,6 +62,6 @@
     ],
     "form_id": "0f0c0dd7-120a-4bb0-844b-e7ff2f081c66",
     "started_at": "2026-01-14T03:59:08.968014Z",
-    "current_step": 0
+    "current_step": 1
   }
 }
