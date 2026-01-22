@@ -415,6 +415,92 @@ def ehr_search():
     """Render the EHR patient search page."""
     return render_template("ehr.html")
 
+# ---------------- Public download/delete endpoints (no auth) ----------------
+
+@app.get("/download/latest")
+def download_latest_submission():
+    """Return the latest submission JSON file as an attachment.
+    No authentication required.
+    """
+    submissions_dir = data_root() / "submissions"
+    if not submissions_dir.exists():
+        return jsonify({"file": None}), 404
+
+    latest_path = None
+    latest_mtime = -1
+    for fp in submissions_dir.glob("*.json"):
+        try:
+            mtime = fp.stat().st_mtime
+            if mtime > latest_mtime:
+                latest_mtime = mtime
+                latest_path = fp
+        except OSError:
+            continue
+
+    if not latest_path:
+        return jsonify({"file": None}), 404
+
+    return send_file(latest_path, as_attachment=True, download_name=latest_path.name)
+
+
+@app.post("/download/patient")
+def download_submission_for_patient():
+    """Return the submission JSON file for a specific patient.
+    Accepts JSON/form parameters: patient_first_name, patient_last_name.
+    Returns the file as attachment if found; else returns {"file": null}.
+    No authentication required.
+    """
+    data = request.get_json(silent=True) or request.form.to_dict()
+    first = (data.get("patient_first_name") or "").strip().lower()
+    last = (data.get("patient_last_name") or "").strip().lower()
+
+    if not first or not last:
+        return jsonify({"file": None, "error": "Missing patient_first_name or patient_last_name"}), 400
+
+    submissions_dir = data_root() / "submissions"
+    if not submissions_dir.exists():
+        return jsonify({"file": None}), 404
+
+    for json_file in submissions_dir.glob("*.json"):
+        try:
+            with json_file.open("r", encoding="utf-8") as f:
+                submission = json.load(f)
+            payload = submission.get("payload", {}) or {}
+            pf = (payload.get("patient_first_name") or "").strip().lower()
+            pl = (payload.get("patient_last_name") or "").strip().lower()
+            if pf == first and pl == last:
+                return send_file(json_file, as_attachment=True, download_name=json_file.name)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+    # Not found: explicitly return None in JSON
+    return jsonify({"file": None}), 200
+
+
+@app.post("/delete")
+def delete_submission_file():
+    """Delete a submission JSON file by id/filename. No authentication required.
+    Accepts JSON or form with keys: 'filename' or 'id'.
+    """
+    data = request.get_json(silent=True) or request.form.to_dict()
+    filename = (data.get("filename") or data.get("id") or "").strip()
+    submissions_dir = data_root() / "submissions"
+    if not filename:
+        return jsonify({"ok": False, "error": "Missing filename/id"}), 400
+    file_path = submissions_dir / filename
+    if not file_path.exists() or file_path.suffix != ".json":
+        return jsonify({"ok": False, "error": "File not found"}), 404
+    try:
+        # Ensure path is within submissions_dir
+        file_path.resolve().relative_to(submissions_dir.resolve())
+    except ValueError:
+        return jsonify({"ok": False, "error": "Invalid file path"}), 400
+    try:
+        file_path.unlink()
+        return jsonify({"ok": True, "deleted": filename})
+    except OSError as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
+
 # ---------------- Draft management (multi-draft, autosave) ----------------
 
 def _drafts_dir() -> Path:
