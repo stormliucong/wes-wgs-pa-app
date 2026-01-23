@@ -1,0 +1,448 @@
+[
+  {
+    "patient_id": "PAT-5738",
+    "sample_type": "1",
+    "check_result": {
+      "patient_first_name": "Correct",
+      "patient_last_name": "Correct",
+      "dob": {
+        "Expected": "2016-11-08",
+        "Got": "1980-01-01"
+      },
+      "sex": "Correct",
+      "member_id": {
+        "Expected": "CT552384610",
+        "Got": "1234567890"
+      },
+      "patient_address": {
+        "Expected": "9449 Center St, Milford, CT 06794",
+        "Got": ""
+      },
+      "subscriber_name": {
+        "Expected": "Steven Rivera",
+        "Got": ""
+      },
+      "subscriber_relation": {
+        "Expected": "Guardian",
+        "Got": ""
+      },
+      "provider_name": {
+        "Expected": "Dr. Betty Young",
+        "Got": "Dr. Placeholder"
+      },
+      "provider_npi": {
+        "Expected": "7123927198",
+        "Got": "1234567890"
+      },
+      "provider_phone": {
+        "Expected": "(475) 880-7208",
+        "Got": ""
+      },
+      "provider_fax": {
+        "Expected": "(475) 714-9311",
+        "Got": ""
+      },
+      "provider_address": {
+        "Expected": "5763 Church St, Hamden, CT 06566",
+        "Got": ""
+      },
+      "lab_name": {
+        "Expected": "LabCorp",
+        "Got": ""
+      },
+      "lab_npi": {
+        "Expected": "6314612852",
+        "Got": ""
+      },
+      "lab_address": "Correct",
+      "test_type": "Correct",
+      "test_configuration": "Correct",
+      "urgency": {
+        "Expected": "Expedited",
+        "Got": "Regular"
+      },
+      "specimen_type": {
+        "Expected": "Saliva",
+        "Got": "Blood"
+      },
+      "collection_date": {
+        "Expected": "2025-12-31",
+        "Got": "2026-01-16"
+      },
+      "internal_test_code": {
+        "Expected": "620024",
+        "Got": ""
+      },
+      "mca": {
+        "Expected": true,
+        "Got": false
+      },
+      "dysmorphic": {
+        "Expected": true,
+        "Got": false
+      },
+      "neurological": "Correct",
+      "metabolic": "Correct",
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": "Correct",
+      "cpt_codes": "Correct",
+      "icd_codes": {
+        "Expected": [
+          "Q21.1",
+          "Q39.1",
+          "F71",
+          "Q87.0"
+        ],
+        "Got": [
+          "F84.0"
+        ]
+      },
+      "prior_test_type": {
+        "Expected": "Gene panel",
+        "Got": [
+          "CMA"
+        ]
+      },
+      "prior_test_result": {
+        "Expected": "negative",
+        "Got": [
+          ""
+        ]
+      },
+      "prior_test_date": {
+        "Expected": "2025-09-30",
+        "Got": [
+          ""
+        ]
+      }
+    }
+  },
+  {
+    "patient_id": "PAT-2764",
+    "sample_type": "1",
+    "check_result": {
+      "patient_first_name": "Correct",
+      "patient_last_name": "Correct",
+      "dob": {
+        "Expected": "2016-11-02",
+        "Got": "1980-01-01"
+      },
+      "sex": "Correct",
+      "member_id": {
+        "Expected": "HUS490830184",
+        "Got": "1234567890"
+      },
+      "patient_address": {
+        "Expected": "5383 Court St, Milford, CT 06847",
+        "Got": ""
+      },
+      "subscriber_name": "Correct",
+      "subscriber_relation": "Correct",
+      "provider_name": {
+        "Expected": "Dr. Sandra King",
+        "Got": "Dr. Agent"
+      },
+      "provider_npi": {
+        "Expected": "4201793261",
+        "Got": "1234567890"
+      },
+      "provider_phone": {
+        "Expected": "(475) 385-7477",
+        "Got": "5555555555"
+      },
+      "provider_fax": {
+        "Expected": "(203) 627-4030",
+        "Got": "5555555555"
+      },
+      "provider_address": {
+        "Expected": "7745 State St, Hamden, CT 06458",
+        "Got": "123 Provider St"
+      },
+      "lab_name": {
+        "Expected": "GeneDx",
+        "Got": "Lab Corp"
+      },
+      "lab_npi": {
+        "Expected": "",
+        "Got": "0987654321"
+      },
+      "lab_address": {
+        "Expected": "7512 Forest Ave, Bristol, CT 06238",
+        "Got": "456 Lab Rd"
+      },
+      "test_type": "Correct",
+      "test_configuration": "Correct",
+      "urgency": "Correct",
+      "specimen_type": {
+        "Expected": "Saliva",
+        "Got": "Blood"
+      },
+      "collection_date": {
+        "Expected": "2026-01-06",
+        "Got": "2026-01-16"
+      },
+      "internal_test_code": {
+        "Expected": "561b",
+        "Got": ""
+      },
+      "mca": {
+        "Expected": true,
+        "Got": false
+      },
+      "dysmorphic": {
+        "Expected": true,
+        "Got": false
+      },
+      "neurological": "Correct",
+      "metabolic": "Correct",
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": "Correct",
+      "cpt_codes": "Correct",
+      "icd_codes": {
+        "Expected": [
+          "Q17.0",
+          "Q04.0",
+          "R62.50",
+          "Q87.0"
+        ],
+        "Got": [
+          "F84.0"
+        ]
+      },
+      "prior_test_type": {
+        "Expected": "Single gene",
+        "Got": [
+          "CMA"
+        ]
+      },
+      "prior_test_result": {
+        "Expected": "negative",
+        "Got": [
+          ""
+        ]
+      },
+      "prior_test_date": {
+        "Expected": "2025-12-08",
+        "Got": [
+          ""
+        ]
+      }
+    }
+  },
+  {
+    "patient_id": "PAT-1859",
+    "sample_type": "1",
+    "check_result": {
+      "patient_first_name": "Correct",
+      "patient_last_name": "Correct",
+      "dob": {
+        "Expected": "2017-09-14",
+        "Got": "2021-10-15"
+      },
+      "sex": "Correct",
+      "member_id": {
+        "Expected": "MCD244236360",
+        "Got": "MCD106719751"
+      },
+      "patient_address": {
+        "Expected": "8763 Main St, Enfield, CT 06513",
+        "Got": ""
+      },
+      "subscriber_name": "Correct",
+      "subscriber_relation": {
+        "Expected": "Self",
+        "Got": ""
+      },
+      "provider_name": {
+        "Expected": "Dr. Donna Scott",
+        "Got": "Test Provider"
+      },
+      "provider_npi": {
+        "Expected": "2468360239",
+        "Got": "1234567890"
+      },
+      "provider_phone": {
+        "Expected": "(203) 566-7371",
+        "Got": ""
+      },
+      "provider_fax": {
+        "Expected": "(203) 282-3501",
+        "Got": ""
+      },
+      "provider_address": {
+        "Expected": "4588 Spring St, West Hartford, CT 06834",
+        "Got": ""
+      },
+      "lab_name": {
+        "Expected": "Invitae",
+        "Got": ""
+      },
+      "lab_npi": "Correct",
+      "lab_address": "Correct",
+      "test_type": "Correct",
+      "test_configuration": {
+        "Expected": "Trio",
+        "Got": "Proband"
+      },
+      "urgency": "Correct",
+      "specimen_type": "Correct",
+      "collection_date": {
+        "Expected": "2025-12-31",
+        "Got": "2026-01-16"
+      },
+      "internal_test_code": {
+        "Expected": "80003",
+        "Got": ""
+      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": {
+        "Expected": true,
+        "Got": false
+      },
+      "metabolic": {
+        "Expected": true,
+        "Got": false
+      },
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": {
+        "Expected": true,
+        "Got": false
+      },
+      "cpt_codes": {
+        "Expected": [
+          "81415",
+          "81416"
+        ],
+        "Got": [
+          "81415"
+        ]
+      },
+      "icd_codes": {
+        "Expected": [
+          "E88.40",
+          "P94.2"
+        ],
+        "Got": [
+          "F84.0"
+        ]
+      }
+    }
+  },
+  {
+    "patient_id": "PAT-6402",
+    "sample_type": "1",
+    "check_result": {
+      "patient_first_name": "Correct",
+      "patient_last_name": "Correct",
+      "dob": {
+        "Expected": "2012-02-24",
+        "Got": "2012-03-20"
+      },
+      "sex": "Correct",
+      "member_id": {
+        "Expected": "CT285402402",
+        "Got": "CT792385679"
+      },
+      "patient_address": {
+        "Expected": "8909 West St, New Britain, CT 06934",
+        "Got": ""
+      },
+      "subscriber_name": {
+        "Expected": "Joshua Ramirez",
+        "Got": ""
+      },
+      "subscriber_relation": {
+        "Expected": "Parent",
+        "Got": ""
+      },
+      "provider_name": {
+        "Expected": "Dr. Thomas Taylor",
+        "Got": "Dr. John Doe"
+      },
+      "provider_npi": {
+        "Expected": "4354930337",
+        "Got": "1234567890"
+      },
+      "provider_phone": {
+        "Expected": "(475) 773-9600",
+        "Got": "5551234567"
+      },
+      "provider_fax": {
+        "Expected": "(203) 756-4115",
+        "Got": "5551234568"
+      },
+      "provider_address": {
+        "Expected": "8408 Main St, Stratford, CT 06732",
+        "Got": "123 Main St"
+      },
+      "lab_name": {
+        "Expected": "LabCorp",
+        "Got": "Gene Lab"
+      },
+      "lab_npi": {
+        "Expected": "4857838915",
+        "Got": "0987654321"
+      },
+      "lab_address": {
+        "Expected": "",
+        "Got": "456 Science Ave"
+      },
+      "test_type": "Correct",
+      "test_configuration": {
+        "Expected": "Trio",
+        "Got": "Proband"
+      },
+      "urgency": {
+        "Expected": "Expedited",
+        "Got": "Regular"
+      },
+      "specimen_type": "Correct",
+      "collection_date": {
+        "Expected": "2026-01-14",
+        "Got": "2026-01-16"
+      },
+      "internal_test_code": {
+        "Expected": "620024",
+        "Got": ""
+      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": {
+        "Expected": true,
+        "Got": false
+      },
+      "metabolic": {
+        "Expected": true,
+        "Got": false
+      },
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": {
+        "Expected": true,
+        "Got": false
+      },
+      "cpt_codes": {
+        "Expected": [
+          "81415",
+          "81416"
+        ],
+        "Got": [
+          "81415"
+        ]
+      },
+      "icd_codes": {
+        "Expected": [
+          "R79.89",
+          "R56.9"
+        ],
+        "Got": [
+          "F84.0"
+        ]
+      }
+    }
+  }
+]

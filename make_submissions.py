@@ -180,7 +180,28 @@ def run_parallel(patients: List[str], workers: int = 3) -> List[Dict]:
     return results
 
 if __name__ == "__main__":
-    # Example: download latest to local
-    session = requests.Session()
-    out = download_latest(session, BASE_URL, Path(__file__).resolve().parent / "data" / "submissions")
-    print(f"Downloaded: {out}")
+    samples_path = Path(__file__).resolve().parent / "all_samples.json"
+    with samples_path.open("r", encoding="utf-8") as f:
+        samples = json.load(f)
+
+    patients = [f"{s.get('patient_first_name', '')} {s.get('patient_last_name', '')}".strip() 
+                for s in samples[6:15]]
+
+    paralle_runner = run_parallel(patients)
+    for res in paralle_runner:
+        print(f"Processed: {res}")
+    
+    # # Take the first 5 patients and process sequentially
+    # results: List[Dict] = []
+    # for sample in samples[:5]:
+    #     patient_name = f"{sample.get('patient_first_name', '')} {sample.get('patient_last_name', '')}".strip()
+    #     patient_id = sample.get("patient_id")
+    #     sample_type = sample.get("sample_type")
+    #     try:
+    #         res = execute_one_patient(patient_name, patient_id, sample_type)
+    #         results.append(res)
+    #         print(f"Processed: {res}")
+    #     except Exception as e:
+    #         err = {"patient": patient_name, "error": str(e)}
+    #         results.append(err)
+    #         print(f"Error: {err}")
