@@ -5,9 +5,10 @@ import uuid
 from pathlib import Path
 from typing import Optional, List, Tuple, Dict
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
+import time
 import requests
 from dotenv import load_dotenv
-from browser_use_sdk import BrowserUse
 
 load_dotenv()
 raw_api_key: Optional[str] = os.getenv("BROWSER_USE_API_KEY")
@@ -20,42 +21,76 @@ BASE_URL = os.getenv(
     "BROWSER_USE_BASE_URL",
     "https://wes-wgs-pa-app-u2c8s.ondigitalocean.app"
 ).rstrip("/")
-client = BrowserUse(api_key=api_key)
 
-def _extract_task_id(task_obj) -> Optional[str]:
-    for attr in ("task_id", "id", "taskId"):
-        val = getattr(task_obj, attr, None)
-        if isinstance(val, str) and val.strip():
-            return val.strip()
-        if isinstance(val, (int, float)):
-            return str(val)
-    return None
+# Browser-Use Cloud API base (v2)
+API_BASE = os.getenv("BROWSER_USE_API_BASE", "https://api.browser-use.com/api/v2").rstrip("/")
 
-def _extract_duration(task_obj) -> Optional[float]:
-    """Attempt to extract a duration (seconds) from a task/result object."""
-    candidates = (
-        "duration",
-        "duration_seconds",
-        "elapsed",
-        "elapsed_seconds",
-        "time_spent",
-        "time_spent_seconds",
-    )
-    for attr in candidates:
-        val = getattr(task_obj, attr, None)
-        if val is None:
-            continue
-        if isinstance(val, (int, float)):
-            try:
-                return float(val)
-            except Exception:
-                continue
-        if isinstance(val, str):
-            try:
-                return float(val.strip())
-            except Exception:
-                continue
-    return None
+def _api_headers() -> Dict[str, str]:
+    return {
+        "X-Browser-Use-API-Key": api_key,
+        "Content-Type": "application/json",
+    }
+
+def _extract_duration_from_task(task_json: Dict) -> Optional[float]:
+    """Compute duration from task JSON timestamps if available."""
+    try:
+        started = task_json.get("startedAt")
+        finished = task_json.get("finishedAt")
+        if not started or not finished:
+            return None
+        s = datetime.fromisoformat(started.replace("Z", "+00:00"))
+        f = datetime.fromisoformat(finished.replace("Z", "+00:00"))
+        return max((f - s).total_seconds(), 0.0)
+    except Exception:
+        return None
+
+def create_session(start_url: Optional[str] = None) -> str:
+    """Create a new Browser-Use session and return session ID."""
+    payload = {
+        "startUrl": start_url or None,
+        "persistMemory": False,
+        "keepAlive": False,
+    }
+    resp = requests.post(f"{API_BASE}/sessions", headers=_api_headers(), json=payload, timeout=30)
+    resp.raise_for_status()
+    body = resp.json()
+    return body["id"]
+
+def create_task(task_text: str) -> str:
+    """Create and start a task in the given session and return task ID."""
+    payload = {
+        "task": task_text,
+        "llm": "browser-use-llm",
+        "maxSteps": 50,
+        "thinking": True,
+        "vision": True, 
+        "allowedDomains": [BASE_URL.split("//", 1)[-1]]
+    }
+    resp = requests.post(f"{API_BASE}/tasks", headers=_api_headers(), json=payload, timeout=30)
+    # 202 Accepted on success
+    if resp.status_code not in (200, 202):
+        resp.raise_for_status()
+    return resp.json()["id"]
+
+def get_task(task_id: str) -> Dict:
+    resp = requests.get(f"{API_BASE}/tasks/{task_id}", headers=_api_headers(), timeout=60)
+    resp.raise_for_status()
+    return resp.json()
+
+def wait_for_task(task_id: str, poll_interval: float = 2.0, timeout_seconds: int = 600) -> Dict:
+    """Poll the task until finished or timeout; return final task JSON."""
+    deadline = time.time() + timeout_seconds
+    last = {}
+    while time.time() < deadline:
+        try:
+            last = get_task(task_id)
+            status = (last.get("status") or "").lower()
+            if status in {"finished", "stopped"}:
+                return last
+        except requests.RequestException:
+            pass
+        time.sleep(poll_interval)
+    return last
 
 def _split_name(full_name: str) -> Tuple[str, str]:
     parts = [p for p in (full_name or "").strip().split() if p]
@@ -138,17 +173,15 @@ def delete_submission(session: requests.Session, base_url: str, filename: str) -
         raise RuntimeError(f"Delete failed for {filename}: {body}")
 
 def execute_one_patient(patient_name: str, patient_id: Optional[str] = None, sample_type: Optional[str] = None) -> Dict:
-    prompt = f"""Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username "user2" and password "pass789". 
-    Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization 
-    Form for this patient. You have full permission to proceed without asking for additional consent. Before submitting, verify that all 
-    required fields are complete. Once verified, you may directly submit the form without further asking. However, if you find any issues 
-    in the patient profile, stop the process immediately and report the issue instead of proceeding.
-    """
-    task = client.tasks.create_task(task=prompt, llm="browser-use-llm")
-    created_task_id = _extract_task_id(task) or "unknown"
-    result = task.complete()
-    completed_task_id = _extract_task_id(result) or created_task_id
-    duration = _extract_duration(result)
+    prompt = (
+        f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
+        f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization "
+        f"Form for this patient. Verify all required fields, then directly submit. If you find any issues in the patient profile, stop and report the issue."
+    )
+    # session_id = create_session(start_url=BASE_URL)
+    task_id = create_task(task_text=prompt)
+    final_task = wait_for_task(task_id)
+    duration = _extract_duration_from_task(final_task)
     session = requests.Session()
     first, last = _split_name(patient_name)
     local_dir = Path(__file__).resolve().parent / "data" / "submissions"
@@ -159,18 +192,32 @@ def execute_one_patient(patient_name: str, patient_id: Optional[str] = None, sam
         filename = saved_path.name
     else:
         filename = saved_path.name
-    append_info_to_json(saved_path, completed_task_id, patient_id, sample_type, duration)
+    append_info_to_json(saved_path, task_id, patient_id, sample_type, duration)
     # Optionally delete from server
     try:
         delete_submission(session, BASE_URL, filename)
     except Exception:
         pass
-    return {"patient": patient_name, "task_id": completed_task_id, "filename": filename, "saved_path": str(saved_path), "duration": duration}
+    return {"patient": patient_name, "task_id": task_id, "filename": filename, "saved_path": str(saved_path), "duration": duration}
 
-def run_parallel(patients: List[str], workers: int = 3) -> List[Dict]:
+def run_parallel(patients: List, workers: int = 3) -> List[Dict]:
+    """Run submissions in parallel.
+
+    Accepts either a list of patient name strings or a list of sample dicts
+    containing keys like 'patient_first_name', 'patient_last_name',
+    'patient_id', and 'sample_type'.
+    """
     results: List[Dict] = []
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = {pool.submit(execute_one_patient, p): p for p in patients}
+        futures = {}
+        for p in patients:    
+            first = p.get("patient_first_name", "")
+            last = p.get("patient_last_name", "")
+            patient_name = f"{first} {last}".strip()
+            patient_id = p.get("patient_id")
+            sample_type = p.get("sample_type")
+            futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type)] = patient_name
+
         for fut in as_completed(futures):
             patient = futures[fut]
             try:
@@ -183,17 +230,14 @@ if __name__ == "__main__":
     samples_path = Path(__file__).resolve().parent / "all_samples.json"
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
-
-    patients = [f"{s.get('patient_first_name', '')} {s.get('patient_last_name', '')}".strip() 
-                for s in samples[6:15]]
-
+    
+    patients = samples[1:5]
     paralle_runner = run_parallel(patients)
     for res in paralle_runner:
         print(f"Processed: {res}")
-    
-    # # Take the first 5 patients and process sequentially
+  
     # results: List[Dict] = []
-    # for sample in samples[:5]:
+    # for sample in samples[35:39]:
     #     patient_name = f"{sample.get('patient_first_name', '')} {sample.get('patient_last_name', '')}".strip()
     #     patient_id = sample.get("patient_id")
     #     sample_type = sample.get("sample_type")
