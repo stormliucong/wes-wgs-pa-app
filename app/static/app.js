@@ -179,13 +179,6 @@
     allInputs.forEach((el) => {
       const value = el.value?.trim();
       if (value) { // Only validate if field has a value
-        // Member ID: digits-only constraint
-        if (el.name === 'member_id') {
-          if (!/^\d+$/.test(value)) {
-            ok = false;
-            errorMessages.push('Please only fill in digits for member ID');
-          }
-        }
         if (el.name === 'provider_npi' || el.name === 'lab_npi') {
           if (!/^\d{10}$/.test(value)) {
             ok = false;

@@ -60,8 +60,7 @@ def create_task(task_text: str) -> str:
     """Create and start a task in the given session and return task ID."""
     payload = {
         "task": task_text,
-        "llm": "browser-use-llm",
-        "maxSteps": 50,
+        "llm": "claude-sonnet-4-5-20250929",
         "thinking": True,
         "vision": True, 
         "allowedDomains": [BASE_URL.split("//", 1)[-1]]
@@ -176,7 +175,7 @@ def execute_one_patient(patient_name: str, patient_id: Optional[str] = None, sam
     prompt = (
         f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
         f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization "
-        f"Form for this patient. Verify all required fields, then directly submit. If you find any issues in the patient profile, stop and report the issue."
+        f"Form for this patient. Verify all required fields, then directly submit. If you find any issues, stop and report the issue."
     )
     # session_id = create_session(start_url=BASE_URL)
     task_id = create_task(task_text=prompt)
@@ -231,21 +230,18 @@ if __name__ == "__main__":
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
     
-    patients = samples[1:5]
-    paralle_runner = run_parallel(patients)
-    for res in paralle_runner:
-        print(f"Processed: {res}")
+    # patients = samples[13:23]
+    # paralle_runner = run_parallel(patients)
+    # for res in paralle_runner:
+    #     print(f"Processed: {res}")
   
-    # results: List[Dict] = []
-    # for sample in samples[35:39]:
-    #     patient_name = f"{sample.get('patient_first_name', '')} {sample.get('patient_last_name', '')}".strip()
-    #     patient_id = sample.get("patient_id")
-    #     sample_type = sample.get("sample_type")
-    #     try:
-    #         res = execute_one_patient(patient_name, patient_id, sample_type)
-    #         results.append(res)
-    #         print(f"Processed: {res}")
-    #     except Exception as e:
-    #         err = {"patient": patient_name, "error": str(e)}
-    #         results.append(err)
-    #         print(f"Error: {err}")
+    sample = samples[0]
+    patient_name = f"{sample.get('patient_first_name', '')} {sample.get('patient_last_name', '')}".strip()
+    patient_id = sample.get("patient_id")
+    sample_type = sample.get("sample_type")
+    try:
+        res = execute_one_patient(patient_name, patient_id, sample_type)
+        print(f"Processed: {res}")
+    except Exception as e:
+        err = {"patient": patient_name, "error": str(e)}
+        print(f"Error: {err}")
