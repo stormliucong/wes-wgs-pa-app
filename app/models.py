@@ -14,6 +14,8 @@ REQUIRED_FIELDS = [
     # Provider
     "provider_name",
     "provider_npi",
+    # Laboratory
+    "lab_npi",
     # Test requested
     "test_type",  # WES or WGS
     # Diagnoses

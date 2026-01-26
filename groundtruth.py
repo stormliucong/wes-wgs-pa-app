@@ -390,7 +390,7 @@ class GroundtruthGenerator:
             'provider_fax': self.generate_phone(),
             'provider_address': self.generate_address(),         
             'lab_name': lab_name,
-            'lab_npi': self.generate_npi() if random.choice([True, False]) else '',
+            'lab_npi': self.generate_npi(),
             'lab_address': self.generate_address() if random.choice([True, False]) else '',
             'test_type': test_type,
             'test_configuration': config,
