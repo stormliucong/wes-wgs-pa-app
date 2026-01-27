@@ -391,7 +391,7 @@ class GroundtruthGenerator:
             'provider_address': self.generate_address(),         
             'lab_name': lab_name,
             'lab_npi': self.generate_npi(),
-            'lab_address': self.generate_address() if random.choice([True, False]) else '',
+            'lab_address': self.generate_address(),
             'test_type': test_type,
             'test_configuration': config,
             'cpt_codes': test_info['cpt_codes'],
@@ -442,9 +442,6 @@ class GroundtruthGenerator:
 
         for label, count in sample_categories.items():
             for _ in range(count):
-                if not groundtruth_copy:
-                    raise ValueError("Not enough groundtruth profiles to generate the requested number of samples.")
-                
                 base_profile = groundtruth_copy.pop(0)
                 
                 if label == '2d' and not base_profile.get('prior_test_date'):
@@ -486,13 +483,13 @@ if __name__ == '__main__':
 
     generator = GroundtruthGenerator()
     
-    n = 45
+    n = 50
     groundtruth_profiles = generator.generate_bulk_groundtruth_profiles(n)
     generator.save_as_json(groundtruth_profiles, "groundtruth.json")
 
     # Define desired distribution across sample categories (must sum to 1.0)
     sample_categories = {
-        '1': 5,
+        '1': 10,
         '2a': 5,
         '2b': 5,
         '2c': 5,

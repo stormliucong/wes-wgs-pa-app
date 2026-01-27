@@ -56,11 +56,11 @@ def create_session(start_url: Optional[str] = None) -> str:
     body = resp.json()
     return body["id"]
 
-def create_task(task_text: str) -> str:
+def create_task(task_text: str, llm: str) -> str:
     """Create and start a task in the given session and return task ID."""
     payload = {
         "task": task_text,
-        "llm": "claude-sonnet-4-5-20250929",
+        "llm": llm,
         "thinking": True,
         "vision": True, 
         "allowedDomains": [BASE_URL.split("//", 1)[-1]]
@@ -175,10 +175,10 @@ def execute_one_patient(patient_name: str, patient_id: Optional[str] = None, sam
     prompt = (
         f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
         f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization "
-        f"Form for this patient. Verify all required fields, then directly submit. If you find any issues, stop and report the issue."
+        f"Form for this patient. Verify all required fields, then directly submit. If you find any issues in the patient profile, stop and report the issue."
     )
     # session_id = create_session(start_url=BASE_URL)
-    task_id = create_task(task_text=prompt)
+    task_id = create_task(task_text=prompt, llm="gemini-3-pro-preview")
     final_task = wait_for_task(task_id)
     duration = _extract_duration_from_task(final_task)
     session = requests.Session()
@@ -235,12 +235,12 @@ if __name__ == "__main__":
     # for res in paralle_runner:
     #     print(f"Processed: {res}")
   
-    sample = samples[0]
+    sample = samples[2]
     patient_name = f"{sample.get('patient_first_name', '')} {sample.get('patient_last_name', '')}".strip()
     patient_id = sample.get("patient_id")
     sample_type = sample.get("sample_type")
     try:
-        res = execute_one_patient(patient_name, patient_id, sample_type)
+        res = execute_one_patient("Sarah Harris", "PAT-5546", "3b")
         print(f"Processed: {res}")
     except Exception as e:
         err = {"patient": patient_name, "error": str(e)}
