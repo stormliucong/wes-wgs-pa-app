@@ -26,8 +26,8 @@ def create_prompt_dict(profile: Dict) -> dict:
     return input_dict
 
 def create_patient_prompt(input_dict: Dict) -> str:
-    prompt = """ The input dictionary at the end represents a patient's clinical profile. Generate a realistic clinical note based on this profile 
-        at the end and follow the instructions below carefully: 
+    prompt = """ You are a skilled medical scribe tasked with generating detailed clinical notes. The input dictionary at the end represents a patient's clinical profile. 
+    Generate a realistic clinical note based on this profile and follow the instructions below carefully: 
         1) Refer to the conditions indicated by the ICD codes for descriptive details, but do not explicitly cite the ICD codes themselves.
         2) Weave the clinical indications into a narrative. Describe the patient's phenotypes and symptoms naturally using varied language. 
         Avoid introductory lists or phrases like "The patient is evaluated for X, Y, and Z." Instead, integrate details using phrases such as 
@@ -52,18 +52,19 @@ def create_patient_prompt(input_dict: Dict) -> str:
 def create_batch_input(structured_profiles: List[dict], output: str):
     with open(output, 'w', encoding='utf-8') as outfile:
         for i, profile in enumerate(structured_profiles):
-            # Restrict prompt to key fields for consistency
             prompt_dict = create_prompt_dict(profile)
+            body = {
+                "model": "gpt-5.1",
+                "input": create_patient_prompt(prompt_dict),
+                "max_output_tokens": 300,
+                "temperature": 0.7,
+            }
+
             request_object = {
                 "custom_id": f"patient_{i+1}",
                 "method": "POST",
                 "url": "/v1/responses",
-                "body": {
-                    "model": "gpt-5.1",
-                    "input": create_patient_prompt(prompt_dict),
-                    "max_output_tokens": 300,
-                    "temperature": 0.7,
-                },
+                "body": body,
             }
             json_line = json.dumps(request_object, ensure_ascii=False)
             outfile.write(json_line + '\n')
@@ -185,7 +186,7 @@ def _2a_assign_invalid_icd(profile: Dict):
                 break
 
         if not replaced:
-            logging.warning("No invalid replacement found for any ICD code in profile")
+            logger.warning("No invalid replacement found for any ICD code in profile")
                 
 def create_unstructured_profiles(all_samples: List[dict], clinical_notes: List[str], output_path: str = 'unstructured_profiles.json'):
     unstructured_profiles = []
@@ -212,10 +213,10 @@ def main():
             logger.error("Input JSON must be a list of patient profiles.")
             return
     except FileNotFoundError:
-        logging.error(f"File not found: all_samples.json")
+        logger.error(f"File not found: all_samples.json")
         return
     except json.JSONDecodeError as e:
-        logging.error(f"Error decoding JSON: {e}")
+        logger.error(f"Error decoding JSON: {e}")
         return
     
     batch_input_file = "batch_input.jsonl"
