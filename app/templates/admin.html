@@ -279,9 +279,7 @@
                 <thead>
                     <tr>
                         <th>File</th>
-                        <th>Started</th>
                         <th>Submitted</th>
-                        <th>Completion (s)</th>
                         <th>Patient Name</th>
                         <th>Provider</th>
                         <th>Test Type</th>
@@ -295,13 +293,7 @@
                             {{ submission.filename }}
                         </td>
                         <td class="date-cell">
-                            {{ submission.started_at.replace('T', ' ').replace('Z', '').split('.')[0] if submission.started_at else 'N/A' }}
-                        </td>
-                        <td class="date-cell">
                             {{ submission.submitted_at.replace('T', ' ').replace('Z', '').split('.')[0] if submission.submitted_at else 'N/A' }}
-                        </td>
-                        <td>
-                            {{ submission.completion_seconds if submission.completion_seconds is not none else 'N/A' }}
                         </td>
                         <td>
                             {{ submission.patient_name or 'N/A' }}

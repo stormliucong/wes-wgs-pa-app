@@ -153,24 +153,6 @@ def get_submission_by_patient(session: requests.Session, base_url: str, first_na
         pass
     return out_path
 
-def append_info_to_json(file_path: Path, task_id, patient_id, sample_type, duration: Optional[float] = None, llm: Optional[str] = None) -> None:
-    if not task_id:
-        return
-    try:
-        with file_path.open("r", encoding="utf-8") as f:
-            data = json.load(f)
-    except json.JSONDecodeError:
-        return
-    data["task_id"] = task_id
-    data["patient_id"] = patient_id
-    data["sample_type"] = sample_type
-    if duration is not None:
-        data["duration"] = duration
-    if llm is not None:
-        data["llm"] = llm
-    with file_path.open("w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
 def delete_submission(session: requests.Session, base_url: str, filename: str) -> None:
     resp = session.post(f"{base_url}/delete", json={"filename": filename})
     if resp.status_code != 200:
@@ -198,7 +180,6 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
     saved_path = get_submission_by_patient(session, BASE_URL, first, last, patient_id, task_id, sample_type, local_dir)
     filename = saved_path.name if saved_path else None
     if saved_path:
-        append_info_to_json(saved_path, task_id, patient_id, sample_type, duration, llm)
         try:
             delete_submission(session, BASE_URL, saved_path.name)
         except Exception:
@@ -264,7 +245,7 @@ if __name__ == "__main__":
     # for res in results:
     #     print(f"Processed: {res}")
      get_submission_by_patient(session=requests.Session(), base_url=BASE_URL, 
-                              first_name="Mark", last_name="Carter", 
-                              patient_id="PAT-9189", task_id="task12345", 
+                              first_name="Richard", last_name="Lee", 
+                              patient_id="PAT-1001", task_id="task12345", 
                               sample_type="3c", 
                               dest_dir=Path("./data/submissions"))
