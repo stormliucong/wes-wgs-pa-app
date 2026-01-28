@@ -9,7 +9,6 @@ from datetime import datetime
 import time
 import requests
 from dotenv import load_dotenv
-import random
 
 load_dotenv()
 raw_api_key: Optional[str] = os.getenv("BROWSER_USE_API_KEY")
@@ -26,57 +25,11 @@ BASE_URL = os.getenv(
 # Browser-Use Cloud API base (v2)
 API_BASE = os.getenv("BROWSER_USE_API_BASE", "https://api.browser-use.com/api/v2").rstrip("/")
 
-# Concurrency and stagger settings to reduce 429 rate limit errors
-def _env_int(name: str, default: int) -> int:
-    try:
-        return max(1, int(os.getenv(name, str(default))))
-    except ValueError:
-        return default
-
-def _env_float(name: str, default: float) -> float:
-    try:
-        return float(os.getenv(name, str(default)))
-    except ValueError:
-        return default
-
-MAX_CONCURRENCY = _env_int("BROWSER_USE_MAX_CONCURRENCY", 3)
-START_STAGGER_SECS = _env_float("BROWSER_USE_START_STAGGER_SECS", 0.7)
-
 def _api_headers() -> Dict[str, str]:
     return {
         "X-Browser-Use-API-Key": api_key,
         "Content-Type": "application/json",
     }
-
-def _request_with_backoff(method: str, url: str, *, headers=None, json=None, timeout=30, max_retries=5, base_delay=0.5):
-    """HTTP request wrapper with exponential backoff on 429 and 5xx.
-    Respects 'Retry-After' header when present.
-    """
-    attempt = 0
-    while attempt < max_retries:
-        try:
-            resp = requests.request(method, url, headers=headers, json=json, timeout=timeout)
-        except requests.RequestException:
-            resp = None
-
-        if resp is not None and resp.status_code not in (429,) and not (500 <= resp.status_code < 600):
-            return resp
-
-        # Compute delay
-        retry_after = 0.0
-        if resp is not None:
-            ra = resp.headers.get("Retry-After")
-            if ra:
-                try:
-                    retry_after = float(ra)
-                except ValueError:
-                    retry_after = 0.0
-        delay = max(retry_after, base_delay * (2 ** attempt)) + random.uniform(0.0, 0.25)
-        time.sleep(delay)
-        attempt += 1
-
-    # Final attempt without further backoff
-    return requests.request(method, url, headers=headers, json=json, timeout=timeout)
 
 def _extract_duration_from_task(task_json: Dict) -> Optional[float]:
     """Compute duration from task JSON timestamps if available."""
@@ -98,7 +51,7 @@ def create_session(start_url: Optional[str] = None) -> str:
         "persistMemory": False,
         "keepAlive": False,
     }
-    resp = _request_with_backoff("POST", f"{API_BASE}/sessions", headers=_api_headers(), json=payload, timeout=30)
+    resp = requests.post(f"{API_BASE}/sessions", headers=_api_headers(), json=payload, timeout=30)
     resp.raise_for_status()
     body = resp.json()
     return body["id"]
@@ -110,16 +63,17 @@ def create_task(task_text: str, llm: str) -> str:
         "llm": llm,
         "thinking": True,
         "vision": True, 
+        "maxSteps": 35,
         "allowedDomains": [BASE_URL.split("//", 1)[-1]]
     }
-    resp = _request_with_backoff("POST", f"{API_BASE}/tasks", headers=_api_headers(), json=payload, timeout=30)
+    resp = requests.post(f"{API_BASE}/tasks", headers=_api_headers(), json=payload, timeout=30)
     # 202 Accepted on success
     if resp.status_code not in (200, 202):
         resp.raise_for_status()
     return resp.json()["id"]
 
 def get_task(task_id: str) -> Dict:
-    resp = _request_with_backoff("GET", f"{API_BASE}/tasks/{task_id}", headers=_api_headers(), timeout=60)
+    resp = requests.get(f"{API_BASE}/tasks/{task_id}", headers=_api_headers(), timeout=60)
     resp.raise_for_status()
     return resp.json()
 
@@ -165,29 +119,38 @@ def download_latest(session: requests.Session, base_url: str, dest_dir: Path) ->
                 f.write(chunk)
     return out_path
 
-def download_by_patient(session: requests.Session, base_url: str, first_name: str, last_name: str, dest_dir: Path) -> Optional[Path]:
+def get_submission_by_patient(session: requests.Session, base_url: str, first_name: str, last_name: str, 
+                              patient_id: str, task_id: str, sample_type: str, dest_dir: Path) -> Optional[Path]:
     dest_dir.mkdir(parents=True, exist_ok=True)
     resp = session.post(f"{base_url}/download/patient", json={
         "patient_first_name": first_name,
         "patient_last_name": last_name,
-    }, stream=True)
-    # If server returns JSON with file=None
-    ct = resp.headers.get('Content-Type', '')
-    if ct.startswith('application/json'):
-        try:
-            body = resp.json()
-            if body.get('file') is None:
-                return None
-        except Exception:
-            return None
-    if resp.status_code != 200:
+    })
+
+    resp.raise_for_status()
+    try:
+        body = resp.json()
+    except ValueError:
         return None
-    filename = _filename_from_disposition(resp.headers.get('Content-Disposition')) or f"patient_{first_name}_{last_name}_{uuid.uuid4().hex}.json"
-    out_path = dest_dir / filename
-    with out_path.open("wb") as f:
-        for chunk in resp.iter_content(chunk_size=8192):
-            if chunk:
-                f.write(chunk)
+
+    payload = body.get("payload")
+    form_id = payload.get("form_id", "")
+    if payload is None:
+        return None
+    body["task_id"] = task_id
+    body["patient_id"] = patient_id
+    body["sample_type"] = sample_type
+
+    # Build filename using patient_id from payload
+    fname = f"{form_id}.json"
+    out_path = dest_dir / fname
+    with out_path.open("w", encoding="utf-8") as f:
+        json.dump(body, f, ensure_ascii=False, indent=2)
+    # Attempt to delete the server-side submission using the filename
+    try:
+        delete_submission(session, base_url, fname)
+    except Exception:
+        pass
     return out_path
 
 def append_info_to_json(file_path: Path, task_id, patient_id, sample_type, duration: Optional[float] = None, llm: Optional[str] = None) -> None:
@@ -220,49 +183,47 @@ def delete_submission(session: requests.Session, base_url: str, filename: str) -
     if not body.get("ok", False):
         raise RuntimeError(f"Delete failed for {filename}: {body}")
 
-def execute_one_patient(patient_name: str, patient_id: Optional[str] = None, sample_type: Optional[str] = None, llm: str = "gemini-3-pro-preview", stagger_index: int = 0) -> Dict:
+def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
     prompt = (
         f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
         f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization "
         f"Form for this patient. Verify all required fields, then directly submit. If you find any issues in the patient profile, stop and report the issue."
     )
-    # Optional stagger to avoid synchronized spikes at session/task creation
-    initial_delay = max(0.0, START_STAGGER_SECS * float(stagger_index)) + random.uniform(0.0, 0.3)
-    time.sleep(initial_delay)
-    # session_id = create_session(start_url=BASE_URL)
     task_id = create_task(task_text=prompt, llm=llm)
     final_task = wait_for_task(task_id)
     duration = _extract_duration_from_task(final_task)
     session = requests.Session()
     first, last = _split_name(patient_name)
     local_dir = Path(__file__).resolve().parent / "data" / "submissions"
-    saved_path = download_by_patient(session, BASE_URL, first, last, local_dir)
-    if saved_path is None:
-        # Fallback: download latest
-        saved_path = download_latest(session, BASE_URL, local_dir)
-        filename = saved_path.name
-    else:
-        filename = saved_path.name
-    append_info_to_json(saved_path, task_id, patient_id, sample_type, duration, llm)
-    # Optionally delete from server
-    try:
-        delete_submission(session, BASE_URL, filename)
-    except Exception:
-        pass
-    return {"patient": patient_name, "task_id": task_id, "filename": filename, "saved_path": str(saved_path), "duration": duration, "llm": llm}
+    saved_path = get_submission_by_patient(session, BASE_URL, first, last, patient_id, task_id, sample_type, local_dir)
+    filename = saved_path.name if saved_path else None
+    if saved_path:
+        append_info_to_json(saved_path, task_id, patient_id, sample_type, duration, llm)
+        try:
+            delete_submission(session, BASE_URL, saved_path.name)
+        except Exception:
+            pass
 
-def run_parallel_jobs(jobs: List[Dict], workers: int = MAX_CONCURRENCY) -> List[Dict]:
+    return {
+        "patient": patient_name,
+        "task_id": task_id,
+        "filename": filename,
+        "saved_path": str(saved_path) if saved_path else None,
+        "duration": duration,
+        "llm": llm,
+    }
+
+def run_parallel_jobs(jobs: List[Dict], workers: int = 3) -> List[Dict]:
     """Run a list of jobs in parallel. Each job: {patient_name, patient_id, sample_type, llm}."""
     results: List[Dict] = []
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futures = {}
-        for idx, job in enumerate(jobs):
+        for job in jobs:
             patient_name = job.get("patient_name", "")
             patient_id = job.get("patient_id")
             sample_type = job.get("sample_type")
             llm = job.get("llm", "gemini-3-pro-preview")
-            stagger_index = idx % max(1, workers)
-            futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type, llm, stagger_index)] = (patient_name, llm)
+            futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type, llm)] = (patient_name, llm)
 
         for fut in as_completed(futures):
             patient, llm = futures[fut]
@@ -273,33 +234,37 @@ def run_parallel_jobs(jobs: List[Dict], workers: int = MAX_CONCURRENCY) -> List[
     return results
 
 if __name__ == "__main__":
-    samples_path = Path(__file__).resolve().parent / "all_samples.json"
-    with samples_path.open("r", encoding="utf-8") as f:
-        samples = json.load(f)
+    # samples_path = Path(__file__).resolve().parent / "all_samples.json"
+    # with samples_path.open("r", encoding="utf-8") as f:
+    #     samples = json.load(f)
 
-    target_types = {"1", "3a", "3c"}
-    target_samples = [s for s in samples if str(s.get("sample_type")) in target_types]
+    # target_types = {"3a", "3c"}
+    # target_samples = [s for s in samples if str(s.get("sample_type")) in target_types]
 
-    # Define LLMs to test
-    llms = [
-        "claude-opus-4-5-20251101",   # Claude Opus
-        "gemini-3-pro-preview",       # Gemini 3 Preview Pro
-    ]
+    # # Define LLMs to test
+    # basic = "browser-use-2.0"
+    # gemini_flash = "gemini-3-flash-preview" 
+    # claude_opus = "claude-opus-4-5-20251101"
+    # gemini_pro = "gemini-3-pro-preview"
+    # llama = "llama-4-maverick-17b-128e-instruct"
+    
+    # jobs: List[Dict] = []
+    # for s in target_samples:
+    #     first = s.get("patient_first_name", "")
+    #     last = s.get("patient_last_name", "")
+    #     patient_name = f"{first} {last}".strip()
+    #     jobs.append({
+    #         "patient_name": patient_name,
+    #         "patient_id": s.get("patient_id"),
+    #         "sample_type": s.get("sample_type"),
+    #         "llm": llama,
+    #     })
 
-    # Build jobs: each sample × each llm
-    jobs: List[Dict] = []
-    for s in target_samples:
-        first = s.get("patient_first_name", "")
-        last = s.get("patient_last_name", "")
-        patient_name = f"{first} {last}".strip()
-        for model in llms:
-            jobs.append({
-                "patient_name": patient_name,
-                "patient_id": s.get("patient_id"),
-                "sample_type": s.get("sample_type"),
-                "llm": model,
-            })
-
-    results = run_parallel_jobs(jobs, workers=3)
-    for res in results:
-        print(f"Processed: {res}")
+    # results = run_parallel_jobs(jobs, workers=3)
+    # for res in results:
+    #     print(f"Processed: {res}")
+     get_submission_by_patient(session=requests.Session(), base_url=BASE_URL, 
+                              first_name="Mark", last_name="Carter", 
+                              patient_id="PAT-9189", task_id="task12345", 
+                              sample_type="3c", 
+                              dest_dir=Path("./data/submissions"))

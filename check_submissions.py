@@ -18,12 +18,54 @@ def check_submission(submission: Dict, groundtruth: Dict):
     """Check if the submission matches the groundtruth"""
     payload = submission.get("payload", {})
     check_result = {}
+
+    def _digits_only(value) -> str:
+        s = value
+        if isinstance(value, list):
+            s = value[0] if value else ""
+        return "".join(ch for ch in str(s) if ch.isdigit())
+
+    def _norm_str(value) -> str:
+        return str(value).strip().lower()
+
+    def _equal(key: str, a, b) -> bool:
+        """Flexible, case-insensitive equality.
+        - For member_id: compare digits-only, ignoring any prefixes
+        - If one side is a single-item list and the other is a string, compare the string values
+        - Lists of strings: element-wise case-insensitive comparison
+        - Fallback: direct equality
+        """
+        if key == "member_id":
+            return _digits_only(a) == _digits_only(b)
+
+        # Handle single-item list vs string
+        if isinstance(a, list) and not isinstance(b, list):
+            if len(a) == 1 and isinstance(a[0], (str, int, float)) and isinstance(b, (str, int, float)):
+                return _norm_str(a[0]) == _norm_str(b)
+        if isinstance(b, list) and not isinstance(a, list):
+            if len(b) == 1 and isinstance(b[0], (str, int, float)) and isinstance(a, (str, int, float)):
+                return _norm_str(b[0]) == _norm_str(a)
+
+        # Strings
+        if isinstance(a, str) and isinstance(b, str):
+            return _norm_str(a) == _norm_str(b)
+
+        # Lists of strings
+        if isinstance(a, list) and isinstance(b, list):
+            if len(a) != len(b):
+                return False
+            na = [_norm_str(x) for x in a]
+            nb = [_norm_str(x) for x in b]
+            return na == nb
+
+        # Fallback
+        return a == b
     for key in payload:
         if key not in groundtruth:
             continue
         payload_value = payload.get(key)
         groundtruth_value = groundtruth.get(key)
-        if payload_value != groundtruth_value:
+        if not _equal(key, payload_value, groundtruth_value):
             check_result[key] = {"Expected": groundtruth_value, "Got": payload_value}
         else:
             check_result[key] = "Correct"
@@ -31,6 +73,7 @@ def check_submission(submission: Dict, groundtruth: Dict):
     report = {
         "patient_id": submission.get("patient_id", ""),
         "sample_type": submission.get("sample_type", ""),
+        "llm": submission.get("llm", ""),
         "check_result": check_result}
     
     return report

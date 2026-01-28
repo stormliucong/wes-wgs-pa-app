@@ -1,296 +1,162 @@
 [
   {
-    "patient_id": "PAT-5738",
+    "patient_id": "PAT-5115",
     "sample_type": "1",
+    "llm": "gemini-3-pro-preview",
     "check_result": {
       "patient_first_name": "Correct",
       "patient_last_name": "Correct",
-      "dob": {
-        "Expected": "2016-11-08",
-        "Got": "1980-01-01"
-      },
+      "dob": "Correct",
       "sex": "Correct",
-      "member_id": {
-        "Expected": "CT552384610",
-        "Got": "1234567890"
-      },
-      "patient_address": {
-        "Expected": "9449 Center St, Milford, CT 06794",
-        "Got": ""
-      },
-      "subscriber_name": {
-        "Expected": "Steven Rivera",
-        "Got": ""
-      },
-      "subscriber_relation": {
-        "Expected": "Guardian",
-        "Got": ""
-      },
-      "provider_name": {
-        "Expected": "Dr. Betty Young",
-        "Got": "Dr. Placeholder"
-      },
-      "provider_npi": {
-        "Expected": "7123927198",
-        "Got": "1234567890"
-      },
-      "provider_phone": {
-        "Expected": "(475) 880-7208",
-        "Got": ""
-      },
-      "provider_fax": {
-        "Expected": "(475) 714-9311",
-        "Got": ""
-      },
-      "provider_address": {
-        "Expected": "5763 Church St, Hamden, CT 06566",
-        "Got": ""
-      },
-      "lab_name": {
-        "Expected": "LabCorp",
-        "Got": ""
-      },
-      "lab_npi": {
-        "Expected": "6314612852",
-        "Got": ""
-      },
+      "member_id": "Correct",
+      "patient_address": "Correct",
+      "subscriber_name": "Correct",
+      "subscriber_relation": "Correct",
+      "provider_name": "Correct",
+      "provider_npi": "Correct",
+      "provider_phone": "Correct",
+      "provider_fax": "Correct",
+      "provider_address": "Correct",
+      "lab_name": "Correct",
+      "lab_npi": "Correct",
       "lab_address": "Correct",
       "test_type": "Correct",
       "test_configuration": "Correct",
-      "urgency": {
-        "Expected": "Expedited",
-        "Got": "Regular"
-      },
-      "specimen_type": {
-        "Expected": "Saliva",
-        "Got": "Blood"
-      },
-      "collection_date": {
-        "Expected": "2025-12-31",
-        "Got": "2026-01-16"
-      },
+      "urgency": "Correct",
+      "specimen_type": "Correct",
+      "collection_date": "Correct",
       "internal_test_code": {
-        "Expected": "620024",
+        "Expected": "WGS003",
         "Got": ""
       },
-      "mca": {
-        "Expected": true,
-        "Got": false
-      },
-      "dysmorphic": {
-        "Expected": true,
-        "Got": false
-      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
       "neurological": "Correct",
       "metabolic": "Correct",
       "autism": "Correct",
       "early_onset": "Correct",
       "family_history": "Correct",
       "cpt_codes": "Correct",
-      "icd_codes": {
-        "Expected": [
-          "Q21.1",
-          "Q39.1",
-          "F71",
-          "Q87.0"
-        ],
-        "Got": [
-          "F84.0"
-        ]
-      },
-      "prior_test_type": {
-        "Expected": "Gene panel",
-        "Got": [
-          "CMA"
-        ]
-      },
-      "prior_test_result": {
-        "Expected": "negative",
-        "Got": [
-          ""
-        ]
-      },
-      "prior_test_date": {
-        "Expected": "2025-09-30",
-        "Got": [
-          ""
-        ]
-      }
+      "icd_codes": "Correct"
     }
   },
   {
     "patient_id": "PAT-2764",
     "sample_type": "1",
+    "llm": "gemini-3-pro-preview",
     "check_result": {
       "patient_first_name": "Correct",
       "patient_last_name": "Correct",
-      "dob": {
-        "Expected": "2016-11-02",
-        "Got": "1980-01-01"
-      },
+      "dob": "Correct",
       "sex": "Correct",
-      "member_id": {
-        "Expected": "HUS490830184",
-        "Got": "1234567890"
-      },
-      "patient_address": {
-        "Expected": "5383 Court St, Milford, CT 06847",
-        "Got": ""
-      },
+      "member_id": "Correct",
+      "patient_address": "Correct",
       "subscriber_name": "Correct",
       "subscriber_relation": "Correct",
-      "provider_name": {
-        "Expected": "Dr. Sandra King",
-        "Got": "Dr. Agent"
-      },
-      "provider_npi": {
-        "Expected": "4201793261",
-        "Got": "1234567890"
-      },
-      "provider_phone": {
-        "Expected": "(475) 385-7477",
-        "Got": "5555555555"
-      },
-      "provider_fax": {
-        "Expected": "(203) 627-4030",
-        "Got": "5555555555"
-      },
-      "provider_address": {
-        "Expected": "7745 State St, Hamden, CT 06458",
-        "Got": "123 Provider St"
-      },
-      "lab_name": {
-        "Expected": "GeneDx",
-        "Got": "Lab Corp"
-      },
-      "lab_npi": {
-        "Expected": "",
-        "Got": "0987654321"
-      },
-      "lab_address": {
-        "Expected": "7512 Forest Ave, Bristol, CT 06238",
-        "Got": "456 Lab Rd"
-      },
+      "provider_name": "Correct",
+      "provider_npi": "Correct",
+      "provider_phone": "Correct",
+      "provider_fax": "Correct",
+      "provider_address": "Correct",
+      "lab_name": "Correct",
+      "lab_npi": "Correct",
+      "lab_address": "Correct",
       "test_type": "Correct",
       "test_configuration": "Correct",
       "urgency": "Correct",
-      "specimen_type": {
-        "Expected": "Saliva",
-        "Got": "Blood"
-      },
-      "collection_date": {
-        "Expected": "2026-01-06",
-        "Got": "2026-01-16"
-      },
+      "specimen_type": "Correct",
+      "collection_date": "Correct",
       "internal_test_code": {
         "Expected": "561b",
         "Got": ""
       },
-      "mca": {
-        "Expected": true,
-        "Got": false
-      },
-      "dysmorphic": {
-        "Expected": true,
-        "Got": false
-      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
       "neurological": "Correct",
       "metabolic": "Correct",
       "autism": "Correct",
       "early_onset": "Correct",
       "family_history": "Correct",
       "cpt_codes": "Correct",
-      "icd_codes": {
-        "Expected": [
-          "Q17.0",
-          "Q04.0",
-          "R62.50",
-          "Q87.0"
-        ],
-        "Got": [
-          "F84.0"
-        ]
-      },
-      "prior_test_type": {
-        "Expected": "Single gene",
-        "Got": [
-          "CMA"
-        ]
-      },
-      "prior_test_result": {
-        "Expected": "negative",
-        "Got": [
-          ""
-        ]
-      },
-      "prior_test_date": {
-        "Expected": "2025-12-08",
-        "Got": [
-          ""
-        ]
-      }
+      "icd_codes": "Correct"
     }
   },
   {
     "patient_id": "PAT-1859",
     "sample_type": "1",
+    "llm": "gemini-3-pro-preview",
     "check_result": {
-      "patient_first_name": "Correct",
-      "patient_last_name": "Correct",
-      "dob": {
-        "Expected": "2017-09-14",
-        "Got": "2021-10-15"
+      "patient_first_name": {
+        "Expected": "Sandra",
+        "Got": "James"
       },
-      "sex": "Correct",
+      "patient_last_name": {
+        "Expected": "Baker",
+        "Got": "Sanchez"
+      },
+      "dob": {
+        "Expected": "2017-09-25",
+        "Got": "2012-05-30"
+      },
+      "sex": {
+        "Expected": "Female",
+        "Got": "Male"
+      },
       "member_id": {
         "Expected": "MCD244236360",
-        "Got": "MCD106719751"
+        "Got": "474108056"
       },
       "patient_address": {
         "Expected": "8763 Main St, Enfield, CT 06513",
-        "Got": ""
+        "Got": "6977 West St, West Hartford, CT 06680"
       },
-      "subscriber_name": "Correct",
+      "subscriber_name": {
+        "Expected": "Kevin Baker",
+        "Got": "Timothy Sanchez"
+      },
       "subscriber_relation": {
-        "Expected": "Self",
-        "Got": ""
+        "Expected": "Parent",
+        "Got": "Guardian"
       },
       "provider_name": {
-        "Expected": "Dr. Donna Scott",
-        "Got": "Test Provider"
+        "Expected": "Dr. David Brown",
+        "Got": "Dr. Karen White"
       },
       "provider_npi": {
-        "Expected": "2468360239",
-        "Got": "1234567890"
+        "Expected": "2670284284",
+        "Got": "7473763319"
       },
       "provider_phone": {
-        "Expected": "(203) 566-7371",
-        "Got": ""
+        "Expected": "(203) 356-5587",
+        "Got": "(203) 531-4611"
       },
       "provider_fax": {
-        "Expected": "(203) 282-3501",
-        "Got": ""
+        "Expected": "(959) 461-8228",
+        "Got": "(860) 543-6408"
       },
       "provider_address": {
-        "Expected": "4588 Spring St, West Hartford, CT 06834",
-        "Got": ""
+        "Expected": "8110 Sunset Ave, West Hartford, CT 06293",
+        "Got": "8638 East St, Waterbury, CT 06560"
       },
-      "lab_name": {
-        "Expected": "Invitae",
-        "Got": ""
+      "lab_name": "Correct",
+      "lab_npi": {
+        "Expected": "7897550367",
+        "Got": "1345711508"
       },
-      "lab_npi": "Correct",
-      "lab_address": "Correct",
+      "lab_address": {
+        "Expected": "4940 River Rd, Stratford, CT 06596",
+        "Got": "5514 North St, Torrington, CT 06101"
+      },
       "test_type": "Correct",
-      "test_configuration": {
-        "Expected": "Trio",
-        "Got": "Proband"
+      "test_configuration": "Correct",
+      "urgency": {
+        "Expected": "Regular",
+        "Got": "Expedited"
       },
-      "urgency": "Correct",
       "specimen_type": "Correct",
       "collection_date": {
-        "Expected": "2025-12-31",
-        "Got": "2026-01-16"
+        "Expected": "2026-01-17",
+        "Got": "2026-01-02"
       },
       "internal_test_code": {
         "Expected": "80003",
@@ -298,10 +164,284 @@
       },
       "mca": "Correct",
       "dysmorphic": "Correct",
-      "neurological": {
+      "neurological": "Correct",
+      "metabolic": {
         "Expected": true,
         "Got": false
       },
+      "autism": "Correct",
+      "early_onset": {
+        "Expected": false,
+        "Got": true
+      },
+      "family_history": "Correct",
+      "cpt_codes": "Correct",
+      "icd_codes": "Correct"
+    }
+  },
+  {
+    "patient_id": "PAT-5257",
+    "sample_type": "1",
+    "llm": "gemini-3-pro-preview",
+    "check_result": {
+      "patient_first_name": "Correct",
+      "patient_last_name": "Correct",
+      "dob": "Correct",
+      "sex": "Correct",
+      "member_id": "Correct",
+      "patient_address": "Correct",
+      "subscriber_name": "Correct",
+      "subscriber_relation": "Correct",
+      "provider_name": "Correct",
+      "provider_npi": "Correct",
+      "provider_phone": "Correct",
+      "provider_fax": "Correct",
+      "provider_address": "Correct",
+      "lab_name": "Correct",
+      "lab_npi": "Correct",
+      "lab_address": "Correct",
+      "test_type": "Correct",
+      "test_configuration": "Correct",
+      "urgency": "Correct",
+      "specimen_type": "Correct",
+      "collection_date": "Correct",
+      "internal_test_code": {
+        "Expected": "80003",
+        "Got": ""
+      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": "Correct",
+      "metabolic": "Correct",
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": "Correct",
+      "cpt_codes": "Correct",
+      "icd_codes": "Correct"
+    }
+  },
+  {
+    "patient_id": "PAT-4225",
+    "sample_type": "1",
+    "llm": "gemini-3-pro-preview",
+    "check_result": {
+      "patient_first_name": "Correct",
+      "patient_last_name": "Correct",
+      "dob": "Correct",
+      "sex": "Correct",
+      "member_id": "Correct",
+      "patient_address": "Correct",
+      "subscriber_name": "Correct",
+      "subscriber_relation": "Correct",
+      "provider_name": "Correct",
+      "provider_npi": "Correct",
+      "provider_phone": "Correct",
+      "provider_fax": "Correct",
+      "provider_address": "Correct",
+      "lab_name": "Correct",
+      "lab_npi": "Correct",
+      "lab_address": "Correct",
+      "test_type": "Correct",
+      "test_configuration": "Correct",
+      "urgency": "Correct",
+      "specimen_type": "Correct",
+      "collection_date": "Correct",
+      "internal_test_code": {
+        "Expected": "896a",
+        "Got": ""
+      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": "Correct",
+      "metabolic": "Correct",
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": "Correct",
+      "cpt_codes": "Correct",
+      "icd_codes": "Correct",
+      "prior_test_type": "Correct",
+      "prior_test_result": "Correct",
+      "prior_test_date": "Correct"
+    }
+  },
+  {
+    "patient_id": "PAT-3848",
+    "sample_type": "1",
+    "llm": "gemini-3-pro-preview",
+    "check_result": {
+      "patient_first_name": "Correct",
+      "patient_last_name": "Correct",
+      "dob": "Correct",
+      "sex": "Correct",
+      "member_id": "Correct",
+      "patient_address": "Correct",
+      "subscriber_name": "Correct",
+      "subscriber_relation": "Correct",
+      "provider_name": "Correct",
+      "provider_npi": "Correct",
+      "provider_phone": "Correct",
+      "provider_fax": "Correct",
+      "provider_address": "Correct",
+      "lab_name": "Correct",
+      "lab_npi": "Correct",
+      "lab_address": "Correct",
+      "test_type": "Correct",
+      "test_configuration": "Correct",
+      "urgency": "Correct",
+      "specimen_type": {
+        "Expected": "Buccal",
+        "Got": "Blood"
+      },
+      "collection_date": "Correct",
+      "internal_test_code": {
+        "Expected": "WGS003",
+        "Got": ""
+      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": "Correct",
+      "metabolic": "Correct",
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": "Correct",
+      "cpt_codes": "Correct",
+      "icd_codes": "Correct",
+      "prior_test_type": "Correct",
+      "prior_test_result": "Correct",
+      "prior_test_date": "Correct"
+    }
+  },
+  {
+    "patient_id": "PAT-7127",
+    "sample_type": "1",
+    "llm": "gemini-3-pro-preview",
+    "check_result": {
+      "patient_first_name": "Correct",
+      "patient_last_name": "Correct",
+      "dob": "Correct",
+      "sex": "Correct",
+      "member_id": "Correct",
+      "patient_address": "Correct",
+      "subscriber_name": "Correct",
+      "subscriber_relation": "Correct",
+      "provider_name": "Correct",
+      "provider_npi": "Correct",
+      "provider_phone": "Correct",
+      "provider_fax": "Correct",
+      "provider_address": "Correct",
+      "lab_name": "Correct",
+      "lab_npi": "Correct",
+      "lab_address": "Correct",
+      "test_type": "Correct",
+      "test_configuration": "Correct",
+      "urgency": "Correct",
+      "specimen_type": "Correct",
+      "collection_date": "Correct",
+      "internal_test_code": {
+        "Expected": "80001",
+        "Got": ""
+      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": "Correct",
+      "metabolic": "Correct",
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": "Correct",
+      "cpt_codes": "Correct",
+      "icd_codes": "Correct",
+      "prior_test_type": "Correct",
+      "prior_test_result": "Correct",
+      "prior_test_date": "Correct"
+    }
+  },
+  {
+    "patient_id": "PAT-5115",
+    "sample_type": "1",
+    "llm": "claude-opus-4-5-20251101",
+    "check_result": {
+      "patient_first_name": {
+        "Expected": "Richard",
+        "Got": "James"
+      },
+      "patient_last_name": {
+        "Expected": "Green",
+        "Got": "Sanchez"
+      },
+      "dob": {
+        "Expected": "2012-07-23",
+        "Got": "2012-05-30"
+      },
+      "sex": "Correct",
+      "member_id": {
+        "Expected": "HUS272871732",
+        "Got": "474108056"
+      },
+      "patient_address": {
+        "Expected": "1785 Center St, Greenwich, CT 06131",
+        "Got": "6977 West St, West Hartford, CT 06680"
+      },
+      "subscriber_name": {
+        "Expected": "Andrew Green",
+        "Got": "Timothy Sanchez"
+      },
+      "subscriber_relation": "Correct",
+      "provider_name": {
+        "Expected": "Dr. Christopher Lee",
+        "Got": "Dr. Karen White"
+      },
+      "provider_npi": {
+        "Expected": "1934332914",
+        "Got": "7473763319"
+      },
+      "provider_phone": {
+        "Expected": "(203) 635-4420",
+        "Got": ""
+      },
+      "provider_fax": {
+        "Expected": "(860) 917-1483",
+        "Got": ""
+      },
+      "provider_address": {
+        "Expected": "1556 Main St, East Hartford, CT 06972",
+        "Got": ""
+      },
+      "lab_name": {
+        "Expected": "LabCorp",
+        "Got": "Invitae"
+      },
+      "lab_npi": {
+        "Expected": "6945173019",
+        "Got": "1345711508"
+      },
+      "lab_address": {
+        "Expected": "9885 River Rd, Bristol, CT 06859",
+        "Got": ""
+      },
+      "test_type": {
+        "Expected": "WGS",
+        "Got": "WES"
+      },
+      "test_configuration": {
+        "Expected": "Proband",
+        "Got": "Trio"
+      },
+      "urgency": {
+        "Expected": "Regular",
+        "Got": "Expedited"
+      },
+      "specimen_type": "Correct",
+      "collection_date": {
+        "Expected": "2026-01-10",
+        "Got": "2026-01-27"
+      },
+      "internal_test_code": {
+        "Expected": "WGS003",
+        "Got": ""
+      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": "Correct",
       "metabolic": {
         "Expected": true,
         "Got": false
@@ -314,84 +454,92 @@
       },
       "cpt_codes": {
         "Expected": [
-          "81415",
-          "81416"
+          "81425"
         ],
         "Got": [
-          "81415"
+          "81415",
+          "81416"
         ]
       },
       "icd_codes": {
         "Expected": [
-          "E88.40",
-          "P94.2"
+          "R79.89",
+          "G40.419"
         ],
         "Got": [
-          "F84.0"
+          "E73.0",
+          "R27.0"
         ]
       }
     }
   },
   {
-    "patient_id": "PAT-6402",
+    "patient_id": "PAT-7902",
     "sample_type": "1",
+    "llm": "claude-opus-4-5-20251101",
     "check_result": {
-      "patient_first_name": "Correct",
-      "patient_last_name": "Correct",
+      "patient_first_name": {
+        "Expected": "James",
+        "Got": "Richard"
+      },
+      "patient_last_name": {
+        "Expected": "Sanchez",
+        "Got": "Green"
+      },
       "dob": {
-        "Expected": "2012-02-24",
-        "Got": "2012-03-20"
+        "Expected": "2012-05-30",
+        "Got": "2012-07-23"
       },
       "sex": "Correct",
       "member_id": {
-        "Expected": "CT285402402",
-        "Got": "CT792385679"
+        "Expected": "CT474108056",
+        "Got": "272871732"
       },
       "patient_address": {
-        "Expected": "8909 West St, New Britain, CT 06934",
-        "Got": ""
+        "Expected": "6977 West St, West Hartford, CT 06680",
+        "Got": "1785 Center St, Greenwich, CT 06131"
       },
       "subscriber_name": {
-        "Expected": "Joshua Ramirez",
-        "Got": ""
+        "Expected": "Timothy Sanchez",
+        "Got": "Andrew Green"
       },
-      "subscriber_relation": {
-        "Expected": "Parent",
-        "Got": ""
-      },
+      "subscriber_relation": "Correct",
       "provider_name": {
-        "Expected": "Dr. Thomas Taylor",
-        "Got": "Dr. John Doe"
+        "Expected": "Dr. Karen White",
+        "Got": "Dr. Christopher Lee"
       },
       "provider_npi": {
-        "Expected": "4354930337",
-        "Got": "1234567890"
+        "Expected": "7473763319",
+        "Got": "1934332914"
       },
       "provider_phone": {
-        "Expected": "(475) 773-9600",
-        "Got": "5551234567"
+        "Expected": "(203) 531-4611",
+        "Got": "(203) 635-4420"
       },
       "provider_fax": {
-        "Expected": "(203) 756-4115",
-        "Got": "5551234568"
+        "Expected": "(860) 543-6408",
+        "Got": "(860) 917-1483"
       },
       "provider_address": {
-        "Expected": "8408 Main St, Stratford, CT 06732",
-        "Got": "123 Main St"
+        "Expected": "8638 East St, Waterbury, CT 06560",
+        "Got": "1556 Main St, East Hartford, CT 06972"
       },
       "lab_name": {
-        "Expected": "LabCorp",
-        "Got": "Gene Lab"
+        "Expected": "Invitae",
+        "Got": "LabCorp"
       },
       "lab_npi": {
-        "Expected": "4857838915",
-        "Got": "0987654321"
+        "Expected": "1345711508",
+        "Got": "6945173019"
       },
       "lab_address": {
-        "Expected": "",
-        "Got": "456 Science Ave"
+        "Expected": "5514 North St, Torrington, CT 06101",
+        "Got": "9885 River Rd, Bristol, CT 06859"
       },
-      "test_type": "Correct",
+      "test_type": {
+        "Expected": "WES",
+        "Got": "WGS"
+      },
       "test_configuration": {
         "Expected": "Trio",
         "Got": "Proband"
@@ -402,19 +550,16 @@
       },
       "specimen_type": "Correct",
       "collection_date": {
-        "Expected": "2026-01-14",
-        "Got": "2026-01-16"
+        "Expected": "2026-01-02",
+        "Got": "2026-01-10"
       },
       "internal_test_code": {
-        "Expected": "620024",
+        "Expected": "80003",
         "Got": ""
       },
       "mca": "Correct",
       "dysmorphic": "Correct",
-      "neurological": {
-        "Expected": true,
-        "Got": false
-      },
+      "neurological": "Correct",
       "metabolic": {
         "Expected": true,
         "Got": false
@@ -431,16 +576,300 @@
           "81416"
         ],
         "Got": [
-          "81415"
+          "81425"
+        ]
+      },
+      "icd_codes": {
+        "Expected": [
+          "E73.0",
+          "R27.0"
+        ],
+        "Got": [
+          "R79.89",
+          "G40.419"
+        ]
+      }
+    }
+  },
+  {
+    "patient_id": "PAT-2764",
+    "sample_type": "1",
+    "llm": "claude-opus-4-5-20251101",
+    "check_result": {
+      "patient_first_name": "Correct",
+      "patient_last_name": "Correct",
+      "dob": "Correct",
+      "sex": "Correct",
+      "member_id": "Correct",
+      "patient_address": "Correct",
+      "subscriber_name": "Correct",
+      "subscriber_relation": "Correct",
+      "provider_name": "Correct",
+      "provider_npi": "Correct",
+      "provider_phone": "Correct",
+      "provider_fax": "Correct",
+      "provider_address": {
+        "Expected": "7745 State St, Hamden, CT 06458",
+        "Got": ""
+      },
+      "lab_name": "Correct",
+      "lab_npi": "Correct",
+      "lab_address": "Correct",
+      "test_type": "Correct",
+      "test_configuration": "Correct",
+      "urgency": "Correct",
+      "specimen_type": "Correct",
+      "collection_date": "Correct",
+      "internal_test_code": {
+        "Expected": "561b",
+        "Got": ""
+      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": "Correct",
+      "metabolic": "Correct",
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": "Correct",
+      "cpt_codes": "Correct",
+      "icd_codes": "Correct",
+      "prior_test_type": "Correct",
+      "prior_test_result": "Correct",
+      "prior_test_date": "Correct"
+    }
+  },
+  {
+    "patient_id": "PAT-1859",
+    "sample_type": "1",
+    "llm": "claude-opus-4-5-20251101",
+    "check_result": {
+      "patient_first_name": {
+        "Expected": "Sandra",
+        "Got": "Matthew"
+      },
+      "patient_last_name": {
+        "Expected": "Baker",
+        "Got": "Perez"
+      },
+      "dob": {
+        "Expected": "2017-09-25",
+        "Got": "2013-12-13"
+      },
+      "sex": {
+        "Expected": "Female",
+        "Got": "Male"
+      },
+      "member_id": {
+        "Expected": "MCD244236360",
+        "Got": "953853157"
+      },
+      "patient_address": {
+        "Expected": "8763 Main St, Enfield, CT 06513",
+        "Got": "2199 West St, Norwich, CT 06923"
+      },
+      "subscriber_name": {
+        "Expected": "Kevin Baker",
+        "Got": "Sandra Perez"
+      },
+      "subscriber_relation": {
+        "Expected": "Parent",
+        "Got": "Guardian"
+      },
+      "provider_name": {
+        "Expected": "Dr. David Brown",
+        "Got": "Dr. Joseph Harris"
+      },
+      "provider_npi": {
+        "Expected": "2670284284",
+        "Got": "5188612435"
+      },
+      "provider_phone": {
+        "Expected": "(203) 356-5587",
+        "Got": "(203) 932-3299"
+      },
+      "provider_fax": {
+        "Expected": "(959) 461-8228",
+        "Got": "(860) 237-5323"
+      },
+      "provider_address": {
+        "Expected": "8110 Sunset Ave, West Hartford, CT 06293",
+        "Got": "1407 River Rd, Bristol, CT 06248"
+      },
+      "lab_name": "Correct",
+      "lab_npi": {
+        "Expected": "7897550367",
+        "Got": "8558598217"
+      },
+      "lab_address": {
+        "Expected": "4940 River Rd, Stratford, CT 06596",
+        "Got": "6984 Cedar St, Norwich, CT 06267"
+      },
+      "test_type": {
+        "Expected": "WES",
+        "Got": "WGS"
+      },
+      "test_configuration": {
+        "Expected": "Trio",
+        "Got": "Proband"
+      },
+      "urgency": {
+        "Expected": "Regular",
+        "Got": "Expedited"
+      },
+      "specimen_type": "Correct",
+      "collection_date": {
+        "Expected": "2026-01-17",
+        "Got": "2026-01-10"
+      },
+      "internal_test_code": {
+        "Expected": "80003",
+        "Got": ""
+      },
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": "Correct",
+      "metabolic": {
+        "Expected": true,
+        "Got": false
+      },
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": {
+        "Expected": true,
+        "Got": false
+      },
+      "cpt_codes": {
+        "Expected": [
+          "81415",
+          "81416"
+        ],
+        "Got": [
+          "81425"
+        ]
+      },
+      "icd_codes": {
+        "Expected": [
+          "E73.0",
+          "R27.0"
+        ],
+        "Got": [
+          "R79.89",
+          "G40.419"
+        ]
+      }
+    }
+  },
+  {
+    "patient_id": "PAT-4607",
+    "sample_type": "1",
+    "llm": "claude-opus-4-5-20251101",
+    "check_result": {
+      "patient_first_name": {
+        "Expected": "Matthew",
+        "Got": "Sandra"
+      },
+      "patient_last_name": {
+        "Expected": "Perez",
+        "Got": "Baker"
+      },
+      "dob": {
+        "Expected": "2013-12-13",
+        "Got": "2017-09-25"
+      },
+      "sex": {
+        "Expected": "Male",
+        "Got": "Female"
+      },
+      "member_id": {
+        "Expected": "CT953853157",
+        "Got": "244236360"
+      },
+      "patient_address": {
+        "Expected": "2199 West St, Norwich, CT 06923",
+        "Got": "8763 Main St, Enfield, CT 06513"
+      },
+      "subscriber_name": {
+        "Expected": "Sandra Perez",
+        "Got": "Kevin Baker"
+      },
+      "subscriber_relation": {
+        "Expected": "Other",
+        "Got": "Parent"
+      },
+      "provider_name": {
+        "Expected": "Dr. Joseph Harris",
+        "Got": "Dr. David Brown"
+      },
+      "provider_npi": {
+        "Expected": "5188612435",
+        "Got": "2670284284"
+      },
+      "provider_phone": {
+        "Expected": "(203) 932-3299",
+        "Got": "(203) 356-5587"
+      },
+      "provider_fax": {
+        "Expected": "(860) 237-5323",
+        "Got": "(959) 461-8228"
+      },
+      "provider_address": {
+        "Expected": "1407 River Rd, Bristol, CT 06248",
+        "Got": "8110 Sunset Ave, West Hartford, CT 06293"
+      },
+      "lab_name": "Correct",
+      "lab_npi": {
+        "Expected": "8558598217",
+        "Got": "7897550367"
+      },
+      "lab_address": {
+        "Expected": "6984 Cedar St, Norwich, CT 06267",
+        "Got": "4940 River Rd, Stratford, CT 06596"
+      },
+      "test_type": {
+        "Expected": "WGS",
+        "Got": "WES"
+      },
+      "test_configuration": {
+        "Expected": "Proband",
+        "Got": "Trio"
+      },
+      "urgency": {
+        "Expected": "Expedited",
+        "Got": "Regular"
+      },
+      "specimen_type": "Correct",
+      "collection_date": {
+        "Expected": "2026-01-10",
+        "Got": "2026-01-17"
+      },
+      "internal_test_code": "Correct",
+      "mca": "Correct",
+      "dysmorphic": "Correct",
+      "neurological": "Correct",
+      "metabolic": "Correct",
+      "autism": "Correct",
+      "early_onset": "Correct",
+      "family_history": {
+        "Expected": true,
+        "Got": false
+      },
+      "cpt_codes": {
+        "Expected": [
+          "81425"
+        ],
+        "Got": [
+          "81415",
+          "81416"
         ]
       },
       "icd_codes": {
         "Expected": [
           "R79.89",
-          "R56.9"
+          "G40.419"
         ],
         "Got": [
-          "F84.0"
+          "E73.0",
+          "R27.0"
         ]
       }
     }

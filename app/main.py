@@ -4,10 +4,14 @@ import csv
 import json
 import os
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from io import StringIO
 import logging
+try:
+    from zoneinfo import ZoneInfo
+except Exception:
+    ZoneInfo = None
 
 logger = logging.getLogger(__name__)
 
@@ -167,12 +171,20 @@ def submit():
     data_dir = data_root() / "submissions"
     data_dir.mkdir(parents=True, exist_ok=True)
 
-    # Persist to file with timestamp + uuid
-    filename = f"{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}_{uuid.uuid4().hex}.json"
+    # Determine filename using form_id when available
+    form_id = str((payload or {}).get("form_id") or "").strip()
+    safe_form_id = "".join(ch for ch in form_id if ch.isalnum() or ch in ("-", "_"))
+    if safe_form_id:
+        filename = f"{safe_form_id}.json"
+    else:
+        # Fallback to timestamp + uuid if form_id missing/invalid
+        filename = f"{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}_{uuid.uuid4().hex}.json"
     filepath = data_dir / filename
 
-    # Capture timing metadata
-    submitted_at = datetime.utcnow().isoformat() + "Z"
+    # Capture timing metadata (Eastern Time)
+    eastern = ZoneInfo("America/New_York") if ZoneInfo else timezone(timedelta(hours=-5))
+    submitted_dt = datetime.now(eastern)
+    submitted_at = submitted_dt.isoformat()
     record = {
         "submitted_at": submitted_at,
         "payload": payload,
@@ -266,13 +278,35 @@ def admin_dashboard():
                       search.lower() in s["provider_name"].lower() or
                       search.lower() in s["filename"].lower()]
     
+    # Robust date filtering using parsed datetimes
+    def _parse_dt(s: str):
+        try:
+            return datetime.fromisoformat((s or "").replace("Z", "+00:00"))
+        except Exception:
+            return None
     if date_from:
-        submissions = [s for s in submissions if s["submitted_at"] >= date_from]
+        if "T" in date_from:
+            dt_from = _parse_dt(date_from)
+        else:
+            eastern = ZoneInfo("America/New_York") if ZoneInfo else timezone(timedelta(hours=-5))
+            try:
+                dt_from = datetime.strptime(date_from, "%Y-%m-%d").replace(tzinfo=eastern)
+            except Exception:
+                dt_from = None
+        if dt_from:
+            submissions = [s for s in submissions if (_parse_dt(s["submitted_at"]) or datetime.min.replace(tzinfo=timezone.utc)) >= dt_from]
     
     if date_to:
-        # Add time to make it end of day
-        date_to_end = date_to + "T23:59:59Z" if "T" not in date_to else date_to
-        submissions = [s for s in submissions if s["submitted_at"] <= date_to_end]
+        if "T" in date_to:
+            dt_to = _parse_dt(date_to)
+        else:
+            eastern = ZoneInfo("America/New_York") if ZoneInfo else timezone(timedelta(hours=-5))
+            try:
+                dt_to = datetime.strptime(date_to, "%Y-%m-%d").replace(tzinfo=eastern) + timedelta(hours=23, minutes=59, seconds=59)
+            except Exception:
+                dt_to = None
+        if dt_to:
+            submissions = [s for s in submissions if (_parse_dt(s["submitted_at"]) or datetime.min.replace(tzinfo=timezone.utc)) <= dt_to]
     
     if test_type:
         submissions = [s for s in submissions if s["test_type"] == test_type]
@@ -326,12 +360,34 @@ def admin_export_csv():
                       search.lower() in s["provider_name"].lower() or
                       search.lower() in s["filename"].lower()]
     
+    def _parse_dt(s: str):
+        try:
+            return datetime.fromisoformat((s or "").replace("Z", "+00:00"))
+        except Exception:
+            return None
     if date_from:
-        submissions = [s for s in submissions if s["submitted_at"] >= date_from]
+        if "T" in date_from:
+            dt_from = _parse_dt(date_from)
+        else:
+            eastern = ZoneInfo("America/New_York") if ZoneInfo else timezone(timedelta(hours=-5))
+            try:
+                dt_from = datetime.strptime(date_from, "%Y-%m-%d").replace(tzinfo=eastern)
+            except Exception:
+                dt_from = None
+        if dt_from:
+            submissions = [s for s in submissions if (_parse_dt(s["submitted_at"]) or datetime.min.replace(tzinfo=timezone.utc)) >= dt_from]
     
     if date_to:
-        date_to_end = date_to + "T23:59:59Z" if "T" not in date_to else date_to
-        submissions = [s for s in submissions if s["submitted_at"] <= date_to_end]
+        if "T" in date_to:
+            dt_to = _parse_dt(date_to)
+        else:
+            eastern = ZoneInfo("America/New_York") if ZoneInfo else timezone(timedelta(hours=-5))
+            try:
+                dt_to = datetime.strptime(date_to, "%Y-%m-%d").replace(tzinfo=eastern) + timedelta(hours=23, minutes=59, seconds=59)
+            except Exception:
+                dt_to = None
+        if dt_to:
+            submissions = [s for s in submissions if (_parse_dt(s["submitted_at"]) or datetime.min.replace(tzinfo=timezone.utc)) <= dt_to]
     
     if test_type:
         submissions = [s for s in submissions if s["test_type"] == test_type]
