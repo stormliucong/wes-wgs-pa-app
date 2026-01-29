@@ -119,7 +119,7 @@ def validate_submission(payload: Dict[str, Any]) -> Tuple[bool, Dict[str, str]]:
                 errors[field] = f"{field_name} must be a valid 10-digit phone number."
 
     # CPT optional but if provided ensure valid codes
-    valid_cpt = {"81415", "81416", "81425", "81426", "81427"}
+    valid_cpt = {"81415", "81416", "81417", "81425", "81426", "81427"}
     cpt_codes = payload.get("cpt_codes", [])
     if isinstance(cpt_codes, list):
         invalid = [c for c in cpt_codes if c not in valid_cpt]

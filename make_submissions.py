@@ -31,19 +31,6 @@ def _api_headers() -> Dict[str, str]:
         "Content-Type": "application/json",
     }
 
-def _extract_duration_from_task(task_json: Dict) -> Optional[float]:
-    """Compute duration from task JSON timestamps if available."""
-    try:
-        started = task_json.get("startedAt")
-        finished = task_json.get("finishedAt")
-        if not started or not finished:
-            return None
-        s = datetime.fromisoformat(started.replace("Z", "+00:00"))
-        f = datetime.fromisoformat(finished.replace("Z", "+00:00"))
-        return max((f - s).total_seconds(), 0.0)
-    except Exception:
-        return None
-
 def create_session(start_url: Optional[str] = None) -> str:
     """Create a new Browser-Use session and return session ID."""
     payload = {
@@ -119,7 +106,7 @@ def download_latest(session: requests.Session, base_url: str, dest_dir: Path) ->
                 f.write(chunk)
     return out_path
 
-def get_submission_by_patient(session: requests.Session, base_url: str, first_name: str, last_name: str, 
+def get_submission_by_patient(session: requests.Session, base_url: str, first_name: str, last_name: str, llm:str,
                               patient_id: str, task_id: str, sample_type: str, dest_dir: Path) -> Optional[Path]:
     dest_dir.mkdir(parents=True, exist_ok=True)
     resp = session.post(f"{base_url}/download/patient", json={
@@ -140,6 +127,7 @@ def get_submission_by_patient(session: requests.Session, base_url: str, first_na
     body["task_id"] = task_id
     body["patient_id"] = patient_id
     body["sample_type"] = sample_type
+    body["llm"] = llm
 
     # Build filename using patient_id from payload
     fname = f"{form_id}.json"
@@ -169,28 +157,27 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
     prompt = (
         f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
         f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization "
-        f"Form for this patient. Verify all required fields, then directly submit. If you find any issues in the patient profile, stop and report the issue."
+        f"Form for this patient. Verify all required fields, then directly submit. If you find any issues, stop the process and report the issue."
     )
     task_id = create_task(task_text=prompt, llm=llm)
     final_task = wait_for_task(task_id)
-    duration = _extract_duration_from_task(final_task)
     session = requests.Session()
     first, last = _split_name(patient_name)
     local_dir = Path(__file__).resolve().parent / "data" / "submissions"
-    saved_path = get_submission_by_patient(session, BASE_URL, first, last, patient_id, task_id, sample_type, local_dir)
+    saved_path = get_submission_by_patient(session, BASE_URL, first, last, llm, 
+                                           patient_id, task_id, sample_type, local_dir)
     filename = saved_path.name if saved_path else None
     if saved_path:
         try:
             delete_submission(session, BASE_URL, saved_path.name)
         except Exception:
             pass
-
     return {
         "patient": patient_name,
         "task_id": task_id,
         "filename": filename,
         "saved_path": str(saved_path) if saved_path else None,
-        "duration": duration,
+        # "duration": duration,
         "llm": llm,
     }
 
@@ -203,7 +190,7 @@ def run_parallel_jobs(jobs: List[Dict], workers: int = 3) -> List[Dict]:
             patient_name = job.get("patient_name", "")
             patient_id = job.get("patient_id")
             sample_type = job.get("sample_type")
-            llm = job.get("llm", "gemini-3-pro-preview")
+            llm = job.get("llm")
             futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type, llm)] = (patient_name, llm)
 
         for fut in as_completed(futures):
@@ -215,37 +202,33 @@ def run_parallel_jobs(jobs: List[Dict], workers: int = 3) -> List[Dict]:
     return results
 
 if __name__ == "__main__":
-    # samples_path = Path(__file__).resolve().parent / "all_samples.json"
-    # with samples_path.open("r", encoding="utf-8") as f:
-    #     samples = json.load(f)
+    samples_path = Path(__file__).resolve().parent / "all_samples.json"
+    with samples_path.open("r", encoding="utf-8") as f:
+        samples = json.load(f)
 
-    # target_types = {"3a", "3c"}
-    # target_samples = [s for s in samples if str(s.get("sample_type")) in target_types]
+    target_types = {"2b"}
+    target_samples = [s for s in samples if str(s.get("sample_type")) in target_types]
 
-    # # Define LLMs to test
-    # basic = "browser-use-2.0"
-    # gemini_flash = "gemini-3-flash-preview" 
-    # claude_opus = "claude-opus-4-5-20251101"
-    # gemini_pro = "gemini-3-pro-preview"
-    # llama = "llama-4-maverick-17b-128e-instruct"
+    # Define LLMs to test
+    basic = "browser-use-2.0"
+    gemini_flash = "gemini-3-flash-preview" 
+    claude_opus = "claude-opus-4-5-20251101"
+    gemini_pro = "gemini-3-pro-preview"
+    llama = "llama-4-maverick-17b-128e-instruct"
     
-    # jobs: List[Dict] = []
-    # for s in target_samples:
-    #     first = s.get("patient_first_name", "")
-    #     last = s.get("patient_last_name", "")
-    #     patient_name = f"{first} {last}".strip()
-    #     jobs.append({
-    #         "patient_name": patient_name,
-    #         "patient_id": s.get("patient_id"),
-    #         "sample_type": s.get("sample_type"),
-    #         "llm": llama,
-    #     })
+    jobs: List[Dict] = []
+    for s in target_samples:
+        first = s.get("patient_first_name", "")
+        last = s.get("patient_last_name", "")
+        patient_name = f"{first} {last}".strip()
+        jobs.append({
+            "patient_name": patient_name,
+            "patient_id": s.get("patient_id"),
+            "sample_type": s.get("sample_type"),
+            "llm": gemini_pro,
+        })
 
-    # results = run_parallel_jobs(jobs, workers=3)
-    # for res in results:
-    #     print(f"Processed: {res}")
-     get_submission_by_patient(session=requests.Session(), base_url=BASE_URL, 
-                              first_name="Richard", last_name="Lee", 
-                              patient_id="PAT-1001", task_id="task12345", 
-                              sample_type="3c", 
-                              dest_dir=Path("./data/submissions"))
+    results = run_parallel_jobs(jobs, workers=3)
+    for res in results:
+        print(f"Processed: {res}")
+    
