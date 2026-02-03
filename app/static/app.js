@@ -9,6 +9,16 @@
   const errorsBox = document.querySelector('#form-errors');
   const resetFormBtn = document.querySelector('#resetFormBtn');
 
+  // Subscriber / primary insurance controls
+  const subscriberDetails = document.querySelector('#subscriber-details');
+  const primarySubscriberYes = document.querySelector('#primary_subscriber_yes');
+  const primarySubscriberNo = document.querySelector('#primary_subscriber_no');
+  const subscriberNameInput = document.querySelector('#subscriber_name');
+  const subscriberDobInput = document.querySelector('#subscriber_dob');
+  const subscriberRelationSelect = document.querySelector('#subscriber_relation');
+  const subscriberRelationOtherInput = document.querySelector('#subscriber_relation_other');
+  const subscriberRelationOtherWrapper = document.querySelector('#subscriber_relation_other_wrapper');
+
   // Lab code modal controls
   const searchLabCodeBtn = document.querySelector('#search-test-code-btn');
   const labCodesModal = document.querySelector('#lab-codes-modal');
@@ -19,6 +29,65 @@
   const addIcdBtn = document.querySelector('#add-icd');
   const priorTestsList = document.querySelector('#prior-tests-list');
   const addPriorTestBtn = document.querySelector('#add-prior-test');
+  const priorTestNegativeCheckbox = document.querySelector('#prior_test_negative');
+  const rationalePriorTest = document.querySelector('#rationale-prior-test');
+  const rationalePriorTestType = document.querySelector('#rationale_prior_test_type');
+  const rationalePriorTestResult = document.querySelector('#rationale_prior_test_result');
+  const rationalePriorTestDate = document.querySelector('#rationale_prior_test_date');
+
+  function updateSubscriberDetailsVisibility() {
+    if (!subscriberDetails) return;
+    const show = primarySubscriberNo && primarySubscriberNo.checked;
+
+    subscriberDetails.style.display = show ? '' : 'none';
+
+    const fields = [subscriberNameInput, subscriberDobInput, subscriberRelationSelect];
+    fields.forEach((el) => {
+      if (!el) return;
+      if (show) {
+        el.required = true;
+      } else {
+        el.required = false;
+        if (el.tagName === 'SELECT') {
+          el.selectedIndex = 0;
+        } else {
+          el.value = '';
+        }
+      }
+    });
+
+    // When hiding all subscriber details, also hide and clear the Other relationship details
+    if (!show && subscriberRelationOtherWrapper) {
+      subscriberRelationOtherWrapper.style.display = 'none';
+    }
+    if (!show && subscriberRelationOtherInput) {
+      subscriberRelationOtherInput.required = false;
+      subscriberRelationOtherInput.value = '';
+    }
+
+    updateSubscriberRelationOtherVisibility();
+  }
+
+  function updateSubscriberRelationOtherVisibility() {
+    if (!subscriberRelationSelect || !subscriberRelationOtherWrapper) return;
+    const showOther = subscriberDetails && subscriberDetails.style.display !== 'none' && subscriberRelationSelect.value === 'Other';
+    subscriberRelationOtherWrapper.style.display = showOther ? '' : 'none';
+    if (subscriberRelationOtherInput) {
+      subscriberRelationOtherInput.required = showOther;
+      if (!showOther) subscriberRelationOtherInput.value = '';
+    }
+  }
+
+  function updateRationalePriorTestVisibility() {
+    if (!rationalePriorTest || !priorTestNegativeCheckbox) return;
+    const show = priorTestNegativeCheckbox.checked;
+    rationalePriorTest.style.display = show ? '' : 'none';
+    if (!show) {
+      if (rationalePriorTestType) rationalePriorTestType.selectedIndex = 0;
+      if (rationalePriorTestResult) rationalePriorTestResult.value = '';
+      if (rationalePriorTestDate) rationalePriorTestDate.value = '';
+    }
+  }
 
   function createIcdRow(value = '') {
     const row = document.createElement('div');
@@ -78,6 +147,23 @@
   if (addPriorTestBtn) {
     addPriorTestBtn.addEventListener('click', () => priorTestsList.appendChild(createPriorTestRow()));
   }
+
+  // Wire up primary-subscriber question
+  if (primarySubscriberYes) {
+    primarySubscriberYes.addEventListener('change', updateSubscriberDetailsVisibility);
+  }
+  if (primarySubscriberNo) {
+    primarySubscriberNo.addEventListener('change', updateSubscriberDetailsVisibility);
+  }
+  if (subscriberRelationSelect) {
+    subscriberRelationSelect.addEventListener('change', updateSubscriberRelationOtherVisibility);
+  }
+  if (priorTestNegativeCheckbox) {
+    priorTestNegativeCheckbox.addEventListener('change', updateRationalePriorTestVisibility);
+  }
+  // Initialize visibility on load
+  updateSubscriberDetailsVisibility();
+  updateRationalePriorTestVisibility();
 
   // Wire up lab code modal
   if (searchLabCodeBtn && labCodesModal) {
@@ -140,8 +226,22 @@
     let ok = true;
     let errorMessages = [];
 
+    const seenRadioNames = new Set();
+
     // Check required fields
     required.forEach((el) => {
+      if (el.type === 'radio') {
+        if (seenRadioNames.has(el.name)) return;
+        seenRadioNames.add(el.name);
+        const group = stepEl.querySelectorAll(`input[type="radio"][name="${el.name}"]`);
+        const anyChecked = Array.from(group).some((r) => r.checked);
+        if (!anyChecked) {
+          ok = false;
+          const fieldLabel = getHumanReadableLabel(el.name, el);
+          errorMessages.push(`${fieldLabel} is required`);
+        }
+        return;
+      }
       if (el.type === 'checkbox') {
         if (!el.checked) {
           ok = false;
@@ -356,6 +456,11 @@
         }
       }
     }
+
+    // Ensure subscriber details visibility matches loaded data
+    updateSubscriberDetailsVisibility();
+    updateSubscriberRelationOtherVisibility();
+    updateRationalePriorTestVisibility();
   }
 
   async function saveDraft(silent = true) {

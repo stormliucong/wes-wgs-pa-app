@@ -59,19 +59,45 @@
               <label for="patient_address">Patient Address</label>
               <input id="patient_address" name="patient_address" />
             </div>
-            <div class="col-6">
-              <label for="subscriber_name">Subscriber Name (if not patient)</label>
-              <input id="subscriber_name" name="subscriber_name" />
+            <div class="col-12">
+              <span>Is the patient the primary insurance subscriber?</span>
+              <div class="radio-group" style="margin-top:0.25rem; display:flex; gap:1.5rem;">
+                <label style="display:flex; align-items:center; gap:0.25rem;">
+                  <input type="radio" id="primary_subscriber_yes" name="primary_subscriber_is_patient" value="yes" required />
+                  Yes
+                </label>
+                <label style="display:flex; align-items:center; gap:0.25rem;">
+                  <input type="radio" id="primary_subscriber_no" name="primary_subscriber_is_patient" value="no" required />
+                  No
+                </label>
+              </div>
             </div>
-            <div class="col-6">
-              <label for="subscriber_relation">Subscriber Relationship</label>
-              <select id="subscriber_relation" name="subscriber_relation">
-                <option value="">Select…</option>
-                <option value="Self">Self</option>
-                <option value="Parent">Parent</option>
-                <option value="Guardian">Guardian</option>
-                <option value="Other">Other</option>
-              </select>
+            <div id="subscriber-details" class="col-12" style="display:none;">
+              <div class="grid">
+                <div class="col-4">
+                  <label for="subscriber_name">Subscriber Name</label>
+                  <input id="subscriber_name" name="subscriber_name" />
+                </div>
+                <div class="col-4">
+                  <label for="subscriber_dob">Subscriber Date of Birth</label>
+                  <input id="subscriber_dob" name="subscriber_dob" type="date" />
+                </div>
+                <div class="col-4">
+                  <label for="subscriber_relation">Relationship to Patient</label>
+                  <select id="subscriber_relation" name="subscriber_relation">
+                    <option value="">Select…</option>
+
+                    <option value="Parent">Parent</option>
+                    <option value="Guardian">Guardian</option>
+                    <option value="Spouse">Spouse</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div id="subscriber_relation_other_wrapper" class="col-12" style="display:none; margin-top:0.5rem;">
+                  <label for="subscriber_relation_other">If Other, specify relationship</label>
+                  <input id="subscriber_relation_other" name="subscriber_relation_other" />
+                </div>
+              </div>
             </div>
           </div>
           <div class="actions">
@@ -95,15 +121,19 @@
             </div>
             <div class="col-6">
               <label for="provider_phone">Provider Phone</label>
-              <input id="provider_phone" name="provider_phone" type="tel" placeholder="(555) 555-5555" title="Enter a 10-digit phone number" />
+              <input id="provider_phone" name="provider_phone" type="tel" placeholder="(555) 555-5555" title="Enter a 10-digit phone number" required />
             </div>
             <div class="col-6">
               <label for="provider_fax">Provider Fax</label>
               <input id="provider_fax" name="provider_fax" type="tel" placeholder="(555) 555-5555" title="Enter a 10-digit fax number" />
             </div>
+            <div class="col-6">
+              <label for="provider_email">Provider Email </label>
+              <input id="provider_email" name="provider_email" type="email" placeholder="name@example.com" />
+            </div>
             <div class="col-12">
               <label for="provider_address">Provider Address</label>
-              <input id="provider_address" name="provider_address" />
+              <input id="provider_address" name="provider_address" required />
             </div>
           </div>
           <hr />
@@ -168,7 +198,7 @@
               </select>
             </div>
             <div class="col-6">
-              <label for="collection_date">Collection Date</label>
+              <label for="collection_date">Specimen Collection Date</label>
               <input id="collection_date" name="collection_date" type="date" required />
             </div>
             <div class="col-12">
@@ -289,7 +319,7 @@
                     </div>
                     <div class="checkbox-item">
                       <input type="checkbox" id="dd_or_id" name="dd_or_id" value="developmental_delay" />
-                      <label for="dd_or_id">Global developmental delay or intellectual disabilities</label>
+                      <label for="dd_or_id">Global developmental delay, intellectual disabilities or regression</label>
                     </div>
                     <div class="checkbox-item">
                       <input type="checkbox" id="dysmorphic" name="dysmorphic" value="dysmorphic_features" />
@@ -305,7 +335,7 @@
                     </div>
                     <div class="checkbox-item">
                       <input type="checkbox" id="autism" name="autism" value="autism_disorder" />
-                      <label for="autism">Autism spectrum disorder with additional red-flag features (e.g., seizures, dysmorphism, regression)</label>
+                      <label for="autism">Autism spectrum disorder</label>
                     </div>
                     <div class="checkbox-item">
                       <input type="checkbox" id="early_onset" name="early_onset" value="early_onset" />
@@ -316,9 +346,32 @@
                     <input type="checkbox" id="prior_test_negative" name="prior_test_negative" value="prior_testing" />
                     <label for="prior_test_negative">Previous testing (CMA, gene-panel, or single gene) did not yield a diagnosis, and WES/WGS is the most appropriate next step</label>
                   </div>
+                  <div id="rationale-prior-test" class="grid" style="display:none; margin:0.5rem 0 0 1.5rem;">
+                    <div class="col-4">
+                      <label for="rationale_prior_test_type">Prior Test Type</label>
+                      <select id="rationale_prior_test_type" name="prior_test_type">
+                        <option value="">Select…</option>
+                        <option value="CMA">CMA</option>
+                        <option value="Gene Panel">Gene Panel</option>
+                        <option value="Single Gene">Single Gene</option>
+                        <option value="mtDNA">mtDNA</option>
+                        <option value="Karyotype">Karyotype</option>
+                        <option value="Fragile X">Fragile X</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+                    <div class="col-4">
+                      <label for="rationale_prior_test_result">Prior Test Result</label>
+                      <input id="rationale_prior_test_result" name="prior_test_result" placeholder="Result" />
+                    </div>
+                    <div class="col-4">
+                      <label for="rationale_prior_test_date">Prior Test Date</label>
+                      <input id="rationale_prior_test_date" name="prior_test_date" type="date" />
+                    </div>
+                  </div>
                   <div class="checkbox-item">
                     <input type="checkbox" id="family_history" name="family_history" value="family_history" />
-                    <label for="family_history">Family history is significant for conditions suggesting a genetic disorder, or pedigree information raises suspicion for heritable etiology</label>
+                    <label for="family_history">Family history is significant for conditions suggesting a genetic disorder, or pedigree information raises suspicion for heritable etiology; including consanguinity</label>
                   </div>
                   <div class="checkbox-item" style="margin-top:0.5rem;">
                     <input type="checkbox" id="rationale_other" name="rationale_other" value="other" />
@@ -336,25 +389,7 @@
           </div>
         </section>
 
-        <!-- Step 5: Prior Testing -->
-        <section class="form-step">
-          <h2>Prior Testing</h2>
-          <div class="grid">
-            <div class="col-12">
-              <label>Prior Genetic Testing</label>
-              <div id="prior-tests-list"></div>
-              <div class="actions">
-                <button type="button" class="secondary" id="add-prior-test">Add Prior Test</button>
-              </div>
-            </div>
-          </div>
-          <div class="actions">
-            <button type="button" class="secondary" data-prev="3">Back</button>
-            <button type="button" data-next="5">Next</button>
-          </div>
-        </section>
-
-        <!-- Step 6: Medical Necessity & Consent -->
+        <!-- Step 5: Medical Necessity & Consent -->
         <section class="form-step">
           <h2>Medical Necessity & Consent</h2>
           <div class="grid">

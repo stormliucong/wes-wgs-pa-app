@@ -177,7 +177,6 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
         "task_id": task_id,
         "filename": filename,
         "saved_path": str(saved_path) if saved_path else None,
-        # "duration": duration,
         "llm": llm,
     }
 
@@ -206,7 +205,7 @@ if __name__ == "__main__":
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
 
-    target_types = {"2b"}
+    target_types = {"2c", "2d", "2e"}
     target_samples = [s for s in samples if str(s.get("sample_type")) in target_types]
 
     # Define LLMs to test
@@ -225,10 +224,21 @@ if __name__ == "__main__":
             "patient_name": patient_name,
             "patient_id": s.get("patient_id"),
             "sample_type": s.get("sample_type"),
-            "llm": gemini_pro,
+            "llm": claude_opus,
         })
 
     results = run_parallel_jobs(jobs, workers=3)
     for res in results:
         print(f"Processed: {res}")
     
+    # get_submission_by_patient(
+    #     requests.Session(),
+    #     BASE_URL,
+    #     "Susan",
+    #     "Miller",
+    #     "claude-opus-4-5-20251101",
+    #     "PAT-3164",
+    #     "1fc1d368-3cb8-4cfa-8fac-78ba68c61fdf",
+    #     "2e",
+    #     Path(__file__).resolve().parent / "data" / "submissions"
+    # )

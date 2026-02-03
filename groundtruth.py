@@ -36,17 +36,35 @@ random.seed(120)
 class GroundtruthGenerator: 
     def __init__(self):
         self.first_names = {
-            'Male': ['James', 'John', 'Robert', 'Michael', 'William', 'David', 'Richard', 'Joseph', 'Thomas', 'Christopher', 'Charles', 'Daniel', 'Matthew', 'Anthony', 'Mark', 'Donald', 'Steven', 'Paul', 'Andrew', 'Joshua', 'Kenneth', 'Kevin', 'Brian', 'George', 'Timothy'],
-            'Female': ['Mary', 'Patricia', 'Jennifer', 'Linda', 'Elizabeth', 'Barbara', 'Susan', 'Jessica', 'Sarah', 'Karen', 'Lisa', 'Nancy', 'Betty', 'Helen', 'Sandra', 'Donna', 'Carol', 'Ruth', 'Sharon', 'Michelle', 'Laura', 'Sarah', 'Kimberly', 'Deborah', 'Dorothy']
+            'Male': [
+                'James', 'John', 'Robert', 'Michael', 'William', 'David', 'Richard', 'Joseph', 'Thomas',
+                'Christopher', 'Charles', 'Daniel', 'Matthew', 'Anthony', 'Mark', 'Donald', 'Steven',
+                'Paul', 'Andrew', 'Joshua', 'Kenneth', 'Kevin', 'Brian', 'George', 'Timothy',
+                'Edward', 'Jason', 'Jeffrey', 'Ryan', 'Jacob', 'Gary', 'Nicholas', 'Eric', 'Stephen',
+                'Larry', 'Justin', 'Scott', 'Brandon', 'Benjamin', 'Adam', 'Samuel', 'Gregory',
+                'Patrick', 'Alexander', 'Jonathan', 'Tyler', 'Zachary', 'Peter', 'Aaron'
+            ],
+            'Female': [
+                'Mary', 'Patricia', 'Jennifer', 'Linda', 'Elizabeth', 'Barbara', 'Susan', 'Jessica',
+                'Sarah', 'Karen', 'Lisa', 'Nancy', 'Betty', 'Helen', 'Sandra', 'Donna', 'Carol',
+                'Ruth', 'Sharon', 'Michelle', 'Laura', 'Sarah', 'Kimberly', 'Deborah', 'Dorothy',
+                'Amanda', 'Melissa', 'Stephanie', 'Rebecca', 'Shirley', 'Cynthia', 'Angela', 'Brenda',
+                'Pamela', 'Nicole', 'Christina', 'Katherine', 'Theresa', 'Julie', 'Megan', 'Rachel',
+                'Victoria', 'Diane', 'Alice', 'Janet', 'Christine', 'Maria', 'Monica'
+            ]
         }
         
         self.last_names = [
-            'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 
-            'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 
-            'Moore', 'Jackson', 'Martin', 'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez', 
-            'Clark', 'Ramirez', 'Lewis', 'Robinson', 'Walker', 'Young', 'Allen', 'King', 'Wright', 
-            'Scott', 'Torres', 'Nguyen', 'Hill', 'Flores', 'Green', 'Adams', 'Nelson', 'Baker', 
-            'Hall', 'Rivera', 'Campbell', 'Mitchell', 'Carter', 'Roberts'
+            'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez',
+            'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor',
+            'Moore', 'Jackson', 'Martin', 'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez',
+            'Clark', 'Ramirez', 'Lewis', 'Robinson', 'Walker', 'Young', 'Allen', 'King', 'Wright',
+            'Scott', 'Torres', 'Nguyen', 'Hill', 'Flores', 'Green', 'Adams', 'Nelson', 'Baker',
+            'Hall', 'Rivera', 'Campbell', 'Mitchell', 'Carter', 'Roberts', 'Phillips', 'Evans',
+            'Turner', 'Parker', 'Collins', 'Edwards', 'Stewart', 'Morris', 'Rogers', 'Reed',
+            'Cook', 'Morgan', 'Bell', 'Murphy', 'Bailey', 'Cooper', 'Richardson', 'Cox', 'Howard',
+            'Ward', 'Peterson', 'Gray', 'Ramsey', 'Price', 'Bennett', 'Wood', 'Barnes', 'Ross',
+            'Henderson', 'Coleman', 'Jenkins', 'Perry'
         ]
         
         self.ct_cities = [
@@ -116,6 +134,21 @@ class GroundtruthGenerator:
                     "Regular":{"Proband":"WGS003", "Duo": "WGS008", "Trio":"WGS001"},
                     "Expedited":{"Proband":"WGS003X", "Duo":"WGS008X", "Trio":"WGS001X"}
                 }
+            },
+            "Ambry":{
+                "WES":{
+                    "Regular":{
+                        "Proband":"9993",   # ExomeNext-Proband
+                        "Duo":"9991",       # ExomeNext-Duo
+                        "Trio":"9995"      # ExomeNext-Trio
+                    },
+                    "Expedited":{
+                        "Proband":"9999R",  # ExomeNext-Rapid (used for rapid WES)
+                        "Duo":"9999R",
+                        "Trio":"9999R"
+                    }
+                },
+                "WGS":{}
             }
         }
         

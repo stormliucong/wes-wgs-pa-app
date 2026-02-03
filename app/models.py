@@ -11,9 +11,12 @@ REQUIRED_FIELDS = [
     "patient_last_name",
     "dob",  # YYYY-MM-DD
     "member_id",
+    "primary_subscriber_is_patient",
     # Provider
     "provider_name",
     "provider_npi",
+    "provider_phone",
+    "provider_address",
     # Laboratory
     "lab_npi",
     # Test requested
@@ -133,5 +136,24 @@ def validate_submission(payload: Dict[str, Any]) -> Tuple[bool, Dict[str, str]]:
     # Consent must be True
     if "consent_ack" in payload and payload.get("consent_ack") is not True:
         errors["consent_ack"] = "Consent is required to submit."
+
+    # If patient is NOT the primary subscriber, subscriber details become mandatory
+    primary = str(payload.get("primary_subscriber_is_patient", "")).strip().lower()
+    if primary == "no":
+        if not payload.get("subscriber_name"):
+            errors["subscriber_name"] = "Subscriber name is required when the patient is not the primary subscriber."
+        if not payload.get("subscriber_dob"):
+            errors["subscriber_dob"] = "Subscriber date of birth is required when the patient is not the primary subscriber."
+        relation = payload.get("subscriber_relation")
+        if not relation:
+            errors["subscriber_relation"] = "Subscriber relationship is required when the patient is not the primary subscriber."
+        elif relation == "Other" and not payload.get("subscriber_relation_other"):
+            errors["subscriber_relation_other"] = "Please specify the subscriber relationship when 'Other' is selected."
+
+    # Optional provider email format check
+    email = str(payload.get("provider_email", "")).strip()
+    if email:
+        if "@" not in email or "." not in email.split("@")[-1]:
+            errors["provider_email"] = "Provider email must be a valid email address."
 
     return (len(errors) == 0, errors)
