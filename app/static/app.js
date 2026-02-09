@@ -99,11 +99,9 @@
     row.innerHTML = `
       <div class="grid" style="margin-bottom:0.5rem;">
         <div class="col-5">
-          <label style="display:block; margin-bottom:0.25rem; font-weight:500;">ICD-10 Code</label>
           <input name="icd_code[]" placeholder="ICD Code" required />
         </div>
         <div class="col-5">
-          <label style="display:block; margin-bottom:0.25rem; font-weight:500;">Description</label>
           <input name="icd_description[]" placeholder="Description" />
         </div>
         <div class="col-2" style="display:flex; align-items:end; justify-content:center;">
@@ -395,6 +393,9 @@
     fields.forEach((f) => {
       const name = f.name;
       if (!name) return;
+      if (name === 'icd_code[]' || name === 'icd_description[]') {
+        return;
+      }
       if (f.type === 'checkbox' && f.name === 'cpt_codes') {
         // collect multiple checked CPTs
         arrFields.set('cpt_codes', (arrFields.get('cpt_codes') || []));
