@@ -17,10 +17,7 @@ if raw_api_key is None or not raw_api_key.strip():
 api_key: str = raw_api_key.strip()
 
 # Configurable server base URL (public endpoints, no auth required)
-BASE_URL = os.getenv(
-    "BROWSER_USE_BASE_URL",
-    "https://wes-wgs-pa-app-u2c8s.ondigitalocean.app"
-).rstrip("/")
+BASE_URL ="https://wes-wgs-pa-app-u2c8s.ondigitalocean.app"
 
 # Browser-Use Cloud API base (v2)
 API_BASE = os.getenv("BROWSER_USE_API_BASE", "https://api.browser-use.com/api/v2").rstrip("/")

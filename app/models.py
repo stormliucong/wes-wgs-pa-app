@@ -9,7 +9,7 @@ REQUIRED_FIELDS = [
     # Patient/Insurance
     "patient_first_name",
     "patient_last_name",
-    "dob",  # YYYY-MM-DD
+    "patient_dob",  # YYYY-MM-DD
     "member_id",
     "primary_subscriber_is_patient",
     # Provider
@@ -21,6 +21,8 @@ REQUIRED_FIELDS = [
     "lab_npi",
     # Test requested
     "test_type",  # WES or WGS
+    "cpt_codes",
+    "internal_test_code",
     # Diagnoses
     "icd_codes",  # list[str] or comma-separated string
     # Consent
@@ -46,10 +48,19 @@ def normalize_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
     """
     norm: Dict[str, Any] = dict(payload)
 
-    # Normalize icd_codes: accept list[str] or comma-separated string or multiple fields
+
+    # Normalize icd_codes: accept list[str], list[dict], or comma-separated string
     icd = norm.get("icd_codes")
     if isinstance(icd, list):
-        icd_list = [str(c).strip() for c in icd if str(c).strip()]
+        has_dicts = any(isinstance(c, dict) for c in icd)
+        if has_dicts:
+            icd_list = [
+                str(c.get("code", "")).strip()
+                for c in icd
+                if isinstance(c, dict) and str(c.get("code", "")).strip()
+            ]
+        else:
+            icd_list = [str(c).strip() for c in icd if str(c).strip()]
     elif isinstance(icd, str):
         icd_list = [c.strip() for c in icd.split(",") if c.strip()]
     else:
@@ -88,6 +99,15 @@ def validate_submission(payload: Dict[str, Any]) -> Tuple[bool, Dict[str, str]]:
     """
     errors: Dict[str, str] = {}
 
+    def _first_nonempty(value: Any) -> str:
+        if isinstance(value, list):
+            for v in value:
+                s = str(v).strip()
+                if s:
+                    return s
+            return ""
+        return str(value).strip() if value is not None else ""
+
     # Required presence
     for field in REQUIRED_FIELDS:
         if field not in payload or payload[field] in (None, "", []):
@@ -121,7 +141,7 @@ def validate_submission(payload: Dict[str, Any]) -> Tuple[bool, Dict[str, str]]:
                 field_name = field.replace("_", " ").title()
                 errors[field] = f"{field_name} must be a valid 10-digit phone number."
 
-    # CPT optional but if provided ensure valid codes
+    # CPT required and must be valid if provided
     valid_cpt = {"81415", "81416", "81417", "81425", "81426", "81427"}
     cpt_codes = payload.get("cpt_codes", [])
     if isinstance(cpt_codes, list):
@@ -149,6 +169,20 @@ def validate_submission(payload: Dict[str, Any]) -> Tuple[bool, Dict[str, str]]:
             errors["subscriber_relation"] = "Subscriber relationship is required when the patient is not the primary subscriber."
         elif relation == "Other" and not payload.get("subscriber_relation_other"):
             errors["subscriber_relation_other"] = "Please specify the subscriber relationship when 'Other' is selected."
+
+    # If prior test negative is selected, require prior test details
+    prior_negative_raw = payload.get("prior_test_negative")
+    prior_negative = prior_negative_raw is True or str(prior_negative_raw).strip().lower() in {"1", "true", "yes", "on"}
+    if prior_negative:
+        pt_type = _first_nonempty(payload.get("prior_test_type"))
+        pt_result = _first_nonempty(payload.get("prior_test_result"))
+        pt_date = _first_nonempty(payload.get("prior_test_date"))
+        if not pt_type:
+            errors["prior_test_type"] = "Prior test type is required when prior testing is marked as negative."
+        if not pt_result:
+            errors["prior_test_result"] = "Prior test result is required when prior testing is marked as negative."
+        if not pt_date:
+            errors["prior_test_date"] = "Prior test date is required when prior testing is marked as negative."
 
     # Optional provider email format check
     email = str(payload.get("provider_email", "")).strip()

@@ -271,7 +271,7 @@
               </h3>
               <p class="patient-info">
                 Member ID: ${escapeHtml(patient.member_id || 'N/A')} | 
-                DOB: ${escapeHtml(patient.dob || 'N/A')} | 
+                DOB: ${escapeHtml(patient.patient_dob || 'N/A')} | 
                 Sex: ${escapeHtml(patient.sex || 'N/A')}
               </p>
             </div>
@@ -283,7 +283,7 @@
                       <span class="detail-label">Patient Information</span>
                       <div class="detail-value">
                         ${escapeHtml(patient.patient_first_name || '')} ${escapeHtml(patient.patient_last_name || '')}<br>
-                        DOB: ${escapeHtml(patient.dob || 'N/A')}<br>
+                        DOB: ${escapeHtml(patient.patient_dob || 'N/A')}<br>
                         Sex: ${escapeHtml(patient.sex || 'N/A')}<br>
                         Member ID: ${escapeHtml(patient.member_id || 'N/A')}<br>
                         Address: ${escapeHtml(patient.patient_address || 'N/A')}
@@ -293,6 +293,7 @@
                       <span class="detail-label">Subscriber Information</span>
                       <div class="detail-value">
                         Name: ${escapeHtml(patient.subscriber_name || 'N/A')}<br>
+                        DOB: ${escapeHtml(patient.subscriber_dob || 'N/A')}<br>
                         Relation: ${escapeHtml(patient.subscriber_relation || 'N/A')}
                       </div>
                     </div>
@@ -326,11 +327,9 @@
                       Urgency: ${escapeHtml(patient.urgency || 'N/A')}<br>
                       Specimen: ${escapeHtml(patient.specimen_type || 'N/A')}<br>
                       Collection Date: ${escapeHtml(patient.collection_date || 'N/A')}<br>
-                      CPT Codes: ${formatArray(patient.cpt_codes)}<br>
                     </div>
                     <div class="detail-value">
                       <span class="detail-label">Clinical Information</span>
-                      ICD Codes: ${formatArray(patient.icd_codes)}<br>
                       Clinical Note:<br>
                       <div class="clinical-note">${escapeHtml(patient.clinical_note || 'N/A')}</div>
                       ${priorTestingBlock}

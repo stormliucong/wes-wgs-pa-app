@@ -82,6 +82,9 @@
     if (!rationalePriorTest || !priorTestNegativeCheckbox) return;
     const show = priorTestNegativeCheckbox.checked;
     rationalePriorTest.style.display = show ? '' : 'none';
+    if (rationalePriorTestType) rationalePriorTestType.required = show;
+    if (rationalePriorTestResult) rationalePriorTestResult.required = show;
+    if (rationalePriorTestDate) rationalePriorTestDate.required = show;
     if (!show) {
       if (rationalePriorTestType) rationalePriorTestType.selectedIndex = 0;
       if (rationalePriorTestResult) rationalePriorTestResult.value = '';
@@ -89,21 +92,35 @@
     }
   }
 
-  function createIcdRow(value = '') {
+  // ICD code row generator
+  function createIcdRow() {
     const row = document.createElement('div');
-    row.className = 'grid';
+    row.className = 'icd-row';
     row.innerHTML = `
-      <div class="col-6">
-        <input name="icd_codes" placeholder="e.g., F84.0" value="${value}" required />
+      <div class="grid" style="margin-bottom:0.5rem;">
+        <div class="col-5">
+          <label style="display:block; margin-bottom:0.25rem; font-weight:500;">ICD-10 Code</label>
+          <input name="icd_code[]" placeholder="ICD Code" required />
+        </div>
+        <div class="col-5">
+          <label style="display:block; margin-bottom:0.25rem; font-weight:500;">Description</label>
+          <input name="icd_description[]" placeholder="Description" />
+        </div>
+        <div class="col-2" style="display:flex; align-items:end; justify-content:center;">
+          <button type="button" class="secondary remove-icd" style="padding:0.25rem 0.5rem;">×</button>
+        </div>
       </div>
-      <div class="col-4">
-        <input name="icd_desc" placeholder="Description (optional)" />
-      </div>
-      <div class="col-2">
-        <button type="button" class="secondary remove-icd">Remove</button>
-      </div>`;
-    row.querySelector('.remove-icd').addEventListener('click', () => row.remove());
+    `;
     return row;
+  }
+
+  // Update form data collection for ICD codes
+  function collectIcdCodesData() {
+    const rows = document.querySelectorAll('.icd-row');
+    return Array.from(rows)
+      .map((row) => row.querySelector('input[name="icd_code[]"]').value)
+      .map((code) => code.trim())
+      .filter((code) => code.length > 0);
   }
 
   function createPriorTestRow() {
@@ -134,18 +151,27 @@
     return row;
   }
 
-  // Initialize with one ICD row
+  // Initialize with ICD search
   if (icdList && icdList.children.length === 0) {
-    icdList.appendChild(createIcdRow());
-  }
-  if (addIcdBtn) {
-    addIcdBtn.addEventListener('click', () => icdList.appendChild(createIcdRow()));
+    // No need to initialize - search-based system
   }
   if (priorTestsList && priorTestsList.children.length === 0) {
     priorTestsList.appendChild(createPriorTestRow());
   }
   if (addPriorTestBtn) {
     addPriorTestBtn.addEventListener('click', () => priorTestsList.appendChild(createPriorTestRow()));
+  }
+
+  // ICD code dynamic list
+  if (icdList && addIcdBtn) {
+    // Don't create initial row here - let the draft load handle it
+    addIcdBtn.addEventListener('click', () => icdList.appendChild(createIcdRow()));
+    icdList.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove-icd')) {
+        const row = e.target.closest('.icd-row');
+        if (row) row.remove();
+      }
+    });
   }
 
   // Wire up primary-subscriber question
@@ -196,12 +222,13 @@
     const labelMap = {
       'patient_first_name': 'First Name',
       'patient_last_name': 'Last Name',
-      'dob': 'Date of Birth',
+      'patient_dob': 'Date of Birth',
       'member_id': 'Member/Policy ID',
       'provider_name': 'Provider Name',
       'provider_npi': 'Provider NPI',
       'test_type': 'Test Type',
       'icd_codes': 'ICD Codes',
+      'cpt_codes': 'CPT Codes',
       'consent_ack': 'Consent'
     };
     
@@ -255,11 +282,10 @@
       }
     });
 
-    // Special validation for ICD codes - at least one non-empty ICD code is required
+    // Special validation for ICD codes - at least one row must exist
     if (stepEl.querySelector('#icd-list')) {
-      const icdInputs = stepEl.querySelectorAll('input[name="icd_codes"]');
-      const hasValidIcd = Array.from(icdInputs).some(input => input.value && input.value.trim() !== '');
-      if (!hasValidIcd) {
+      const icdRows = stepEl.querySelectorAll('.icd-row');
+      if (icdRows.length === 0) {
         ok = false;
         errorMessages.push('At least one ICD code is required');
       }
@@ -375,18 +401,25 @@
         if (f.checked) arrFields.get('cpt_codes').push(f.value);
         return;
       }
-      if (name === 'icd_codes' || name === 'icd_desc' || name === 'prior_test_type' || name === 'prior_test_result' || name === 'prior_test_date') {
+      if (name === 'prior_test_type' || name === 'prior_test_result' || name === 'prior_test_date') {
         arrFields.set(name, (arrFields.get(name) || []));
         arrFields.get(name).push(f.value);
         return;
       }
       if (f.type === 'checkbox') {
         data[name] = f.checked;
+      } else if (f.type === 'radio') {
+        if (f.checked) data[name] = f.value;
       } else {
         data[name] = f.value;
       }
     });
-    // Merge array fields
+    
+    // Collect ICD codes from the new search-based system
+    data.icd_codes = collectIcdCodesData();
+
+    
+    // Merge other array fields
     for (const [k, v] of arrFields.entries()) {
       data[k] = v;
     }
@@ -407,10 +440,12 @@
       if (name === 'icd_codes' || name === 'icd_desc' || name === 'prior_test_type' || name === 'prior_test_result' || name === 'prior_test_date' || name === 'cpt_codes') {
         return; // handled separately
       }
-      const val = data[name];
+      let val = data[name];
       if (typeof val === 'undefined') return;
       if (f.type === 'checkbox') {
         f.checked = !!val;
+      } else if (f.type === 'radio') {
+        f.checked = f.value === String(val);
       } else {
         f.value = val;
       }
@@ -423,14 +458,33 @@
       if (el) el.checked = true;
     });
 
-    // ICD rows
+    // ICD codes - restore from saved data
     const icds = Array.isArray(data.icd_codes) ? data.icd_codes : [];
     if (icdList) {
       icdList.innerHTML = '';
-      if (icds.length === 0) {
+      // Filter out any corrupted/stringified data
+      const validIcds = icds.filter((icd) => {
+        if (typeof icd === 'string') return icd.trim().length > 0 && !icd.startsWith('{');
+        if (icd && typeof icd === 'object') return true;
+        return false;
+      });
+      
+      if (validIcds.length === 0) {
+        // If no valid data, create one empty row
         icdList.appendChild(createIcdRow());
       } else {
-        icds.forEach((code) => icdList.appendChild(createIcdRow(code)));
+        validIcds.forEach((icd) => {
+          const row = createIcdRow();
+          const codeInput = row.querySelector('input[name="icd_code[]"]');
+          const descInput = row.querySelector('input[name="icd_description[]"]');
+          if (typeof icd === 'string') {
+            codeInput.value = icd;
+          } else if (icd && typeof icd === 'object') {
+            codeInput.value = icd.code || '';
+            descInput.value = icd.description || '';
+          }
+          icdList.appendChild(row);
+        });
       }
     }
 
@@ -581,6 +635,22 @@
         // validateStep() already calls showError() with specific messages
         return;
       }
+      const primaryVal = (primarySubscriberYes && primarySubscriberYes.checked)
+        ? 'yes'
+        : (primarySubscriberNo && primarySubscriberNo.checked) ? 'no' : '';
+      if (primaryVal === 'no') {
+        const missingSubscriber =
+          !subscriberNameInput?.value?.trim() ||
+          !subscriberDobInput?.value?.trim() ||
+          !subscriberRelationSelect?.value?.trim() ||
+          (subscriberRelationSelect?.value === 'Other' && !subscriberRelationOtherInput?.value?.trim());
+        if (missingSubscriber) {
+          showError('Subscriber details are required when the patient is not the primary subscriber.');
+          showStep(0);
+          errorsBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+      }
       clearError();
 
       const payload = collectFormData();
@@ -591,7 +661,12 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         });
-        const body = await res.json();
+        let body = {};
+        try {
+          body = await res.json();
+        } catch (_) {
+          body = {};
+        }
         if (!res.ok) {
           if (body && body.errors) {
             const msgs = Object.entries(body.errors)
@@ -599,7 +674,8 @@
               .join('\n');
             showAlert('error', 'Fix the following errors before submitting:\n' + msgs);
           } else {
-            showAlert('error', body?.message || 'Submission failed.');
+            const statusMsg = `Submission failed (HTTP ${res.status}).`;
+            showAlert('error', body?.message || statusMsg);
           }
           return;
         }

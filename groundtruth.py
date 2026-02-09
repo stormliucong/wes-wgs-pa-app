@@ -12,16 +12,13 @@ Sample categories:
 
   label_type = 2 (ERROR)
     - ICD codes are relevant to the test request
-    - 2a) Invalid ICD codes - invalid icd code assigned (code does not exist)
-    - 2b) CPT codes are inconsistent with test_type
-    - 2c) Invalid CPT codes - code does not exist
-    - 2d) Data Collection date before Prior Test Date
-    - 2e) Data Collection date is empty
+    - 2a) Subscriber's date of birth error (i.e., parent is only 10-12 years older than patient)
+    - 2b) Sample Collection date before Prior Test Date
+    - 2c) Sample Collection date is empty
 
   label_type = 3 (IRRELEVANT):
-    - 3a) Partially irrelevant ICD codes: original relevant ICD codes + some irrelevant ICD codes
-    - 3b) Irrelevant ICD codes only 
-    - 3c) Irrelevant family history
+    - 3a) Secondary medical issues unrelated to the test request
+    - 3b) Completely irrelevant clinical issues (not for genetic testing)
 """
 import argparse
 import json
@@ -83,13 +80,13 @@ class GroundtruthGenerator:
         ]
         
         self.provider_names = [
-            'Dr. Sarah Johnson', 'Dr. Michael Smith', 'Dr. Jennifer Wilson', 'Dr. David Brown', 
-            'Dr. Lisa Garcia', 'Dr. Robert Miller', 'Dr. Emily Davis', 'Dr. James Rodriguez', 
-            'Dr. Maria Martinez', 'Dr. Christopher Lee', 'Dr. Angela Thompson', 'Dr. William Jones', 
-            'Dr. Patricia Anderson', 'Dr. Thomas Taylor', 'Dr. Nancy Moore', 'Dr. Daniel Jackson', 
-            'Dr. Karen White', 'Dr. Joseph Harris', 'Dr. Susan Clark', 'Dr. Mark Lewis', 
-            'Dr. Helen Robinson', 'Dr. Anthony Walker', 'Dr. Betty Young', 'Dr. Paul Allen', 
-            'Dr. Sandra King', 'Dr. Matthew Wright', 'Dr. Donna Scott', 'Dr. Steven Torres'
+            'Sarah Johnson', 'Michael Smith', 'Jennifer Wilson', 'David Brown', 
+            'Lisa Garcia', 'Robert Miller', 'Emily Davis', 'James Rodriguez', 
+            'Maria Martinez', 'Christopher Lee', 'Angela Thompson', 'William Jones', 
+            'Patricia Anderson', 'Thomas Taylor', 'Nancy Moore', 'Daniel Jackson', 
+            'Karen White', 'Joseph Harris', 'Susan Clark', 'Mark Lewis', 
+            'Helen Robinson', 'Anthony Walker', 'Betty Young', 'Paul Allen', 
+            'Sandra King', 'Matthew Wright', 'Donna Scott', 'Steven Torres'
         ]
         
         self.provider_specialties = [
@@ -100,55 +97,44 @@ class GroundtruthGenerator:
         
         self.test_types = ['WES', 'WGS']
         self.test_configurations = ['Proband', 'Trio']
-
-        self.test_cpt_map: Dict[Tuple[str, str], List[str]] = {
-            ('WES', 'Proband'): ['81415'], 
-            ('WES', 'Trio'): ['81415', '81416'],
-            ('WGS', 'Proband'): ['81425'],
-            ('WGS', 'Trio'): ['81425', '81426'],
-        }
-
         self.lab_test_code_map = {
             "GeneDx":{
                 "WES":{
                     "Regular":{"Proband":"561b", "Duo": "561e", "Trio":"561a"},
-                    "Expedited":{"Proband":"896b", "Duo":"896e", "Trio":"896a"}
+                    "Expedited":{"Proband":"896b", "Duo":"896e", "Trio":"896a"},
+                    "CPT Codes":{"Proband":"81415", "Duo":"81415, 81416×1", "Trio":"81415, 81416×2"}
                 },
                 "WGS":{
                     "Regular":{"Proband":"J744b", "Duo": "J744e", "Trio":"J744a"},
-                    "Expedited":{"Proband":"TH78b", "Duo":"TH78e", "Trio":"TH78a"}
+                    "Expedited":{"Proband":"TH78b", "Duo":"TH78e", "Trio":"TH78a"},
+                    "CPT Codes":{"Proband":"81425", "Duo":"81425×1, 81426×1", "Trio":"81425×1, 81426×2"}
                 }
             },
             "Invitae":{
                 "WES":{
                     "Regular":{"Proband":"80001", "Duo": "80002", "Trio":"80003"},
-                    "Expedited":{"Proband":"80001", "Duo":"80002", "Trio":"80003"}   
+                    "Expedited":{"Proband":"80001", "Duo":"80002", "Trio":"80003"},
+                    "CPT Codes":{"Proband":"81415", "Duo":"81415, 81416", "Trio":"81415, 81416×2"}
                 }
             },
             "LabCorp":{
                 "WES":{
                     "Regular":{"Proband":"620024", "Duo": "620023", "Trio":"620022"},
-                    "Expedited":{"Proband":"620024", "Duo":"620024", "Trio":"620024"}
+                    "Expedited":{"Proband":"620024", "Duo":"620024", "Trio":"620024"},
+                    "CPT Codes":{"Proband":"81415", "Duo":"81415; 81416", "Trio":"81415; 81416(x2)"}
                 },
                 "WGS":{
                     "Regular":{"Proband":"WGS003", "Duo": "WGS008", "Trio":"WGS001"},
-                    "Expedited":{"Proband":"WGS003X", "Duo":"WGS008X", "Trio":"WGS001X"}
+                    "Expedited":{"Proband":"WGS003X", "Duo":"WGS008X", "Trio":"WGS001X"},
+                    "CPT Codes":{"Proband":"81425", "Duo":"81425, 81426", "Trio":"81425, 81426×2"}
                 }
             },
             "Ambry":{
                 "WES":{
-                    "Regular":{
-                        "Proband":"9993",   # ExomeNext-Proband
-                        "Duo":"9991",       # ExomeNext-Duo
-                        "Trio":"9995"      # ExomeNext-Trio
-                    },
-                    "Expedited":{
-                        "Proband":"9999R",  # ExomeNext-Rapid (used for rapid WES)
-                        "Duo":"9999R",
-                        "Trio":"9999R"
-                    }
-                },
-                "WGS":{}
+                    "Regular":{"Proband":"9993", "Duo":"9991", "Trio":"9995"},              
+                    "Expedited":{"Proband":"9999R", "Duo":"9999R", "Trio":"9999R"},
+                    "CPT Codes":{"Proband":"81415", "Duo":"81415, 81416", "Trio":"81415, 81416x2"}         
+                }
             }
         }
         
@@ -158,7 +144,7 @@ class GroundtruthGenerator:
         
         self.sexes = ['Male', 'Female']
         
-        self.subscriber_relations = ['Self', 'Parent', 'Guardian', 'Other'] 
+        self.subscriber_relations = ['Parent', 'Guardian', 'Other'] 
          
         self.prior_tests = ['CMA', 'Gene panel', 'Single gene']  # empty string = no prior test documented
 
@@ -170,23 +156,18 @@ class GroundtruthGenerator:
                 "R56.9": "Unspecified convulsions"
             },
             "dd_id": {
-                "R62.50": "Unspecified lack of expected normal physiological development",
                 "F71": "Moderate intellectual disability",
                 "F72": "Severe intellectual disability",
-                "R41.840": "Cognitive communication deficit"
-            },
-            "early_onset_progressive": {
-                "R41.840": "Cognitive communication deficit (for regression)",
-                "R79.89": "Other specified abnormal findings of blood chemistry (for deterioration)",
-                "R62.51": "Failure to thrive (adult) (for growth faltering)"
+                "F80.9": "Developmental disorder of speech and language, unspecified",
+                "F82": "Specific developmental disorder of motor function",
             },
             "mca": {   # Structural or functional defects present at birth          
                 "Q21.1": "Atrial septal defect",
                 "Q22.2": "Congenital malformation of pulmonary valve",               
-                "Q61.4": "Renal hypoplasia",              
+                "Q61.3": "Polycystic kidney, unspecified",             
                 "Q66.89": "Other congenital deformities of feet",                 
                 "Q04.0": "Congenital malformations of corpus callosum",
-                "Q39.1": "Atresia of esophagus", 
+                "Q39.0": "Atresia of esophagus without fistula", 
                 "Q67.4": "Other congenital deformities of skull, face and jaw", 
                 "Q10.3": "Other congenital malformations of eyelid",    
                 "Q17.0": "Accessory auricle"
@@ -201,10 +182,6 @@ class GroundtruthGenerator:
                 "R79.89": "Other specified abnormal findings of blood chemistry",
                 "E87.2": "Acidosis"
             },
-            "family_history":{
-                "Z82.0": "Family history of epilepsy and other diseases of the nervous system",
-                "Z83.4":  "Family history of metabolic disorders"
-            }
         }
         
         self.irrelevant_icd_code_mapping = {
@@ -242,9 +219,15 @@ class GroundtruthGenerator:
         """Generate a valid-format NPI number."""
         return str(random.randint(1000000000, 9999999999))
     
-    def generate_date_of_birth(self) -> str:
+    def generate_patient_dob(self) -> str:
         """Generate a realistic date of birth (3-18 years old)."""
-        years_ago = random.randint(3, 18)
+        years_ago = random.randint(3, 15)      
+        days_ago = random.randint(0, 365)
+        birth_date = datetime.now() - timedelta(days=years_ago * 365 + days_ago)
+        return birth_date.strftime('%Y-%m-%d')
+        
+    def generate_subscriber_dob(self, patient_age, years_older = random.randint(23, 35)) -> str:
+        years_ago = years_older + patient_age    
         days_ago = random.randint(0, 365)
         birth_date = datetime.now() - timedelta(days=years_ago * 365 + days_ago)
         return birth_date.strftime('%Y-%m-%d')
@@ -297,43 +280,48 @@ class GroundtruthGenerator:
             profile['metabolic'] = True
             profile['neurological'] = True
             profile['family_history'] = True
+            profile['consanguinity'] = random.choice([True, False])
 
     def generate_testing_info(self) -> Dict:
-            """Assign test_type, test_configuration, urgency, specimen_type and consistent CPT codes."""
-            test_key = random.choice(list(self.test_cpt_map.keys()))
-            test_type, test_config = test_key
-            specimen_type = random.choice(self.specimen_types)
-            cpt_codes = self.test_cpt_map[test_key]  
+            """Assign test_type, test_configuration, urgency, specimen_type and consistent CPT codes using lab_test_code_map."""
+            # Pick a random lab and test type that exists in the map
+            lab_name = random.choice(list(self.lab_test_code_map.keys()))
+            test_type = random.choice(list(self.lab_test_code_map[lab_name].keys()))
             urgency = random.choice(self.urgency_levels)
+            test_config = random.choice(self.test_configurations)
+            
+            # Get internal test code and CPT codes from lab_test_code_map
+            internal_test_code = self.lab_test_code_map[lab_name][test_type][urgency][test_config]
+            cpt_codes = self.lab_test_code_map[lab_name][test_type]["CPT Codes"][test_config]
+            specimen_type = random.choice(self.specimen_types)
+            
             return {
+                'lab_name': lab_name,
                 'test_type': test_type,
                 'test_configuration': test_config,
                 'urgency': urgency,
                 'specimen_type': specimen_type,
-                'cpt_codes': list(cpt_codes)
+                'cpt_codes': cpt_codes if isinstance(cpt_codes, list) else [cpt_codes],
+                'internal_test_code': internal_test_code
             }
     
     @staticmethod
     def _is_leap_year(year: int) -> bool:
         """Check if a given year is a leap year."""
         return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+   
+    def _2a_assign_subscriber_dob_error(self, profile: Dict) -> None:
+        """Assign subscriber DOB only 10-12 years older than patient DOB."""
+        patient_dob_str = profile.get('patient_dob')
+        patient_age = (datetime.now() - datetime.strptime(patient_dob_str, '%Y-%m-%d')).days // 365
+        try:
+            years_older = random.randint(10, 12)
+            profile['subscriber_dob'] = self.generate_subscriber_dob(patient_age, years_older)
+        except ValueError as e:
+            logging.error(f"Error parsing patient or subscriber DOB: {e}")
+            profile['subscriber_dob'] = ''  # Fallback to empty if parsing fails
 
-    def _2b_assign_wrong_cpt(self, profile: Dict) -> None:
-        """Assign test_type and test_configuration, but inconsistent CPT codes."""
-        valid_cpt_codes = ['81415','81416','81417','81425','81426','81427']
-        # Choose a different CPT code set
-        original_cpt_codes = profile.get('cpt_codes', [])
-        other_cpt_codes = [k for k in valid_cpt_codes if k not in original_cpt_codes]
-        wrong_cpt = random.sample(other_cpt_codes, random.choice([1,2]))
-        profile['cpt_codes'] = list(wrong_cpt)  # copy
-        
-    def _2c_assign_invalid_cpt(self, profile: Dict) -> None:
-        """Assign invalid CPT codes to the profile."""
-        invalid_cpt_codes = ['812345','814199','72555','81599','90210']
-        invalid_cpt = random.sample(invalid_cpt_codes, random.choice([1,2]))
-        profile['cpt_codes'] = list(invalid_cpt)  
-
-    def _2d_assign_wrong_collection_date(self, profile: Dict) -> None: # only applies to rationale = 1
+    def _2b_assign_wrong_collection_date(self, profile: Dict) -> None: # only applies to rationale = 1
         """Assign collection date before prior test date."""
         prior_test_date_str = profile.get('prior_test_date')
         if not prior_test_date_str:
@@ -347,7 +335,7 @@ class GroundtruthGenerator:
             logging.error(f"Error parsing prior_test_date: {e}")
             profile['collection_date'] = ''  # Fallback to empty if parsing fails
 
-    def _2e_assign_empty_collection_date(self, profile: Dict) -> None:
+    def _2c_assign_empty_collection_date(self, profile: Dict) -> None:
             """Assign empty collection date for WES/WGS."""
             profile['collection_date'] = ''
 
@@ -356,14 +344,12 @@ class GroundtruthGenerator:
         Introduce specific data errors into the profile for negative testing.
         Used ONLY for label_type = 2 subcategories (2a, 2b, 2c, 2d, 2e).
         """    
-        if sub_label == "2b":
-            self._2b_assign_wrong_cpt(profile)
+        if sub_label == "2a":
+            self._2a_assign_subscriber_dob_error(profile)
+        elif sub_label == "2b":
+            self._2b_assign_wrong_collection_date(profile)
         elif sub_label == "2c":
-            self._2c_assign_invalid_cpt(profile)
-        elif sub_label == "2d":
-            self._2d_assign_wrong_collection_date(profile)
-        elif sub_label == "2e":
-            self._2e_assign_empty_collection_date(profile)
+            self._2c_assign_empty_collection_date(profile)
 
     def reset_profile_for_3b(self, profile: Dict):        
         for key in ('mca', 'dd_id', 'dysmorphic', 'neurological', 'metabolic', 'family_history', 'previous_test_negative'):
@@ -376,14 +362,13 @@ class GroundtruthGenerator:
         Add some irrelevant ICD codes and family history to the profile for label_type = 3.
         a) Keep the original ICD codes and add some irrelevant ones
         b) ICD codes completely irrelevant (not for genetic testing) #irrelevant clinical features
-        c) Irrelevant family history only
         """
         # Randomly pick 2 or 3 unique irrelevant ICD codes
         all_irrelevant_codes = list(self.irrelevant_icd_code_mapping.keys())
         num_irrelevant = random.randint(2, 3)
         irrelevant_codes = random.sample(all_irrelevant_codes, num_irrelevant)
         if label == "3a":
-            profile['icd_codes'].extend(irrelevant_codes)
+            profile['secondary_icd_codes'] = irrelevant_codes
         if label == "3b":
             profile['icd_codes'] = irrelevant_codes
             self.reset_profile_for_3b(profile)    
@@ -391,47 +376,41 @@ class GroundtruthGenerator:
     def generate_groundtruth_profile(self) -> Dict:
         sex = random.choice(self.sexes)
         first_name = random.choice(self.first_names.get(sex, self.first_names['Male']))
-        last_name = random.choice(self.last_names)   
-        is_self_subscriber = random.choice([True, True, True, False, False]) # 60% chance self
+        last_name = random.choice(self.last_names)  
+        patient_dob = self.generate_patient_dob()
+        patient_age = (datetime.now() - datetime.strptime(patient_dob, '%Y-%m-%d')).days // 365
+        subscriber_name = f"{random.choice(self.first_names['Male'] + self.first_names['Female'])} {last_name}"
+        subscriber_dob = self.generate_subscriber_dob(patient_age)
+        subscriber_relation = random.choice(self.subscriber_relations)
         rationale = random.choice([1, 2])
-
-        # Assign lab and internal test code based on test_info
-        lab_name = random.choice(['LabCorp', 'GeneDx', 'Invitae'])
         test_info = self.generate_testing_info()
-        test_type = test_info['test_type']
-        urgency = test_info['urgency']
-        config = test_info['test_configuration']
-        
-        # Get internal test code from lab_test_code_map
-        internal_test_code = self.lab_test_code_map.get(lab_name, {}).get(test_type, {}).get(urgency, {}).get(config, "")
-
-        # Force rationale 1 for sample 2d so prior testing exists (needed to set an earlier collection date)
         
         profile = {
             'patient_id': f"PAT-{random.randint(1000, 9999)}",
             'patient_first_name': first_name,
             'patient_last_name': last_name,
-            'dob': self.generate_date_of_birth(),
+            'patient_dob': patient_dob,
             'sex': sex,
             'member_id': self.generate_member_id(),
             'patient_address': self.generate_address(),
-            'subscriber_name': f"{random.choice(self.first_names['Male'] + self.first_names['Female'])} {last_name}",
-            'subscriber_relation': random.choice(self.subscriber_relations[1:]),
+            'subscriber_name': subscriber_name,
+            'subscriber_dob': subscriber_dob,
+            'subscriber_relation': subscriber_relation,
             'provider_name': random.choice(self.provider_names),
             'provider_npi': self.generate_npi(),
             'provider_phone': self.generate_phone(),
             'provider_fax': self.generate_phone(),
             'provider_address': self.generate_address(),         
-            'lab_name': lab_name,
+            'lab_name': test_info['lab_name'],
             'lab_npi': self.generate_npi(),
             'lab_address': self.generate_address(),
-            'test_type': test_type,
-            'test_configuration': config,
+            'test_type': test_info['test_type'],
+            'test_configuration': test_info['test_configuration'],
             'cpt_codes': test_info['cpt_codes'],
-            'urgency': urgency,
+            'urgency': test_info['urgency'],
             'specimen_type': test_info['specimen_type'],
             'collection_date': self.generate_recent_date(),
-            'internal_test_code':internal_test_code,
+            'internal_test_code': test_info['internal_test_code'],
             'mca': False,
             'dd_id': False,
             'dysmorphic': False,
@@ -441,10 +420,10 @@ class GroundtruthGenerator:
             'early_onset': False,          
             'previous_test_negative': False,
             'family_history': False,
+            'consanguinity': False,
             'icd_codes': [],
-            'icd_descriptions': ""
         }
-         
+
         self.assign_prior_test_and_rationale(rationale, profile)
         profile["icd_codes"] = self.generate_icd_codes(rationale)
         return profile
@@ -477,7 +456,7 @@ class GroundtruthGenerator:
             for _ in range(count):
                 base_profile = groundtruth_copy.pop(0)
                 
-                if label == '2d' and not base_profile.get('prior_test_date'):
+                if label == '2b' and not base_profile.get('prior_test_date'):
                     self.assign_prior_test_and_rationale(1, base_profile)  # Ensure prior test exists for 2d samples
                 
                 labelled_profiles.append(self.generate_imperfect_profile(base_profile, label))
@@ -516,21 +495,18 @@ if __name__ == '__main__':
 
     generator = GroundtruthGenerator()
     
-    n = 50
+    n = 12
     groundtruth_profiles = generator.generate_bulk_groundtruth_profiles(n)
     generator.save_as_json(groundtruth_profiles, "groundtruth.json")
 
     # Define desired distribution across sample categories (must sum to 1.0)
     sample_categories = {
-        '1': 10,
-        '2a': 5,
-        '2b': 5,
-        '2c': 5,
-        '2d': 5,
-        '2e': 5,
-        '3a': 5,
-        '3b': 5,
-        '3c': 5,
+        '1': 2,
+        '2a': 2,
+        '2b': 2,
+        '2c': 2,
+        '3a': 2,
+        '3b': 2,
     }
 
     # Create labeled profiles according to self.sample_categories distribution

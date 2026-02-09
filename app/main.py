@@ -157,43 +157,53 @@ def logout():
 @app.post("/submit")
 def submit():
     """Accept form submission and store as a JSON file after validation."""
-    # Prefer JSON payload; fall back to form-encoded
-    payload = request.get_json(silent=True) or request.form.to_dict()
+    try:
+        # Prefer JSON payload; fall back to form-encoded
+        payload = request.get_json(silent=True) or request.form.to_dict()
 
-    # Normalize types (lists, booleans, etc.)
-    payload = normalize_payload(payload)
+        # Normalize types (lists, booleans, etc.)
+        payload = normalize_payload(payload)
 
-    valid, errors = validate_submission(payload)
-    if not valid:
-        return jsonify({"ok": False, "errors": errors}), 400
+        valid, errors = validate_submission(payload)
+        if not valid:
+            return jsonify({"ok": False, "errors": errors}), 400
 
-    # Ensure data directory exists
-    data_dir = data_root() / "submissions"
-    data_dir.mkdir(parents=True, exist_ok=True)
+        # Ensure data directory exists
+        data_dir = data_root() / "submissions"
+        data_dir.mkdir(parents=True, exist_ok=True)
 
-    # Determine filename using form_id when available
-    form_id = str((payload or {}).get("form_id") or "").strip()
-    safe_form_id = "".join(ch for ch in form_id if ch.isalnum() or ch in ("-", "_"))
-    if safe_form_id:
-        filename = f"{safe_form_id}.json"
-    else:
-        # Fallback to timestamp + uuid if form_id missing/invalid
-        filename = f"{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}_{uuid.uuid4().hex}.json"
-    filepath = data_dir / filename
+        # Determine filename using form_id when available
+        form_id = str((payload or {}).get("form_id") or "").strip()
+        safe_form_id = "".join(ch for ch in form_id if ch.isalnum() or ch in ("-", "_"))
+        if safe_form_id:
+            filename = f"{safe_form_id}.json"
+        else:
+            # Fallback to timestamp + uuid if form_id missing/invalid
+            filename = f"{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}_{uuid.uuid4().hex}.json"
+        filepath = data_dir / filename
 
-    # Capture timing metadata (Eastern Time)
-    eastern = ZoneInfo("America/New_York") if ZoneInfo else timezone(timedelta(hours=-5))
-    submitted_dt = datetime.now(eastern)
-    submitted_at = submitted_dt.isoformat()
-    record = {
-        "submitted_at": submitted_at,
-        "payload": payload,
-    }
+        # Capture timing metadata (Eastern Time)
+        if ZoneInfo:
+            try:
+                eastern = ZoneInfo("America/New_York")
+            except Exception:
+                eastern = timezone.utc
+        else:
+            eastern = timezone(timedelta(hours=-5))
+        submitted_dt = datetime.now(eastern)
+        submitted_at = submitted_dt.isoformat()
+        record = {
+            "submitted_at": submitted_at,
+            "payload": payload,
+        }
 
-    with filepath.open("w", encoding="utf-8") as f:
-        json.dump(record, f, ensure_ascii=False, indent=2)
+        with filepath.open("w", encoding="utf-8") as f:
+            json.dump(record, f, ensure_ascii=False, indent=2)
 
-    return jsonify({"ok": True, "file": filename})
+        return jsonify({"ok": True, "file": filename})
+    except Exception as exc:
+        logger.exception("Submission failed")
+        return jsonify({"ok": False, "message": f"Server error while submitting: {type(exc).__name__}: {exc}"}), 500
 
 @app.get("/health")
 def health():
@@ -713,7 +723,7 @@ def api_search_patients():
                             _safe_str(patient.get("patient_first_name", "")),
                             _safe_str(patient.get("patient_last_name", "")),
                             _safe_str(patient.get("member_id", "")),
-                            _safe_str(patient.get("dob", "")),
+                            _safe_str(patient.get("patient_dob", "")),
                             _safe_str(patient.get("provider_name", ""))
                         ]).lower()
                         if query in searchable_text:
@@ -741,6 +751,9 @@ def api_search_patients():
     
     # Limit results to prevent overwhelming UI
     return jsonify({"patients": results[:20]})
+
+
+
 
 
 # For local debugging: `python -m flask --app app.main run --debug`
