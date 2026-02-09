@@ -144,7 +144,7 @@ class GroundtruthGenerator:
         
         self.sexes = ['Male', 'Female']
         
-        self.subscriber_relations = ['Parent', 'Guardian', 'Other'] 
+        self.subscriber_relations = ['Parent', 'Guardian'] 
          
         self.prior_tests = ['CMA', 'Gene panel', 'Single gene']  # empty string = no prior test documented
 

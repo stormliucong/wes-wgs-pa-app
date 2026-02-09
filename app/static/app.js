@@ -396,12 +396,6 @@
       if (name === 'icd_code[]' || name === 'icd_description[]') {
         return;
       }
-      if (f.type === 'checkbox' && f.name === 'cpt_codes') {
-        // collect multiple checked CPTs
-        arrFields.set('cpt_codes', (arrFields.get('cpt_codes') || []));
-        if (f.checked) arrFields.get('cpt_codes').push(f.value);
-        return;
-      }
       if (name === 'prior_test_type' || name === 'prior_test_result' || name === 'prior_test_date') {
         arrFields.set(name, (arrFields.get(name) || []));
         arrFields.get(name).push(f.value);
@@ -438,7 +432,7 @@
     fields.forEach((f) => {
       const name = f.name;
       if (!name) return;
-      if (name === 'icd_codes' || name === 'icd_desc' || name === 'prior_test_type' || name === 'prior_test_result' || name === 'prior_test_date' || name === 'cpt_codes') {
+      if (name === 'icd_codes' || name === 'icd_desc' || name === 'prior_test_type' || name === 'prior_test_result' || name === 'prior_test_date') {
         return; // handled separately
       }
       let val = data[name];
@@ -451,13 +445,17 @@
         f.value = val;
       }
     });
-
-    // CPT codes (array)
-    const cptVals = Array.isArray(data.cpt_codes) ? data.cpt_codes : [];
-    cptVals.forEach((code) => {
-      const el = form.querySelector(`input[type="checkbox"][name="cpt_codes"][value="${code}"]`);
-      if (el) el.checked = true;
-    });
+    // CPT codes (text input)
+    if (typeof data.cpt_codes !== 'undefined') {
+      const cptInput = form.querySelector('input[name="cpt_codes"]');
+      if (cptInput) {
+        if (Array.isArray(data.cpt_codes)) {
+          cptInput.value = data.cpt_codes.join(', ');
+        } else {
+          cptInput.value = data.cpt_codes;
+        }
+      }
+    }
 
     // ICD codes - restore from saved data
     const icds = Array.isArray(data.icd_codes) ? data.icd_codes : [];
@@ -628,6 +626,25 @@
       // ignore errors
     }
   });
+
+  // Debounced autosave as user edits fields
+  function debounce(fn, delay) {
+    let t;
+    return function (...args) {
+      clearTimeout(t);
+      t = setTimeout(() => fn.apply(this, args), delay);
+    };
+  }
+
+  const autoSaveOnChange = debounce(() => {
+    // Silent save; errors (if any) are ignored
+    saveDraft(true);
+  }, 1000);
+
+  if (form) {
+    form.addEventListener('input', autoSaveOnChange);
+    form.addEventListener('change', autoSaveOnChange);
+  }
 
   if (submitBtn) {
     submitBtn.addEventListener('click', async (e) => {

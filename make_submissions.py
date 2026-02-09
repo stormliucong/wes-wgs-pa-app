@@ -40,8 +40,12 @@ def create_session(start_url: Optional[str] = None) -> str:
     body = resp.json()
     return body["id"]
 
-def create_task(task_text: str, llm: str) -> str:
-    """Create and start a task in the given session and return task ID."""
+def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] = None) -> str:
+    """Create and start a task and return task ID.
+
+    metadata, when provided, is sent to Browser-Use Cloud so it
+    is echoed back on subsequent task API responses (e.g. patient_id).
+    """
     payload = {
         "task": task_text,
         "llm": llm,
@@ -50,6 +54,8 @@ def create_task(task_text: str, llm: str) -> str:
         "maxSteps": 35,
         "allowedDomains": [BASE_URL.split("//", 1)[-1]]
     }
+    if metadata:
+        payload["metadata"] = metadata
     resp = requests.post(f"{API_BASE}/tasks", headers=_api_headers(), json=payload, timeout=30)
     # 202 Accepted on success
     if resp.status_code not in (200, 202):
@@ -153,10 +159,15 @@ def delete_submission(session: requests.Session, base_url: str, filename: str) -
 def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
     prompt = (
         f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
-        f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization "
+        f"Then find the patient record for {patient_name} (patient ID: {patient_id}), use the patient search function on the site, fill out and submit a Pre-Authorization "
         f"Form for this patient. Verify all required fields, then directly submit. If you find any issues, stop the process and report the issue."
     )
-    task_id = create_task(task_text=prompt, llm=llm)
+    task_metadata: Dict[str, object] = {
+        "patient_id": patient_id,
+        "patient_name": patient_name,
+        "sample_type": sample_type,
+    }
+    task_id = create_task(task_text=prompt, llm=llm, metadata=task_metadata)
     final_task = wait_for_task(task_id)
     session = requests.Session()
     first, last = _split_name(patient_name)
@@ -202,7 +213,7 @@ if __name__ == "__main__":
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
 
-    target_types = {"2c", "2d", "2e"}
+    target_types = {"1", "2a", "2b", "2c"}
     target_samples = [s for s in samples if str(s.get("sample_type")) in target_types]
 
     # Define LLMs to test
