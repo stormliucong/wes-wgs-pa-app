@@ -33,7 +33,7 @@ def _api_headers() -> Dict[str, str]:
     }
 
 def get_task(task_id: str) -> Dict:
-    resp = requests.get(f"{API_BASE}/tasks/{task_id}", headers=_api_headers(), timeout=60)
+    resp = requests.get(f"{API_BASE}/{task_id}", headers=_api_headers(), timeout=60)
     resp.raise_for_status()
     return resp.json()
 
@@ -92,7 +92,8 @@ def get_tasks(start_et: str, end_et: str):
                 "judgement": task.get("judgement"),
                 # cost may be in metadata or through SDK extension
                 # if present in response, include; else None
-                "cost": task.get("cost")
+                "cost": task.get("cost"),
+                "metadata": task.get("metadata", {})
             })
 
         # break if we've reached total pages
@@ -172,7 +173,7 @@ def check_submission(submission: Dict, groundtruth: Dict):
         "accurate": False
     }
 
-    if submission.get("sample_type") in {"2d", "2e", "3b"}:  
+    if submission.get("sample_type") in {"2a", "2b", "2c", "3b"}:  
         summary["confusion_label"] = "FP" 
         return summary
 
@@ -194,24 +195,54 @@ def check_submission(submission: Dict, groundtruth: Dict):
     summary["confusion_label"] = "TP"
     return summary
 
-def check_non_submitted(task_list: List[Dict]) -> List[Dict]:
-    
-    non_submitted_tasks = [t for t in task_list if t.get("isSuccess") is False]
-    summary = {
-        "task_id": "",
-        "llm": "",
-        "sample_type": "",
-        "submitted": False,
-        "confusion_label": "",
-        "num_incorrect": 0,
-        "num_missing": 0,
-        "incorrect_fields": {},
-        "missing_fields":[],
-        "accurate": False
-    }
-    return non_submitted_tasks
+def get_submitted_summaries() -> List[Dict]:
+    gt_path = Path("groundtruth.json")
+    with gt_path.open("r", encoding="utf-8") as f:
+        groundtruths = json.load(f)
+    indexed_groundtruths = indexed_gt(groundtruths)
+    summaries = []
 
-def summarize_table(submitted, non_submitted) -> pd.DataFrame:
+    submission_path = Path("data/submissions")
+    for submission_file in submission_path.glob("*.json"):
+        with submission_file.open("r", encoding="utf-8") as f:
+            submission = json.load(f)
+        
+        patient_id = submission.get("patient_id")
+        if not patient_id:
+            print(f"Submission {submission_file} missing patient_id")
+            continue
+        
+        groundtruth = indexed_groundtruths.get(patient_id)
+        if not groundtruth:
+            print(f"No groundtruth found for patient_id {patient_id} in submission {submission_file}")
+            continue
+        
+        summary = check_submission(submission, groundtruth)
+        summaries.append(summary)
+    return summaries
+
+def check_non_submitted(task_list:List[Dict]) -> List[Dict]: 
+    non_submitted_tasks = [t for t in task_list if t.get("isSuccess") is False]
+    summaries = []
+    for task in non_submitted_tasks:
+        sample_type = task.get("metadata", "").get("sample_type", "")
+        summary = {
+            "task_id": task.get("task_id", ""),
+            "llm": task.get("llm", ""),
+            "sample_type": sample_type,
+            "submitted": False,
+            "confusion_label": "TN" if sample_type in {"2a", "2b", "2c", "3b"} else "FN",
+            "num_incorrect": "N/A",
+            "num_missing": "N/A",
+            "incorrect_fields": "N/A",
+            "missing_fields":"N/A",
+            "accurate": False,
+            "output_msg": task.get("output", "")
+        }
+        summaries.append(summary)
+    return summaries
+
+def summarize_table(submitted: List[Dict], non_submitted: List[Dict]) -> pd.DataFrame:
     """Convert a list of summary dicts into a pandas DataFrame, sorted by LLM then sample type."""
     rows = []
     for r in submitted + non_submitted:
@@ -224,41 +255,20 @@ def summarize_table(submitted, non_submitted) -> pd.DataFrame:
             df = df.sort_values(by=sort_cols, kind="stable", na_position="last", ignore_index=True)
     return df
 
-if __name__ == "__main__":   
-    # gt_path = Path("groundtruth.json")
-    # with gt_path.open("r", encoding="utf-8") as f:
-    #     groundtruths = json.load(f)
-    # indexed_groundtruths = indexed_gt(groundtruths)
-    # summaries = []
+if __name__ == "__main__":    
+    start_et = "2026-02-09T00:00:00"
+    end_et = "2026-02-09T18:00:00"
+    tasks = get_tasks(start_et, end_et)   
+    submitted_summaries = get_submitted_summaries()
+    non_submitted_summaries = check_non_submitted(tasks)
+    summary_table = summarize_table(submitted_summaries, non_submitted_summaries)
+    results_dir = Path("data/results")
+    results_dir.mkdir(parents=True, exist_ok=True)
+    output_path: Path = results_dir / "summary.xlsx"
+    summary_table.to_excel(output_path, index=False)
 
-    # submission_path = Path("data/submissions")
-    # for submission_file in submission_path.glob("*.json"):
-    #     with submission_file.open("r", encoding="utf-8") as f:
-    #         submission = json.load(f)
-        
-    #     patient_id = submission.get("patient_id")
-    #     if not patient_id:
-    #         print(f"Submission {submission_file} missing patient_id")
-    #         continue
-        
-    #     groundtruth = indexed_groundtruths.get(patient_id)
-    #     if not groundtruth:
-    #         print(f"No groundtruth found for patient_id {patient_id} in submission {submission_file}")
-    #         continue
-        
-    #     summary = check_submission(submission, groundtruth)
-    #     summaries.append(summary)
-        
-    # summary_table = summarize_table(summaries)
-    # results_dir = Path("data/results")
-    # results_dir.mkdir(parents=True, exist_ok=True)
-    # output_path: Path = results_dir / "summary.xlsx"
-    # summary_table.to_excel(output_path, index=False)
+    
+    # with (Path("data/results") / "all_tasks.json").open("w", encoding="utf-8") as f:
+    #         json.dump(tasks, f, ensure_ascii=False, indent=2)
 
-    start_et = "2026-01-28T00:00:00"
-    end_et = "2026-01-29T16:00:00"
-    tasks = get_tasks_between_et(start_et, end_et)
-    with (Path("data/results") / "all_tasks.json").open("w", encoding="utf-8") as f:
-            json.dump(tasks, f, ensure_ascii=False, indent=2)
-
-    print(f"Fetched {len(tasks)} tasks between {start_et} ET and {end_et} ET")
+   
