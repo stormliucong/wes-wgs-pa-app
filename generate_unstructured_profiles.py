@@ -1,8 +1,8 @@
 import json
 import logging
-import random
 import sys
 import time
+from pathlib import Path
 from typing import Dict, List, Optional
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -11,6 +11,33 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 client = OpenAI()
+
+def profile_key(profile: Dict) -> str:
+    patient_id = profile.get("patient_id")
+    if patient_id:
+        return str(patient_id)
+    fallback = (
+        profile.get("sample_type"),
+        profile.get("patient_first_name"),
+        profile.get("patient_last_name"),
+        profile.get("patient_dob"),
+    )
+    return json.dumps(fallback, separators=(',', ':'), ensure_ascii=False)
+
+def load_existing_profiles(output_path: str) -> List[Dict]:
+    output_file = Path(output_path)
+    if not output_file.exists() or output_file.stat().st_size == 0:
+        return []
+
+    with output_file.open('r', encoding='utf-8') as f:
+        existing_content = json.load(f)
+    if not isinstance(existing_content, list):
+        raise ValueError(f"Existing output must be a JSON list: {output_path}")
+    return existing_content
+
+def filter_missing_profiles(all_samples: List[Dict], existing_profiles: List[Dict]) -> List[Dict]:
+    existing_keys = {profile_key(profile) for profile in existing_profiles}
+    return [profile for profile in all_samples if profile_key(profile) not in existing_keys]
 
 def create_prompt_dict(profile: Dict) -> dict:
     # Create a copy of the input profile with only the required fields
@@ -34,7 +61,7 @@ def create_user_prompt(input_dict: Dict) -> str:
     generalize it into a broader category. Do NOT state the ICD codes explicitly in the note. 
     2) If the metabolic flag is true, describe with clinically interpretable results, such as the named analyte, direction 
     and magnitude of abnormality, and whether the finding is persistent or episodic (for example, chronically elevated phenylalanine 
-    levels with dietary sensitivity). You can also generate specific lab results as supporting evidence. Do not use vague or placeholder 
+    levels with dietary sensitivity). You may also generate specific lab results as supporting evidence. Do not use vague or placeholder 
     language such as “abnormal labs,” “blood chemistry findings,” or nonspecific “laboratory abnormalities.” 
     3) If the dysmorphic flag is true, explain with 1~2 concrete descriptors rather than a broad statement.
     4) Family history: If family_history is true, generate records for affected relatives and/or consanguinity with details. Provide details 
@@ -145,19 +172,36 @@ def extract_clinical_notes(raw_responses):
 
     return clinical_notes
                 
-def create_unstructured_profiles(all_samples: List[dict], clinical_notes: List[str], output_path: str = 'unstructured_profiles.json'):
+def create_unstructured_profiles(
+    all_samples: List[dict],
+    clinical_notes: List[str],
+    output_path: str = 'unstructured_profiles.json',
+    existing_profiles: Optional[List[Dict]] = None,
+):
+    output_file = Path(output_path)
+    existing_profiles = existing_profiles if existing_profiles is not None else load_existing_profiles(output_path)
+
+    existing_keys = {profile_key(p) for p in existing_profiles}
     unstructured_profiles = []
     for groundtruth_profile, note in zip(all_samples, clinical_notes):
+        key = profile_key(groundtruth_profile)
+        if key in existing_keys:
+            continue
         unstructured_profile = {key: value for key, value in groundtruth_profile.items() 
                                 if key not in 
                                 ['mca', 'dd_id', 'dysmorphic', 'neurological', 'metabolic', 'autism', 
                                  'early_onset', 'previous_test_negative', 'family_history', 'consanguinity']}
         unstructured_profile["clinical_note"] = note
         unstructured_profiles.append(unstructured_profile)
+        existing_keys.add(key)
 
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(unstructured_profiles, f, indent=2, ensure_ascii=False)
-    logger.info(f"Wrote {len(unstructured_profiles)} profiles to {output_path}")
+    combined_profiles = existing_profiles + unstructured_profiles
+    with output_file.open('w', encoding='utf-8') as f:
+        json.dump(combined_profiles, f, indent=2, ensure_ascii=False)
+    logger.info(
+        f"Wrote {len(unstructured_profiles)} new profiles to {output_path} "
+        f"(total: {len(combined_profiles)})"
+    )
 
 if __name__ == "__main__":
     try:
@@ -172,13 +216,34 @@ if __name__ == "__main__":
     except json.JSONDecodeError as e:
         logger.error(f"Error decoding JSON: {e}")
         sys.exit(1)
+
+    output_path = "unstructured_profiles.json"
+    try:
+        existing_profiles = load_existing_profiles(output_path)
+    except (json.JSONDecodeError, ValueError) as e:
+        logger.error(f"Error reading existing {output_path}: {e}")
+        sys.exit(1)
+
+    missing_profiles = filter_missing_profiles(groundtruth_profiles, existing_profiles)
+    if not missing_profiles:
+        logger.info("No new profiles to process. unstructured_profiles.json is already up to date.")
+        sys.exit(0)
+    logger.info(f"Found {len(missing_profiles)} new profiles to generate clinical notes for.")
     
     batch_input_file = "batch_input.jsonl"
-    create_batch_input(groundtruth_profiles, batch_input_file)
+    create_batch_input(missing_profiles, batch_input_file)
     batch_output = process_batch(batch_input_file)
+    if batch_output is None:
+        logger.error("No batch output returned from processing.")
+        sys.exit(1)
     clinical_notes = extract_clinical_notes(batch_output)
     if clinical_notes is None:
         logger.error("No clinical notes returned from batch processing.")
         sys.exit(1)
-    create_unstructured_profiles(groundtruth_profiles, clinical_notes, output_path='unstructured_profiles.json')
+    create_unstructured_profiles(
+        missing_profiles,
+        clinical_notes,
+        output_path=output_path,
+        existing_profiles=existing_profiles,
+    )
 

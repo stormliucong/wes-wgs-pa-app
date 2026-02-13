@@ -28,7 +28,7 @@ from datetime import datetime, timedelta
 from copy import deepcopy
 from pathlib import Path
 from typing import Dict, List, Any, Tuple
-random.seed(120)
+# random.seed(120)
 
 class GroundtruthGenerator: 
     def __init__(self):
@@ -96,25 +96,25 @@ class GroundtruthGenerator:
         ]
         
         self.test_types = ['WES', 'WGS']
-        self.test_configurations = ['Proband', 'Trio']
+        self.test_configurations = ['Proband', 'Duo', 'Trio']
         self.lab_test_code_map = {
             "GeneDx":{
                 "WES":{
                     "Regular":{"Proband":"561b", "Duo": "561e", "Trio":"561a"},
                     "Expedited":{"Proband":"896b", "Duo":"896e", "Trio":"896a"},
-                    "CPT Codes":{"Proband":"81415", "Duo":"81415, 81416×1", "Trio":"81415, 81416×2"}
+                    "CPT Codes":{"Proband":"81415", "Duo":"81415, 81416x1", "Trio":"81415, 81416x2"}
                 },
                 "WGS":{
                     "Regular":{"Proband":"J744b", "Duo": "J744e", "Trio":"J744a"},
                     "Expedited":{"Proband":"TH78b", "Duo":"TH78e", "Trio":"TH78a"},
-                    "CPT Codes":{"Proband":"81425", "Duo":"81425×1, 81426×1", "Trio":"81425×1, 81426×2"}
+                    "CPT Codes":{"Proband":"81425", "Duo":"81425x1, 81426x1", "Trio":"81425x1, 81426x2"}
                 }
             },
             "Invitae":{
                 "WES":{
                     "Regular":{"Proband":"80001", "Duo": "80002", "Trio":"80003"},
                     "Expedited":{"Proband":"80001", "Duo":"80002", "Trio":"80003"},
-                    "CPT Codes":{"Proband":"81415", "Duo":"81415, 81416", "Trio":"81415, 81416×2"}
+                    "CPT Codes":{"Proband":"81415", "Duo":"81415, 81416", "Trio":"81415, 81416x2"}
                 }
             },
             "LabCorp":{
@@ -126,7 +126,7 @@ class GroundtruthGenerator:
                 "WGS":{
                     "Regular":{"Proband":"WGS003", "Duo": "WGS008", "Trio":"WGS001"},
                     "Expedited":{"Proband":"WGS003X", "Duo":"WGS008X", "Trio":"WGS001X"},
-                    "CPT Codes":{"Proband":"81425", "Duo":"81425, 81426", "Trio":"81425, 81426×2"}
+                    "CPT Codes":{"Proband":"81425", "Duo":"81425, 81426", "Trio":"81425, 81426x2"}
                 }
             },
             "Ambry":{
@@ -181,7 +181,7 @@ class GroundtruthGenerator:
                 "E88.40": "Disorder of mitochondrial metabolism, unspecified",
                 "R79.89": "Other specified abnormal findings of blood chemistry",
                 "E87.2": "Acidosis"
-            },
+            }
         }
         
         self.irrelevant_icd_code_mapping = {
@@ -191,8 +191,6 @@ class GroundtruthGenerator:
             "S06.0X0A": "concussion",
             "S01.01XA": "laceration"
         }
-
-        self.sample_categories = {'1':5, '2a':5, '2b':5, '2c':5, '2d':5, '2e':5, '3a':5, '3b':5, '3c':5}
     
     def generate_address(self) -> str:
         """Generate a realistic Connecticut address (state may later be corrupted)."""
@@ -269,7 +267,7 @@ class GroundtruthGenerator:
             profile['prior_test_type'] = random.choice(self.prior_tests)  # Exclude empty option
             profile['prior_test_result'] = "negative"
             current_date = datetime.now()
-            prior_test_date = current_date - timedelta(days=random.randint(30, 365))
+            prior_test_date = current_date - timedelta(days=random.randint(30, 180))
             profile['prior_test_date'] = prior_test_date.strftime('%Y-%m-%d')  
             profile['mca'] = True
             profile['dd_id'] = True
@@ -310,9 +308,13 @@ class GroundtruthGenerator:
         """Check if a given year is a leap year."""
         return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
    
-    def _2a_assign_subscriber_dob_error(self, profile: Dict) -> None:
+    def _2a_assign_subscriber_dob_error(self, profile: Dict):
         """Assign subscriber DOB only 10-12 years older than patient DOB."""
         patient_dob_str = profile.get('patient_dob')
+        if not patient_dob_str:
+            logging.error("patient_dob is missing or None")
+            profile['subscriber_dob'] = ''
+            return
         patient_age = (datetime.now() - datetime.strptime(patient_dob_str, '%Y-%m-%d')).days // 365
         try:
             years_older = random.randint(10, 12)
@@ -467,12 +469,28 @@ class GroundtruthGenerator:
         """Save profiles as JSON format."""
         output_path = Path(output_file)
         output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        existing_profiles: List[Dict[str, Any]] = []
+        if output_path.exists() and output_path.stat().st_size > 0:
+            with output_path.open('r', encoding='utf-8') as f:
+                existing_content = json.load(f)
+                if isinstance(existing_content, list):
+                    existing_profiles = existing_content
+                else:
+                    raise ValueError(
+                        f"Existing file is not a JSON array and cannot be appended safely: {output_file}"
+                    )
+
+        combined_profiles = existing_profiles + profiles
         
         with output_path.open('w', encoding='utf-8') as f:
-            json.dump(profiles, f, ensure_ascii=False, indent=2)
+            json.dump(combined_profiles, f, ensure_ascii=False, indent=2)
             f.write('\n')
         
-        print(f"Generated {len(profiles)} patient profiles saved to: {output_file}")
+        print(
+            f"Saved {len(profiles)} new patient profiles to: {output_file} "
+            f"(total: {len(combined_profiles)})"
+        )
     
     def validate_profile(self, profile: Dict[str, Any]) -> bool:
         """Validate that a generated profile meets form requirements (may fail due to intentional errors)."""
@@ -495,18 +513,17 @@ if __name__ == '__main__':
 
     generator = GroundtruthGenerator()
     
-    n = 12
+    n = 150
     groundtruth_profiles = generator.generate_bulk_groundtruth_profiles(n)
     generator.save_as_json(groundtruth_profiles, "groundtruth.json")
 
-    # Define desired distribution across sample categories (must sum to 1.0)
     sample_categories = {
-        '1': 2,
-        '2a': 2,
-        '2b': 2,
-        '2c': 2,
-        '3a': 2,
-        '3b': 2,
+        '1': 25,
+        '2a': 25,
+        '2b': 25,
+        '2c': 25,
+        '3a': 25,
+        '3b': 25,
     }
 
     # Create labeled profiles according to self.sample_categories distribution

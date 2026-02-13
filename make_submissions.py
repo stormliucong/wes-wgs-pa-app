@@ -6,7 +6,9 @@ from pathlib import Path
 from typing import Optional, List, Tuple, Dict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
+import threading
 import time
+import random
 import requests
 from dotenv import load_dotenv
 
@@ -22,12 +24,18 @@ BASE_URL ="https://wes-wgs-pa-app-u2c8s.ondigitalocean.app"
 # Browser-Use Cloud API base (v2)
 API_BASE = os.getenv("BROWSER_USE_API_BASE", "https://api.browser-use.com/api/v2").rstrip("/")
 
+# Browser-Use Cloud allows only a few concurrent sessions.
+MAX_CONCURRENT_SESSIONS = 3
+_task_semaphore = threading.Semaphore(MAX_CONCURRENT_SESSIONS)
+
 def _api_headers() -> Dict[str, str]:
     return {
         "X-Browser-Use-API-Key": api_key,
         "Content-Type": "application/json",
     }
+import threading
 
+import random
 def create_session(start_url: Optional[str] = None) -> str:
     """Create a new Browser-Use session and return session ID."""
     payload = {
@@ -40,6 +48,18 @@ def create_session(start_url: Optional[str] = None) -> str:
     body = resp.json()
     return body["id"]
 
+def _sleep_with_backoff(attempt: int, retry_after: Optional[str] = None) -> None:
+    if retry_after:    
+        _task_semaphore = threading.Semaphore(MAX_CONCURRENT_SESSIONS)
+        try:
+            delay = max(1.0, float(retry_after))
+        except ValueError:
+            delay = 1.0
+    else:
+        delay = min(30.0, 2 ** attempt)
+    jitter = delay * random.uniform(0.0, 0.2)
+    time.sleep(delay + jitter)
+
 def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] = None) -> str:
     """Create and start a task and return task ID.
 
@@ -50,17 +70,40 @@ def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] 
         "task": task_text,
         "llm": llm,
         "thinking": True,
-        "vision": True, 
-        "maxSteps": 35,
+def _sleep_with_backoff(attempt: int, retry_after: Optional[str] = None) -> None:
+    if retry_after:
+        try:
+            delay = max(1.0, float(retry_after))
+        except ValueError:
+            delay = 1.0
+    else:
+        delay = min(30.0, 2 ** attempt)
+    jitter = delay * random.uniform(0.0, 0.2)
+    time.sleep(delay + jitter)
+
+def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] = None) -> str:
+        "maxSteps": 40,
         "allowedDomains": [BASE_URL.split("//", 1)[-1]]
     }
     if metadata:
         payload["metadata"] = metadata
-    resp = requests.post(f"{API_BASE}/tasks", headers=_api_headers(), json=payload, timeout=30)
-    # 202 Accepted on success
-    if resp.status_code not in (200, 202):
+    last_resp = None
+    for attempt in range(6):
+        resp = requests.post(f"{API_BASE}/tasks", headers=_api_headers(), json=payload, timeout=30)
+        last_resp = resp
+        # 202 Accepted on success
+        if resp.status_code in (200, 202):
+            return resp.json()["id"]
+        if resp.status_code == 429:
+            _sleep_with_backoff(attempt, resp.headers.get("Retry-After"))
+            continue
+        if 500 <= resp.status_code < 600:
+            _sleep_with_backoff(attempt)
+            continue
         resp.raise_for_status()
-    return resp.json()["id"]
+    if last_resp is not None:
+        last_resp.raise_for_status()
+    raise RuntimeError("Failed to create task after retries")
 
 def get_task(task_id: str) -> Dict:
     resp = requests.get(f"{API_BASE}/tasks/{task_id}", headers=_api_headers(), timeout=60)
@@ -159,7 +202,7 @@ def delete_submission(session: requests.Session, base_url: str, filename: str) -
 def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
     prompt = (
         f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
-        f"Then find the patient record for {patient_name} (patient ID: {patient_id}), use the patient search function on the site, fill out and submit a Pre-Authorization "
+        f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization "
         f"Form for this patient. Verify all required fields, then directly submit. If you find any issues, stop the process and report the issue."
     )
     task_metadata: Dict[str, object] = {
@@ -167,8 +210,9 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
         "patient_name": patient_name,
         "sample_type": sample_type,
     }
-    task_id = create_task(task_text=prompt, llm=llm, metadata=task_metadata)
-    final_task = wait_for_task(task_id)
+    with _task_semaphore:
+        task_id = create_task(task_text=prompt, llm=llm, metadata=task_metadata)
+        final_task = wait_for_task(task_id)
     session = requests.Session()
     first, last = _split_name(patient_name)
     local_dir = Path(__file__).resolve().parent / "data" / "submissions"
@@ -213,8 +257,15 @@ if __name__ == "__main__":
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
 
-    target_types = {"1", "2a", "2b", "2c"}
-    target_samples = [s for s in samples if str(s.get("sample_type")) in target_types]
+    target_types = {"1"}
+    target_samples = []
+    sample_type_counts = {}
+    for s in samples:
+        sample_type = str(s.get("sample_type"))
+        if sample_type in target_types:
+            if sample_type_counts.get(sample_type, 0) < 10:
+                target_samples.append(s)
+                sample_type_counts[sample_type] = sample_type_counts.get(sample_type, 0) + 1
 
     # Define LLMs to test
     basic = "browser-use-2.0"
@@ -232,7 +283,7 @@ if __name__ == "__main__":
             "patient_name": patient_name,
             "patient_id": s.get("patient_id"),
             "sample_type": s.get("sample_type"),
-            "llm": claude_opus,
+            "llm": gemini_pro,
         })
 
     results = run_parallel_jobs(jobs, workers=3)
@@ -244,7 +295,7 @@ if __name__ == "__main__":
     #     BASE_URL,
     #     "Susan",
     #     "Miller",
-    #     "claude-opus-4-5-20251101",
+    #     "gemini-3-pro-preview",
     #     "PAT-3164",
     #     "1fc1d368-3cb8-4cfa-8fac-78ba68c61fdf",
     #     "2e",
