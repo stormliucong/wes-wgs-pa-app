@@ -420,7 +420,7 @@ class GroundtruthGenerator:
             'metabolic': False,
             'autism': False,
             'early_onset': False,          
-            'previous_test_negative': False,
+            'prior_test_negative': False,
             'family_history': False,
             'consanguinity': False,
             'icd_codes': [],

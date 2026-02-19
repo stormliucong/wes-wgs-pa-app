@@ -4,6 +4,7 @@
 """
 
 from typing import List, Dict, Optional, Tuple
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
@@ -31,10 +32,46 @@ def _api_headers() -> Dict[str, str]:
         "X-Browser-Use-API-Key": api_key,
     }
 
-def get_task(task_id: str) -> Dict:
+def get_task_steps(task_id: str) -> int:
     resp = requests.get(f"{API_BASE}/{task_id}", headers=_api_headers(), timeout=60)
     resp.raise_for_status()
-    return resp.json()
+    result = resp.json()
+    num_steps = len(result.get("steps"))
+    return num_steps
+
+def get_all_tasks_steps(tasks: List[Dict]) -> Dict[str, Optional[int]]:
+    """Return a mapping of task_id -> number_of_steps for a list of tasks."""
+    steps_by_task_id: Dict[str, Optional[int]] = {}
+
+    task_ids = list(
+        {
+            task_id
+            for task in tasks
+            for task_id in [task.get("id")]
+            if isinstance(task_id, str) and task_id
+        }
+    )
+    if not task_ids:
+        return steps_by_task_id
+
+    max_workers = min(16, max(1, len(task_ids)))
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_task_id = {
+            executor.submit(get_task_steps, task_id): task_id
+            for task_id in task_ids
+        }
+        for future in as_completed(future_to_task_id):
+            task_id = future_to_task_id[future]
+            try:
+                steps_by_task_id[task_id] = future.result()
+            except Exception:
+                steps_by_task_id[task_id] = None
+
+    return steps_by_task_id
+
+def get_tasks_steps(tasks: List[Dict]) -> Dict[str, Optional[int]]:
+    """Compatibility wrapper for existing call sites."""
+    return get_all_tasks_steps(tasks)
 
 def get_tasks(start_et: str, end_et: str):
     """
@@ -188,7 +225,7 @@ def check_submission(submission: Dict, groundtruth: Dict):
         "task_id": submission.get("task_id", ""),
         "llm": submission.get("llm", ""),
         "sample_type": submission.get("sample_type", ""),
-        "patient_name": f"{payload.get("patient_first_name", "")} {payload.get("patient_last_name", "")}".strip(),
+        "patient_name": f"{payload.get('patient_first_name', '')} {payload.get('patient_last_name', '')}".strip(),
         "submitted": True,
         "confusion_label": "",
         "num_incorrect": 0,
@@ -209,9 +246,9 @@ def check_submission(submission: Dict, groundtruth: Dict):
             summary[key] = 1
 
     summary['clinical_info'] = 1 if clinical_info_accuracy(summary) else 0
-    summary["incorrect_fields"] = {k: v for k, v in summary.items() if v != 1}
+    summary["incorrect_fields"] = {k: v for k, v in summary.items() if v != 1 and k in payload}
     summary["num_incorrect"] = len(summary["incorrect_fields"])
-    summary["missing_fields"] = [k for k, v in payload.items() if v in (None, "", [], {})]
+    summary["missing_fields"] = [k for k, v in summary.items() if v in (None, "", [], {})]
     summary["num_missing"] = len(summary["missing_fields"])
     summary["confusion_label"] = "FP" if submission.get("sample_type") in {"2a", "2b", "2c", "3b"} else "TP"
     return summary
@@ -263,17 +300,32 @@ def check_non_submitted(task_list:List[Dict]) -> List[Dict]:
         summaries.append(summary)
     return summaries
 
-def raw_summary(submitted: List[Dict], non_submitted: List[Dict]) -> pd.DataFrame:
+def raw_summary(
+    submitted: List[Dict],
+    non_submitted: List[Dict],
+    tasks_steps: Optional[Dict[str, Optional[int]]] = None,
+) -> pd.DataFrame:
     """Convert a list of summary dicts into a pandas DataFrame, sorted by LLM then sample type."""
     rows = []
     for r in submitted + non_submitted:
         row = dict(r or {})
         rows.append(row)
     df = pd.DataFrame(rows)
-    if not df.empty:
-        sort_cols = [c for c in ["llm", "sample_type"] if c in df.columns]
-        if sort_cols:
-            df = df.sort_values(by=sort_cols, kind="stable", na_position="last", ignore_index=True)
+
+    df["number_of_steps"] = df["task_id"].map(tasks_steps or {}).astype("Int64")
+    if {"task_id", "number_of_steps"}.issubset(df.columns):
+        cols = list(df.columns)
+        cols.remove("number_of_steps")
+        task_id_idx = cols.index("task_id")
+        cols.insert(task_id_idx + 1, "number_of_steps")
+        df = df[cols]
+
+    submitted_ids = set(df.loc[df["submitted"] == True, "task_id"])
+    df = df[~(df["task_id"].isin(submitted_ids) & (df["submitted"] != True))].copy()
+
+    sort_cols = [c for c in ["llm", "sample_type"] if c in df.columns]
+    if sort_cols:
+        df = df.sort_values(by=sort_cols, kind="stable", na_position="last", ignore_index=True)
     return df 
 
 def compute_metrics(summary: pd.DataFrame):
@@ -304,8 +356,7 @@ def compute_metrics(summary: pd.DataFrame):
     metrics_df = metrics_df.sort_values(by=["llm"], kind="stable", na_position="last", ignore_index=True)
     return metrics_df
 
-def table_1(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
-    """Generate Table 1: field-level accuracy by LLM for submitted sample types 1 and 3a."""
+def accuracy_table(raw_summary_table, start_col, end_col) -> pd.DataFrame:
     required_base_cols = {"submitted", "sample_type", "llm"}
     if raw_summary_table.empty or not required_base_cols.issubset(raw_summary_table.columns):
         return pd.DataFrame(columns=["field_type"])
@@ -317,9 +368,9 @@ def table_1(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
 
     cols = list(filtered.columns)
     field_cols: List[str] = []
-    if "patient_first_name" in cols and "internal_test_code" in cols:
-        start_idx = cols.index("patient_first_name")
-        end_idx = cols.index("internal_test_code")
+    if start_col in cols and end_col in cols:
+        start_idx = cols.index(start_col)
+        end_idx = cols.index(end_col)
         if start_idx <= end_idx:
             field_cols = cols[start_idx:end_idx + 1]
 
@@ -357,16 +408,105 @@ def table_1(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
 
     return pivot
 
-    def table_3(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
-        
+def table_icd_code(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
+    """Compute ICD-code similarity metrics for submitted sample types 1 and 3a."""
+    output_cols = [
+        "llm",
+        "sample_type",
+        "patient_name",
+        "exact_binary_index",
+        "categorial_binary_index",
+        "exact_jaccard_index",
+        "categorial_jaccard_index",
+    ]
+
+    required_cols = {"submitted", "sample_type", "llm", "patient_name", "icd_codes"}
+    if raw_summary_table.empty or not required_cols.issubset(raw_summary_table.columns):
+        return pd.DataFrame(columns=output_cols)
+
+    filtered = raw_summary_table[
+        (raw_summary_table["submitted"] == True)
+        & (raw_summary_table["sample_type"].astype(str).isin(["1", "3a"]))
+    ].copy()
+    if filtered.empty:
+        return pd.DataFrame(columns=output_cols)
+
+    def _to_code_set(value) -> set:
+        if value is None:
+            return set()
+        if isinstance(value, str):
+            values = [value]
+        elif isinstance(value, (list, tuple, set)):
+            values = list(value)
+        else:
+            values = [value]
+        return {str(v).strip().upper() for v in values if str(v).strip()}
+
+    def _to_category_set(codes: set) -> set:
+        categories = set()
+        for code in codes:
+            prefix = str(code).split(".")[0].strip().upper()
+            if prefix:
+                categories.add(prefix)
+        return categories
+
+    def _jaccard(a: set, b: set) -> float:
+        union = a | b
+        if not union:
+            return 1.0
+        return len(a & b) / len(union)
+
+    def _extract_expected_got(value) -> Tuple[set, set]:
+        if value == 1:
+            return set(), set()
+
+        if isinstance(value, dict):
+            lowered = {str(k).strip().lower(): v for k, v in value.items()}
+            expected = _to_code_set(lowered.get("expected", []))
+            got = _to_code_set(lowered.get("got", []))
+            return expected, got
+
+        return set(), set()
+
+    def _compute_icd_indexes(icd_value) -> pd.Series:
+        if icd_value == 1:
+            return pd.Series(
+                {
+                    "exact_binary_index": 1,
+                    "categorial_binary_index": 1,
+                    "exact_jaccard_index": 1.0,
+                    "categorial_jaccard_index": 1.0,
+                }
+            )
+
+        expected_codes, got_codes = _extract_expected_got(icd_value)
+        expected_categories = _to_category_set(expected_codes)
+        got_categories = _to_category_set(got_codes)
+
+        return pd.Series(
+            {
+                "exact_binary_index": int(expected_codes == got_codes),
+                "categorial_binary_index": int(expected_categories == got_categories),
+                "exact_jaccard_index": _jaccard(expected_codes, got_codes),
+                "categorial_jaccard_index": _jaccard(expected_categories, got_categories),
+            }
+        )
+
+    metrics = filtered["icd_codes"].apply(_compute_icd_indexes)
+    result = pd.concat([filtered[["llm", "sample_type", "patient_name"]], metrics], axis=1)
+    return result
+
 if __name__ == "__main__":    
     start_et = "2026-02-10T00:00:00"
-    end_et = "2026-02-10T18:00:00"
+    end_et = "2026-02-18T15:00:00"
     tasks = get_tasks(start_et, end_et)   
+    tasks_steps = get_tasks_steps(tasks)
     submitted_summaries = get_submitted_summaries()
     non_submitted_summaries = check_non_submitted(tasks)
-    raw_summary_table = raw_summary(submitted_summaries, non_submitted_summaries)
-    table_1_df = table_1(raw_summary_table)
+    raw_summary_table = raw_summary(submitted_summaries, non_submitted_summaries, tasks_steps)
+    table_1 = accuracy_table(raw_summary_table, "patient_first_name", "internal_test_code")
+    table_2 = accuracy_table(raw_summary_table, "mca", "prior_test_date")
+    table_3 = table_icd_code(raw_summary_table)
     results_dir = Path("data/results")
     results_dir.mkdir(parents=True, exist_ok=True)
     output_path: Path = results_dir / "summary.xlsx"
@@ -374,5 +514,7 @@ if __name__ == "__main__":
     metrics_df = compute_metrics(raw_summary_table)
     with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
         raw_summary_table.to_excel(writer, sheet_name='Raw summary', index=False)
-        metrics_df.to_excel(writer, sheet_name='Metrics', index=False)
-        table_1_df.to_excel(writer, sheet_name='Table 1', index=False)
+        metrics_df.to_excel(writer, sheet_name='Overall metrics', index=False)
+        table_1.to_excel(writer, sheet_name='Table 1 - accuracy', index=False)
+        table_2.to_excel(writer, sheet_name='Table 2 - clinical info', index=False)
+        table_3.to_excel(writer, sheet_name='Table 3 - ICD codes', index=False)

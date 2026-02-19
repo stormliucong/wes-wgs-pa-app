@@ -6,9 +6,10 @@ from pathlib import Path
 from typing import Optional, List, Tuple, Dict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
-import threading
 import time
+import threading
 import random
+from contextlib import contextmanager
 import requests
 from dotenv import load_dotenv
 
@@ -24,18 +25,62 @@ BASE_URL ="https://wes-wgs-pa-app-u2c8s.ondigitalocean.app"
 # Browser-Use Cloud API base (v2)
 API_BASE = os.getenv("BROWSER_USE_API_BASE", "https://api.browser-use.com/api/v2").rstrip("/")
 
-# Browser-Use Cloud allows only a few concurrent sessions.
-MAX_CONCURRENT_SESSIONS = 3
-_task_semaphore = threading.Semaphore(MAX_CONCURRENT_SESSIONS)
+# Concurrency guard for Browser-Use sessions/tasks (API limit is 3 by default)
+MAX_ACTIVE_SESSIONS = int(os.getenv("BROWSER_USE_MAX_SESSIONS", "3"))
+_SESSION_SEMAPHORE = threading.Semaphore(MAX_ACTIVE_SESSIONS)
 
 def _api_headers() -> Dict[str, str]:
     return {
         "X-Browser-Use-API-Key": api_key,
         "Content-Type": "application/json",
     }
-import threading
 
-import random
+def _request_with_retries(method: str, url: str, *, headers: Dict[str, str], json: Optional[Dict] = None,
+                          timeout: int = 30, max_retries: int = 5) -> requests.Response:
+    backoff = 1.0
+    last_resp: Optional[requests.Response] = None
+    for attempt in range(max_retries):
+        try:
+            resp = requests.request(method, url, headers=headers, json=json, timeout=timeout)
+            last_resp = resp
+        except requests.RequestException:
+            if attempt >= max_retries - 1:
+                raise
+            time.sleep(backoff + random.uniform(0.0, 0.5))
+            backoff = min(backoff * 2.0, 20.0)
+            continue
+
+        if resp.status_code == 429:
+            retry_after = resp.headers.get("Retry-After")
+            wait_seconds = backoff
+            if retry_after:
+                try:
+                    wait_seconds = float(retry_after)
+                except ValueError:
+                    wait_seconds = backoff
+            time.sleep(wait_seconds + random.uniform(0.0, 0.5))
+            backoff = min(backoff * 2.0, 20.0)
+            continue
+
+        if resp.status_code >= 500 and attempt < max_retries - 1:
+            time.sleep(backoff + random.uniform(0.0, 0.5))
+            backoff = min(backoff * 2.0, 20.0)
+            continue
+
+        return resp
+
+    if last_resp is not None:
+        return last_resp
+    raise RuntimeError("Request failed without a response")
+
+@contextmanager
+def _session_limit():
+    _SESSION_SEMAPHORE.acquire()
+    try:
+        yield
+    finally:
+        _SESSION_SEMAPHORE.release()
+
 def create_session(start_url: Optional[str] = None) -> str:
     """Create a new Browser-Use session and return session ID."""
     payload = {
@@ -43,22 +88,10 @@ def create_session(start_url: Optional[str] = None) -> str:
         "persistMemory": False,
         "keepAlive": False,
     }
-    resp = requests.post(f"{API_BASE}/sessions", headers=_api_headers(), json=payload, timeout=30)
+    resp = _request_with_retries("POST", f"{API_BASE}/sessions", headers=_api_headers(), json=payload, timeout=30)
     resp.raise_for_status()
     body = resp.json()
     return body["id"]
-
-def _sleep_with_backoff(attempt: int, retry_after: Optional[str] = None) -> None:
-    if retry_after:    
-        _task_semaphore = threading.Semaphore(MAX_CONCURRENT_SESSIONS)
-        try:
-            delay = max(1.0, float(retry_after))
-        except ValueError:
-            delay = 1.0
-    else:
-        delay = min(30.0, 2 ** attempt)
-    jitter = delay * random.uniform(0.0, 0.2)
-    time.sleep(delay + jitter)
 
 def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] = None) -> str:
     """Create and start a task and return task ID.
@@ -70,43 +103,20 @@ def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] 
         "task": task_text,
         "llm": llm,
         "thinking": True,
-def _sleep_with_backoff(attempt: int, retry_after: Optional[str] = None) -> None:
-    if retry_after:
-        try:
-            delay = max(1.0, float(retry_after))
-        except ValueError:
-            delay = 1.0
-    else:
-        delay = min(30.0, 2 ** attempt)
-    jitter = delay * random.uniform(0.0, 0.2)
-    time.sleep(delay + jitter)
-
-def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] = None) -> str:
+        "vision": True, 
         "maxSteps": 40,
         "allowedDomains": [BASE_URL.split("//", 1)[-1]]
     }
     if metadata:
         payload["metadata"] = metadata
-    last_resp = None
-    for attempt in range(6):
-        resp = requests.post(f"{API_BASE}/tasks", headers=_api_headers(), json=payload, timeout=30)
-        last_resp = resp
-        # 202 Accepted on success
-        if resp.status_code in (200, 202):
-            return resp.json()["id"]
-        if resp.status_code == 429:
-            _sleep_with_backoff(attempt, resp.headers.get("Retry-After"))
-            continue
-        if 500 <= resp.status_code < 600:
-            _sleep_with_backoff(attempt)
-            continue
+    resp = _request_with_retries("POST", f"{API_BASE}/tasks", headers=_api_headers(), json=payload, timeout=30)
+    # 202 Accepted on success
+    if resp.status_code not in (200, 202):
         resp.raise_for_status()
-    if last_resp is not None:
-        last_resp.raise_for_status()
-    raise RuntimeError("Failed to create task after retries")
+    return resp.json()["id"]
 
 def get_task(task_id: str) -> Dict:
-    resp = requests.get(f"{API_BASE}/tasks/{task_id}", headers=_api_headers(), timeout=60)
+    resp = _request_with_retries("GET", f"{API_BASE}/tasks/{task_id}", headers=_api_headers(), timeout=60, max_retries=3)
     resp.raise_for_status()
     return resp.json()
 
@@ -202,15 +212,15 @@ def delete_submission(session: requests.Session, base_url: str, filename: str) -
 def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
     prompt = (
         f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
-        f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization "
-        f"Form for this patient. Verify all required fields, then directly submit. If you find any issues, stop the process and report the issue."
+        f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization Form for this patient."
+        f"Verify all required fields and then directly submit. If you find any issues, immediately stop the process and report the issue."
     )
     task_metadata: Dict[str, object] = {
         "patient_id": patient_id,
         "patient_name": patient_name,
         "sample_type": sample_type,
     }
-    with _task_semaphore:
+    with _session_limit():
         task_id = create_task(task_text=prompt, llm=llm, metadata=task_metadata)
         final_task = wait_for_task(task_id)
     session = requests.Session()
@@ -235,6 +245,8 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
 def run_parallel_jobs(jobs: List[Dict], workers: int = 3) -> List[Dict]:
     """Run a list of jobs in parallel. Each job: {patient_name, patient_id, sample_type, llm}."""
     results: List[Dict] = []
+    if MAX_ACTIVE_SESSIONS > 0:
+        workers = max(1, min(workers, MAX_ACTIVE_SESSIONS))
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futures = {}
         for job in jobs:
@@ -257,15 +269,9 @@ if __name__ == "__main__":
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
 
+    subset = samples[12:21] + samples[32:36]
     target_types = {"1"}
-    target_samples = []
-    sample_type_counts = {}
-    for s in samples:
-        sample_type = str(s.get("sample_type"))
-        if sample_type in target_types:
-            if sample_type_counts.get(sample_type, 0) < 10:
-                target_samples.append(s)
-                sample_type_counts[sample_type] = sample_type_counts.get(sample_type, 0) + 1
+    target_samples = [s for s in subset if str(s.get("sample_type")) in target_types]
 
     # Define LLMs to test
     basic = "browser-use-2.0"
