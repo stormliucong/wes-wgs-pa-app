@@ -19,6 +19,9 @@ Sample categories:
   label_type = 3 (IRRELEVANT):
     - 3a) Secondary medical issues unrelated to the test request
     - 3b) Completely irrelevant clinical issues (not for genetic testing)
+
+label_type = 4 (NAME COLLISION):
+    - Multiple patients intentionally share the same patient first/last name
 """
 import argparse
 import json
@@ -27,41 +30,41 @@ import random
 from datetime import datetime, timedelta
 from copy import deepcopy
 from pathlib import Path
-from typing import Dict, List, Any, Tuple
+from typing import Dict, List, Any, Tuple, Optional, Set
 # random.seed(120)
 
 class GroundtruthGenerator: 
     def __init__(self):
         self.first_names = {
             'Male': [
-                'James', 'John', 'Robert', 'Michael', 'William', 'David', 'Richard', 'Joseph', 'Thomas',
-                'Christopher', 'Charles', 'Daniel', 'Matthew', 'Anthony', 'Mark', 'Donald', 'Steven',
-                'Paul', 'Andrew', 'Joshua', 'Kenneth', 'Kevin', 'Brian', 'George', 'Timothy',
-                'Edward', 'Jason', 'Jeffrey', 'Ryan', 'Jacob', 'Gary', 'Nicholas', 'Eric', 'Stephen',
-                'Larry', 'Justin', 'Scott', 'Brandon', 'Benjamin', 'Adam', 'Samuel', 'Gregory',
-                'Patrick', 'Alexander', 'Jonathan', 'Tyler', 'Zachary', 'Peter', 'Aaron'
+                'Aiden', 'Luca', 'Ezra', 'Milo', 'Nolan', 'Caleb', 'Owen', 'Leo', 'Roman',
+                'Elias', 'Theo', 'Hudson', 'Asher', 'Jasper', 'Silas', 'Rowan', 'Beckett',
+                'Declan', 'Emmett', 'Kieran', 'Gavin', 'Dorian', 'Reid', 'Tristan', 'Miles',
+                'Felix', 'Arlo', 'Damian', 'Colton', 'Finley', 'Spencer', 'Ronan', 'Bennett',
+                'Jude', 'Weston', 'Tobias', 'Corbin', 'Soren', 'Malcolm', 'Griffin', 'Brooks',
+                'Dawson', 'Hugo', 'Pierce', 'Zane', 'Quentin', 'Atticus', 'Callum', 'Brady'
             ],
             'Female': [
-                'Mary', 'Patricia', 'Jennifer', 'Linda', 'Elizabeth', 'Barbara', 'Susan', 'Jessica',
-                'Sarah', 'Karen', 'Lisa', 'Nancy', 'Betty', 'Helen', 'Sandra', 'Donna', 'Carol',
-                'Ruth', 'Sharon', 'Michelle', 'Laura', 'Sarah', 'Kimberly', 'Deborah', 'Dorothy',
-                'Amanda', 'Melissa', 'Stephanie', 'Rebecca', 'Shirley', 'Cynthia', 'Angela', 'Brenda',
-                'Pamela', 'Nicole', 'Christina', 'Katherine', 'Theresa', 'Julie', 'Megan', 'Rachel',
-                'Victoria', 'Diane', 'Alice', 'Janet', 'Christine', 'Maria', 'Monica'
+                'Aria', 'Nora', 'Layla', 'Ivy', 'Zoe', 'Maya', 'Eliana', 'Naomi', 'Cora',
+                'Vivienne', 'Camila', 'Delilah', 'Sienna', 'Aurora', 'Willow', 'Piper', 'Isla',
+                'Emery', 'Freya', 'Juniper', 'Rosalie', 'Hazel', 'Ophelia', 'Talia', 'Selene',
+                'Bianca', 'Daphne', 'Leona', 'Marina', 'Sabrina', 'Noelle', 'Kira', 'Alina',
+                'Esme', 'Maren', 'Kaia', 'Gemma', 'Elodie', 'Anya', 'Nadia', 'Skye',
+                'Colette', 'Mina', 'Celeste', 'Veronica', 'Bridget', 'Eden', 'Jocelyn', 'Iris'
             ]
         }
         
         self.last_names = [
-            'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez',
-            'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor',
-            'Moore', 'Jackson', 'Martin', 'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez',
-            'Clark', 'Ramirez', 'Lewis', 'Robinson', 'Walker', 'Young', 'Allen', 'King', 'Wright',
-            'Scott', 'Torres', 'Nguyen', 'Hill', 'Flores', 'Green', 'Adams', 'Nelson', 'Baker',
-            'Hall', 'Rivera', 'Campbell', 'Mitchell', 'Carter', 'Roberts', 'Phillips', 'Evans',
-            'Turner', 'Parker', 'Collins', 'Edwards', 'Stewart', 'Morris', 'Rogers', 'Reed',
-            'Cook', 'Morgan', 'Bell', 'Murphy', 'Bailey', 'Cooper', 'Richardson', 'Cox', 'Howard',
-            'Ward', 'Peterson', 'Gray', 'Ramsey', 'Price', 'Bennett', 'Wood', 'Barnes', 'Ross',
-            'Henderson', 'Coleman', 'Jenkins', 'Perry'
+            'Ainsley', 'Bexley', 'Carrow', 'Dunley', 'Ellery', 'Fairmont', 'Granger', 'Hollis',
+            'Iverson', 'Jarrow', 'Kingsley', 'Langford', 'Merrick', 'Norwood', 'Oakley', 'Prescott',
+            'Quinlan', 'Radcliffe', 'Somerset', 'Thatcher', 'Underwood', 'Vaughn', 'Winslow', 'Yardley',
+            'Alder', 'Brant', 'Claremont', 'Dawes', 'Emerson', 'Farnham', 'Grafton', 'Hadley',
+            'Ingram', 'Kendrick', 'Locke', 'Montrose', 'Nash', 'Orwell', 'Pritchard', 'Quarry',
+            'Rutherford', 'Seymour', 'Tennyson', 'Ulrich', 'Valentine', 'Whitaker', 'Xander', 'Yorke',
+            'Ashford', 'Bramwell', 'Caldwell', 'Darnell', 'Easton', 'Fenwick', 'Goodwin', 'Huxley',
+            'Irwin', 'Jarvis', 'Keaton', 'Lennox', 'Marlow', 'North', 'Osborn', 'Parkerly',
+            'Raines', 'Sinclair', 'Talbot', 'Upton', 'Voss', 'Westley', 'Yates', 'Abbott',
+            'Bishop', 'Conrad', 'Dalton', 'Elliott', 'Fletcher', 'Griffith', 'Harlan', 'Ivory'
         ]
         
         self.ct_cities = [
@@ -144,7 +147,7 @@ class GroundtruthGenerator:
         
         self.sexes = ['Male', 'Female']
         
-        self.subscriber_relations = ['Parent', 'Guardian'] 
+        self.subscriber_relations = ['Parent', 'Guardian', 'Other'] 
          
         self.prior_tests = ['CMA', 'Gene panel', 'Single gene']  # empty string = no prior test documented
 
@@ -218,7 +221,7 @@ class GroundtruthGenerator:
         return str(random.randint(1000000000, 9999999999))
     
     def generate_patient_dob(self) -> str:
-        """Generate a realistic date of birth (3-18 years old)."""
+        """Generate a realistic date of birth (3-15 years old)."""
         years_ago = random.randint(3, 15)      
         days_ago = random.randint(0, 365)
         birth_date = datetime.now() - timedelta(days=years_ago * 365 + days_ago)
@@ -374,8 +377,16 @@ class GroundtruthGenerator:
         if label == "3b":
             profile['icd_codes'] = irrelevant_codes
             self.reset_profile_for_3b(profile)    
+
+    def _generate_unique_patient_id(self, used_patient_ids: Set[str], max_attempts: int = 10000) -> str:
+        for _ in range(max_attempts):
+            candidate = f"PAT-{random.randint(1000, 9999)}"
+            if candidate not in used_patient_ids:
+                used_patient_ids.add(candidate)
+                return candidate
+        raise RuntimeError("Could not generate a unique patient_id.")
        
-    def generate_groundtruth_profile(self) -> Dict:
+    def generate_groundtruth_profile(self, patient_id: Optional[str] = None) -> Dict:
         sex = random.choice(self.sexes)
         first_name = random.choice(self.first_names.get(sex, self.first_names['Male']))
         last_name = random.choice(self.last_names)  
@@ -388,7 +399,7 @@ class GroundtruthGenerator:
         test_info = self.generate_testing_info()
         
         profile = {
-            'patient_id': f"PAT-{random.randint(1000, 9999)}",
+            'patient_id': patient_id if patient_id else f"PAT-{random.randint(1000, 9999)}",
             'patient_first_name': first_name,
             'patient_last_name': last_name,
             'patient_dob': patient_dob,
@@ -423,18 +434,24 @@ class GroundtruthGenerator:
             'prior_test_negative': False,
             'family_history': False,
             'consanguinity': False,
-            'icd_codes': [],
+            'icd_codes': []
         }
 
         self.assign_prior_test_and_rationale(rationale, profile)
         profile["icd_codes"] = self.generate_icd_codes(rationale)
         return profile
     
-    def generate_bulk_groundtruth_profiles(self, count: int) -> List[Dict[str, Any]]:
+    def generate_bulk_groundtruth_profiles(
+        self,
+        count: int,
+        reserved_patient_ids: Optional[Set[str]] = None,
+    ) -> List[Dict[str, Any]]:
         """Generate multiple patient profiles of a given sample type."""
         profiles = []
+        used_patient_ids: Set[str] = set(reserved_patient_ids or set())
         for _ in range(count):
-            profiles.append(self.generate_groundtruth_profile())
+            patient_id = self._generate_unique_patient_id(used_patient_ids)
+            profiles.append(self.generate_groundtruth_profile(patient_id=patient_id))
         return profiles
     
     def generate_imperfect_profile(self, groundtruth, sample_label) -> Dict:
@@ -448,23 +465,118 @@ class GroundtruthGenerator:
         labelled_profile = {'sample_type': sample_label, **gt}
         
         return labelled_profile
+
+    def _4_assign_shared_name(self, profile: Dict, shared_first_name: str, shared_last_name: str) -> None:
+        """Force repeated patient names across multiple distinct patients."""
+        profile['patient_first_name'] = shared_first_name
+        profile['patient_last_name'] = shared_last_name
+        profile['subscriber_name'] = f"{random.choice(self.first_names['Male'] + self.first_names['Female'])} {shared_last_name}"
+
+    def _full_name(self, profile: Dict) -> str:
+        return f"{profile.get('patient_first_name', '').strip()} {profile.get('patient_last_name', '').strip()}".strip()
+
+    def _assign_random_patient_name(self, profile: Dict) -> None:
+        sex = profile.get('sex')
+        sex_key = sex if isinstance(sex, str) and sex in self.first_names else 'Male'
+        first_name = random.choice(self.first_names[sex_key])
+        last_name = random.choice(self.last_names)
+        profile['patient_first_name'] = first_name
+        profile['patient_last_name'] = last_name
+
+    def _ensure_non_collision_name(
+        self,
+        profile: Dict,
+        used_non4_names: Set[str],
+        blocked_names: Set[str],
+        max_attempts: int = 1000,
+    ) -> None:
+        for _ in range(max_attempts):
+            full_name = self._full_name(profile)
+            if full_name and full_name not in used_non4_names and full_name not in blocked_names:
+                used_non4_names.add(full_name)
+                return
+            self._assign_random_patient_name(profile)
+        raise RuntimeError("Could not generate a unique non-colliding patient name.")
+
+    def _assign_pairwise_collided_names(
+        self,
+        profiles: List[Dict],
+        blocked_non4_names: Set[str],
+        used_4_names: Set[str],
+    ) -> None:
+        """Assign patient names so every two profiles share the same full name."""
+        if len(profiles) % 2 != 0:
+            raise ValueError("Pairwise collision generation requires an even number of profiles.")
+
+        used_pair_names = set()
+        all_first_names = self.first_names['Male'] + self.first_names['Female']
+
+        for i in range(0, len(profiles), 2):
+            shared_first_name = None
+            shared_last_name = None
+
+            for _ in range(1000):
+                candidate_first = random.choice(all_first_names)
+                candidate_last = random.choice(self.last_names)
+                candidate_full = f"{candidate_first} {candidate_last}"
+                if (
+                    candidate_full not in used_pair_names
+                    and candidate_full not in blocked_non4_names
+                    and candidate_full not in used_4_names
+                ):
+                    shared_first_name = candidate_first
+                    shared_last_name = candidate_last
+                    used_pair_names.add(candidate_full)
+                    used_4_names.add(candidate_full)
+                    break
+
+            if shared_first_name is None or shared_last_name is None:
+                raise RuntimeError("Could not assign unique pairwise shared names.")
+
+            for profile in profiles[i:i + 2]:
+                self._4_assign_shared_name(profile, shared_first_name, shared_last_name)
        
-    def generate_all_sample_profiles(self, groundtruth_profiles, sample_categories):  
-        # Make a shallow copy to avoid mutating the caller's list
+    def generate_all_sample_profiles(
+        self,
+        groundtruth_profiles,
+        sample_categories,
+        existing_non4_names: Optional[Set[str]] = None,
+        existing_4_names: Optional[Set[str]] = None,
+    ):
         groundtruth_copy = groundtruth_profiles.copy()
         labelled_profiles = []
+        used_non4_names: Set[str] = set(existing_non4_names or set())
+        used_4_names: Set[str] = set(existing_4_names or set())
 
         for label, count in sample_categories.items():
+            is_4_type = str(label).startswith('4')
+            batch_profiles = []
+
             for _ in range(count):
                 base_profile = groundtruth_copy.pop(0)
-                
                 if label == '2b' and not base_profile.get('prior_test_date'):
-                    self.assign_prior_test_and_rationale(1, base_profile)  # Ensure prior test exists for 2d samples
-                
-                labelled_profiles.append(self.generate_imperfect_profile(base_profile, label))
+                    self.assign_prior_test_and_rationale(1, base_profile)
+                batch_profiles.append(base_profile)
+
+            if is_4_type:
+                self._assign_pairwise_collided_names(
+                    batch_profiles,
+                    blocked_non4_names=used_non4_names,
+                    used_4_names=used_4_names,
+                )
+            else:
+                for profile in batch_profiles:
+                    self._ensure_non_collision_name(
+                        profile,
+                        used_non4_names=used_non4_names,
+                        blocked_names=used_4_names,
+                    )
+
+            for profile in batch_profiles:
+                labelled_profiles.append(self.generate_imperfect_profile(profile, label))
 
         return labelled_profiles
-    
+
     def save_as_json(self, profiles: List[Dict[str, Any]], output_file: str) -> None:
         """Save profiles as JSON format."""
         output_path = Path(output_file)
@@ -482,16 +594,16 @@ class GroundtruthGenerator:
                     )
 
         combined_profiles = existing_profiles + profiles
-        
+
         with output_path.open('w', encoding='utf-8') as f:
             json.dump(combined_profiles, f, ensure_ascii=False, indent=2)
             f.write('\n')
-        
+
         print(
             f"Saved {len(profiles)} new patient profiles to: {output_file} "
             f"(total: {len(combined_profiles)})"
         )
-    
+
     def validate_profile(self, profile: Dict[str, Any]) -> bool:
         """Validate that a generated profile meets form requirements (may fail due to intentional errors)."""
         try:
@@ -505,27 +617,87 @@ class GroundtruthGenerator:
             print("Warning: Could not import validation functions. Skipping validation.")
             return True
 
+
+def _load_json_list(path: Path) -> List[Dict[str, Any]]:
+    if not path.exists() or path.stat().st_size == 0:
+        return []
+    with path.open('r', encoding='utf-8') as f:
+        content = json.load(f)
+    if not isinstance(content, list):
+        raise ValueError(f"Expected JSON list at {path}")
+    return content
+
+
+def _full_name_from_profile(profile: Dict[str, Any]) -> str:
+    first = str(profile.get('patient_first_name', '')).strip()
+    last = str(profile.get('patient_last_name', '')).strip()
+    return f"{first} {last}".strip()
+
+
+def _collect_existing_constraints(groundtruth_path: Path, all_samples_path: Path) -> Tuple[Set[str], Set[str], Set[str]]:
+    existing_groundtruth = _load_json_list(groundtruth_path)
+    existing_all_samples = _load_json_list(all_samples_path)
+
+    existing_ids: Set[str] = set()
+    existing_non4_names: Set[str] = set()
+    existing_4_names: Set[str] = set()
+
+    for profile in existing_groundtruth:
+        patient_id = profile.get('patient_id')
+        if patient_id:
+            existing_ids.add(str(patient_id))
+        name = _full_name_from_profile(profile)
+        if name:
+            existing_non4_names.add(name)
+
+    for profile in existing_all_samples:
+        patient_id = profile.get('patient_id')
+        if patient_id:
+            existing_ids.add(str(patient_id))
+        name = _full_name_from_profile(profile)
+        if not name:
+            continue
+        sample_type = str(profile.get('sample_type', ''))
+        if sample_type.startswith('4'):
+            existing_4_names.add(name)
+        else:
+            existing_non4_names.add(name)
+
+    return existing_ids, existing_non4_names, existing_4_names
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate synthetic patient data for WES/WGS pre-authorization testing')
-    parser.add_argument('-o', '--output', type=str, default='test_patients_groundtruth.json', 
+    parser.add_argument('-o', '--output', type=str, default='test_patients_groundtruth.json',
                         help='Output file path (default: test_patients_groundtruth.json)')
     args = parser.parse_args()
 
     generator = GroundtruthGenerator()
-    
-    n = 150
-    groundtruth_profiles = generator.generate_bulk_groundtruth_profiles(n)
-    generator.save_as_json(groundtruth_profiles, "groundtruth.json")
+    groundtruth_path = Path("groundtruth.json")
+    all_samples_path = Path("all_samples.json")
+    existing_ids, existing_non4_names, existing_4_names = _collect_existing_constraints(
+        groundtruth_path,
+        all_samples_path,
+    )
 
     sample_categories = {
-        '1': 25,
-        '2a': 25,
-        '2b': 25,
-        '2c': 25,
-        '3a': 25,
-        '3b': 25,
+        "1": 80,
+        '2a': 80,
+        '2b': 80,
+        '2c': 80,
+        '3a': 80,
+        '3b': 80,
+        '4': 200
     }
 
-    # Create labeled profiles according to self.sample_categories distribution
-    all_sample_profiles = generator.generate_all_sample_profiles(groundtruth_profiles, sample_categories)
+    n = sum(sample_categories.values())
+    groundtruth_profiles = generator.generate_bulk_groundtruth_profiles(n, reserved_patient_ids=existing_ids)
+    generator.save_as_json(groundtruth_profiles, "groundtruth.json")
+
+    all_sample_profiles = generator.generate_all_sample_profiles(
+        groundtruth_profiles,
+        sample_categories,
+        existing_non4_names=existing_non4_names,
+        existing_4_names=existing_4_names,
+    )
     generator.save_as_json(all_sample_profiles, "all_samples.json")

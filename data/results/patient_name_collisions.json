@@ -1,0 +1,382 @@
+{
+  "source_file": "all_samples.json",
+  "total_rows": 642,
+  "distinct_non_empty_patient_names": 625,
+  "collision_group_count": 17,
+  "collision_row_total": 34,
+  "collision_groups": [
+    {
+      "patient_name": "Anthony Davis",
+      "count": 2,
+      "sample_type_counts": {
+        "1": 1,
+        "2b": 1
+      },
+      "rows": [
+        {
+          "row_index": 29,
+          "patient_id": "PAT-1439",
+          "sample_type": "1",
+          "task_id": null
+        },
+        {
+          "row_index": 68,
+          "patient_id": "PAT-3862",
+          "sample_type": "2b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Callum Brown",
+      "count": 2,
+      "sample_type_counts": {
+        "2a": 1,
+        "2b": 1
+      },
+      "rows": [
+        {
+          "row_index": 267,
+          "patient_id": "PAT-2689",
+          "sample_type": "2a",
+          "task_id": null
+        },
+        {
+          "row_index": 333,
+          "patient_id": "PAT-9972",
+          "sample_type": "2b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Callum Rivera",
+      "count": 2,
+      "sample_type_counts": {
+        "2a": 1,
+        "2c": 1
+      },
+      "rows": [
+        {
+          "row_index": 315,
+          "patient_id": "PAT-6392",
+          "sample_type": "2a",
+          "task_id": null
+        },
+        {
+          "row_index": 418,
+          "patient_id": "PAT-2753",
+          "sample_type": "2c",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Cora Coleman",
+      "count": 2,
+      "sample_type_counts": {
+        "2c": 1,
+        "3a": 1
+      },
+      "rows": [
+        {
+          "row_index": 446,
+          "patient_id": "PAT-7926",
+          "sample_type": "2c",
+          "task_id": null
+        },
+        {
+          "row_index": 543,
+          "patient_id": "PAT-5828",
+          "sample_type": "3a",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Delilah Martin",
+      "count": 2,
+      "sample_type_counts": {
+        "1": 1,
+        "3b": 1
+      },
+      "rows": [
+        {
+          "row_index": 172,
+          "patient_id": "PAT-1828",
+          "sample_type": "1",
+          "task_id": null
+        },
+        {
+          "row_index": 565,
+          "patient_id": "PAT-1708",
+          "sample_type": "3b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Eliana Wilson",
+      "count": 2,
+      "sample_type_counts": {
+        "3a": 1,
+        "3b": 1
+      },
+      "rows": [
+        {
+          "row_index": 518,
+          "patient_id": "PAT-7410",
+          "sample_type": "3a",
+          "task_id": null
+        },
+        {
+          "row_index": 604,
+          "patient_id": "PAT-1527",
+          "sample_type": "3b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Elodie Ramsey",
+      "count": 2,
+      "sample_type_counts": {
+        "2b": 1,
+        "3b": 1
+      },
+      "rows": [
+        {
+          "row_index": 326,
+          "patient_id": "PAT-9612",
+          "sample_type": "2b",
+          "task_id": null
+        },
+        {
+          "row_index": 612,
+          "patient_id": "PAT-8713",
+          "sample_type": "3b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Emery Johnson",
+      "count": 2,
+      "sample_type_counts": {
+        "2b": 1,
+        "2c": 1
+      },
+      "rows": [
+        {
+          "row_index": 376,
+          "patient_id": "PAT-1631",
+          "sample_type": "2b",
+          "task_id": null
+        },
+        {
+          "row_index": 430,
+          "patient_id": "PAT-3629",
+          "sample_type": "2c",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Esme Mitchell",
+      "count": 2,
+      "sample_type_counts": {
+        "2b": 1,
+        "3b": 1
+      },
+      "rows": [
+        {
+          "row_index": 398,
+          "patient_id": "PAT-8856",
+          "sample_type": "2b",
+          "task_id": null
+        },
+        {
+          "row_index": 585,
+          "patient_id": "PAT-1692",
+          "sample_type": "3b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Felix White",
+      "count": 2,
+      "sample_type_counts": {
+        "2a": 1,
+        "2b": 1
+      },
+      "rows": [
+        {
+          "row_index": 286,
+          "patient_id": "PAT-5819",
+          "sample_type": "2a",
+          "task_id": null
+        },
+        {
+          "row_index": 331,
+          "patient_id": "PAT-3020",
+          "sample_type": "2b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Gary Wright",
+      "count": 2,
+      "sample_type_counts": {
+        "2b": 1,
+        "3b": 1
+      },
+      "rows": [
+        {
+          "row_index": 84,
+          "patient_id": "PAT-7170",
+          "sample_type": "2b",
+          "task_id": null
+        },
+        {
+          "row_index": 150,
+          "patient_id": "PAT-1148",
+          "sample_type": "3b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Iris Gray",
+      "count": 2,
+      "sample_type_counts": {
+        "1": 1,
+        "2b": 1
+      },
+      "rows": [
+        {
+          "row_index": 176,
+          "patient_id": "PAT-2290",
+          "sample_type": "1",
+          "task_id": null
+        },
+        {
+          "row_index": 373,
+          "patient_id": "PAT-7577",
+          "sample_type": "2b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Jeffrey Jackson",
+      "count": 2,
+      "sample_type_counts": {
+        "1": 1,
+        "2c": 1
+      },
+      "rows": [
+        {
+          "row_index": 6,
+          "patient_id": "PAT-9605",
+          "sample_type": "2c",
+          "task_id": null
+        },
+        {
+          "row_index": 25,
+          "patient_id": "PAT-6253",
+          "sample_type": "1",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Owen Phillips",
+      "count": 2,
+      "sample_type_counts": {
+        "2a": 1,
+        "2c": 1
+      },
+      "rows": [
+        {
+          "row_index": 256,
+          "patient_id": "PAT-9213",
+          "sample_type": "2a",
+          "task_id": null
+        },
+        {
+          "row_index": 459,
+          "patient_id": "PAT-2791",
+          "sample_type": "2c",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Soren Perez",
+      "count": 2,
+      "sample_type_counts": {
+        "2b": 1,
+        "2c": 1
+      },
+      "rows": [
+        {
+          "row_index": 329,
+          "patient_id": "PAT-7971",
+          "sample_type": "2b",
+          "task_id": null
+        },
+        {
+          "row_index": 424,
+          "patient_id": "PAT-1797",
+          "sample_type": "2c",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Spencer Torres",
+      "count": 2,
+      "sample_type_counts": {
+        "2b": 2
+      },
+      "rows": [
+        {
+          "row_index": 370,
+          "patient_id": "PAT-8756",
+          "sample_type": "2b",
+          "task_id": null
+        },
+        {
+          "row_index": 381,
+          "patient_id": "PAT-8757",
+          "sample_type": "2b",
+          "task_id": null
+        }
+      ]
+    },
+    {
+      "patient_name": "Talia White",
+      "count": 2,
+      "sample_type_counts": {
+        "2b": 1,
+        "3b": 1
+      },
+      "rows": [
+        {
+          "row_index": 384,
+          "patient_id": "PAT-6367",
+          "sample_type": "2b",
+          "task_id": null
+        },
+        {
+          "row_index": 577,
+          "patient_id": "PAT-9480",
+          "sample_type": "3b",
+          "task_id": null
+        }
+      ]
+    }
+  ]
+}
