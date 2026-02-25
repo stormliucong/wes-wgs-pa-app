@@ -1,3 +1,4 @@
+import argparse
 import json
 import logging
 import sys
@@ -204,20 +205,37 @@ def create_unstructured_profiles(
     )
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description='Generate unstructured clinical-note profiles from groundtruth samples via OpenAI Batch API'
+    )
+    parser.add_argument('-i', '--input', type=str, default='data/groundtruth/all_samples.json',
+                        help='Input JSON file with groundtruth sample profiles (default: data/groundtruth/all_samples.json)')
+    parser.add_argument('-o', '--output', type=str, default='data/unstructured/unstructured_profiles.json',
+                        help='Output JSON file for unstructured profiles (default: data/unstructured/unstructured_profiles.json)')
+    parser.add_argument('--batch-input', type=str, default='data/automation/batch_input.jsonl',
+                        help='Path for the intermediate batch input JSONL file (default: data/automation/batch_input.jsonl)')
+    args = parser.parse_args()
+
+    input_file = args.input
+    output_path = args.output
+    batch_input_file = args.batch_input
+
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+    Path(batch_input_file).parent.mkdir(parents=True, exist_ok=True)
+
     try:
-        with open("all_samples.json", "r", encoding="utf-8") as f:
+        with open(input_file, "r", encoding="utf-8") as f:
             groundtruth_profiles = json.load(f)
         if not isinstance(groundtruth_profiles, list):
             logger.error("Input JSON must be a list of patient profiles.")
             sys.exit(1)
     except FileNotFoundError:
-        logger.error(f"File not found: all_samples.json")
+        logger.error(f"File not found: {input_file}")
         sys.exit(1)
     except json.JSONDecodeError as e:
         logger.error(f"Error decoding JSON: {e}")
         sys.exit(1)
 
-    output_path = "unstructured_profiles.json"
     try:
         existing_profiles = load_existing_profiles(output_path)
     except (json.JSONDecodeError, ValueError) as e:
@@ -230,7 +248,6 @@ if __name__ == "__main__":
         sys.exit(0)
     logger.info(f"Found {len(missing_profiles)} new profiles to generate clinical notes for.")
     
-    batch_input_file = "batch_input.jsonl"
     create_batch_input(missing_profiles, batch_input_file)
     batch_output = process_batch(batch_input_file)
     if batch_output is None:

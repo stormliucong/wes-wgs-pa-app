@@ -10,5 +10,11 @@ __pycache__/
 # VSCode
 .vscode/
 
-# Data (keep directory, ignore JSON)
+# Data (keep directory structure, ignore data files)
 data/submissions/*.json
+data/groundtruth/*.json
+data/unstructured/*.json
+data/automation/*.jsonl
+data/results/*.xlsx
+data/results/*.csv
+data/drafts/

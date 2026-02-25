@@ -61,7 +61,7 @@ def create_batch_input(profiles: List[dict], output: str):
             outfile.write(json_line + '\n')
     logger.info(f"Batch input file created: {output}")
 
-def process_batch(batch_input: str) -> Optional[List[str]]:
+def process_batch(batch_input: str, batch_output: str = 'data/automation/validation_raw_output.jsonl') -> Optional[List[str]]:
     """Submit a JSONL batch to OpenAI and wait for completion, returning raw output lines."""
     try:
         upload_batch = client.files.create(file=open(batch_input, "rb"), purpose="batch")
@@ -97,11 +97,10 @@ def process_batch(batch_input: str) -> Optional[List[str]]:
             raw_text = getattr(raw, "text", None)
 
             if raw_text:
-                output_path = "validation_raw_output.jsonl"
                 try:
-                    with open(output_path, "w", encoding="utf-8") as out_f:
+                    with open(batch_output, "w", encoding="utf-8") as out_f:
                         out_f.write(raw_text)
-                    logger.info(f"Wrote batch output to {output_path}")
+                    logger.info(f"Wrote batch output to {batch_output}")
                 except Exception as write_err:
                     logger.warning(f"Failed to write batch output to file: {write_err}")
             
@@ -149,26 +148,45 @@ def filter_profiles_by_decision(profiles: List[dict], decisions: List[str]) -> L
     return filtered
 
 def main():
+    parser = argparse.ArgumentParser(
+        description='Validate unstructured clinical-note profiles via OpenAI Batch API'
+    )
+    parser.add_argument('-i', '--input', type=str, default='data/unstructured/unstructured_profiles.json',
+                        help='Input JSON file with unstructured profiles (default: data/unstructured/unstructured_profiles.json)')
+    parser.add_argument('-o', '--output', type=str, default='data/unstructured/validated_profiles.json',
+                        help='Output JSON file for validated profiles (default: data/unstructured/validated_profiles.json)')
+    parser.add_argument('--batch-input', type=str, default='data/automation/validation_batch_input.jsonl',
+                        help='Path for the intermediate batch input JSONL file (default: data/automation/validation_batch_input.jsonl)')
+    parser.add_argument('--batch-output', type=str, default='data/automation/validation_raw_output.jsonl',
+                        help='Path for the raw batch output JSONL file (default: data/automation/validation_raw_output.jsonl)')
+    args = parser.parse_args()
+
+    input_file = args.input
+    output_file = args.output
+    batch_input_file = args.batch_input
+    batch_output_file = args.batch_output
+
+    Path(output_file).parent.mkdir(parents=True, exist_ok=True)
+    Path(batch_input_file).parent.mkdir(parents=True, exist_ok=True)
 
     try:
-        with open("unstructured_profiles.json", "r", encoding="utf-8") as f:
+        with open(input_file, "r", encoding="utf-8") as f:
             profiles = json.load(f)
         if not isinstance(profiles, list):
             logger.error("Input JSON must be a list of profiles.")
             sys.exit(1)
     except FileNotFoundError:
-        logger.error("File not found: unstructured_profiles.json")
+        logger.error(f"File not found: {input_file}")
         sys.exit(1)
     except json.JSONDecodeError as e:
         logger.error(f"Error decoding JSON: {e}")
         sys.exit(1)
 
     # Create batch input JSONL
-    batch_input_file = "validation_batch_input.jsonl"
     create_batch_input(profiles, batch_input_file)
 
-    # Submit batch and wait for results
-    raw = process_batch(batch_input_file)
+    # Submit batch and wait for results (pass batch_output_file path)
+    raw = process_batch(batch_input_file, batch_output_file)
     if not raw:
         logger.error("Batch returned no output.")
         sys.exit(1)
@@ -181,9 +199,9 @@ def main():
 
     # Filter profiles by decision
     filtered = filter_profiles_by_decision(profiles, decisions)
-    with open("validated_profiles.json", "w", encoding="utf-8") as f:
+    with open(output_file, "w", encoding="utf-8") as f:
         json.dump(filtered, f, indent=2, ensure_ascii=False)
-    logger.info(f"Wrote {len(filtered)} validated profiles to validated_profiles.json")
+    logger.info(f"Wrote {len(filtered)} validated profiles to {output_file}")
 
 if __name__ == "__main__":
     main()

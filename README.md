@@ -12,19 +12,28 @@ A minimal Flask application to collect pre-authorization requests for Whole Exom
 ## Project Structure
 ```
 wes-wgs-pa-app/
-├─ app/
+├─ app/                                      # Web Application
 │  ├─ __init__.py
-│  ├─ main.py
-│  ├─ models.py
+│  ├─ main.py                                # Flask routes
+│  ├─ models.py                              # Validation logic & data models
 │  ├─ static/
 │  │  ├─ styles.css
 │  │  └─ app.js
 │  └─ templates/
 │     └─ index.html
-├─ data/
-│  └─ submissions/
-├─ .vscode/
-│  └─ tasks.json
+├─ scripts/                                  # Utility scripts
+│  ├─ groundtruth.py                         # Data Generation: synthetic patient profiles
+│  ├─ generate_unstructured_profiles.py      # Data Generation: clinical notes via OpenAI
+│  ├─ validate_clinical_note.py              # Data Generation: validate generated notes
+│  ├─ make_submissions.py                    # Browser Automation: form submission via Browser-Use Cloud
+│  ├─ agent_skill.py                         # Browser Automation: sandbox-based form submission
+│  └─ analysis.py                            # Evaluation: compare submissions vs ground truth
+├─ data/                                     # Local data (not committed)
+│  ├─ groundtruth/                           # Ground-truth profiles & all-sample lists
+│  ├─ unstructured/                          # Generated & validated unstructured profiles
+│  ├─ automation/                            # Batch input/output files for OpenAI
+│  ├─ submissions/                           # Submissions downloaded from the server
+│  └─ results/                               # Analysis output (Excel reports)
 ├─ .gitignore
 ├─ requirements.txt
 ├─ Dockerfile
@@ -58,6 +67,71 @@ docker run -p 8080:8080 wes-wgs-pa-app:latest
 
 Then visit http://localhost:8080.
 
+## Scripts
+
+All scripts live in `scripts/` and accept `--help` for full option details.
+Input and output paths default to subdirectories of `data/` and can be overridden with CLI flags.
+
+### 1. Generate ground-truth profiles
+
+```bash
+python scripts/groundtruth.py \
+  --groundtruth-output data/groundtruth/groundtruth.json \
+  --samples-output     data/groundtruth/all_samples.json
+```
+
+### 2. Generate unstructured clinical-note profiles
+
+Requires `OPENAI_API_KEY` in `.env` or environment.
+
+```bash
+python scripts/generate_unstructured_profiles.py \
+  --input       data/groundtruth/all_samples.json \
+  --output      data/unstructured/unstructured_profiles.json \
+  --batch-input data/automation/batch_input.jsonl
+```
+
+### 3. Validate clinical notes
+
+```bash
+python scripts/validate_clinical_note.py \
+  --input        data/unstructured/unstructured_profiles.json \
+  --output       data/unstructured/validated_profiles.json \
+  --batch-input  data/automation/validation_batch_input.jsonl \
+  --batch-output data/automation/validation_raw_output.jsonl
+```
+
+### 4. Submit forms via Browser-Use Cloud automation
+
+Requires `BROWSER_USE_API_KEY` in `.env` or environment.
+
+```bash
+python scripts/make_submissions.py \
+  --input    data/groundtruth/all_samples.json \
+  --dest-dir data/submissions
+```
+
+### 5. Submit forms via Browser-Use sandbox automation
+
+```bash
+python scripts/agent_skill.py \
+  --input    data/groundtruth/all_samples.json \
+  --dest-dir data/submissions
+```
+
+### 6. Evaluate submissions against ground truth
+
+```bash
+python scripts/analysis.py \
+  --groundtruth     data/groundtruth/groundtruth.json \
+  --submissions-dir data/submissions \
+  --output          data/results/summary.xlsx \
+  --start-et        2026-01-01T08:00:00 \
+  --end-et          2026-01-01T12:00:00
+```
+
+`--start-et` / `--end-et` are optional; if omitted, only submitted-form accuracy is computed (no Browser-Use task step counts or non-submission analysis).
+
 ## Deploy to DigitalOcean App Platform
 1. Push this repo to GitHub.
 2. In DigitalOcean control panel, create a new App.
@@ -70,7 +144,7 @@ Then visit http://localhost:8080.
 
 For persistent submissions, add persistent storage:
 1) In App Platform, add a Volume (Persistent Storage) to the service and mount it at `/app/data/submissions`.
-2) The app will write JSON files there; they’ll survive restarts and deployments.
+2) The app will write JSON files there; they'll survive restarts and deployments.
 
 Alternatively, use a managed store instead of filesystem:
 - DigitalOcean Spaces (S3-compatible) and upload JSON objects

@@ -501,28 +501,70 @@ def table_icd_code(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
     result = pd.concat([filtered[["llm", "sample_type", "patient_name"]], metrics], axis=1)
     return result
 
-if __name__ == "__main__":    
-    # start_et = "2026-02-10T00:00:00"
-    # end_et = "2026-02-18T15:00:00"
-    # tasks = get_tasks(start_et, end_et)   
-    # tasks_steps = get_tasks_steps(tasks)
-    # submitted_summaries = get_submitted_summaries()
-    # non_submitted_summaries = check_non_submitted(tasks)
-    # raw_summary_table = raw_summary(submitted_summaries, non_submitted_summaries, tasks_steps)
-    # table_1 = accuracy_table(raw_summary_table, "patient_first_name", "internal_test_code")
-    # table_2 = accuracy_table(raw_summary_table, "mca", "prior_test_date")
-    # table_3 = table_icd_code(raw_summary_table)
-    # results_dir = Path("data/results")
-    # results_dir.mkdir(parents=True, exist_ok=True)
-    # output_path: Path = results_dir / "summary.xlsx"
-    # raw_summary_table.to_excel(output_path, index=False)
-    # metrics_df = compute_metrics(raw_summary_table)
-    # with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
-    #     raw_summary_table.to_excel(writer, sheet_name='Raw summary', index=False)
-    #     metrics_df.to_excel(writer, sheet_name='Overall metrics', index=False)
-    #     table_1.to_excel(writer, sheet_name='Table 1 - accuracy', index=False)
-    #     table_2.to_excel(writer, sheet_name='Table 2 - clinical info', index=False)
-    #     table_3.to_excel(writer, sheet_name='Table 3 - ICD codes', index=False)
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(
+        description='Evaluate form submissions against ground truth data'
+    )
+    parser.add_argument('--groundtruth', type=str, default='data/groundtruth/groundtruth.json',
+                        help='Path to groundtruth JSON file (default: data/groundtruth/groundtruth.json)')
+    parser.add_argument('--submissions-dir', type=str, default='data/submissions',
+                        help='Directory containing downloaded submission JSON files (default: data/submissions)')
+    parser.add_argument('-o', '--output', type=str, default='data/results/summary.xlsx',
+                        help='Output Excel file path (default: data/results/summary.xlsx)')
+    parser.add_argument('--start-et', type=str, default=None,
+                        help='Start time in US/Eastern (ISO 8601) for fetching Browser-Use tasks, e.g. 2026-01-01T08:00:00')
+    parser.add_argument('--end-et', type=str, default=None,
+                        help='End time in US/Eastern (ISO 8601) for fetching Browser-Use tasks, e.g. 2026-01-01T12:00:00')
+    args = parser.parse_args()
 
-    result = get_task("614262e5-7084-455f-ae34-8cf483958a93")
-    print(json.dumps(result, indent=2))
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Override module-level paths used by get_submitted_summaries
+    _gt_path_override = Path(args.groundtruth)
+    _submissions_dir_override = Path(args.submissions_dir)
+
+    def _get_submitted_summaries_cli() -> List[Dict]:
+        with _gt_path_override.open("r", encoding="utf-8") as f:
+            groundtruths = json.load(f)
+        indexed_groundtruths = indexed_gt(groundtruths)
+        summaries = []
+        for submission_file in _submissions_dir_override.glob("*.json"):
+            with submission_file.open("r", encoding="utf-8") as f:
+                submission = json.load(f)
+            patient_id = submission.get("patient_id")
+            if not patient_id:
+                print(f"Submission {submission_file} missing patient_id")
+                continue
+            groundtruth = indexed_groundtruths.get(patient_id)
+            if not groundtruth:
+                print(f"No groundtruth found for patient_id {patient_id} in submission {submission_file}")
+                continue
+            summaries.append(check_submission(submission, groundtruth))
+        return summaries
+
+    submitted_summaries = _get_submitted_summaries_cli()
+
+    if args.start_et and args.end_et:
+        tasks = get_tasks(args.start_et, args.end_et)
+        tasks_steps = get_tasks_steps(tasks)
+        non_submitted_summaries = check_non_submitted(tasks)
+    else:
+        tasks = []
+        tasks_steps = {}
+        non_submitted_summaries = []
+
+    raw_summary_table = raw_summary(submitted_summaries, non_submitted_summaries, tasks_steps)
+    table_1 = accuracy_table(raw_summary_table, "patient_first_name", "internal_test_code")
+    table_2 = accuracy_table(raw_summary_table, "mca", "prior_test_date")
+    table_3 = table_icd_code(raw_summary_table)
+    metrics_df = compute_metrics(raw_summary_table)
+
+    with pd.ExcelWriter(str(output_path), engine='openpyxl') as writer:
+        raw_summary_table.to_excel(writer, sheet_name='Raw summary', index=False)
+        metrics_df.to_excel(writer, sheet_name='Overall metrics', index=False)
+        table_1.to_excel(writer, sheet_name='Table 1 - accuracy', index=False)
+        table_2.to_excel(writer, sheet_name='Table 2 - clinical info', index=False)
+        table_3.to_excel(writer, sheet_name='Table 3 - ICD codes', index=False)
+    print(f"Results written to {output_path}")

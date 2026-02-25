@@ -209,7 +209,7 @@ def delete_submission(session: requests.Session, base_url: str, filename: str) -
     if not body.get("ok", False):
         raise RuntimeError(f"Delete failed for {filename}: {body}")
 
-def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
+def execute_one_patient(patient_name, patient_id, sample_type, llm, dest_dir: Optional[Path] = None) -> Dict:
     prompt = (
         f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
         f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization Form for this patient."
@@ -225,7 +225,7 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
         final_task = wait_for_task(task_id)
     session = requests.Session()
     first, last = _split_name(patient_name)
-    local_dir = Path(__file__).resolve().parent / "data" / "submissions"
+    local_dir = dest_dir if dest_dir is not None else Path(__file__).resolve().parent.parent / "data" / "submissions"
     saved_path = get_submission_by_patient(session, BASE_URL, first, last, llm, 
                                            patient_id, task_id, sample_type, local_dir)
     filename = saved_path.name if saved_path else None
@@ -242,7 +242,7 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
         "llm": llm,
     }
 
-def run_parallel_jobs(jobs: List[Dict], workers: int = 3) -> List[Dict]:
+def run_parallel_jobs(jobs: List[Dict], workers: int = 3, dest_dir: Optional[Path] = None) -> List[Dict]:
     """Run a list of jobs in parallel. Each job: {patient_name, patient_id, sample_type, llm}."""
     results: List[Dict] = []
     if MAX_ACTIVE_SESSIONS > 0:
@@ -254,7 +254,7 @@ def run_parallel_jobs(jobs: List[Dict], workers: int = 3) -> List[Dict]:
             patient_id = job.get("patient_id")
             sample_type = job.get("sample_type")
             llm = job.get("llm")
-            futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type, llm)] = (patient_name, llm)
+            futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type, llm, dest_dir)] = (patient_name, llm)
 
         for fut in as_completed(futures):
             patient, llm = futures[fut]
@@ -265,7 +265,20 @@ def run_parallel_jobs(jobs: List[Dict], workers: int = 3) -> List[Dict]:
     return results
 
 if __name__ == "__main__":
-    samples_path = Path(__file__).resolve().parent / "all_samples.json"
+    import argparse
+    parser = argparse.ArgumentParser(
+        description='Submit pre-authorization forms via Browser-Use Cloud automation'
+    )
+    parser.add_argument('-i', '--input', type=str, default='data/groundtruth/all_samples.json',
+                        help='Input JSON file with patient sample profiles (default: data/groundtruth/all_samples.json)')
+    parser.add_argument('--dest-dir', type=str, default='data/submissions',
+                        help='Directory to save downloaded submissions (default: data/submissions)')
+    args = parser.parse_args()
+
+    samples_path = Path(__file__).resolve().parent.parent / args.input
+    dest_dir_path = Path(__file__).resolve().parent.parent / args.dest_dir
+    dest_dir_path.mkdir(parents=True, exist_ok=True)
+
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
 
@@ -292,18 +305,6 @@ if __name__ == "__main__":
             "llm": gemini_pro,
         })
 
-    results = run_parallel_jobs(jobs, workers=3)
+    results = run_parallel_jobs(jobs, workers=3, dest_dir=dest_dir_path)
     for res in results:
         print(f"Processed: {res}")
-    
-    # get_submission_by_patient(
-    #     requests.Session(),
-    #     BASE_URL,
-    #     "Susan",
-    #     "Miller",
-    #     "gemini-3-pro-preview",
-    #     "PAT-3164",
-    #     "1fc1d368-3cb8-4cfa-8fac-78ba68c61fdf",
-    #     "2e",
-    #     Path(__file__).resolve().parent / "data" / "submissions"
-    # )

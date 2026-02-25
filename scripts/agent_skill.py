@@ -106,7 +106,7 @@ async def submit_patient_form(
 
     # After automation, download the submission
     first, last = _split_name(patient_name)
-    local_dir = Path(__file__).resolve().parent / "data" / "submissions"
+    local_dir = Path(__file__).resolve().parent.parent / "data" / "submissions"
     saved_path = download_submission_for_patient(requests.Session(), first, last, local_dir)
     if saved_path is None:
         # Fallback: download latest if patient-specific fails
@@ -150,7 +150,17 @@ async def run_all_parallel(patients: list[dict], max_concurrency: int = 3):
 # --- Entry point ---
 
 if __name__ == "__main__":
-    samples_file = Path(__file__).resolve().parent / "all_samples.json"
+    import argparse
+    parser = argparse.ArgumentParser(
+        description='Submit pre-authorization forms via Browser-Use sandbox automation'
+    )
+    parser.add_argument('-i', '--input', type=str, default='data/groundtruth/all_samples.json',
+                        help='Input JSON file with patient sample profiles (default: data/groundtruth/all_samples.json)')
+    parser.add_argument('--dest-dir', type=str, default='data/submissions',
+                        help='Directory to save downloaded submissions (default: data/submissions)')
+    args = parser.parse_args()
+
+    samples_file = Path(__file__).resolve().parent.parent / args.input
     with open(samples_file, "r", encoding="utf-8") as f:
         samples_data = json.load(f)
 
