@@ -25,8 +25,8 @@ BASE_URL ="https://wes-wgs-pa-app-u2c8s.ondigitalocean.app"
 # Browser-Use Cloud API base (v2)
 API_BASE = os.getenv("BROWSER_USE_API_BASE", "https://api.browser-use.com/api/v2").rstrip("/")
 
-# Concurrency guard for Browser-Use sessions/tasks (API limit is 3 by default)
-MAX_ACTIVE_SESSIONS = int(os.getenv("BROWSER_USE_MAX_SESSIONS", "3"))
+# Concurrency guard for Browser-Use sessions/tasks
+MAX_ACTIVE_SESSIONS = int(os.getenv("BROWSER_USE_MAX_SESSIONS", "50"))
 _SESSION_SEMAPHORE = threading.Semaphore(MAX_ACTIVE_SESSIONS)
 
 def _api_headers() -> Dict[str, str]:
@@ -167,7 +167,7 @@ def get_submission_by_patient(session: requests.Session, base_url: str, first_na
     dest_dir.mkdir(parents=True, exist_ok=True)
     resp = session.post(f"{base_url}/download/patient", json={
         "patient_first_name": first_name,
-        "patient_last_name": last_name,
+        "patient_last_name": last_name
     })
 
     resp.raise_for_status()
@@ -242,7 +242,7 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
         "llm": llm,
     }
 
-def run_parallel_jobs(jobs: List[Dict], workers: int = 3) -> List[Dict]:
+def run_parallel_jobs(jobs: List[Dict], workers: int = 50) -> List[Dict]:
     """Run a list of jobs in parallel. Each job: {patient_name, patient_id, sample_type, llm}."""
     results: List[Dict] = []
     if MAX_ACTIVE_SESSIONS > 0:
@@ -269,9 +269,9 @@ if __name__ == "__main__":
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
 
-    subset = samples[12:21] + samples[32:36]
-    target_types = {"1"}
-    target_samples = [s for s in subset if str(s.get("sample_type")) in target_types]
+    new_samples= samples[262:642]
+    #target_types = {"1"}
+    #target_samples = [s for s in new_samples if str(s.get("sample_type")) in target_types]
 
     # Define LLMs to test
     basic = "browser-use-2.0"
@@ -281,7 +281,7 @@ if __name__ == "__main__":
     llama = "llama-4-maverick-17b-128e-instruct"
     
     jobs: List[Dict] = []
-    for s in target_samples:
+    for s in new_samples:
         first = s.get("patient_first_name", "")
         last = s.get("patient_last_name", "")
         patient_name = f"{first} {last}".strip()
@@ -292,18 +292,6 @@ if __name__ == "__main__":
             "llm": gemini_pro,
         })
 
-    results = run_parallel_jobs(jobs, workers=3)
+    results = run_parallel_jobs(jobs, workers=50)
     for res in results:
         print(f"Processed: {res}")
-    
-    # get_submission_by_patient(
-    #     requests.Session(),
-    #     BASE_URL,
-    #     "Susan",
-    #     "Miller",
-    #     "gemini-3-pro-preview",
-    #     "PAT-3164",
-    #     "1fc1d368-3cb8-4cfa-8fac-78ba68c61fdf",
-    #     "2e",
-    #     Path(__file__).resolve().parent / "data" / "submissions"
-    # )
