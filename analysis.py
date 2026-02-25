@@ -6,6 +6,7 @@
 from typing import List, Dict, Optional, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
+import re
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import pandas as pd
@@ -173,6 +174,50 @@ def check_submission(submission: Dict, groundtruth: Dict):
     def _norm_str(value) -> str:
         return str(value).strip().lower()
 
+    def _to_list(value) -> List:
+        if value is None:
+            return []
+        if isinstance(value, list):
+            return value
+        return [value]
+
+
+    def _cpt_counter(value) -> Dict[str, int]:
+        counter: Dict[str, int] = {"81415": 0, "81416": 0}
+        for item in _to_list(value):
+            for part in re.split(r"[,;]", str(item)):
+                token = part.strip().lower()
+                if not token:
+                    continue
+
+                compact = re.sub(r"\s+", "", token)
+                compact = compact.replace("×", "x").replace("✕", "x").replace("✖", "x")
+
+                for code in ("81415", "81416"):
+                    if code not in compact:
+                        continue
+
+                    multiplier = 1
+
+                    # trailing multiplier, e.g. 81416x2, 81416*2, 81416(x2), 81416(2)
+                    trailing = re.search(rf"{code}(?:\((?:x)?(\d+)\)|[x\*](\d+))", compact)
+                    if trailing:
+                        multiplier = int(trailing.group(1) or trailing.group(2) or 1)
+                    else:
+                        # leading multiplier, e.g. 2x81416, 2*81416
+                        leading = re.search(rf"(\d+)[x\*]{code}", compact)
+                        if leading:
+                            multiplier = int(leading.group(1))
+
+                    counter[code] += max(1, multiplier)
+
+        return counter
+
+    def _cpt_correctness(a, b) -> Tuple[bool, bool]:
+        exact = a == b
+        semantic = _cpt_counter(a) == _cpt_counter(b)
+        return exact, semantic
+
     def _equal(key: str, a, b) -> bool:
         """Flexible, case-insensitive equality.
         - For member_id: compare digits-only, ignoring any prefixes
@@ -189,6 +234,10 @@ def check_submission(submission: Dict, groundtruth: Dict):
         # Handle ICD codes: compare as sets (order-independent)
         if key == "icd_codes":
             return set(_norm_str(x) for x in a) == set(_norm_str(x) for x in b)
+
+        if key == "cpt_codes":
+            _, semantic = _cpt_correctness(a, b)
+            return semantic
 
         if key in ["patient_address", "provider_address", "lab_address"]:
             return _alphanumeric_only(a) == _alphanumeric_only(b)
@@ -245,6 +294,12 @@ def check_submission(submission: Dict, groundtruth: Dict):
             continue
         payload_value = payload.get(key)
         groundtruth_value = groundtruth.get(key)
+
+        if key == "cpt_codes":
+            exact, semantic = _cpt_correctness(payload_value, groundtruth_value)
+            summary["cpt_codes_exact"] = 1 if exact else {"Expected": groundtruth_value, "Got": payload_value}
+            summary["cpt_codes_semantic"] = 1 if semantic else {"Expected": groundtruth_value, "Got": payload_value}
+
         if not _equal(key, payload_value, groundtruth_value) and payload_value not in (None, "", [], {}):
             summary[key] = {"Expected": groundtruth_value, "Got": payload_value}
         else:

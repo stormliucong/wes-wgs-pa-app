@@ -269,9 +269,24 @@ if __name__ == "__main__":
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
 
-    new_samples= samples[262:642]
-    #target_types = {"1"}
-    #target_samples = [s for s in new_samples if str(s.get("sample_type")) in target_types]
+    target_type = "4"
+    target_samples = [s for s in samples if str(s.get("sample_type")) == target_type]
+
+    unique_samples_by_name: Dict[str, Dict] = {}
+    for sample in target_samples:
+        first = sample.get("patient_first_name", "")
+        last = sample.get("patient_last_name", "")
+        patient_name = f"{first} {last}".strip()
+        if not patient_name:
+            continue
+        if patient_name not in unique_samples_by_name:
+            unique_samples_by_name[patient_name] = sample
+
+    selected_samples = list(unique_samples_by_name.values())
+    print(
+        f"Total sample_type={target_type} profiles: {len(target_samples)} | "
+        f"unique patient names to process: {len(selected_samples)}"
+    )
 
     # Define LLMs to test
     basic = "browser-use-2.0"
@@ -281,7 +296,7 @@ if __name__ == "__main__":
     llama = "llama-4-maverick-17b-128e-instruct"
     
     jobs: List[Dict] = []
-    for s in new_samples:
+    for s in selected_samples:
         first = s.get("patient_first_name", "")
         last = s.get("patient_last_name", "")
         patient_name = f"{first} {last}".strip()
