@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:16:12.537817-05:00",
+  "payload": {
+    "patient_first_name": "Hudson",
+    "patient_last_name": "Underwood",
+    "patient_dob": "2016-02-28",
+    "sex": "Male",
+    "member_id": "592896644",
+    "patient_address": "9715 Park Rd, West Hartford, CT 06319",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bianca Underwood",
+    "subscriber_dob": "1982-10-30",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "4237634043",
+    "provider_phone": "2032378554",
+    "provider_fax": "4754684550",
+    "provider_email": "",
+    "provider_address": "5008 Park Rd, Meriden, CT 06128",
+    "lab_name": "Ambry",
+    "lab_npi": "4066805298",
+    "lab_address": "9147 East St, Danbury, CT 06480",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-09",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": true,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.2",
+      "Q17.2"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-15"
+    ],
+    "form_id": "5da842f6-e043-44d2-bb07-a187caad734a",
+    "started_at": "2026-02-25T21:09:41.205Z"
+  },
+  "task_id": "9b819a57-23d8-49f2-9155-e626739c5060",
+  "patient_id": "PAT-2378",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

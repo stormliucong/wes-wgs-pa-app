@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-10T14:33:32.188971-05:00",
+  "payload": {
+    "patient_first_name": "Justin",
+    "patient_last_name": "Morris",
+    "patient_dob": "2010-12-20",
+    "sex": "Male",
+    "member_id": "732781482",
+    "patient_address": "7565 Washington Ave Hartford CT 06946",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Betty Morris",
+    "subscriber_dob": "1979-03-12",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Jennifer Wilson",
+    "provider_npi": "3211814315",
+    "provider_phone": "(203) 223-4493",
+    "provider_fax": "(475) 811-8514",
+    "provider_email": "",
+    "provider_address": "893 Spring St, Bristol, CT 06008",
+    "lab_name": "GeneDx",
+    "lab_npi": "1648395281",
+    "lab_address": "5211 Second St, Milford, CT 06297",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Jennifer Wilson",
+    "signature_date": "2026-02-10",
+    "icd_codes": [
+      "E88.40"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "eef268b2-9dff-4587-a403-5640380025ce",
+    "started_at": "2026-02-10T19:25:28.304Z"
+  },
+  "task_id": "30f74771-854c-4502-b0cc-131558e9a861",
+  "patient_id": "PAT-3864",
+  "sample_type": "3a",
+  "llm": "claude-opus-4-5-20251101"
+}

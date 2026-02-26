@@ -1,0 +1,75 @@
+{
+  "submitted_at": "2026-02-13T16:15:31.915139-05:00",
+  "payload": {
+    "patient_first_name": "David",
+    "patient_last_name": "Bailey",
+    "patient_dob": "2012-05-08",
+    "sex": "Male",
+    "member_id": "518637160",
+    "patient_address": "9664 Pine St, Hamden, CT 06252",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Benjamin Bailey",
+    "subscriber_dob": "1987-07-16",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Patricia Anderson",
+    "provider_npi": "8940919652",
+    "provider_phone": "(959) 448-4553",
+    "provider_fax": "(959) 744-6126",
+    "provider_email": "",
+    "provider_address": "767 Highland Ave, Bristol, CT 06376",
+    "lab_name": "Invitae",
+    "lab_npi": "3382488327",
+    "lab_address": "9766 High St, New Britain, CT 06028",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Patricia Anderson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q75.3",
+      "Q35.9",
+      "Q10.0",
+      "Q17.0",
+      "Q04.2",
+      "F82"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-14"
+    ],
+    "form_id": "5bd110d2-5b6d-4070-b661-ae5f6279f05e",
+    "started_at": "2026-02-13T21:10:32.706Z"
+  },
+  "task_id": "4cbe07e8-8b2a-43c8-9a73-48d7be39dd08",
+  "patient_id": "PAT-9898",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

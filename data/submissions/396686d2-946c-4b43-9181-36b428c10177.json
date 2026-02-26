@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:49:20.103681-05:00",
+  "payload": {
+    "patient_first_name": "Aiden",
+    "patient_last_name": "Huxley",
+    "patient_dob": "2021-10-31",
+    "sex": "Male",
+    "member_id": "870077091",
+    "patient_address": "986 Oak Ave, Manchester, CT 06875",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Eliana Huxley",
+    "subscriber_dob": "1988-02-16",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "1558288577",
+    "provider_phone": "860-499-9788",
+    "provider_fax": "860-515-7371",
+    "provider_email": "",
+    "provider_address": "6505 Hill St, Torrington, CT 06062",
+    "lab_name": "GeneDx",
+    "lab_npi": "9253116709",
+    "lab_address": "3527 Pine St, West Hartford, CT 06465",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-10-26",
+    "cpt_codes": [
+      "81425x1, 81426x2"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F88",
+      "Q22.4"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-01"
+    ],
+    "form_id": "396686d2-946c-4b43-9181-36b428c10177",
+    "started_at": "2026-02-25T04:45:09.267Z"
+  },
+  "task_id": "fef2d99b-3d44-4368-9f6b-fa3c01e81320",
+  "patient_id": "PAT-3066",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

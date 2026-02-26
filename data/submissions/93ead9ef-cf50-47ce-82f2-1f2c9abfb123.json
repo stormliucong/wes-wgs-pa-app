@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:12:32.088827-05:00",
+  "payload": {
+    "patient_first_name": "Zane",
+    "patient_last_name": "Voss",
+    "patient_dob": "2021-05-13",
+    "sex": "Male",
+    "member_id": "800770676",
+    "patient_address": "2600 Park Rd, Torrington, CT 06220",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Rowan Voss",
+    "subscriber_dob": "1987-12-02",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "8053318619",
+    "provider_phone": "5550109988",
+    "provider_fax": "5550109989",
+    "provider_email": "dr.davis@clinic.com",
+    "provider_address": "5567 Court St, Torrington, CT 06820",
+    "lab_name": "Ambry",
+    "lab_npi": "7391165693",
+    "lab_address": "7730 State St, Norwalk, CT 06707",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-23",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient presented with superficial burn of head and face and sprain of right ankle. No other significant findings.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "T20.10XA",
+      "S93.401A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "93ead9ef-cf50-47ce-82f2-1f2c9abfb123",
+    "started_at": "2026-02-25T05:08:00.327Z"
+  },
+  "task_id": "ffd7b1f5-aa26-4994-9f48-753ca7bd51d0",
+  "patient_id": "PAT-5496",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

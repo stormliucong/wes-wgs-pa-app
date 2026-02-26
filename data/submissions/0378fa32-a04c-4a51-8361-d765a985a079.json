@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:16:14.115183-05:00",
+  "payload": {
+    "patient_first_name": "Weston",
+    "patient_last_name": "Carrow",
+    "patient_dob": "2022-01-27",
+    "sex": "Male",
+    "member_id": "721127180",
+    "patient_address": "3020 Forest Ave, Hartford, CT 06011",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Skye Carrow",
+    "subscriber_dob": "1987-07-28",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "5765587415",
+    "provider_phone": "9595313729",
+    "provider_fax": "8607722450",
+    "provider_email": "",
+    "provider_address": "9440 Oak Ave, Bridgeport, CT 06725",
+    "lab_name": "Ambry",
+    "lab_npi": "5142492116",
+    "lab_address": "7890 Highland Ave, Torrington, CT 06808",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-23",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Superficial burn of head and face; Concussion without loss of consciousness; Accidental penicillin exposure",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "T20.00XA",
+      "T36.0X1A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "0378fa32-a04c-4a51-8361-d765a985a079",
+    "started_at": "2026-02-25T05:10:56.122Z"
+  },
+  "task_id": "9933e225-a07d-4f1f-a437-45294440b9c9",
+  "patient_id": "PAT-4939",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

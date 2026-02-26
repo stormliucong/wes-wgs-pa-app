@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:19:56.848247-05:00",
+  "payload": {
+    "patient_first_name": "Asher",
+    "patient_last_name": "Ivory",
+    "patient_dob": "2012-10-07",
+    "sex": "Female",
+    "member_id": "918039213",
+    "patient_address": "9105 School St, Stratford, CT 06698",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Noelle Ivory",
+    "subscriber_dob": "1978-11-29",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "7655131848",
+    "provider_phone": "4756747647",
+    "provider_fax": "8607068709",
+    "provider_email": "",
+    "provider_address": "7907 Second St, New Britain, CT 06298",
+    "lab_name": "Ambry",
+    "lab_npi": "7649304698",
+    "lab_address": "9792 Sunset Ave, West Haven, CT 06974",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5787bbdd-49a8-45f8-be08-8590c67532ca",
+    "started_at": "2026-02-25T21:15:51.593Z"
+  },
+  "task_id": "3b00594a-3442-40ab-8c85-4c9fb1659d9b",
+  "patient_id": "PAT-9327",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

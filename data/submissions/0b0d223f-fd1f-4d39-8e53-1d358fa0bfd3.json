@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:15:01.433676-05:00",
+  "payload": {
+    "patient_first_name": "Miles",
+    "patient_last_name": "Jarvis",
+    "patient_dob": "2010-09-24",
+    "sex": "Male",
+    "member_id": "498236986",
+    "patient_address": "5865 Water St, Trumbull, CT 06769",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bennett Jarvis",
+    "subscriber_dob": "1976-07-10",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Patricia Anderson",
+    "provider_npi": "9038818006",
+    "provider_phone": "(860) 364-2039",
+    "provider_fax": "(959) 858-1866",
+    "provider_email": "",
+    "provider_address": "9574 Union St, Middletown, CT 06942",
+    "lab_name": "Ambry",
+    "lab_npi": "8936592559",
+    "lab_address": "4444 East St, Meriden, CT 06847",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-08",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Patricia Anderson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "0b0d223f-fd1f-4d39-8e53-1d358fa0bfd3",
+    "started_at": "2026-02-25T21:09:12.060Z"
+  },
+  "task_id": "8a04c7be-e2ec-47a6-a48c-15f4c490ec83",
+  "patient_id": "PAT-5220",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

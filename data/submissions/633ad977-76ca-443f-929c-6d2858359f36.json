@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-17T15:14:33.643704-05:00",
+  "payload": {
+    "patient_first_name": "Christina",
+    "patient_last_name": "Sanchez",
+    "patient_dob": "2017-05-14",
+    "sex": "Female",
+    "member_id": "562336375",
+    "patient_address": "6324 Oak Ave, Waterbury, CT 06823",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Charles Sanchez",
+    "subscriber_dob": "1992-11-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "1227083746",
+    "provider_phone": "(475) 398-9797",
+    "provider_fax": "(860) 275-1299",
+    "provider_email": "",
+    "provider_address": "4514 Pleasant St, Windsor, CT 06966",
+    "lab_name": "Ambry",
+    "lab_npi": "8562523386",
+    "lab_address": "1746 Water St, Meriden, CT 06425",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-17",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient seen for acute injury event: accidental penicillin poisoning, right ankle sprain, and scalp laceration.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "T36.0X1A",
+      "S93.401A",
+      "S01.01XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "633ad977-76ca-443f-929c-6d2858359f36",
+    "started_at": "2026-02-17T20:09:12.781Z"
+  },
+  "task_id": "d1482252-e694-4dad-ab6d-184bfbcdb4f4",
+  "patient_id": "PAT-2399",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

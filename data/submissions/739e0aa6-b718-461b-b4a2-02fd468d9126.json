@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-18T00:23:17.084807-05:00",
+  "payload": {
+    "patient_first_name": "Maria",
+    "patient_last_name": "Lopez",
+    "patient_dob": "2015-08-10",
+    "sex": "Female",
+    "member_id": "895774661",
+    "patient_address": "3806 State St, New Haven, CT 06460",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jason Lopez",
+    "subscriber_dob": "1990-11-14",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "2393744780",
+    "provider_phone": "(203) 399-1520",
+    "provider_fax": "(860) 785-1366",
+    "provider_email": "",
+    "provider_address": "1296 South St, East Hartford, CT 06218",
+    "lab_name": "Ambry",
+    "lab_npi": "7616158753",
+    "lab_address": "8175 Water St, Enfield, CT 06801",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-19",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-18",
+    "icd_codes": [
+      "E73.9",
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "739e0aa6-b718-461b-b4a2-02fd468d9126",
+    "started_at": "2026-02-18T05:17:23.702Z"
+  },
+  "task_id": "3e239508-f181-4496-b6ac-9234462e528b",
+  "patient_id": "PAT-3578",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

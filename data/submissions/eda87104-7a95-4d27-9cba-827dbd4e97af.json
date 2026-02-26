@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-13T16:58:10.914761-05:00",
+  "payload": {
+    "patient_first_name": "Christine",
+    "patient_last_name": "Nelson",
+    "patient_dob": "2012-05-04",
+    "sex": "Female",
+    "member_id": "540016224",
+    "patient_address": "7870 State St, West Haven, CT 06596",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Barbara Nelson",
+    "subscriber_dob": "2002-07-20",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Betty Young",
+    "provider_npi": "2667654241",
+    "provider_phone": "(860) 640-3065",
+    "provider_fax": "(203) 730-4553",
+    "provider_email": "",
+    "provider_address": "7973 Mill St, Hamden, CT 06706",
+    "lab_name": "Invitae",
+    "lab_npi": "5339188381",
+    "lab_address": "7440 Court St, Waterbury, CT 06221",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-31",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Betty Young",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q75.0",
+      "Q61.9",
+      "Q66.9",
+      "F71"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "eda87104-7a95-4d27-9cba-827dbd4e97af",
+    "started_at": "2026-02-13T21:53:31.580Z"
+  },
+  "task_id": "f2687934-1d34-4f08-803c-014104f7f3f0",
+  "patient_id": "PAT-9492",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:07:16.315341-05:00",
+  "payload": {
+    "patient_first_name": "Bridget",
+    "patient_last_name": "Emerson",
+    "patient_dob": "2016-08-02",
+    "sex": "Female",
+    "member_id": "808943793",
+    "patient_address": "249 Washington Ave, Manchester, CT 06162",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Damian Emerson",
+    "subscriber_dob": "2006-01-30",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Sibling",
+    "provider_name": "Steven Torres",
+    "provider_npi": "6642847718",
+    "provider_phone": "(475) 665-2131",
+    "provider_fax": "(959) 268-7934",
+    "provider_email": "",
+    "provider_address": "9282 Highland Ave, Newington, CT 06828",
+    "lab_name": "Ambry",
+    "lab_npi": "1943191452",
+    "lab_address": "1754 Center St, West Haven, CT 06099",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-22",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q22.3",
+      "Q17.8",
+      "F71"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-03"
+    ],
+    "form_id": "c113ecca-70f1-471d-a65d-83803705732f",
+    "started_at": "2026-02-25T04:01:59.363Z"
+  },
+  "task_id": "90fe4f2c-f051-4029-85c5-802d4da305be",
+  "patient_id": "PAT-5253",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

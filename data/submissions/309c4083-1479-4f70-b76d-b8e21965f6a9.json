@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-17T15:35:42.136142-05:00",
+  "payload": {
+    "patient_first_name": "Stephanie",
+    "patient_last_name": "Robinson",
+    "patient_dob": "2022-06-20",
+    "sex": "Female",
+    "member_id": "746519195",
+    "patient_address": "8518 Maple St, New Haven, CT 06624",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Larry Robinson",
+    "subscriber_dob": "1997-09-13",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "3418206756",
+    "provider_phone": "(860) 355-2460",
+    "provider_fax": "(959) 333-7309",
+    "provider_email": "",
+    "provider_address": "1737 Center St, Windsor, CT 06140",
+    "lab_name": "Ambry",
+    "lab_npi": "7384384993",
+    "lab_address": "4332 Broad St, Hartford, CT 06541",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-16",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient suffered from accidental penicillin poisoning, superficial burns to the head/neck, and a concussion without loss of consciousness. Symptoms include localized pain, swelling, and dizziness. No prior history of genetic disorders.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "T36.0X1A",
+      "T20.10XA",
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "309c4083-1479-4f70-b76d-b8e21965f6a9",
+    "started_at": "2026-02-17T20:31:18.436Z"
+  },
+  "task_id": "3abbc23a-ced4-47ac-8c36-06c34c68318f",
+  "patient_id": "PAT-9916",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-10T14:16:36.351384-05:00",
+  "payload": {
+    "patient_first_name": "Christina",
+    "patient_last_name": "Henderson",
+    "patient_dob": "2006-05-08",
+    "sex": "Female",
+    "member_id": "360421103",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "James Henderson",
+    "subscriber_dob": "1975-05-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "8989523503",
+    "provider_phone": "(203) 606-1366",
+    "provider_fax": "(203) 932-2171",
+    "provider_email": "",
+    "provider_address": "9786 Church St, Waterbury, CT 06289",
+    "lab_name": "Invitae",
+    "lab_npi": "4975193317",
+    "lab_address": "2849 Pine St, Newington, CT 06692",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-06-08",
+    "cpt_codes": [
+      "81415, 81416×2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-10",
+    "icd_codes": [
+      "Q22.0",
+      "F88"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-06-10"
+    ],
+    "form_id": "7ee4c1be-19a4-4d06-86e6-68dba9a0a6a0",
+    "started_at": "2026-02-10T19:08:22.972Z"
+  },
+  "task_id": "0a2ead0d-b419-48f3-b092-7454dd9a564f",
+  "patient_id": "PAT-7938",
+  "sample_type": "2b",
+  "llm": "claude-opus-4-5-20251101"
+}

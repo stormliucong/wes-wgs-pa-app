@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:01:06.154630-05:00",
+  "payload": {
+    "patient_first_name": "Nolan",
+    "patient_last_name": "Osborn",
+    "patient_dob": "2017-04-01",
+    "sex": "Male",
+    "member_id": "616647970",
+    "patient_address": "6940 Park Rd, New Haven, CT 06232",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kieran Osborn",
+    "subscriber_dob": "1983-12-22",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "5980234579",
+    "provider_phone": "9598186865",
+    "provider_fax": "8602896953",
+    "provider_email": "",
+    "provider_address": "4468 Center St, Newington, CT 06705",
+    "lab_name": "Invitae",
+    "lab_npi": "4398284930",
+    "lab_address": "8396 Pleasant St, Waterbury, CT 06465",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-07",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Nolan Osborn is an 8-year-old male with autosomal dominant polycystic kidney disease with bilateral renal cysts and a congenital atrial septal defect. He has esophageal atresia with longstanding feeding and swallowing vulnerability. Neurodevelopmental history includes severe intellectual disability with substantial limitations in communication and adaptive functioning, requiring close supervision for daily activities. Dysmorphic features include low-set ears and a thin upper lip in the context of a congenital malformation syndrome involving multiple systems. No family history of similarly affected relatives or consanguinity was noted. Prior genetic testing included chromosomal microarray on 2025-10-15, reported as negative. Secondary medical issues include an acute concussion without loss of consciousness, scalp laceration, and right ankle sprain from a recent traumatic event requiring evaluation and care.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.2",
+      "Q21.1",
+      "Q39.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-15"
+    ],
+    "form_id": "c9fa90cb-7de2-4584-ae73-17e3d59ab335",
+    "started_at": "2026-02-25T04:56:55.189Z"
+  },
+  "task_id": "ae617060-1405-4198-8b2a-01d8bd3b1567",
+  "patient_id": "PAT-5117",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

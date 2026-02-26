@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:54:14.766892-05:00",
+  "payload": {
+    "patient_first_name": "Griffin",
+    "patient_last_name": "Caldwell",
+    "patient_dob": "2020-09-03",
+    "sex": "Male",
+    "member_id": "920629803",
+    "patient_address": "5649 Cedar St, Bristol, CT 06033",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bridget Caldwell",
+    "subscriber_dob": "1986-12-09",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "6980947932",
+    "provider_phone": "8602236863",
+    "provider_fax": "2036115580",
+    "provider_email": "",
+    "provider_address": "5034 Center St, West Haven, CT 06837",
+    "lab_name": "Invitae",
+    "lab_npi": "6647483582",
+    "lab_address": "7588 South St, Meriden, CT 06563",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.4",
+      "R74.02"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "b4d48718-114b-47c0-9ce0-8db6de27ad26",
+    "started_at": "2026-02-25T04:49:53.767Z"
+  },
+  "task_id": "ed050ac9-3e8d-42bf-b454-e5876125dd4a",
+  "patient_id": "PAT-7304",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

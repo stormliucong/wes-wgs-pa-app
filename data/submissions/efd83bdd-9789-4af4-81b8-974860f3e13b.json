@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:05:07.670779-05:00",
+  "payload": {
+    "patient_first_name": "Aiden",
+    "patient_last_name": "Kendrick",
+    "patient_dob": "2013-02-15",
+    "sex": "Male",
+    "member_id": "867265790",
+    "patient_address": "4914 River Rd, Stamford, CT 06586",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nora Kendrick",
+    "subscriber_dob": "1978-10-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "7121036118",
+    "provider_phone": "(475) 703-9803",
+    "provider_fax": "(475) 774-6180",
+    "provider_email": "",
+    "provider_address": "4414 Highland Ave, Norwalk, CT 06659",
+    "lab_name": "Ambry",
+    "lab_npi": "7709442061",
+    "lab_address": "3129 Elm St, Norwich, CT 06977",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.3",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "efd83bdd-9789-4af4-81b8-974860f3e13b",
+    "started_at": "2026-02-25T04:01:33.810Z"
+  },
+  "task_id": "f152541d-19e9-4528-98c9-b11e5bddb005",
+  "patient_id": "PAT-6086",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

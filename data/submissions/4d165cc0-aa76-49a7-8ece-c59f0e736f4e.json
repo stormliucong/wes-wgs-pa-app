@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-18T00:33:35.967368-05:00",
+  "payload": {
+    "patient_first_name": "Jacob",
+    "patient_last_name": "Hernandez",
+    "patient_dob": "2022-06-15",
+    "sex": "Male",
+    "member_id": "254207351",
+    "patient_address": "4669 Cedar St, West Haven, CT 06080",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jennifer Hernandez",
+    "subscriber_dob": "1997-05-27",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "2238497037",
+    "provider_phone": "(475) 417-5212",
+    "provider_fax": "(860) 244-6599",
+    "provider_email": "",
+    "provider_address": "1964 Main St, Windsor, CT 06078",
+    "lab_name": "LabCorp",
+    "lab_npi": "5313116720",
+    "lab_address": "13 School St, Torrington, CT 06711",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-28",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-18",
+    "icd_codes": [
+      "Q44.6",
+      "Q61.3",
+      "Q75.0",
+      "Q15.8",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-01-01"
+    ],
+    "form_id": "4d165cc0-aa76-49a7-8ece-c59f0e736f4e",
+    "started_at": "2026-02-18T05:26:45.011Z"
+  },
+  "task_id": "59214013-bcf5-47fb-a56a-ddd7cff70b08",
+  "patient_id": "PAT-6329",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-13T18:00:53.296507-05:00",
+  "payload": {
+    "patient_first_name": "Edward",
+    "patient_last_name": "Bailey",
+    "patient_dob": "2012-05-18",
+    "sex": "Male",
+    "member_id": "515943137",
+    "patient_address": "6877 Church St, Norwalk, CT 06133",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nicole Bailey",
+    "subscriber_dob": "1987-09-06",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "2609424708",
+    "provider_phone": "(203) 728-5253",
+    "provider_fax": "(860) 906-2516",
+    "provider_email": "",
+    "provider_address": "6631 Hill St, New London, CT 06764",
+    "lab_name": "Ambry",
+    "lab_npi": "5301446795",
+    "lab_address": "4789 Park Rd, Windsor, CT 06177",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-11-22",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q04.2",
+      "Q67.3",
+      "Q39.0",
+      "F71"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "7c6fae54-4e5a-4a25-bf60-126690214f8f",
+    "started_at": "2026-02-13T22:56:40.565Z"
+  },
+  "task_id": "65617621-8f59-4a85-ac74-5ed3c7a93de5",
+  "patient_id": "PAT-8415",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

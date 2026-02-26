@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-13T16:52:48.105458-05:00",
+  "payload": {
+    "patient_first_name": "Kevin",
+    "patient_last_name": "Parker",
+    "patient_dob": "2017-04-13",
+    "sex": "Male",
+    "member_id": "794148206",
+    "patient_address": "3425 West St, Meriden, CT 06800",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Lisa Parker",
+    "subscriber_dob": "2005-07-22",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "3942708526",
+    "provider_phone": "(860) 458-6065",
+    "provider_fax": "(959) 512-5470",
+    "provider_email": "",
+    "provider_address": "4928 South St, New Britain, CT 06065",
+    "lab_name": "Ambry",
+    "lab_npi": "8096264597",
+    "lab_address": "6107 Valley Rd, Trumbull, CT 06843",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-22",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "F71",
+      "R62.50",
+      "Q21.1",
+      "Q89.8",
+      "Q67.3"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-08-27"
+    ],
+    "form_id": "ab6c951c-077e-4883-bfd1-d482e19db49c",
+    "started_at": "2026-02-13T21:48:36.952Z"
+  },
+  "task_id": "69926feb-8e83-4f8a-b7b6-015ca443d8b1",
+  "patient_id": "PAT-3953",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

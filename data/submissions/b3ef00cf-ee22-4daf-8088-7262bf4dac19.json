@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:48:43.507402-05:00",
+  "payload": {
+    "patient_first_name": "Bridget",
+    "patient_last_name": "Alder",
+    "patient_dob": "2016-06-08",
+    "sex": "Female",
+    "member_id": "432729979",
+    "patient_address": "7813 Mill St, New London, CT 06679",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Eden Alder",
+    "subscriber_dob": "1982-06-30",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "9300114681",
+    "provider_phone": "(475) 861-9114",
+    "provider_fax": "(959) 794-6452",
+    "provider_email": "",
+    "provider_address": "7950 Main St, Enfield, CT 06132",
+    "lab_name": "LabCorp",
+    "lab_npi": "1746761792",
+    "lab_address": "928 Valley Rd, Windsor, CT 06635",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-11-06",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "G40.909"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-15"
+    ],
+    "form_id": "b3ef00cf-ee22-4daf-8088-7262bf4dac19",
+    "started_at": "2026-02-25T04:44:44.045Z"
+  },
+  "task_id": "b9ad856a-53af-4764-b4d9-721bab225250",
+  "patient_id": "PAT-7187",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

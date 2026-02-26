@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:00:23.327023-05:00",
+  "payload": {
+    "patient_first_name": "Tristan",
+    "patient_last_name": "Claremont",
+    "patient_dob": "2015-04-20",
+    "sex": "Male",
+    "member_id": "157420334",
+    "patient_address": "4325 State St, New Haven, CT 06324",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Griffin Claremont",
+    "subscriber_dob": "1981-12-31",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Father",
+    "provider_name": "Paul Allen",
+    "provider_npi": "7904919114",
+    "provider_phone": "(959) 221-6595",
+    "provider_fax": "(475) 866-5225",
+    "provider_email": "",
+    "provider_address": "8963 Pleasant St, Newington, CT 06313",
+    "lab_name": "LabCorp",
+    "lab_npi": "3588524809",
+    "lab_address": "624 Mill St, Torrington, CT 06980",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-02",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "2cd05232-c2ed-4241-85a9-f5f0e2e89af2",
+    "started_at": "2026-02-25T03:55:50.231Z"
+  },
+  "task_id": "49482077-a700-4ca3-97a1-735185f99e1c",
+  "patient_id": "PAT-8315",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:16:26.697323-05:00",
+  "payload": {
+    "patient_first_name": "Tobias",
+    "patient_last_name": "Dawes",
+    "patient_dob": "2011-07-01",
+    "sex": "Male",
+    "member_id": "920468625",
+    "patient_address": "2107 Mill St, Enfield, CT 06614",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Veronica Dawes",
+    "subscriber_dob": "1978-01-25",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "3602287759",
+    "provider_phone": "(475) 285-7882",
+    "provider_fax": "(203) 629-7628",
+    "provider_email": "",
+    "provider_address": "3537 North St, Glastonbury, CT 06595",
+    "lab_name": "Invitae",
+    "lab_npi": "9489116494",
+    "lab_address": "9169 High St, Hartford, CT 06860",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-24",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.1",
+      "Q17.8",
+      "F79",
+      "Q66.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-14"
+    ],
+    "form_id": "630d5aff-2c74-4c89-9049-5e192cc42bf5",
+    "started_at": "2026-02-25T21:09:49.304Z"
+  },
+  "task_id": "83a8cb71-3c15-462f-bd81-3678b12f459d",
+  "patient_id": "PAT-5979",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

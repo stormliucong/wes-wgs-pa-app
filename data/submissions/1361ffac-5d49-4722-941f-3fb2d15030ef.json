@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:49:10.327123-05:00",
+  "payload": {
+    "patient_first_name": "Skye",
+    "patient_last_name": "Yorke",
+    "patient_dob": "2010-03-02",
+    "sex": "Female",
+    "member_id": "716299478",
+    "patient_address": "3859 Sunset Ave, Manchester, CT 06040",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Weston Yorke",
+    "subscriber_dob": "1976-04-29",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "6144552583",
+    "provider_phone": "2033181053",
+    "provider_fax": "8609891099",
+    "provider_email": "",
+    "provider_address": "9578 Main St, New London, CT 06569",
+    "lab_name": "Ambry",
+    "lab_npi": "4874201343",
+    "lab_address": "6353 Spring St, Danbury, CT 06799",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "1361ffac-5d49-4722-941f-3fb2d15030ef",
+    "started_at": "2026-02-25T04:45:18.796Z"
+  },
+  "task_id": "98e2644f-aab1-4a97-b465-dfcb0e6e9ab6",
+  "patient_id": "PAT-1341",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

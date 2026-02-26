@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:19:34.981549-05:00",
+  "payload": {
+    "patient_first_name": "Sabrina",
+    "patient_last_name": "Seymour",
+    "patient_dob": "2020-03-10",
+    "sex": "Female",
+    "member_id": "831297449",
+    "patient_address": "4792 Cedar St, Norwich, CT 06762",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Aurora Seymour",
+    "subscriber_dob": "1986-04-09",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "6707518377",
+    "provider_phone": "2036044344",
+    "provider_fax": "8604497225",
+    "provider_email": "",
+    "provider_address": "6650 Sunset Ave, New Britain, CT 06581",
+    "lab_name": "LabCorp",
+    "lab_npi": "9085356595",
+    "lab_address": "1147 Valley Rd, Danbury, CT 06069",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-08",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.9",
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "70e9619f-a509-435f-9e4a-d32d54786076",
+    "started_at": "2026-02-25T21:15:01.738Z"
+  },
+  "task_id": "a86ae429-1826-4897-8e83-8f1fcc4bf4d8",
+  "patient_id": "PAT-6035",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

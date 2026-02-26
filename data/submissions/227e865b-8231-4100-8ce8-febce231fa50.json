@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T16:22:15.124574-05:00",
+  "payload": {
+    "patient_first_name": "Felix",
+    "patient_last_name": "Yates",
+    "patient_dob": "2014-08-06",
+    "sex": "Male",
+    "member_id": "354983908",
+    "patient_address": "7610 School St, Manchester, CT 06289",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Freya Yates",
+    "subscriber_dob": "1980-08-27",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Family Member",
+    "provider_name": "Susan Clark",
+    "provider_npi": "9691227381",
+    "provider_phone": "9599939333",
+    "provider_fax": "9599344726",
+    "provider_email": "",
+    "provider_address": "9408 Main St, Enfield, CT 06553",
+    "lab_name": "GeneDx",
+    "lab_npi": "9005548996",
+    "lab_address": "8991 Mill St, Meriden, CT 06325",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q10.3",
+      "Q61.3",
+      "F82"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "227e865b-8231-4100-8ce8-febce231fa50",
+    "started_at": "2026-02-25T21:17:19.584Z"
+  },
+  "task_id": "23769ebf-fb75-472f-b2e3-38e422a25fd6",
+  "patient_id": "PAT-4059",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

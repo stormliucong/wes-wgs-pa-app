@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:43:08.647774-05:00",
+  "payload": {
+    "patient_first_name": "Arlo",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2018-11-21",
+    "sex": "Male",
+    "member_id": "738927229",
+    "patient_address": "4094 Park Rd, New London, CT 06279",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hazel Valentine",
+    "subscriber_dob": "1984-10-13",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Jennifer Wilson",
+    "provider_npi": "2138937412",
+    "provider_phone": "2039441007",
+    "provider_fax": "8609966961",
+    "provider_email": "",
+    "provider_address": "8047 Maple St, Windsor, CT 06528",
+    "lab_name": "Invitae",
+    "lab_npi": "8658044487",
+    "lab_address": "3833 Pleasant St, West Hartford, CT 06532",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-14",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Jennifer Wilson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q17.9",
+      "Q67.3",
+      "Q61.5",
+      "F82"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-20"
+    ],
+    "form_id": "a3a715db-e2c2-48c7-82f6-e7071db4f7e2",
+    "started_at": "2026-02-25T04:38:04.424Z"
+  },
+  "task_id": "a53f0e4e-d760-4402-8045-2c5b0a95d5ad",
+  "patient_id": "PAT-5426",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

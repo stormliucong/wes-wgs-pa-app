@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:17:37.395195-05:00",
+  "payload": {
+    "patient_first_name": "Colton",
+    "patient_last_name": "Grafton",
+    "patient_dob": "2012-01-01",
+    "sex": "Male",
+    "member_id": "284234931",
+    "patient_address": "3421 Water St, Torrington, CT 06320",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nadia Grafton",
+    "subscriber_dob": "1978-02-07",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "3302783600",
+    "provider_phone": "(860) 563-6258",
+    "provider_fax": "(475) 979-9755",
+    "provider_email": "",
+    "provider_address": "7387 Pine St, Danbury, CT 06786",
+    "lab_name": "GeneDx",
+    "lab_npi": "9352725234",
+    "lab_address": "6587 Pine St, Middletown, CT 06508",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-23",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient seen following acute injury (concussion, right ankle sprain). Symptoms: headache, foggy feeling, slowed concentration, fatigue, ankle pain/swelling. No prior testing or family history available.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "S93.401A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "cce6548e-9e80-4280-92dc-dd5af924a88d",
+    "started_at": "2026-02-25T05:12:31.292Z"
+  },
+  "task_id": "8a86603e-b8c2-4c6a-a3aa-5cd1dde9f298",
+  "patient_id": "PAT-9313",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

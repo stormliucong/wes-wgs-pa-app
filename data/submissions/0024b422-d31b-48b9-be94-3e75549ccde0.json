@@ -1,0 +1,75 @@
+{
+  "submitted_at": "2026-02-10T15:57:08.518957-05:00",
+  "payload": {
+    "patient_first_name": "Daniel",
+    "patient_last_name": "Thomas",
+    "patient_dob": "2021-08-13",
+    "sex": "Male",
+    "member_id": "537340514",
+    "patient_address": "6044 Washington Ave, West Haven, CT 06547",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ryan Thomas",
+    "subscriber_dob": "1990-11-29",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "1247590916",
+    "provider_phone": "(475) 304-9190",
+    "provider_fax": "(475) 239-9981",
+    "provider_email": "",
+    "provider_address": "1377 Valley Rd, New London, CT 06269",
+    "lab_name": "GeneDx",
+    "lab_npi": "5946093404",
+    "lab_address": "4067 Spring St, East Hartford, CT 06388",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-14",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-10",
+    "icd_codes": [
+      "Q39.0",
+      "Q39.1",
+      "Q61.5",
+      "Q66.89",
+      "F71",
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-17"
+    ],
+    "form_id": "0024b422-d31b-48b9-be94-3e75549ccde0",
+    "started_at": "2026-02-10T20:51:39.806Z"
+  },
+  "task_id": "3e811b91-b417-469e-98a5-30fde46b41d4",
+  "patient_id": "PAT-5972",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

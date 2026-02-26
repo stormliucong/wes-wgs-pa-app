@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:08:02.288554-05:00",
+  "payload": {
+    "patient_first_name": "Marina",
+    "patient_last_name": "Voss",
+    "patient_dob": "2022-07-18",
+    "sex": "Female",
+    "member_id": "859567502",
+    "patient_address": "6400 Center St, Bristol, CT 06352",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Jennifer Wilson",
+    "provider_npi": "4321668631",
+    "provider_phone": "860-555-0199",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "100 North Main St, Bristol, CT 06010",
+    "lab_name": "GeneDx",
+    "lab_npi": "1487632998",
+    "lab_address": "205 Perry Pkwy, Gaithersburg, MD 20877",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-01-15",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Jennifer Wilson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q61.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "040cc0de-9d9e-4b0e-a9c9-044f8bd5689d",
+    "started_at": "2026-02-25T04:01:25.927Z"
+  },
+  "task_id": "4c352c63-9220-4876-9cd6-ab3971ed0e6a",
+  "patient_id": "PAT-6078",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:54:41.951512-05:00",
+  "payload": {
+    "patient_first_name": "Hugo",
+    "patient_last_name": "Quarry",
+    "patient_dob": "2015-06-24",
+    "sex": "Male",
+    "member_id": "430793971",
+    "patient_address": "6823 Union St, Middletown, CT 06971",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Felix Quarry",
+    "subscriber_dob": "1981-04-16",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "9554133005",
+    "provider_phone": "9599589880",
+    "provider_fax": "8602168143",
+    "provider_email": "",
+    "provider_address": "2747 Union St, Greenwich, CT 06829",
+    "lab_name": "Ambry",
+    "lab_npi": "1808882589",
+    "lab_address": "4088 School St, Bridgeport, CT 06225",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R56.9",
+      "E72.20"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f1a4d516-71b4-4a84-abdf-e6215285469a",
+    "started_at": "2026-02-25T04:50:49.669Z"
+  },
+  "task_id": "b5725e12-7355-4acc-b287-184ed93b4bc0",
+  "patient_id": "PAT-8520",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

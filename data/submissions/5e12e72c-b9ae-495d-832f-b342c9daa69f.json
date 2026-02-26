@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:34:26.714178-05:00",
+  "payload": {
+    "patient_first_name": "Carol",
+    "patient_last_name": "Cooper",
+    "patient_dob": "2022-09-19",
+    "sex": "Female",
+    "member_id": "353180052",
+    "patient_address": "6058 Spring St, East Hartford, CT 06670",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Julie Cooper",
+    "subscriber_dob": "1997-12-19",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Dr. Sarah Smith",
+    "provider_npi": "1234567890",
+    "provider_phone": "5551234567",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "100 Medical Center Dr, Hartford, CT",
+    "lab_name": "Genomics Lab Inc.",
+    "lab_npi": "9876543210",
+    "lab_address": "500 Science Park, New Haven, CT",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "896e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "William Jones",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q89.9",
+      "F88"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5e12e72c-b9ae-495d-832f-b342c9daa69f",
+    "started_at": "2026-02-13T23:30:28.089Z"
+  },
+  "task_id": "b2220d0e-ac19-4aae-a45f-ed03f998a2c9",
+  "patient_id": "PAT-9517",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

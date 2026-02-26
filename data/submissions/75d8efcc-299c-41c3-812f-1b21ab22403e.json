@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:15:25.760441-05:00",
+  "payload": {
+    "patient_first_name": "Cora",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2011-11-15",
+    "sex": "Female",
+    "member_id": "774543724",
+    "patient_address": "8099 Valley Rd, Norwalk, CT 06736",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Griffin Whitaker",
+    "subscriber_dob": "1978-03-08",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "6821668212",
+    "provider_phone": "8606237927",
+    "provider_fax": "8606758813",
+    "provider_email": "",
+    "provider_address": "8100 Hill St, Milford, CT 06403",
+    "lab_name": "Invitae",
+    "lab_npi": "3400363766",
+    "lab_address": "1265 Hill St, Shelton, CT 06443",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-12",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q61.3",
+      "Q66.89",
+      "F72"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-28"
+    ],
+    "form_id": "75d8efcc-299c-41c3-812f-1b21ab22403e",
+    "started_at": "2026-02-25T21:09:30.100Z"
+  },
+  "task_id": "ab587b87-3114-4474-915c-207c0c583aba",
+  "patient_id": "PAT-4511",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

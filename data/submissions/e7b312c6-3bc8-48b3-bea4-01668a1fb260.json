@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-25T00:06:18.914641-05:00",
+  "payload": {
+    "patient_first_name": "Asher",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2019-07-01",
+    "sex": "Male",
+    "member_id": "462233898",
+    "patient_address": "5360 Mill St, Manchester, CT 06781",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Aria Yates",
+    "subscriber_dob": "1985-07-15",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "4199421268",
+    "provider_phone": "(959) 796-4687",
+    "provider_fax": "(860) 740-2368",
+    "provider_email": "",
+    "provider_address": "7343 Spring St, Torrington, CT 06814",
+    "lab_name": "GeneDx",
+    "lab_npi": "5542024346",
+    "lab_address": "6294 Park Rd, Hartford, CT 06405",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-25",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.2",
+      "Q22.1",
+      "F80.9",
+      "Q89.8",
+      "Q10.3"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-07"
+    ],
+    "form_id": "e7b312c6-3bc8-48b3-bea4-01668a1fb260",
+    "started_at": "2026-02-25T05:01:33.885Z"
+  },
+  "task_id": "497447f8-c516-4506-a426-1a0e0ecf5e1d",
+  "patient_id": "PAT-8444",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

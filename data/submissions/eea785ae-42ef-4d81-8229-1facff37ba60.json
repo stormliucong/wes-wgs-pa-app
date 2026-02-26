@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:09:14.752743-05:00",
+  "payload": {
+    "patient_first_name": "Colette",
+    "patient_last_name": "Ingram",
+    "patient_dob": "2022-07-09",
+    "sex": "Female",
+    "member_id": "235897052",
+    "patient_address": "9536 Church St, Norwich, CT 06283",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Maren Ingram",
+    "subscriber_dob": "1988-06-14",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "5258646614",
+    "provider_phone": "(860) 832-9536",
+    "provider_fax": "(860) 649-3822",
+    "provider_email": "",
+    "provider_address": "9609 Court St, Glastonbury, CT 06014",
+    "lab_name": "LabCorp",
+    "lab_npi": "9885191688",
+    "lab_address": "7755 Center St, Newington, CT 06188",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-09",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Acute injuries",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S01.01XA",
+      "T20.00XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "eea785ae-42ef-4d81-8229-1facff37ba60",
+    "started_at": "2026-02-25T05:04:29.053Z"
+  },
+  "task_id": "c30c4446-6766-4e1e-b830-f84b82e8ee66",
+  "patient_id": "PAT-9208",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

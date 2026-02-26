@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:41:37.976239-05:00",
+  "payload": {
+    "patient_first_name": "Piper",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2016-01-12",
+    "sex": "Female",
+    "member_id": "376225255",
+    "patient_address": "2163 North St, New Britain, CT 06867",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hazel Whitaker",
+    "subscriber_dob": "1981-06-28",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "9432636446",
+    "provider_phone": "(475) 801-1851",
+    "provider_fax": "(860) 269-9252",
+    "provider_email": "",
+    "provider_address": "6993 Broad St, Stratford, CT 06527",
+    "lab_name": "GeneDx",
+    "lab_npi": "1876618377",
+    "lab_address": "2041 West St, Stratford, CT 06383",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2025-09-20",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "896e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.9",
+      "E70.1",
+      "R27.0",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-01"
+    ],
+    "form_id": "78562d97-15ed-4969-8563-ca2e8dc22e08",
+    "started_at": "2026-02-25T04:37:12.934Z"
+  },
+  "task_id": "6d86f4a7-1f66-4041-9919-f281c00443e1",
+  "patient_id": "PAT-6730",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

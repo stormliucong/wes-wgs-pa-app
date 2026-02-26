@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:15:47.738300-05:00",
+  "payload": {
+    "patient_first_name": "Beckett",
+    "patient_last_name": "Caldwell",
+    "patient_dob": "2018-06-29",
+    "sex": "Male",
+    "member_id": "316209953",
+    "patient_address": "8381 Church St, Windsor, CT 06810",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ophelia Caldwell",
+    "subscriber_dob": "1984-03-15",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "3978286137",
+    "provider_phone": "9596033982",
+    "provider_fax": "9595522248",
+    "provider_email": "",
+    "provider_address": "6670 Broad St, Manchester, CT 06944",
+    "lab_name": "LabCorp",
+    "lab_npi": "6098738914",
+    "lab_address": "9678 Pleasant St, Shelton, CT 06037",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-10",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "F71",
+      "Q66.8",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "b51cb350-95a0-478c-ac40-37498e9df3f3",
+    "started_at": "2026-02-25T21:09:30.531Z"
+  },
+  "task_id": "a2e6b9a2-ce75-4986-bd6e-49d2a0d37638",
+  "patient_id": "PAT-9525",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:48:32.793254-05:00",
+  "payload": {
+    "patient_first_name": "Gemma",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2011-10-12",
+    "sex": "Female",
+    "member_id": "476948560",
+    "patient_address": "8791 South St, Hamden, CT 06573",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Sabrina Valentine",
+    "subscriber_dob": "1977-05-30",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "3981878319",
+    "provider_phone": "8603191484",
+    "provider_fax": "2034101445",
+    "provider_email": "",
+    "provider_address": "644 Main St, West Hartford, CT 06428",
+    "lab_name": "Ambry",
+    "lab_npi": "2742007161",
+    "lab_address": "2254 East St, Greenwich, CT 06469",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-10-14",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "R26.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-22"
+    ],
+    "form_id": "f4f18d65-0d1a-401e-838b-273a95bc8f64",
+    "started_at": "2026-02-25T04:44:13.783Z"
+  },
+  "task_id": "6e178ef7-eb68-4915-972f-416077e23604",
+  "patient_id": "PAT-9982",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

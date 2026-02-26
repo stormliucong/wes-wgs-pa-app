@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:48:10.282747-05:00",
+  "payload": {
+    "patient_first_name": "Alina",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2017-06-28",
+    "sex": "Female",
+    "member_id": "701298556",
+    "patient_address": "3132 Oak Ave, Meriden, CT 06914",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jocelyn Merrick",
+    "subscriber_dob": "1983-06-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "9203743613",
+    "provider_phone": "5555555555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Dr",
+    "lab_name": "Ambry",
+    "lab_npi": "3848160548",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-10-09",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "94cbd6cc-7b2e-448c-bf0f-d8bef6cbd197",
+    "started_at": "2026-02-25T04:45:01.717Z"
+  },
+  "task_id": "fb726df3-2888-45d2-b906-d7d29a5b8a95",
+  "patient_id": "PAT-4430",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

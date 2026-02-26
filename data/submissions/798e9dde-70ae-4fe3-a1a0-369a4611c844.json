@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:36:51.936233-05:00",
+  "payload": {
+    "patient_first_name": "Spencer",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2010-04-05",
+    "sex": "Male",
+    "member_id": "889267341",
+    "patient_address": "8441 Cedar St, Norwich, CT 06822",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Corbin Valentine",
+    "subscriber_dob": "2000-08-17",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "7658082473",
+    "provider_phone": "4759291003",
+    "provider_fax": "4757782175",
+    "provider_email": "",
+    "provider_address": "8271 Valley Rd, West Hartford, CT 06981",
+    "lab_name": "Invitae",
+    "lab_npi": "1606952651",
+    "lab_address": "4092 Cedar St, Norwalk, CT 06651",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-06",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.0",
+      "Q61.3",
+      "F72",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-17"
+    ],
+    "form_id": "798e9dde-70ae-4fe3-a1a0-369a4611c844",
+    "started_at": "2026-02-25T04:32:24.264Z"
+  },
+  "task_id": "dd14e0e1-cd26-4c66-a53b-8e1f040b34f0",
+  "patient_id": "PAT-8747",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

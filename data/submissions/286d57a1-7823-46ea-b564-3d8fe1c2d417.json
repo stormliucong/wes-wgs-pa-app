@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T16:21:21.673735-05:00",
+  "payload": {
+    "patient_first_name": "Luca",
+    "patient_last_name": "Lennox",
+    "patient_dob": "2016-03-10",
+    "sex": "Male",
+    "member_id": "465939377",
+    "patient_address": "2940 Maple St, Manchester, CT 06816",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Piper Lennox",
+    "subscriber_dob": "1982-11-12",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "6540034015",
+    "provider_phone": "9594348370",
+    "provider_fax": "9598752474",
+    "provider_email": "",
+    "provider_address": "2632 Church St, Greenwich, CT 06552",
+    "lab_name": "Invitae",
+    "lab_npi": "7840646668",
+    "lab_address": "2914 Water St, New Britain, CT 06859",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-09",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "G40.909",
+      "E72.11"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "286d57a1-7823-46ea-b564-3d8fe1c2d417",
+    "started_at": "2026-02-25T21:16:17.033Z"
+  },
+  "task_id": "941751bc-51fe-48d0-b232-97ab2c33ae6f",
+  "patient_id": "PAT-5503",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:54:30.630683-05:00",
+  "payload": {
+    "patient_first_name": "Isla",
+    "patient_last_name": "Kendrick",
+    "patient_dob": "2010-12-22",
+    "sex": "Female",
+    "member_id": "270435471",
+    "patient_address": "9845 Forest Ave, New Haven, CT 06456",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Callum Kendrick",
+    "subscriber_dob": "1977-02-02",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "9525999886",
+    "provider_phone": "(959) 349-1560",
+    "provider_fax": "(203) 561-6811",
+    "provider_email": "",
+    "provider_address": "9262 North St, Stratford, CT 06295",
+    "lab_name": "LabCorp",
+    "lab_npi": "8909454969",
+    "lab_address": "7249 Oak Ave, New Britain, CT 06389",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "6e01270d-d35e-4aa3-a63b-d178533f3064",
+    "started_at": "2026-02-25T04:50:34.081Z"
+  },
+  "task_id": "50490d2e-d1be-4635-b723-139b05b133f0",
+  "patient_id": "PAT-1061",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

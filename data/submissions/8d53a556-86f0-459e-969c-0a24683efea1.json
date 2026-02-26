@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T17:43:22.808431-05:00",
+  "payload": {
+    "patient_first_name": "Gregory",
+    "patient_last_name": "Taylor",
+    "patient_dob": "2010-08-16",
+    "sex": "Male",
+    "member_id": "467366850",
+    "patient_address": "7726 Church St, New London, CT 06098",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Edward Taylor",
+    "subscriber_dob": "1985-08-26",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "5349794624",
+    "provider_phone": "(959) 253-9594",
+    "provider_fax": "(203) 416-9632",
+    "provider_email": "",
+    "provider_address": "2541 Maple St, Newington, CT 06763",
+    "lab_name": "LabCorp",
+    "lab_npi": "4037246903",
+    "lab_address": "4648 Hill St, Bridgeport, CT 06199",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-10-23",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E73.0",
+      "G40.4"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-05-15"
+    ],
+    "form_id": "8d53a556-86f0-459e-969c-0a24683efea1",
+    "started_at": "2026-02-13T22:39:10.074Z"
+  },
+  "task_id": "96ee5aa8-dd83-4cf7-bfc9-372979b02997",
+  "patient_id": "PAT-6306",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

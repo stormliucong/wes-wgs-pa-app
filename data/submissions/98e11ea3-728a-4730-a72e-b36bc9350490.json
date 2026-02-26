@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:50:23.557595-05:00",
+  "payload": {
+    "patient_first_name": "Brooks",
+    "patient_last_name": "Darnell",
+    "patient_dob": "2021-11-26",
+    "sex": "Male",
+    "member_id": "848108135",
+    "patient_address": "6600 Meadow Ln, New Haven, CT 06512",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Cora Darnell",
+    "subscriber_dob": "1987-09-27",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "9410254832",
+    "provider_phone": "(475) 390-8252",
+    "provider_fax": "(959) 462-7345",
+    "provider_email": "",
+    "provider_address": "5957 East St, East Hartford, CT 06884",
+    "lab_name": "LabCorp",
+    "lab_npi": "7681214100",
+    "lab_address": "2024 Elm St, Danbury, CT 06872",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416, 81416"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.3",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "98e11ea3-728a-4730-a72e-b36bc9350490",
+    "started_at": "2026-02-25T04:46:14.802Z"
+  },
+  "task_id": "23410675-379c-4363-ab69-4fc4ca3418e1",
+  "patient_id": "PAT-1646",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

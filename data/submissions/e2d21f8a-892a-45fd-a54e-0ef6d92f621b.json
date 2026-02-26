@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:09:02.307708-05:00",
+  "payload": {
+    "patient_first_name": "Brooks",
+    "patient_last_name": "Yorke",
+    "patient_dob": "2023-02-07",
+    "sex": "Male",
+    "member_id": "431773800",
+    "patient_address": "6006 Spring St, Bristol, CT 06142",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Owen Yorke",
+    "subscriber_dob": "1988-06-03",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Betty Young",
+    "provider_npi": "7102975801",
+    "provider_phone": "(203) 764-2344",
+    "provider_fax": "(203) 501-5968",
+    "provider_email": "",
+    "provider_address": "6712 Highland Ave, Torrington, CT 06554",
+    "lab_name": "GeneDx",
+    "lab_npi": "9192660925",
+    "lab_address": "5019 East St, Norwalk, CT 06439",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-17",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "561a",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Concussion (no LOC), Accidental Penicillin Ingestion, Superficial Burn Head/Face",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Betty Young",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "T36.0X1A",
+      "T20.10XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e2d21f8a-892a-45fd-a54e-0ef6d92f621b",
+    "started_at": "2026-02-25T05:03:40.492Z"
+  },
+  "task_id": "e5c6018e-4e4a-4b9e-a906-e8df68ea8510",
+  "patient_id": "PAT-4259",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

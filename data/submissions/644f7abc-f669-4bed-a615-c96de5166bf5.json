@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:49:16.387833-05:00",
+  "payload": {
+    "patient_first_name": "Declan",
+    "patient_last_name": "Grafton",
+    "patient_dob": "2022-11-09",
+    "sex": "Male",
+    "member_id": "323476939",
+    "patient_address": "2112 Cedar St, Stratford, CT 06955",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Eden Grafton",
+    "subscriber_dob": "1988-04-03",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "8169440799",
+    "provider_phone": "2035401285",
+    "provider_fax": "9595799509",
+    "provider_email": "",
+    "provider_address": "988 Valley Rd, Shelton, CT 06999",
+    "lab_name": "Ambry",
+    "lab_npi": "1473716004",
+    "lab_address": "9530 Washington Ave, Bristol, CT 06313",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-08",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.49",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-09"
+    ],
+    "form_id": "644f7abc-f669-4bed-a615-c96de5166bf5",
+    "started_at": "2026-02-25T04:45:22.768Z"
+  },
+  "task_id": "7fab251d-c1ca-4eb1-9138-cd3caeb72c07",
+  "patient_id": "PAT-7341",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

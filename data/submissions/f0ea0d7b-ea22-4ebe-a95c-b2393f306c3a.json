@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-13T18:49:37.321758-05:00",
+  "payload": {
+    "patient_first_name": "George",
+    "patient_last_name": "Edwards",
+    "patient_dob": "2017-11-10",
+    "sex": "Male",
+    "member_id": "295302678",
+    "patient_address": "4143 Pleasant St, West Haven, CT 06484",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Linda Edwards",
+    "subscriber_dob": "1992-03-22",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "7939690643",
+    "provider_phone": "(959) 858-2704",
+    "provider_fax": "(203) 688-9657",
+    "provider_email": "",
+    "provider_address": "6462 Highland Ave, Stamford, CT 06104",
+    "lab_name": "Invitae",
+    "lab_npi": "3480068338",
+    "lab_address": "7795 South St, Stratford, CT 06166",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q17.2",
+      "Q67.0",
+      "Q66.9",
+      "F72"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-12"
+    ],
+    "form_id": "f0ea0d7b-ea22-4ebe-a95c-b2393f306c3a",
+    "started_at": "2026-02-13T23:45:41.124Z"
+  },
+  "task_id": "77c86387-0846-4cbc-8e6c-b79c53a82f23",
+  "patient_id": "PAT-8211",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

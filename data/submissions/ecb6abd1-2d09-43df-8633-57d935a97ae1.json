@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:20:28.135589-05:00",
+  "payload": {
+    "patient_first_name": "Laura",
+    "patient_last_name": "Wood",
+    "patient_dob": "2014-04-26",
+    "sex": "Female",
+    "member_id": "423748450",
+    "patient_address": "6554 River Rd, Norwich, CT 06718",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Katherine Wood",
+    "subscriber_dob": "1989-05-21",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "7316979352",
+    "provider_phone": "(959) 924-4620",
+    "provider_fax": "(203) 597-7022",
+    "provider_email": "",
+    "provider_address": "2805 Forest Ave, New Britain, CT 06011",
+    "lab_name": "Ambry",
+    "lab_npi": "9980886503",
+    "lab_address": "9612 Church St, West Haven, CT 06699",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-12-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E88.40",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-30"
+    ],
+    "form_id": "ecb6abd1-2d09-43df-8633-57d935a97ae1",
+    "started_at": "2026-02-13T23:16:19.240Z"
+  },
+  "task_id": "41dbf937-c64e-4f51-9192-7f6b7172019d",
+  "patient_id": "PAT-9331",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

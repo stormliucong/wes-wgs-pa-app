@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:54:55.575805-05:00",
+  "payload": {
+    "patient_first_name": "Hudson",
+    "patient_last_name": "Dalton",
+    "patient_dob": "2013-05-07",
+    "sex": "Male",
+    "member_id": "236921946",
+    "patient_address": "5916 Second St, Glastonbury, CT 06444",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Luca Dalton",
+    "subscriber_dob": "1979-12-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "2047344993",
+    "provider_phone": "(860) 966-4824",
+    "provider_fax": "(203) 416-9667",
+    "provider_email": "",
+    "provider_address": "9968 Washington Ave, Enfield, CT 06073",
+    "lab_name": "Invitae",
+    "lab_npi": "3993820023",
+    "lab_address": "9453 Church St, New Britain, CT 06675",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "50eac9b4-44bd-4d80-bbc4-b8810c73e42f",
+    "started_at": "2026-02-25T04:51:21.052Z"
+  },
+  "task_id": "7aa84410-eca7-41d0-8951-bf6ed2566efb",
+  "patient_id": "PAT-1380",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

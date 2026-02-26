@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-10T16:00:09.298686-05:00",
+  "payload": {
+    "patient_first_name": "Deborah",
+    "patient_last_name": "Moore",
+    "patient_dob": "2021-09-02",
+    "sex": "Female",
+    "member_id": "955113166",
+    "patient_address": "632 Washington Ave, Stamford, CT 06219",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Samuel Moore",
+    "subscriber_dob": "1990-11-09",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "7156945812",
+    "provider_phone": "8602025826",
+    "provider_fax": "2034586124",
+    "provider_email": "",
+    "provider_address": "5642 Elm St, New Haven, CT 06423",
+    "lab_name": "LabCorp",
+    "lab_npi": "3275162463",
+    "lab_address": "6413 Second St, Stamford, CT 06564",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-10",
+    "icd_codes": [
+      "S01.01",
+      "T20.0",
+      "T36.0X1"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "950da243-da24-45cd-ad8b-16dd9a3ea19e",
+    "started_at": "2026-02-10T20:55:45.311Z"
+  },
+  "task_id": "64559e9b-333c-4304-84bc-b0c7114906dd",
+  "patient_id": "PAT-3094",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

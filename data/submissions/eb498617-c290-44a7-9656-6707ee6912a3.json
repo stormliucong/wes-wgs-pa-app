@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-10T16:03:35.245765-05:00",
+  "payload": {
+    "patient_first_name": "Helen",
+    "patient_last_name": "Edwards",
+    "patient_dob": "2017-11-30",
+    "sex": "Female",
+    "member_id": "331333294",
+    "patient_address": "9638 Broad St, Stamford, CT 06536",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Steven Edwards",
+    "subscriber_dob": "1986-09-26",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "7784954284",
+    "provider_phone": "(959) 282-3540",
+    "provider_fax": "(860) 340-3716",
+    "provider_email": "",
+    "provider_address": "7391 North St, Trumbull, CT 06424",
+    "lab_name": "Ambry",
+    "lab_npi": "3504438540",
+    "lab_address": "1526 River Rd, Glastonbury, CT 06557",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-27",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Helen Edwards is a 8-year-old female seen following an acute head injury consistent with concussion without loss of consciousness.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-10",
+    "icd_codes": [
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "eb498617-c290-44a7-9656-6707ee6912a3",
+    "started_at": "2026-02-10T20:57:43.370Z"
+  },
+  "task_id": "b1a92ba1-15f0-4fe8-9418-7f8147909ffa",
+  "patient_id": "PAT-1368",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

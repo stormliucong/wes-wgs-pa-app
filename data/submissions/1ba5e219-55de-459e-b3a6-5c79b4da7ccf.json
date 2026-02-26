@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:00:54.219987-05:00",
+  "payload": {
+    "patient_first_name": "Aria",
+    "patient_last_name": "Yates",
+    "patient_dob": "2018-10-18",
+    "sex": "Female",
+    "member_id": "728905178",
+    "patient_address": "285 Union St, New Haven, CT 06529",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Maya Yates",
+    "subscriber_dob": "1984-08-31",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "7689196409",
+    "provider_phone": "4759817031",
+    "provider_fax": "8608122761",
+    "provider_email": "",
+    "provider_address": "474 Oak Ave, Enfield, CT 06429",
+    "lab_name": "Invitae",
+    "lab_npi": "7545785471",
+    "lab_address": "3097 Water St, Meriden, CT 06738",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-01",
+    "cpt_codes": [
+      "81415, 81416×2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "F72",
+      "Q67.3",
+      "Q89.9"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-17"
+    ],
+    "form_id": "1ba5e219-55de-459e-b3a6-5c79b4da7ccf",
+    "started_at": "2026-02-25T04:56:18.400Z"
+  },
+  "task_id": "627cedeb-c5bc-44ae-aa65-73344e83957f",
+  "patient_id": "PAT-8712",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

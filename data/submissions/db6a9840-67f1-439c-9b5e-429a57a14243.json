@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:05:16.097242-05:00",
+  "payload": {
+    "patient_first_name": "Atticus",
+    "patient_last_name": "Brant",
+    "patient_dob": "2010-07-30",
+    "sex": "Male",
+    "member_id": "889363727",
+    "patient_address": "9724 School St, Shelton, CT 06637",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jocelyn Brant",
+    "subscriber_dob": "1976-12-21",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "7998339495",
+    "provider_phone": "(475) 653-1839",
+    "provider_fax": "(203) 619-2556",
+    "provider_email": "",
+    "provider_address": "4258 West St, Hartford, CT 06508",
+    "lab_name": "LabCorp",
+    "lab_npi": "5750753426",
+    "lab_address": "4444 South St, Newington, CT 06469",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81425, 81426x2"
+    ],
+    "internal_test_code": "WGS001",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q22.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-29"
+    ],
+    "form_id": "db6a9840-67f1-439c-9b5e-429a57a14243",
+    "started_at": "2026-02-25T04:01:35.567Z"
+  },
+  "task_id": "e96ac95c-9859-4d78-8e45-344131d3f487",
+  "patient_id": "PAT-4276",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-25T00:07:35.725695-05:00",
+  "payload": {
+    "patient_first_name": "Aurora",
+    "patient_last_name": "Fenwick",
+    "patient_dob": "2016-01-02",
+    "sex": "Female",
+    "member_id": "606446474",
+    "patient_address": "3071 Meadow Ln, Newington, CT 06992",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Willow Fenwick",
+    "subscriber_dob": "1981-12-27",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "8589288740",
+    "provider_phone": "5555555555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Dr",
+    "lab_name": "Ambry",
+    "lab_npi": "9876543210",
+    "lab_address": "1 Enterprise, Aliso Viejo, CA 92656",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-01-15",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES-001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R62.50"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2023-10-15"
+    ],
+    "form_id": "78c73114-3378-46d0-8dea-02686560e61a",
+    "started_at": "2026-02-25T05:04:28.023Z"
+  },
+  "task_id": "99ee9904-9954-4dc7-a9c5-c829bc8c1d75",
+  "patient_id": "PAT-2148",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:05:41.991447-05:00",
+  "payload": {
+    "patient_first_name": "Hudson",
+    "patient_last_name": "Yorke",
+    "patient_dob": "2018-10-23",
+    "sex": "Male",
+    "member_id": "724714139",
+    "patient_address": "1538 Church St, New London, CT 06574",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Leona Yorke",
+    "subscriber_dob": "1984-12-07",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "David Brown",
+    "provider_npi": "5509583926",
+    "provider_phone": "4752473577",
+    "provider_fax": "2035179176",
+    "provider_email": "",
+    "provider_address": "3239 East St, West Hartford, CT 06602",
+    "lab_name": "LabCorp",
+    "lab_npi": "3311145319",
+    "lab_address": "9822 Washington Ave, Windsor, CT 06697",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-29",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.19",
+      "Q75.9",
+      "Q87.9",
+      "R62.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-01"
+    ],
+    "form_id": "e65094e7-833f-4149-a820-96d78847f332",
+    "started_at": "2026-02-25T05:00:35.933Z"
+  },
+  "task_id": "1e1e0b90-1731-498f-84af-633e8a7b68a4",
+  "patient_id": "PAT-3809",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

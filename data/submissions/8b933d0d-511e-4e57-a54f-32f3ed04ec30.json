@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:09:13.949331-05:00",
+  "payload": {
+    "patient_first_name": "Leona",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2017-05-12",
+    "sex": "Female",
+    "member_id": "496484298",
+    "patient_address": "5115 Union St, Glastonbury, CT 06077",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nolan Valentine",
+    "subscriber_dob": "1983-09-30",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "8019116467",
+    "provider_phone": "9595347332",
+    "provider_fax": "9597633677",
+    "provider_email": "",
+    "provider_address": "4169 Forest Ave, Windsor, CT 06378",
+    "lab_name": "GeneDx",
+    "lab_npi": "3695721679",
+    "lab_address": "9756 West St, Windsor, CT 06777",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81425×1, 81426×1"
+    ],
+    "internal_test_code": "TH78e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Leona Valentine is an 8-year-old female seen after an acute injury with an open wound of the scalp and a burn involving the head/face/neck region.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S01.00XA",
+      "T20.00XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "8b933d0d-511e-4e57-a54f-32f3ed04ec30",
+    "started_at": "2026-02-25T05:03:47.801Z"
+  },
+  "task_id": "b5af6837-1f29-46d7-9b60-3380411d2403",
+  "patient_id": "PAT-8670",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

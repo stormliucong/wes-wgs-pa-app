@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-13T18:49:35.153919-05:00",
+  "payload": {
+    "patient_first_name": "Matthew",
+    "patient_last_name": "Clark",
+    "patient_dob": "2019-04-19",
+    "sex": "Male",
+    "member_id": "263218330",
+    "patient_address": "4610 Broad St, New London, CT 06219",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kimberly Clark",
+    "subscriber_dob": "1994-12-28",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "2223392856",
+    "provider_phone": "2037712865",
+    "provider_fax": "9595371482",
+    "provider_email": "",
+    "provider_address": "6669 Broad St, Middletown, CT 06225",
+    "lab_name": "GeneDx",
+    "lab_npi": "1328114483",
+    "lab_address": "7123 Park Rd, New Britain, CT 06866",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "J744e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q04.0",
+      "R62.0",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-12"
+    ],
+    "form_id": "8cd4bd5b-dbc6-4166-b7ca-8de0259d3894",
+    "started_at": "2026-02-13T23:43:53.996Z"
+  },
+  "task_id": "a585cb47-a9aa-4bcc-b6c2-81f260c2757e",
+  "patient_id": "PAT-3936",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

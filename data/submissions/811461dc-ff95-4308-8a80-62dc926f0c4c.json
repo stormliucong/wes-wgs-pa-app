@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-25T00:05:23.143304-05:00",
+  "payload": {
+    "patient_first_name": "Griffin",
+    "patient_last_name": "Granger",
+    "patient_dob": "2020-02-09",
+    "sex": "Male",
+    "member_id": "293803664",
+    "patient_address": "4982 River Rd, Glastonbury, CT 06310",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Leona Granger",
+    "subscriber_dob": "1986-01-29",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Family Member",
+    "provider_name": "Sandra King",
+    "provider_npi": "4468344137",
+    "provider_phone": "8603357106",
+    "provider_fax": "8607831898",
+    "provider_email": "",
+    "provider_address": "3996 Sunset Ave, Windsor, CT 06979",
+    "lab_name": "LabCorp",
+    "lab_npi": "6027443847",
+    "lab_address": "8560 Highland Ave, Norwalk, CT 06919",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-09",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.0",
+      "Q67.3",
+      "Q67.0",
+      "Q17.4",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-15"
+    ],
+    "form_id": "811461dc-ff95-4308-8a80-62dc926f0c4c",
+    "started_at": "2026-02-25T04:59:22.694Z"
+  },
+  "task_id": "a2c97efe-4381-4c3e-a030-00bf64d6133f",
+  "patient_id": "PAT-1334",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

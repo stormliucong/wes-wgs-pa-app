@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:42:39.226155-05:00",
+  "payload": {
+    "patient_first_name": "Brady",
+    "patient_last_name": "Norwood",
+    "patient_dob": "2015-11-03",
+    "sex": "Male",
+    "member_id": "505054883",
+    "patient_address": "869 Park Rd, Trumbull, CT 06768",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Skye Norwood",
+    "subscriber_dob": "1981-12-27",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "4817721350",
+    "provider_phone": "(475) 983-5960",
+    "provider_fax": "(203) 232-1636",
+    "provider_email": "",
+    "provider_address": "5172 River Rd, Hartford, CT 06080",
+    "lab_name": "GeneDx",
+    "lab_npi": "2901662005",
+    "lab_address": "3002 North St, Middletown, CT 06565",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-10-05",
+    "cpt_codes": [
+      "81425×1, 81426×1"
+    ],
+    "internal_test_code": "J744e",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.21",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-14"
+    ],
+    "form_id": "60128836-5c1e-428f-877c-34e4fc231ae3",
+    "started_at": "2026-02-25T04:37:47.988Z"
+  },
+  "task_id": "92edc159-4637-4d3f-8081-df1efbf99661",
+  "patient_id": "PAT-9145",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

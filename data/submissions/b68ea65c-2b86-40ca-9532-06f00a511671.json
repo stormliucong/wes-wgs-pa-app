@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:00:15.426385-05:00",
+  "payload": {
+    "patient_first_name": "Mina",
+    "patient_last_name": "Ellery",
+    "patient_dob": "2013-01-31",
+    "sex": "Female",
+    "member_id": "885107486",
+    "patient_address": "9768 High St, Norwalk, CT 06376",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Emmett Ellery",
+    "subscriber_dob": "1978-11-17",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "4806136527",
+    "provider_phone": "(475) 280-2337",
+    "provider_fax": "(203) 787-9119",
+    "provider_email": "",
+    "provider_address": "8644 Union St, Torrington, CT 06957",
+    "lab_name": "LabCorp",
+    "lab_npi": "8577189168",
+    "lab_address": "3157 Center St, Middletown, CT 06642",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-25",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q75.8",
+      "Q66.89",
+      "F72"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-23"
+    ],
+    "form_id": "b68ea65c-2b86-40ca-9532-06f00a511671",
+    "started_at": "2026-02-25T04:55:41.227Z"
+  },
+  "task_id": "43777e3c-0aa8-4ca3-85ca-3ee579ad0863",
+  "patient_id": "PAT-5445",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

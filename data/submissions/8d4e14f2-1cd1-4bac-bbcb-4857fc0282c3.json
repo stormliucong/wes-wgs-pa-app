@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:00:57.029807-05:00",
+  "payload": {
+    "patient_first_name": "Ophelia",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2018-01-15",
+    "sex": "Female",
+    "member_id": "659370452",
+    "patient_address": "1385 Union St, New Haven, CT 06750",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Freya Whitaker",
+    "subscriber_dob": "1983-05-11",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "9503658679",
+    "provider_phone": "9593943016",
+    "provider_fax": "8603566749",
+    "provider_email": "",
+    "provider_address": "6978 Washington Ave, Glastonbury, CT 06000",
+    "lab_name": "GeneDx",
+    "lab_npi": "2417567095",
+    "lab_address": "7931 Valley Rd, New Haven, CT 06381",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-23",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.0",
+      "Q04.1"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-13"
+    ],
+    "form_id": "8d4e14f2-1cd1-4bac-bbcb-4857fc0282c3",
+    "started_at": "2026-02-25T03:56:03.309Z"
+  },
+  "task_id": "2a459ac2-9598-4299-b3d8-4d66c2a49b3e",
+  "patient_id": "PAT-9800",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

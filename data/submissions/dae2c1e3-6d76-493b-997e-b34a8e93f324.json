@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:00:43.359830-05:00",
+  "payload": {
+    "patient_first_name": "Kaia",
+    "patient_last_name": "Harlan",
+    "patient_dob": "2018-11-14",
+    "sex": "Female",
+    "member_id": "297123946",
+    "patient_address": "772 School St, Norwich, CT 06202",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kieran Harlan",
+    "subscriber_dob": "1984-04-03",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "4573865905",
+    "provider_phone": "(959) 262-8365",
+    "provider_fax": "(959) 735-7121",
+    "provider_email": "",
+    "provider_address": "855 Franklin St, Bristol, CT 06558",
+    "lab_name": "Ambry",
+    "lab_npi": "3233528238",
+    "lab_address": "5773 State St, Hartford, CT 06449",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-09",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q67.0",
+      "Q67.3",
+      "Q39.0",
+      "Q61.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "dae2c1e3-6d76-493b-997e-b34a8e93f324",
+    "started_at": "2026-02-25T04:56:49.632Z"
+  },
+  "task_id": "337f081b-89eb-4c0b-85e5-8085f5e7aeea",
+  "patient_id": "PAT-3892",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

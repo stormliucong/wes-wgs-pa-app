@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-17T14:11:49.866465-05:00",
+  "payload": {
+    "patient_first_name": "Nicole",
+    "patient_last_name": "Richardson",
+    "patient_dob": "2016-08-15",
+    "sex": "Female",
+    "member_id": "803546735",
+    "patient_address": "9129 West St, West Hartford, CT 06961",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Diane Richardson",
+    "subscriber_dob": "1991-11-27",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "1013055543",
+    "provider_phone": "9593188826",
+    "provider_fax": "2038208859",
+    "provider_email": "",
+    "provider_address": "3480 High St, New Haven, CT 06038",
+    "lab_name": "Invitae",
+    "lab_npi": "7449543686",
+    "lab_address": "521 Sunset Ave, Norwich, CT 06119",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-29",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "P94.2",
+      "E87.2",
+      "Z84.3",
+      "S06.0",
+      "T30.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "988dc8f9-4ea1-4f9d-8078-9fef678e6d86",
+    "started_at": "2026-02-17T19:05:57.301Z"
+  },
+  "task_id": "d8cb20ce-c9ea-4aac-a440-92a5a8da2a6c",
+  "patient_id": "PAT-1696",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:12:29.158093-05:00",
+  "payload": {
+    "patient_first_name": "Nolan",
+    "patient_last_name": "Quinlan",
+    "patient_dob": "2014-02-02",
+    "sex": "Male",
+    "member_id": "800712535",
+    "patient_address": "7772 School St, Meriden, CT 06863",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Vivienne Quinlan",
+    "subscriber_dob": "1979-09-13",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Susan Clark",
+    "provider_npi": "2505815030",
+    "provider_phone": "(475) 470-2236",
+    "provider_fax": "(475) 625-5408",
+    "provider_email": "",
+    "provider_address": "4436 Franklin St, New Britain, CT 06072",
+    "lab_name": "LabCorp",
+    "lab_npi": "5504469777",
+    "lab_address": "6700 South St, West Hartford, CT 06602",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient suffered head injury with scalp laceration and concussion following accidental ingestion of penicillin-class antibiotic.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S01.01XA",
+      "S06.0X0A",
+      "T36.0X1A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "ee16eb87-9c62-4305-bc41-78e146ef04de",
+    "started_at": "2026-02-25T05:08:22.571Z"
+  },
+  "task_id": "0edf0cec-0446-47bc-a5b6-1a2cd965d3e2",
+  "patient_id": "PAT-9184",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

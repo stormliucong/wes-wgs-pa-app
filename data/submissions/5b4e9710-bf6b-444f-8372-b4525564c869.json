@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-25T16:17:14.556575-05:00",
+  "payload": {
+    "patient_first_name": "Luca",
+    "patient_last_name": "Harlan",
+    "patient_dob": "2017-03-10",
+    "sex": "Female",
+    "member_id": "967192392",
+    "patient_address": "6219 West St, West Hartford, CT 06439",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Celeste Harlan",
+    "subscriber_dob": "1983-08-26",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "9164767670",
+    "provider_phone": "(860) 541-8828",
+    "provider_fax": "(475) 202-4388",
+    "provider_email": "",
+    "provider_address": "8301 East St, Glastonbury, CT 06496",
+    "lab_name": "Invitae",
+    "lab_npi": "9065078490",
+    "lab_address": "2683 High St, New Britain, CT 06556",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q61.3",
+      "Q66.89",
+      "F80.9",
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-19"
+    ],
+    "form_id": "5b4e9710-bf6b-444f-8372-b4525564c869",
+    "started_at": "2026-02-25T21:09:36.681Z"
+  },
+  "task_id": "eb23e71c-968d-4e8b-ba70-59e198c1c9d1",
+  "patient_id": "PAT-2167",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:00:11.316972-05:00",
+  "payload": {
+    "patient_first_name": "Soren",
+    "patient_last_name": "Hadley",
+    "patient_dob": "2017-03-22",
+    "sex": "Male",
+    "member_id": "654588348",
+    "patient_address": "9682 Meadow Ln, Shelton, CT 06631",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Theo Hadley",
+    "subscriber_dob": "1983-10-21",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "3233622048",
+    "provider_phone": "(475) 314-8475",
+    "provider_fax": "(860) 479-2145",
+    "provider_email": "",
+    "provider_address": "5075 Court St, Meriden, CT 06015",
+    "lab_name": "LabCorp",
+    "lab_npi": "8997025854",
+    "lab_address": "993 Center St, New Haven, CT 06944",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-17",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q10.3",
+      "Q67.4",
+      "F80.9",
+      "Q61.2"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-05-10"
+    ],
+    "form_id": "7155c67e-3176-4877-b0ef-992302c50fbc",
+    "started_at": "2026-02-25T04:55:47.999Z"
+  },
+  "task_id": "4ee16ad2-d993-4e88-adbb-cbd08cfb9a88",
+  "patient_id": "PAT-8205",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

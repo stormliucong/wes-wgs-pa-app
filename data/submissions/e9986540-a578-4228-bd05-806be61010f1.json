@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:58:48.631180-05:00",
+  "payload": {
+    "patient_first_name": "Gemma",
+    "patient_last_name": "Granger",
+    "patient_dob": "2010-07-02",
+    "sex": "Female",
+    "member_id": "243943780",
+    "patient_address": "9258 North St, Norwich, CT 06165",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Spencer Granger",
+    "subscriber_dob": "1976-08-26",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "6813850328",
+    "provider_phone": "(475) 809-2181",
+    "provider_fax": "(860) 753-9650",
+    "provider_email": "",
+    "provider_address": "7528 Broad St, East Hartford, CT 06316",
+    "lab_name": "Ambry",
+    "lab_npi": "9368810902",
+    "lab_address": "2015 Park Rd, Torrington, CT 06923",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e9986540-a578-4228-bd05-806be61010f1",
+    "started_at": "2026-02-25T04:55:12.783Z"
+  },
+  "task_id": "b64b59bb-fdaf-45d5-8c34-f131f1777e1e",
+  "patient_id": "PAT-1883",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

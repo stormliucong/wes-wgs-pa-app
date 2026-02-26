@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:40:24.562831-05:00",
+  "payload": {
+    "patient_first_name": "Aria",
+    "patient_last_name": "Radcliffe",
+    "patient_dob": "2012-04-04",
+    "sex": "Female",
+    "member_id": "695239306",
+    "patient_address": "2607 Center St, Torrington, CT 06965",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kaia Radcliffe",
+    "subscriber_dob": "2000-04-01",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "9290189433",
+    "provider_phone": "(475) 663-7443",
+    "provider_fax": "(203) 883-1090",
+    "provider_email": "",
+    "provider_address": "8389 Second St, West Haven, CT 06331",
+    "lab_name": "Ambry",
+    "lab_npi": "3824191636",
+    "lab_address": "3709 Spring St, Meriden, CT 06222",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-09",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R79.89",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "abcb854c-b56f-4877-b531-5636454b25a9",
+    "started_at": "2026-02-25T04:36:41.221Z"
+  },
+  "task_id": "b3dbbc37-0a87-4b91-b59f-8e3241e75c6c",
+  "patient_id": "PAT-7454",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

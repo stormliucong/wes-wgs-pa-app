@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:16:25.096272-05:00",
+  "payload": {
+    "patient_first_name": "Dawson",
+    "patient_last_name": "Bramwell",
+    "patient_dob": "2015-10-29",
+    "sex": "Male",
+    "member_id": "462702603",
+    "patient_address": "7982 State St, East Hartford, CT 06962",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Beckett Bramwell",
+    "subscriber_dob": "1981-04-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "7447553211",
+    "provider_phone": "8608966754",
+    "provider_fax": "4756164729",
+    "provider_email": "",
+    "provider_address": "3036 Highland Ave, Enfield, CT 06950",
+    "lab_name": "Invitae",
+    "lab_npi": "2347275385",
+    "lab_address": "8195 Sunset Ave, West Hartford, CT 06322",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-22",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.0",
+      "Q21.10",
+      "F80.9",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d4d5e8ed-7a8e-4a1a-a8b0-fcfccb2428da",
+    "started_at": "2026-02-25T21:09:22.204Z"
+  },
+  "task_id": "183a8832-531d-483f-9d6e-27978a4fdcad",
+  "patient_id": "PAT-4072",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

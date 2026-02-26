@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:00:19.065998-05:00",
+  "payload": {
+    "patient_first_name": "Arlo",
+    "patient_last_name": "Yates",
+    "patient_dob": "2012-09-16",
+    "sex": "Male",
+    "member_id": "983023472",
+    "patient_address": "2072 West St, Torrington, CT 06672",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Anya Yates",
+    "subscriber_dob": "1978-12-03",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "9154881961",
+    "provider_phone": "9599207641",
+    "provider_fax": "9592256100",
+    "provider_email": "",
+    "provider_address": "1982 Valley Rd, Bridgeport, CT 06780",
+    "lab_name": "GeneDx",
+    "lab_npi": "7797458494",
+    "lab_address": "8708 Pine St, Trumbull, CT 06809",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-24",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.3",
+      "Q67.3",
+      "R62.50"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-03"
+    ],
+    "form_id": "47c39c8d-59d9-4520-b6df-b11708fb1b19",
+    "started_at": "2026-02-25T03:55:33.255Z"
+  },
+  "task_id": "c8b7f288-04cd-4c5b-848f-cd5d5222c5b4",
+  "patient_id": "PAT-1463",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

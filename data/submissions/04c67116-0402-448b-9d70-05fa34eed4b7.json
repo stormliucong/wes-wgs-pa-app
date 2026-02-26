@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:14:43.106408-05:00",
+  "payload": {
+    "patient_first_name": "Brooks",
+    "patient_last_name": "Fairmont",
+    "patient_dob": "2020-11-12",
+    "sex": "Male",
+    "member_id": "549938693",
+    "patient_address": "4681 River Rd, New Haven, CT 06678",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Eliana Fairmont",
+    "subscriber_dob": "1986-03-12",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "1368486693",
+    "provider_phone": "(203) 650-3826",
+    "provider_fax": "(959) 895-2393",
+    "provider_email": "",
+    "provider_address": "5716 Franklin St, Shelton, CT 06294",
+    "lab_name": "GeneDx",
+    "lab_npi": "4376968122",
+    "lab_address": "1281 Union St, New London, CT 06673",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-25",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "J744e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient seen following acute head/facial injury. Concussion without loss of consciousness, open scalp laceration, and superficial burn of head/face/neck. No family history or prior genetic testing reported.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "S01.01XA",
+      "T20.10XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "04c67116-0402-448b-9d70-05fa34eed4b7",
+    "started_at": "2026-02-25T05:09:54.952Z"
+  },
+  "task_id": "477e9d2a-33c6-429d-beae-d1cba80d11d3",
+  "patient_id": "PAT-4422",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-17T14:53:31.916541-05:00",
+  "payload": {
+    "patient_first_name": "Karen",
+    "patient_last_name": "Anderson",
+    "patient_dob": "2022-08-27",
+    "sex": "Female",
+    "member_id": "663570400",
+    "patient_address": "123 Main St",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Dr. Smith",
+    "provider_npi": "1234567890",
+    "provider_phone": "5555555555",
+    "provider_fax": "5555555556",
+    "provider_email": "drsmith@example.com",
+    "provider_address": "456 Medical Blvd",
+    "lab_name": "Genomics Lab Inc.",
+    "lab_npi": "0987654321",
+    "lab_address": "789 Lab Lane",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-01-15",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES-001",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Dr. Smith",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "R62.50"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "200f6a1b-891b-494a-9539-c775885189be",
+    "started_at": "2026-02-17T19:50:37.163Z"
+  },
+  "task_id": "c492f628-af8c-4966-a041-e24b48d66e83",
+  "patient_id": "PAT-1085",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

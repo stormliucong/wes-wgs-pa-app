@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-13T18:13:40.430316-05:00",
+  "payload": {
+    "patient_first_name": "Donald",
+    "patient_last_name": "Wood",
+    "patient_dob": "2014-03-22",
+    "sex": "Male",
+    "member_id": "174698656",
+    "patient_address": "4899 Elm St, Trumbull, CT 06030",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Anthony Wood",
+    "subscriber_dob": "1989-04-16",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "6417576770",
+    "provider_phone": "4756088437",
+    "provider_fax": "2034059233",
+    "provider_email": "",
+    "provider_address": "7437 High St, Bridgeport, CT 06862",
+    "lab_name": "GeneDx",
+    "lab_npi": "1047275021",
+    "lab_address": "5603 High St, Shelton, CT 06723",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2025-11-14",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "TH78a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q04.0",
+      "Q22.0",
+      "Q61.2",
+      "F72",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-23"
+    ],
+    "form_id": "a65dea21-283e-41df-95d1-ed186abfeb5f",
+    "started_at": "2026-02-13T23:08:54.191Z"
+  },
+  "task_id": "7e960c05-0721-40f6-a454-f0b8558c19ec",
+  "patient_id": "PAT-7239",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

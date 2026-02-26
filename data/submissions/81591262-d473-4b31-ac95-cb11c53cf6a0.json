@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-24T23:50:30.242749-05:00",
+  "payload": {
+    "patient_first_name": "Soren",
+    "patient_last_name": "Huxley",
+    "patient_dob": "2022-09-04",
+    "sex": "Male",
+    "member_id": "476383997",
+    "patient_address": "8663 Union St, Waterbury, CT 06946",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Brooks Huxley",
+    "subscriber_dob": "1989-02-09",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "7302022901",
+    "provider_phone": "2036602089",
+    "provider_fax": "4757814607",
+    "provider_email": "",
+    "provider_address": "3008 Court St, Stratford, CT 06283",
+    "lab_name": "LabCorp",
+    "lab_npi": "4073006070",
+    "lab_address": "9564 Main St, Danbury, CT 06724",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-22",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003X",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q04.0",
+      "Q15.9",
+      "R27.0",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-24"
+    ],
+    "form_id": "81591262-d473-4b31-ac95-cb11c53cf6a0",
+    "started_at": "2026-02-25T04:45:11.050Z"
+  },
+  "task_id": "5aafd8e5-0f81-4c3b-9c5e-070218ccef25",
+  "patient_id": "PAT-1612",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

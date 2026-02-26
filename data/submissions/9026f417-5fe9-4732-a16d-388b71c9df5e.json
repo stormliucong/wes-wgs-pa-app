@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:50:13.835652-05:00",
+  "payload": {
+    "patient_first_name": "Daphne",
+    "patient_last_name": "Alder",
+    "patient_dob": "2020-11-20",
+    "sex": "Female",
+    "member_id": "198877013",
+    "patient_address": "5399 Sunset Ave, Middletown, CT 06181",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Emery Alder",
+    "subscriber_dob": "1987-01-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "9838847880",
+    "provider_phone": "4755712803",
+    "provider_fax": "4758442561",
+    "provider_email": "",
+    "provider_address": "5210 Maple St, Waterbury, CT 06090",
+    "lab_name": "LabCorp",
+    "lab_npi": "4535476467",
+    "lab_address": "165 Spring St, Norwich, CT 06748",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-09-17",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620022",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "G40.309"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-24"
+    ],
+    "form_id": "9026f417-5fe9-4732-a16d-388b71c9df5e",
+    "started_at": "2026-02-25T04:45:17.644Z"
+  },
+  "task_id": "13521b61-91de-45e1-8637-5c6aa546b422",
+  "patient_id": "PAT-4647",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

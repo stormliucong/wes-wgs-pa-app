@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:00:42.559033-05:00",
+  "payload": {
+    "patient_first_name": "Cora",
+    "patient_last_name": "Quarry",
+    "patient_dob": "2014-05-25",
+    "sex": "Female",
+    "member_id": "965688293",
+    "patient_address": "677 Hill St, Bristol, CT 06535",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Eden Quarry",
+    "subscriber_dob": "1980-10-06",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "3289140073",
+    "provider_phone": "8602542202",
+    "provider_fax": "4757037939",
+    "provider_email": "",
+    "provider_address": "8877 West St, Meriden, CT 06191",
+    "lab_name": "GeneDx",
+    "lab_npi": "3714631775",
+    "lab_address": "1285 Second St, Newington, CT 06920",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-21",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "896e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.0",
+      "F72",
+      "Q61.2",
+      "Q16.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-25"
+    ],
+    "form_id": "34647a66-b7aa-4ded-aed5-f9b1ed2f7d2b",
+    "started_at": "2026-02-25T03:55:50.870Z"
+  },
+  "task_id": "be75c8a0-1a02-414f-97f2-704c5535a8e2",
+  "patient_id": "PAT-3522",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:19:58.308614-05:00",
+  "payload": {
+    "patient_first_name": "Malcolm",
+    "patient_last_name": "Darnell",
+    "patient_dob": "2012-07-15",
+    "sex": "Female",
+    "member_id": "458446884",
+    "patient_address": "1435 State St, Shelton, CT 06951",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elias Darnell",
+    "subscriber_dob": "1978-05-18",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "6838181447",
+    "provider_phone": "2034722987",
+    "provider_fax": "2039605180",
+    "provider_email": "",
+    "provider_address": "1572 High St, New Haven, CT 06368",
+    "lab_name": "Invitae",
+    "lab_npi": "5594826079",
+    "lab_address": "5228 Pine St, Stamford, CT 06646",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-18",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.0",
+      "F71",
+      "Q66",
+      "Q87"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-04"
+    ],
+    "form_id": "d4dd8823-060d-40f7-baf1-2acfb654dd03",
+    "started_at": "2026-02-25T21:15:23.823Z"
+  },
+  "task_id": "1a6b6d54-605d-410c-8942-35ba9211f837",
+  "patient_id": "PAT-7726",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

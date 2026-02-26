@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:00:54.365254-05:00",
+  "payload": {
+    "patient_first_name": "Gavin",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2019-08-12",
+    "sex": "Male",
+    "member_id": "645206601",
+    "patient_address": "2564 River Rd, Greenwich, CT 06992",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Corbin Valentine",
+    "subscriber_dob": "1985-05-20",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "1551649921",
+    "provider_phone": "(475) 929-1241",
+    "provider_fax": "(860) 354-7094",
+    "provider_email": "",
+    "provider_address": "9806 Oak Ave, Hamden, CT 06244",
+    "lab_name": "GeneDx",
+    "lab_npi": "3012510656",
+    "lab_address": "6861 Pleasant St, Hartford, CT 06516",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-15",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "896e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E87.2",
+      "R27.8",
+      "Z84.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "6b9e0e46-9574-4e4b-acad-47a4a8040581",
+    "started_at": "2026-02-25T03:56:04.523Z"
+  },
+  "task_id": "ac81e2fc-785a-4dd1-88ea-6a46a331d679",
+  "patient_id": "PAT-9310",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

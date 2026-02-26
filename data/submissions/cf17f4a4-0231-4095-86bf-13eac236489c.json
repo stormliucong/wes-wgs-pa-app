@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:06:48.631664-05:00",
+  "payload": {
+    "patient_first_name": "Corbin",
+    "patient_last_name": "Ulrich",
+    "patient_dob": "2020-06-29",
+    "sex": "Male",
+    "member_id": "403995815",
+    "patient_address": "1147 Valley Rd, Trumbull, CT 06998",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Theo Ulrich",
+    "subscriber_dob": "2009-03-12",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "3494754814",
+    "provider_phone": "(475) 891-8344",
+    "provider_fax": "(959) 654-4642",
+    "provider_email": "",
+    "provider_address": "1175 State St, Middletown, CT 06146",
+    "lab_name": "LabCorp",
+    "lab_npi": "6254819841",
+    "lab_address": "4355 Union St, Windsor, CT 06930",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-16",
+    "cpt_codes": [
+      "81425, 81426×2"
+    ],
+    "internal_test_code": "WGS001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q61.3",
+      "R62.50",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-19"
+    ],
+    "form_id": "cf17f4a4-0231-4095-86bf-13eac236489c",
+    "started_at": "2026-02-25T04:01:53.263Z"
+  },
+  "task_id": "3e1f1a71-21e0-40e4-9f66-ffdec0752e4b",
+  "patient_id": "PAT-5359",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

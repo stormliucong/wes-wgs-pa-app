@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:00:45.105967-05:00",
+  "payload": {
+    "patient_first_name": "Finley",
+    "patient_last_name": "Ashford",
+    "patient_dob": "2021-07-26",
+    "sex": "Male",
+    "member_id": "874796925",
+    "patient_address": "2576 Oak Ave, Stratford, CT 06269",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Isla Ashford",
+    "subscriber_dob": "1987-05-01",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "8261390680",
+    "provider_phone": "9599647474",
+    "provider_fax": "4756536369",
+    "provider_email": "",
+    "provider_address": "6033 Forest Ave, Norwalk, CT 06019",
+    "lab_name": "LabCorp",
+    "lab_npi": "6808785872",
+    "lab_address": "687 Spring St, Waterbury, CT 06018",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-15",
+    "cpt_codes": [
+      "81425, 81426x2"
+    ],
+    "internal_test_code": "WGS001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q39.0",
+      "R62.50"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-24"
+    ],
+    "form_id": "7bfe14f9-8bc8-4826-a2dd-bc9b48aeccdf",
+    "started_at": "2026-02-25T03:55:56.724Z"
+  },
+  "task_id": "796d89c3-d59d-4406-b59c-be42f58fa7e8",
+  "patient_id": "PAT-7302",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

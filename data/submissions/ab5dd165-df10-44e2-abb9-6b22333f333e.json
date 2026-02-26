@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:49:32.276443-05:00",
+  "payload": {
+    "patient_first_name": "Callum",
+    "patient_last_name": "Fenwick",
+    "patient_dob": "2021-01-25",
+    "sex": "Male",
+    "member_id": "234307937",
+    "patient_address": "9157 Sunset Ave, Milford, CT 06994",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Layla Fenwick",
+    "subscriber_dob": "1987-02-25",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "8186741559",
+    "provider_phone": "2036852552",
+    "provider_fax": "9595316400",
+    "provider_email": "",
+    "provider_address": "8618 Maple St, Bristol, CT 06726",
+    "lab_name": "LabCorp",
+    "lab_npi": "4231580053",
+    "lab_address": "5158 Pine St, New Britain, CT 06116",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-04",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q61.3",
+      "F71",
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-11"
+    ],
+    "form_id": "ab5dd165-df10-44e2-abb9-6b22333f333e",
+    "started_at": "2026-02-25T04:45:13.298Z"
+  },
+  "task_id": "d3a37819-ae4b-4005-a57a-03ff269e7bce",
+  "patient_id": "PAT-3800",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:55:40.097127-05:00",
+  "payload": {
+    "patient_first_name": "Nicole",
+    "patient_last_name": "Perez",
+    "patient_dob": "2010-05-01",
+    "sex": "Female",
+    "member_id": "530775749",
+    "patient_address": "4983 Church St, Norwich, CT 06885",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Carol Perez",
+    "subscriber_dob": "1986-01-24",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "2119882058",
+    "provider_phone": "(475) 766-3338",
+    "provider_fax": "(860) 563-9898",
+    "provider_email": "",
+    "provider_address": "9578 Sunset Ave, Stratford, CT 06909",
+    "lab_name": "LabCorp",
+    "lab_npi": "2061245783",
+    "lab_address": "8591 Forest Ave, West Hartford, CT 06320",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E73.0",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "eeace3bc-c52d-41a7-bf25-2a9a0a0e0841",
+    "started_at": "2026-02-13T23:51:25.352Z"
+  },
+  "task_id": "af967722-7444-4fbc-92ed-a52c42b3c3eb",
+  "patient_id": "PAT-9453",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

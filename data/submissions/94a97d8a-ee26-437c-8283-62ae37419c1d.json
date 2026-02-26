@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-13T17:02:12.685528-05:00",
+  "payload": {
+    "patient_first_name": "Christine",
+    "patient_last_name": "Garcia",
+    "patient_dob": "2010-08-25",
+    "sex": "Female",
+    "member_id": "542728479",
+    "patient_address": "6645 Broad St, New Haven, CT 06186",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elizabeth Garcia",
+    "subscriber_dob": "1999-09-03",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "William Jones",
+    "provider_npi": "3698891336",
+    "provider_phone": "(860) 463-6033",
+    "provider_fax": "(203) 379-9851",
+    "provider_email": "",
+    "provider_address": "4466 Pine St, West Hartford, CT 06140",
+    "lab_name": "GeneDx",
+    "lab_npi": "6627345781",
+    "lab_address": "7062 Court St, Milford, CT 06594",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-12",
+    "cpt_codes": [
+      "81425×1, 81426×2"
+    ],
+    "internal_test_code": "TH78a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "William Jones",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q22.0",
+      "Q17.2",
+      "Q39.0",
+      "F72"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "94a97d8a-ee26-437c-8283-62ae37419c1d",
+    "started_at": "2026-02-13T21:57:32.712Z"
+  },
+  "task_id": "ffde64b2-a014-4ce6-a8d1-97c751b942da",
+  "patient_id": "PAT-4518",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

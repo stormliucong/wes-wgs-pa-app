@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:07:29.171107-05:00",
+  "payload": {
+    "patient_first_name": "Rowan",
+    "patient_last_name": "Griffith",
+    "patient_dob": "2011-11-23",
+    "sex": "Male",
+    "member_id": "269572755",
+    "patient_address": "9832 West St, Enfield, CT 06493",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Mina Griffith",
+    "subscriber_dob": "2002-02-09",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "1352859451",
+    "provider_phone": "(475) 507-1137",
+    "provider_fax": "(475) 389-6476",
+    "provider_email": "j.rodriguez@med.org",
+    "provider_address": "8868 East St, Middletown, CT 06611",
+    "lab_name": "Invitae",
+    "lab_npi": "1346599608",
+    "lab_address": "7416 Valley Rd, New Britain, CT 06670",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-17",
+    "cpt_codes": [
+      "81415, 81416×2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.4"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "640db932-285b-40c1-9ffc-3284641be7cc",
+    "started_at": "2026-02-25T04:03:33.072Z"
+  },
+  "task_id": "4270162b-beaf-489f-8f61-6434f609e6cf",
+  "patient_id": "PAT-7291",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

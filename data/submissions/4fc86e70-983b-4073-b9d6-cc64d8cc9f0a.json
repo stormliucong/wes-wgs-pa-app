@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-10T14:33:39.797502-05:00",
+  "payload": {
+    "patient_first_name": "Daniel",
+    "patient_last_name": "Thomas",
+    "patient_dob": "2021-08-13",
+    "sex": "Male",
+    "member_id": "537340514",
+    "patient_address": "6044 Washington Ave, West Haven, CT 06547",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ryan Thomas",
+    "subscriber_dob": "1990-11-29",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "1247590916",
+    "provider_phone": "475-304-9190",
+    "provider_fax": "475-239-9981",
+    "provider_email": "",
+    "provider_address": "1377 Valley Rd, New London, CT 06269",
+    "lab_name": "GeneDx",
+    "lab_npi": "5946093404",
+    "lab_address": "4067 Spring St, East Hartford, CT 06388",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-14",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-10",
+    "icd_codes": [
+      "Q39.1"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "4fc86e70-983b-4073-b9d6-cc64d8cc9f0a",
+    "started_at": "2026-02-10T19:25:32.312Z"
+  },
+  "task_id": "b4f0f4e5-0030-44f9-80d7-aa4397b8e919",
+  "patient_id": "PAT-5972",
+  "sample_type": "3a",
+  "llm": "claude-opus-4-5-20251101"
+}

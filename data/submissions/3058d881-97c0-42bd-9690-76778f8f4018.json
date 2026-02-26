@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:41:36.765765-05:00",
+  "payload": {
+    "patient_first_name": "Sabrina",
+    "patient_last_name": "Ashford",
+    "patient_dob": "2021-10-29",
+    "sex": "Female",
+    "member_id": "964223744",
+    "patient_address": "7533 Broad St, Norwich, CT 06407",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Zoe Ashford",
+    "subscriber_dob": "1987-11-05",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "6144350504",
+    "provider_phone": "(860) 445-4693",
+    "provider_fax": "(860) 356-5622",
+    "provider_email": "",
+    "provider_address": "7756 Highland Ave, Greenwich, CT 06169",
+    "lab_name": "GeneDx",
+    "lab_npi": "9763360115",
+    "lab_address": "4040 School St, East Hartford, CT 06743",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-12-14",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.3",
+      "Q10.3",
+      "F72",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-18"
+    ],
+    "form_id": "3058d881-97c0-42bd-9690-76778f8f4018",
+    "started_at": "2026-02-25T04:37:46.477Z"
+  },
+  "task_id": "555fbb76-0356-44e6-b0b4-6ad17f82419a",
+  "patient_id": "PAT-6488",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

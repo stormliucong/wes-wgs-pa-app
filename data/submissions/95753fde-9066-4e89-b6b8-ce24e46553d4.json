@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:16:53.629611-05:00",
+  "payload": {
+    "patient_first_name": "Leo",
+    "patient_last_name": "Rutherford",
+    "patient_dob": "2020-12-28",
+    "sex": "Male",
+    "member_id": "476150629",
+    "patient_address": "2121 Park Rd, Norwalk, CT 06115",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Zane Rutherford",
+    "subscriber_dob": "1986-06-16",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "8744328281",
+    "provider_phone": "(860) 617-3245",
+    "provider_fax": "(860) 325-7528",
+    "provider_email": "",
+    "provider_address": "9830 Elm St, Danbury, CT 06322",
+    "lab_name": "LabCorp",
+    "lab_npi": "9216245069",
+    "lab_address": "2857 Broad St, Newington, CT 06356",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-06",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620022",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S01.0",
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "95753fde-9066-4e89-b6b8-ce24e46553d4",
+    "started_at": "2026-02-25T05:12:18.501Z"
+  },
+  "task_id": "950bd411-a0cc-44ed-bf5a-54a77fae5c7c",
+  "patient_id": "PAT-2268",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

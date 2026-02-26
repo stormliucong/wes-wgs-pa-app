@@ -1,0 +1,76 @@
+{
+  "submitted_at": "2026-02-17T14:16:41.328698-05:00",
+  "payload": {
+    "patient_first_name": "Helen",
+    "patient_last_name": "Cook",
+    "patient_dob": "2020-06-04",
+    "sex": "Female",
+    "member_id": "938763517",
+    "patient_address": "9167 Valley Rd, Glastonbury, CT 06714",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "David Cook",
+    "subscriber_dob": "1995-11-25",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "8206241753",
+    "provider_phone": "2033774442",
+    "provider_fax": "9598059957",
+    "provider_email": "",
+    "provider_address": "5597 West St, New London, CT 06890",
+    "lab_name": "LabCorp",
+    "lab_npi": "6515387359",
+    "lab_address": "3953 Hill St, Manchester, CT 06764",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-16",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "Q22.0",
+      "Q04.2",
+      "F71",
+      "Q17.2",
+      "S06.0",
+      "T30.0",
+      "S93.4"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-23"
+    ],
+    "form_id": "8cce2e82-6ae2-4a75-a3f4-67d78e8efe0d",
+    "started_at": "2026-02-17T19:10:14.288Z"
+  },
+  "task_id": "3ce67e1b-c7c0-4bbb-987e-f4b45d386ab1",
+  "patient_id": "PAT-6430",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

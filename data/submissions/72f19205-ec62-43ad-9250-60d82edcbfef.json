@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-18T00:41:48.598519-05:00",
+  "payload": {
+    "patient_first_name": "Sarah",
+    "patient_last_name": "Ross",
+    "patient_dob": "2020-08-14",
+    "sex": "Female",
+    "member_id": "192805061",
+    "patient_address": "4468 Union St, Hartford, CT 06807",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Stephanie Ross",
+    "subscriber_dob": "1995-04-28",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "1795342736",
+    "provider_phone": "2035671897",
+    "provider_fax": "9594384493",
+    "provider_email": "",
+    "provider_address": "7844 South St, Glastonbury, CT 06997",
+    "lab_name": "Ambry",
+    "lab_npi": "8867546936",
+    "lab_address": "6811 Water St, Waterbury, CT 06633",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-27",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-18",
+    "icd_codes": [
+      "E70.1",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "72f19205-ec62-43ad-9250-60d82edcbfef",
+    "started_at": "2026-02-18T05:36:32.387Z"
+  },
+  "task_id": "cf919439-41dc-43af-8ca7-33abe325fe65",
+  "patient_id": "PAT-1269",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

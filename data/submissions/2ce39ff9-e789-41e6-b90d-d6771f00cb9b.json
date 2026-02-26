@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:25:52.883568-05:00",
+  "payload": {
+    "patient_first_name": "Laura",
+    "patient_last_name": "Moore",
+    "patient_dob": "2022-10-23",
+    "sex": "Female",
+    "member_id": "841990755",
+    "patient_address": "2039 Park Rd, Manchester, CT 06321",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Michael Moore",
+    "subscriber_dob": "1997-12-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "5503415294",
+    "provider_phone": "2039017661",
+    "provider_fax": "9597448349",
+    "provider_email": "",
+    "provider_address": "2664 West St, East Hartford, CT 06731",
+    "lab_name": "LabCorp",
+    "lab_npi": "3470632448",
+    "lab_address": "8944 Maple St, West Haven, CT 06654",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425, 81426x2"
+    ],
+    "internal_test_code": "WGS001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E88.40",
+      "R26.81"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "2ce39ff9-e789-41e6-b90d-d6771f00cb9b",
+    "started_at": "2026-02-13T23:21:54.501Z"
+  },
+  "task_id": "fe0c14c3-727a-4f82-baad-1d603771813b",
+  "patient_id": "PAT-2063",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

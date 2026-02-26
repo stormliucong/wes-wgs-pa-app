@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:06:38.038786-05:00",
+  "payload": {
+    "patient_first_name": "Mina",
+    "patient_last_name": "Bishop",
+    "patient_dob": "2021-03-14",
+    "sex": "Female",
+    "member_id": "920490028",
+    "patient_address": "9242 State St, Manchester, CT 06431",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Isla Bishop",
+    "subscriber_dob": "2011-03-25",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "3889544647",
+    "provider_phone": "(475) 940-8015",
+    "provider_fax": "(959) 563-5846",
+    "provider_email": "",
+    "provider_address": "2626 West St, Greenwich, CT 06093",
+    "lab_name": "GeneDx",
+    "lab_npi": "7638675507",
+    "lab_address": "6200 School St, Danbury, CT 06493",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-17",
+    "cpt_codes": [
+      "81425, 81426x2"
+    ],
+    "internal_test_code": "TH78a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q67.3",
+      "Q10.1",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "80f6ab8e-2467-4cf9-8b97-d3d441a8cbad",
+    "started_at": "2026-02-25T04:02:15.932Z"
+  },
+  "task_id": "8eab2054-6474-4a85-802b-dd7935186624",
+  "patient_id": "PAT-9168",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

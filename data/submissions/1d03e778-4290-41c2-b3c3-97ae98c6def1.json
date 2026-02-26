@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:15:46.672216-05:00",
+  "payload": {
+    "patient_first_name": "Maren",
+    "patient_last_name": "Underwood",
+    "patient_dob": "2019-12-05",
+    "sex": "Female",
+    "member_id": "921550758",
+    "patient_address": "1509 River Rd, West Haven, CT 06024",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elias Underwood",
+    "subscriber_dob": "1985-03-06",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "3093580601",
+    "provider_phone": "8608631091",
+    "provider_fax": "9596711346",
+    "provider_email": "",
+    "provider_address": "5498 Hill St, Hartford, CT 06207",
+    "lab_name": "Ambry",
+    "lab_npi": "5704799250",
+    "lab_address": "5204 Court St, Windsor, CT 06564",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-27",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "T20.0XXA",
+      "T36.0X1A",
+      "Z84.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "1d03e778-4290-41c2-b3c3-97ae98c6def1",
+    "started_at": "2026-02-25T05:10:52.108Z"
+  },
+  "task_id": "ef48dd13-bf09-49df-a3b7-0f0aae0f86ac",
+  "patient_id": "PAT-6958",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

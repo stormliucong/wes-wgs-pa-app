@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-10T15:51:00.507271-05:00",
+  "payload": {
+    "patient_first_name": "Brenda",
+    "patient_last_name": "Phillips",
+    "patient_dob": "2019-02-10",
+    "sex": "Female",
+    "member_id": "647613918",
+    "patient_address": "830 School St, Bridgeport, CT 06799",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Mary Phillips",
+    "subscriber_dob": "1988-12-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "6500176978",
+    "provider_phone": "4759604610",
+    "provider_fax": "4759839279",
+    "provider_email": "",
+    "provider_address": "2835 Valley Rd, Danbury, CT 06486",
+    "lab_name": "Ambry",
+    "lab_npi": "7688963019",
+    "lab_address": "3465 Maple St, West Haven, CT 06890",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-12-07",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-10",
+    "icd_codes": [
+      "Q21.1",
+      "Q61.5",
+      "E72.0",
+      "F82"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-08"
+    ],
+    "form_id": "bc0c9335-88c9-4af1-a616-54d2ea7bd5ce",
+    "started_at": "2026-02-10T20:46:32.215Z"
+  },
+  "task_id": "70f2c583-31c9-40dc-87d0-8f7d9585a3e0",
+  "patient_id": "PAT-6998",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

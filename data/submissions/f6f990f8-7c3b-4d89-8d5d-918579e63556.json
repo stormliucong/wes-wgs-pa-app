@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:13:56.362112-05:00",
+  "payload": {
+    "patient_first_name": "Kira",
+    "patient_last_name": "Hollis",
+    "patient_dob": "2011-12-30",
+    "sex": "Female",
+    "member_id": "520434154",
+    "patient_address": "8924 Center St, West Haven, CT 06859",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Zane Hollis",
+    "subscriber_dob": "1977-08-14",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "3461213310",
+    "provider_phone": "9596358382",
+    "provider_fax": "4758015046",
+    "provider_email": "",
+    "provider_address": "1004 Mill St, Glastonbury, CT 06971",
+    "lab_name": "Ambry",
+    "lab_npi": "4300867350",
+    "lab_address": "9855 Second St, New Haven, CT 06082",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-02",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0",
+      "Z88.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f6f990f8-7c3b-4d89-8d5d-918579e63556",
+    "started_at": "2026-02-25T05:09:16.616Z"
+  },
+  "task_id": "56c7ebcd-29db-4ddb-9ddd-de8a04b00892",
+  "patient_id": "PAT-7940",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:48:40.689504-05:00",
+  "payload": {
+    "patient_first_name": "Elias",
+    "patient_last_name": "Dalton",
+    "patient_dob": "2017-05-25",
+    "sex": "Male",
+    "member_id": "552111451",
+    "patient_address": "5345 West St, Waterbury, CT 06648",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hudson Dalton",
+    "subscriber_dob": "1984-01-21",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Father",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "1182938009",
+    "provider_phone": "4756088411",
+    "provider_fax": "8607022581",
+    "provider_email": "",
+    "provider_address": "9810 Hill St, Danbury, CT 06582",
+    "lab_name": "Ambry",
+    "lab_npi": "5210637172",
+    "lab_address": "2549 Meadow Ln, Manchester, CT 06820",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-10-06",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R29.818",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-01"
+    ],
+    "form_id": "4bfe2fde-d55c-44ca-b4b6-f7837f37c57c",
+    "started_at": "2026-02-25T04:44:26.254Z"
+  },
+  "task_id": "ed447581-4946-44b7-905f-3d962b57b039",
+  "patient_id": "PAT-2170",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

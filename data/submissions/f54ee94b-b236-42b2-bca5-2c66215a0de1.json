@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:14:43.331002-05:00",
+  "payload": {
+    "patient_first_name": "Callum",
+    "patient_last_name": "Prescott",
+    "patient_dob": "2022-08-21",
+    "sex": "Male",
+    "member_id": "358958266",
+    "patient_address": "8356 North St, Stratford, CT 06966",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Dawson Prescott",
+    "subscriber_dob": "1989-02-09",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Father",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "5848761680",
+    "provider_phone": "(959) 703-9110",
+    "provider_fax": "(860) 325-9874",
+    "provider_email": "",
+    "provider_address": "1562 Pleasant St, Waterbury, CT 06168",
+    "lab_name": "Ambry",
+    "lab_npi": "8799424240",
+    "lab_address": "1113 Sunset Ave, Waterbury, CT 06204",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-08",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Acute head injury, concussion, open scalp laceration, superficial burn, fatigue. No prior diagnostic testing.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "S01.01XA",
+      "R53.83"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f54ee94b-b236-42b2-bca5-2c66215a0de1",
+    "started_at": "2026-02-25T05:09:53.946Z"
+  },
+  "task_id": "90180d5a-02b4-4fdf-b424-6181e9cc92bf",
+  "patient_id": "PAT-1513",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

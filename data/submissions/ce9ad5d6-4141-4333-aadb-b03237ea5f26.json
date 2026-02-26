@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-18T00:45:28.661275-05:00",
+  "payload": {
+    "patient_first_name": "Sarah",
+    "patient_last_name": "Reed",
+    "patient_dob": "2016-05-18",
+    "sex": "Female",
+    "member_id": "618624051",
+    "patient_address": "6305 River Rd, Windsor, CT 06960",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Robert Reed",
+    "subscriber_dob": "1991-03-20",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "8876370129",
+    "provider_phone": "(203) 697-7722",
+    "provider_fax": "(959) 774-6046",
+    "provider_email": "",
+    "provider_address": "7412 Oak Ave, Hartford, CT 06383",
+    "lab_name": "Invitae",
+    "lab_npi": "6481631881",
+    "lab_address": "3709 Church St, Trumbull, CT 06562",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-31",
+    "cpt_codes": [
+      "81415, 81416, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-18",
+    "icd_codes": [
+      "Q87.0",
+      "F71"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2022-08-15"
+    ],
+    "form_id": "ce9ad5d6-4141-4333-aadb-b03237ea5f26",
+    "started_at": "2026-02-18T05:38:14.324Z"
+  },
+  "task_id": "09c35ff9-d37c-406d-a490-76b67f3c3991",
+  "patient_id": "PAT-7315",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

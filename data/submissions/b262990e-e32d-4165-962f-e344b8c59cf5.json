@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:15:35.075952-05:00",
+  "payload": {
+    "patient_first_name": "Ezra",
+    "patient_last_name": "Fenwick",
+    "patient_dob": "2021-02-07",
+    "sex": "Male",
+    "member_id": "446132555",
+    "patient_address": "1945 Pleasant St, Shelton, CT 06333",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Pierce Fenwick",
+    "subscriber_dob": "1986-08-13",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "8467340660",
+    "provider_phone": "9592622849",
+    "provider_fax": "2038358226",
+    "provider_email": "",
+    "provider_address": "2875 Pine St, New Britain, CT 06078",
+    "lab_name": "GeneDx",
+    "lab_npi": "8500482530",
+    "lab_address": "339 Forest Ave, Meriden, CT 06593",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-22",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "TH78e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.1",
+      "R74.02"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "b262990e-e32d-4165-962f-e344b8c59cf5",
+    "started_at": "2026-02-25T21:09:37.275Z"
+  },
+  "task_id": "9cb62921-3756-43ae-a508-d7b00b71ea69",
+  "patient_id": "PAT-4669",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

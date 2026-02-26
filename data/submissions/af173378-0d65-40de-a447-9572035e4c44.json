@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:53:54.841384-05:00",
+  "payload": {
+    "patient_first_name": "Declan",
+    "patient_last_name": "Orwell",
+    "patient_dob": "2015-09-27",
+    "sex": "Male",
+    "member_id": "947222593",
+    "patient_address": "8026 Sunset Ave, Milford, CT 06751",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jocelyn Orwell",
+    "subscriber_dob": "1981-12-10",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "4225524343",
+    "provider_phone": "8603387180",
+    "provider_fax": "9596537535",
+    "provider_email": "",
+    "provider_address": "8009 High St, Waterbury, CT 06405",
+    "lab_name": "GeneDx",
+    "lab_npi": "3597361878",
+    "lab_address": "5268 High St, Middletown, CT 06715",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R26.0",
+      "R26.81"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "af173378-0d65-40de-a447-9572035e4c44",
+    "started_at": "2026-02-25T04:50:04.748Z"
+  },
+  "task_id": "8c1e9b00-3e90-4735-8295-e400ee2f6f9c",
+  "patient_id": "PAT-8020",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

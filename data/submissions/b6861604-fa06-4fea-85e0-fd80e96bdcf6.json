@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-13T18:43:18.440452-05:00",
+  "payload": {
+    "patient_first_name": "Cynthia",
+    "patient_last_name": "Cook",
+    "patient_dob": "2015-06-29",
+    "sex": "Female",
+    "member_id": "436741366",
+    "patient_address": "9336 Water St, Bridgeport, CT 06484",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "William Cook",
+    "subscriber_dob": "1991-01-10",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "6404893563",
+    "provider_phone": "(475) 800-4371",
+    "provider_fax": "(959) 352-4354",
+    "provider_email": "",
+    "provider_address": "7579 Main St, Greenwich, CT 06094",
+    "lab_name": "Invitae",
+    "lab_npi": "3388461945",
+    "lab_address": "5576 Union St, Stamford, CT 06509",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E73.0",
+      "G40.409",
+      "Z82.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "b6861604-fa06-4fea-85e0-fd80e96bdcf6",
+    "started_at": "2026-02-13T23:39:27.392Z"
+  },
+  "task_id": "7ecbf329-aa5d-44a6-b70f-0b63e8280a16",
+  "patient_id": "PAT-8824",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

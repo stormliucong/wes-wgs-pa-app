@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:15:01.677452-05:00",
+  "payload": {
+    "patient_first_name": "Colette",
+    "patient_last_name": "Easton",
+    "patient_dob": "2021-09-29",
+    "sex": "Female",
+    "member_id": "351012508",
+    "patient_address": "4558 Main St, Hamden, CT 06556",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Spencer Easton",
+    "subscriber_dob": "1987-06-14",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "7750915141",
+    "provider_phone": "2034426000",
+    "provider_fax": "8609592263",
+    "provider_email": "",
+    "provider_address": "5160 Pine St, Danbury, CT 06654",
+    "lab_name": "Invitae",
+    "lab_npi": "8749613603",
+    "lab_address": "9301 East St, Waterbury, CT 06240",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-25",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "8213f7e4-9c14-481a-a89d-75400ca4f7ab",
+    "started_at": "2026-02-25T21:09:39.533Z"
+  },
+  "task_id": "c27e46bc-b227-45c0-ab3f-a7b62e3b3b4f",
+  "patient_id": "PAT-4592",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T22:59:46.312264-05:00",
+  "payload": {
+    "patient_first_name": "Finley",
+    "patient_last_name": "Jarrow",
+    "patient_dob": "2019-03-31",
+    "sex": "Male",
+    "member_id": "533399384",
+    "patient_address": "6557 Pine St, Trumbull, CT 06374",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hudson Jarrow",
+    "subscriber_dob": "1985-05-04",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "7662724058",
+    "provider_phone": "9593275786",
+    "provider_fax": "4759635117",
+    "provider_email": "",
+    "provider_address": "4643 Water St, Norwich, CT 06174",
+    "lab_name": "LabCorp",
+    "lab_npi": "6674894302",
+    "lab_address": "5464 Highland Ave, East Hartford, CT 06258",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-25",
+    "cpt_codes": [
+      "81425, 81426x2"
+    ],
+    "internal_test_code": "WGS001",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.909",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "fa0650e4-8ace-4468-95b8-f70f16d7e549",
+    "started_at": "2026-02-25T03:56:05.865Z"
+  },
+  "task_id": "6dea2dfa-22b0-402f-944f-5d597aaec488",
+  "patient_id": "PAT-5651",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

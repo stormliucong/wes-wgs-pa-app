@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:41:20.511903-05:00",
+  "payload": {
+    "patient_first_name": "Hazel",
+    "patient_last_name": "Nash",
+    "patient_dob": "2016-11-13",
+    "sex": "Female",
+    "member_id": "937557381",
+    "patient_address": "8319 Water St, Newington, CT 06269",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Roman Nash",
+    "subscriber_dob": "1982-10-04",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "8788257326",
+    "provider_phone": "4755649065",
+    "provider_fax": "2032091220",
+    "provider_email": "",
+    "provider_address": "4875 South St, Hamden, CT 06944",
+    "lab_name": "GeneDx",
+    "lab_npi": "5339055351",
+    "lab_address": "1400 Union St, Windsor, CT 06182",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-10-28",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "561a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "9yo female, congenital anomalies, motor delay, ectropion, tricuspid valve malformation, foot deformity, dysmorphic features.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q89.7",
+      "Q22.8"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-05"
+    ],
+    "form_id": "0e23496f-e747-4301-b125-4f9998c6cfed",
+    "started_at": "2026-02-25T04:37:08.555Z"
+  },
+  "task_id": "66df83cc-885e-438a-af49-73832337445f",
+  "patient_id": "PAT-4535",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

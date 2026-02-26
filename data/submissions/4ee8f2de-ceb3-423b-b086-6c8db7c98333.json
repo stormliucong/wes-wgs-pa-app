@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-13T16:57:56.742400-05:00",
+  "payload": {
+    "patient_first_name": "Larry",
+    "patient_last_name": "Hernandez",
+    "patient_dob": "2022-07-25",
+    "sex": "Male",
+    "member_id": "501813217",
+    "patient_address": "6525 Broad St, Glastonbury, CT 06524",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jessica Hernandez",
+    "subscriber_dob": "2010-10-23",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "4299102422",
+    "provider_phone": "(860) 309-9109",
+    "provider_fax": "(959) 278-4481",
+    "provider_email": "",
+    "provider_address": "5946 South St, Hartford, CT 06445",
+    "lab_name": "GeneDx",
+    "lab_npi": "3408050108",
+    "lab_address": "4175 School St, New Haven, CT 06523",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-01",
+    "cpt_codes": [
+      "81415, 81416, 81416"
+    ],
+    "internal_test_code": "896a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q22.5",
+      "Q61.3",
+      "F72",
+      "Q10.3",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "4ee8f2de-ceb3-423b-b086-6c8db7c98333",
+    "started_at": "2026-02-13T21:53:46.003Z"
+  },
+  "task_id": "45da978e-ea6a-4fc8-a4f3-305f45ec0411",
+  "patient_id": "PAT-2935",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,75 @@
+{
+  "submitted_at": "2026-02-17T14:45:13.792576-05:00",
+  "payload": {
+    "patient_first_name": "Barbara",
+    "patient_last_name": "Rogers",
+    "patient_dob": "2019-02-20",
+    "sex": "Female",
+    "member_id": "408991790",
+    "patient_address": "2737 Franklin St, Manchester, CT 06008",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jennifer Rogers",
+    "subscriber_dob": "1995-02-04",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "5014216033",
+    "provider_phone": "(475) 997-4831",
+    "provider_fax": "(860) 861-2735",
+    "provider_email": "",
+    "provider_address": "6087 West St, Waterbury, CT 06842",
+    "lab_name": "Invitae",
+    "lab_npi": "2443800292",
+    "lab_address": "811 Cedar St, Hamden, CT 06202",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-21",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "Q22.5",
+      "Q87.0",
+      "F80.9",
+      "S93.401A",
+      "T36.0X1A",
+      "T23.009A"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Normal"
+    ],
+    "prior_test_date": [
+      "2024-05-10"
+    ],
+    "form_id": "2e450ce0-d396-4fb1-bc43-e495fcfa9167",
+    "started_at": "2026-02-17T19:41:17.722Z"
+  },
+  "task_id": "53735085-1bfa-4aaf-828b-835c5ca3f038",
+  "patient_id": "PAT-7744",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

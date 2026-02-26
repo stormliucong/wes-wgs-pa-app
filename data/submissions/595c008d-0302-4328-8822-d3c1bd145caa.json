@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-25T16:21:37.855459-05:00",
+  "payload": {
+    "patient_first_name": "Dorian",
+    "patient_last_name": "Ashford",
+    "patient_dob": "2022-11-01",
+    "sex": "Male",
+    "member_id": "260949539",
+    "patient_address": "9577 Valley Rd, New London, CT 06606",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Owen Ashford",
+    "subscriber_dob": "1988-03-14",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Sandra King",
+    "provider_npi": "1917592896",
+    "provider_phone": "(203) 276-4851",
+    "provider_fax": "(860) 685-3005",
+    "provider_email": "",
+    "provider_address": "5232 Cedar St, Danbury, CT 06272",
+    "lab_name": "Ambry",
+    "lab_npi": "7006571812",
+    "lab_address": "4631 Church St, Stamford, CT 06193",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-01",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "R13.10",
+      "F71",
+      "Q87.0",
+      "Q66.89"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-01"
+    ],
+    "form_id": "595c008d-0302-4328-8822-d3c1bd145caa",
+    "started_at": "2026-02-25T21:15:54.352Z"
+  },
+  "task_id": "c8a70bdb-ecf0-4d58-adb2-330614b84e50",
+  "patient_id": "PAT-1411",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

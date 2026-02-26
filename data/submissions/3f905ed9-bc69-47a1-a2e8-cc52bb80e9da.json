@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:53:46.739882-05:00",
+  "payload": {
+    "patient_first_name": "Brady",
+    "patient_last_name": "Ashford",
+    "patient_dob": "2015-10-09",
+    "sex": "Male",
+    "member_id": "289757423",
+    "patient_address": "9345 Forest Ave, West Haven, CT 06940",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Roman Ashford",
+    "subscriber_dob": "1981-03-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "9625299717",
+    "provider_phone": "9594248967",
+    "provider_fax": "2032291137",
+    "provider_email": "",
+    "provider_address": "9443 Broad St, West Hartford, CT 06818",
+    "lab_name": "LabCorp",
+    "lab_npi": "8315862840",
+    "lab_address": "5203 River Rd, New Britain, CT 06713",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES1",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.309",
+      "E73.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "3f905ed9-bc69-47a1-a2e8-cc52bb80e9da",
+    "started_at": "2026-02-25T04:50:19.446Z"
+  },
+  "task_id": "592ec46d-5971-4851-ad5e-25229e4debda",
+  "patient_id": "PAT-2206",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

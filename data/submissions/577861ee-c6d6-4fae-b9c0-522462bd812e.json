@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:41:23.893491-05:00",
+  "payload": {
+    "patient_first_name": "Dawson",
+    "patient_last_name": "Voss",
+    "patient_dob": "2014-01-23",
+    "sex": "Male",
+    "member_id": "318054379",
+    "patient_address": "6722 Church St, New Britain, CT 06080",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bridget Voss",
+    "subscriber_dob": "1979-07-06",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "2722535988",
+    "provider_phone": "(203) 553-6178",
+    "provider_fax": "(475) 660-8204",
+    "provider_email": "",
+    "provider_address": "998 Park Rd, East Hartford, CT 06827",
+    "lab_name": "Invitae",
+    "lab_npi": "6175403790",
+    "lab_address": "9646 Highland Ave, Danbury, CT 06495",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-10-08",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.9",
+      "G40.319",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-01"
+    ],
+    "form_id": "577861ee-c6d6-4fae-b9c0-522462bd812e",
+    "started_at": "2026-02-25T04:37:20.920Z"
+  },
+  "task_id": "1cff1db7-173c-4a19-bd35-cbe1be6d7061",
+  "patient_id": "PAT-8996",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

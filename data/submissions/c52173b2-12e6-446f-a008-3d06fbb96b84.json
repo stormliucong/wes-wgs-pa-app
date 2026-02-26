@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:49:36.491243-05:00",
+  "payload": {
+    "patient_first_name": "Leona",
+    "patient_last_name": "Fletcher",
+    "patient_dob": "2021-02-17",
+    "sex": "Female",
+    "member_id": "998966426",
+    "patient_address": "3425 Elm St, New Haven, CT 06653",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Marina Fletcher",
+    "subscriber_dob": "1986-03-30",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "2780954733",
+    "provider_phone": "(475) 483-5474",
+    "provider_fax": "(860) 939-8080",
+    "provider_email": "",
+    "provider_address": "3083 School St, Stamford, CT 06196",
+    "lab_name": "Invitae",
+    "lab_npi": "2495154141",
+    "lab_address": "7697 Washington Ave, West Haven, CT 06881",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-07",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.2",
+      "E73.0",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-05-10"
+    ],
+    "form_id": "c52173b2-12e6-446f-a008-3d06fbb96b84",
+    "started_at": "2026-02-25T04:45:15.291Z"
+  },
+  "task_id": "4c882ed5-40e5-4e7f-a490-5464ed5d592f",
+  "patient_id": "PAT-9046",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:51:52.387509-05:00",
+  "payload": {
+    "patient_first_name": "Nicholas",
+    "patient_last_name": "Davis",
+    "patient_dob": "2021-09-01",
+    "sex": "Male",
+    "member_id": "462016309",
+    "patient_address": "4178 Maple St, Meriden, CT 06887",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "David Davis",
+    "subscriber_dob": "1996-10-25",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "7826908164",
+    "provider_phone": "(475) 750-3994",
+    "provider_fax": "(475) 769-5623",
+    "provider_email": "",
+    "provider_address": "6978 Spring St, Danbury, CT 06563",
+    "lab_name": "LabCorp",
+    "lab_npi": "9166077634",
+    "lab_address": "1778 Pleasant St, Manchester, CT 06104",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003X",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "Nicholas Davis is a 4-year-old male with a mitochondrial metabolism disorder and epilepsy characterized by generalized seizures without status epilepticus. He experiences recurrent convulsive events with abrupt loss of awareness and generalized stiffening and jerking, followed by postictal sleepiness. Episodes occur intermittently rather than continuously or in prolonged clusters. Between events, he returns to baseline but requires ongoing neurologic follow-up for seizure control. Metabolic evaluation shows persistently elevated serum lactate (3.8–4.6 mmol/L; reference 0.5–2.2) with an increased lactate-to-pyruvate ratio (~28), worsening episodically during illness with lactate up to 6.1 mmol/L. Family history includes seizures in a maternal uncle and a paternal cousin with mitochondrial metabolism disorder; parents deny consanguinity.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E88.40",
+      "G40.409"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "dcb93041-85f6-42ab-a0ea-12240c329105",
+    "started_at": "2026-02-13T23:48:04.498Z"
+  },
+  "task_id": "5d725908-d2ec-4cc0-8014-f67b4710f638",
+  "patient_id": "PAT-4856",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

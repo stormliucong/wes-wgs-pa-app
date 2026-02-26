@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-17T15:24:28.872870-05:00",
+  "payload": {
+    "patient_first_name": "Justin",
+    "patient_last_name": "Smith",
+    "patient_dob": "2017-12-26",
+    "sex": "Male",
+    "member_id": "544192295",
+    "patient_address": "343 Park Rd, Glastonbury, CT 06932",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Rachel Smith",
+    "subscriber_dob": "1992-12-02",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "4839805467",
+    "provider_phone": "(959) 439-1883",
+    "provider_fax": "(475) 537-3699",
+    "provider_email": "",
+    "provider_address": "4891 Meadow Ln, New Britain, CT 06956",
+    "lab_name": "Invitae",
+    "lab_npi": "4746350169",
+    "lab_address": "1905 High St, Stratford, CT 06649",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-10",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "8-year-old male, burn involving head/face/neck, accidental penicillin exposure",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "T20.0",
+      "T36.0X1"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "52e631b2-72e9-4581-9eac-8e031c6195f5",
+    "started_at": "2026-02-17T20:19:42.147Z"
+  },
+  "task_id": "f775ade0-c75d-469c-a8c5-3bed9e193ea7",
+  "patient_id": "PAT-2186",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:49:07.179217-05:00",
+  "payload": {
+    "patient_first_name": "Leona",
+    "patient_last_name": "Huxley",
+    "patient_dob": "2016-04-29",
+    "sex": "Female",
+    "member_id": "969669046",
+    "patient_address": "4685 Elm St, New Haven, CT 06500",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bianca Huxley",
+    "subscriber_dob": "1983-02-21",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Jennifer Wilson",
+    "provider_npi": "7667216301",
+    "provider_phone": "(959) 665-7750",
+    "provider_fax": "(959) 729-5630",
+    "provider_email": "",
+    "provider_address": "8564 Oak Ave, Middletown, CT 06440",
+    "lab_name": "LabCorp",
+    "lab_npi": "6875668797",
+    "lab_address": "8412 Water St, Hamden, CT 06409",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-09-18",
+    "cpt_codes": [
+      "81425, 81426×2"
+    ],
+    "internal_test_code": "WGS001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Jennifer Wilson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.2"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-24"
+    ],
+    "form_id": "7be409bb-c801-4492-8425-1be460eaf01a",
+    "started_at": "2026-02-25T04:45:14.816Z"
+  },
+  "task_id": "48d58614-5cc0-452f-af84-597637467641",
+  "patient_id": "PAT-4770",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

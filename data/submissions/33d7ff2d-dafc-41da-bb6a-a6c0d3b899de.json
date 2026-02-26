@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:48:36.964472-05:00",
+  "payload": {
+    "patient_first_name": "Arlo",
+    "patient_last_name": "Quarry",
+    "patient_dob": "2011-04-01",
+    "sex": "Male",
+    "member_id": "285730856",
+    "patient_address": "7908 Oak Ave, Waterbury, CT 06531",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bianca Quarry",
+    "subscriber_dob": "1978-02-20",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "3287309974",
+    "provider_phone": "9594705848",
+    "provider_fax": "4755646304",
+    "provider_email": "",
+    "provider_address": "8567 Valley Rd, Middletown, CT 06961",
+    "lab_name": "Invitae",
+    "lab_npi": "4013730618",
+    "lab_address": "2508 Forest Ave, Enfield, CT 06129",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-12-15",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.2",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-19"
+    ],
+    "form_id": "33d7ff2d-dafc-41da-bb6a-a6c0d3b899de",
+    "started_at": "2026-02-25T04:44:20.751Z"
+  },
+  "task_id": "9a1fd9ea-b490-4259-bc57-a3b2dfd76371",
+  "patient_id": "PAT-2968",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

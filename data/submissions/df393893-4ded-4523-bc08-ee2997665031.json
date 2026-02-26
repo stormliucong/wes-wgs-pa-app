@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:42:00.018160-05:00",
+  "payload": {
+    "patient_first_name": "Rowan",
+    "patient_last_name": "Irwin",
+    "patient_dob": "2012-09-10",
+    "sex": "Male",
+    "member_id": "728375633",
+    "patient_address": "3524 River Rd, West Haven, CT 06989",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Pierce Irwin",
+    "subscriber_dob": "1979-01-20",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "David Brown",
+    "provider_npi": "8208031585",
+    "provider_phone": "4759469008",
+    "provider_fax": "4754161898",
+    "provider_email": "",
+    "provider_address": "6123 Broad St, New London, CT 06864",
+    "lab_name": "LabCorp",
+    "lab_npi": "6527769838",
+    "lab_address": "5096 Park Rd, New London, CT 06207",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-10-12",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F71",
+      "Q66"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-22"
+    ],
+    "form_id": "df393893-4ded-4523-bc08-ee2997665031",
+    "started_at": "2026-02-25T04:38:12.255Z"
+  },
+  "task_id": "5338d5d3-c9ff-4802-b0de-2a7001603c19",
+  "patient_id": "PAT-2554",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

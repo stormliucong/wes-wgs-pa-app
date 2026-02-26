@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:06:20.551199-05:00",
+  "payload": {
+    "patient_first_name": "Rowan",
+    "patient_last_name": "Dawes",
+    "patient_dob": "2010-03-12",
+    "sex": "Male",
+    "member_id": "535506699",
+    "patient_address": "9872 Park Rd, New Haven, CT 06368",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Maya Dawes",
+    "subscriber_dob": "1976-07-22",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "7658960310",
+    "provider_phone": "4758652786",
+    "provider_fax": "2036019180",
+    "provider_email": "",
+    "provider_address": "5355 Pine St, Bristol, CT 06737",
+    "lab_name": "GeneDx",
+    "lab_npi": "9147777951",
+    "lab_address": "1008 Church St, New Britain, CT 06194",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-08",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F72",
+      "Q04.0",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-20"
+    ],
+    "form_id": "ae8d5a10-dedb-44ca-ae6e-0dc5e77a19e2",
+    "started_at": "2026-02-25T04:01:26.263Z"
+  },
+  "task_id": "e8b13c81-b065-4db4-8111-3faaa99503c0",
+  "patient_id": "PAT-5883",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-24T23:37:11.745850-05:00",
+  "payload": {
+    "patient_first_name": "Elodie",
+    "patient_last_name": "Westley",
+    "patient_dob": "2021-01-08",
+    "sex": "Female",
+    "member_id": "820368979",
+    "patient_address": "2101 South St, New London, CT 06748",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Rosalie Westley",
+    "subscriber_dob": "2010-03-01",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "6103638486",
+    "provider_phone": "4753479489",
+    "provider_fax": "8603381951",
+    "provider_email": "",
+    "provider_address": "2903 High St, Torrington, CT 06824",
+    "lab_name": "LabCorp",
+    "lab_npi": "9787962196",
+    "lab_address": "6864 Oak Ave, Stratford, CT 06985",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "F80.9",
+      "Q22.5",
+      "Q21.1",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-07"
+    ],
+    "form_id": "ce4af3e6-5dfb-46f3-8b73-2330e10e974e",
+    "started_at": "2026-02-25T04:32:06.747Z"
+  },
+  "task_id": "d0b670d0-366e-4ce9-8a95-a0cd6a9d5db6",
+  "patient_id": "PAT-2882",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

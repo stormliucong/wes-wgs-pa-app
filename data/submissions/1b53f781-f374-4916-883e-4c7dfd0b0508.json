@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:54:07.932166-05:00",
+  "payload": {
+    "patient_first_name": "Beckett",
+    "patient_last_name": "Underwood",
+    "patient_dob": "2021-02-21",
+    "sex": "Male",
+    "member_id": "214486404",
+    "patient_address": "9460 High St, Meriden, CT 06805",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Arlo Underwood",
+    "subscriber_dob": "1986-11-10",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "7543544845",
+    "provider_phone": "(959) 645-4210",
+    "provider_fax": "(959) 595-1890",
+    "provider_email": "",
+    "provider_address": "2661 Meadow Ln, Milford, CT 06758",
+    "lab_name": "Invitae",
+    "lab_npi": "1711640653",
+    "lab_address": "6723 River Rd, Bristol, CT 06755",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.2",
+      "Q22.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-27"
+    ],
+    "form_id": "1b53f781-f374-4916-883e-4c7dfd0b0508",
+    "started_at": "2026-02-25T04:50:25.270Z"
+  },
+  "task_id": "305863ba-c564-4075-af16-b2b385ec9816",
+  "patient_id": "PAT-2382",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

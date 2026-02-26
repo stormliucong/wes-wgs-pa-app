@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-25T00:06:06.476435-05:00",
+  "payload": {
+    "patient_first_name": "Silas",
+    "patient_last_name": "Sinclair",
+    "patient_dob": "2020-09-12",
+    "sex": "Male",
+    "member_id": "834363992",
+    "patient_address": "3662 Pine St, Newington, CT 06851",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Brooks Sinclair",
+    "subscriber_dob": "1987-02-20",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "3520880633",
+    "provider_phone": "(203) 405-8267",
+    "provider_fax": "(959) 554-3637",
+    "provider_email": "",
+    "provider_address": "6020 River Rd, Manchester, CT 06328",
+    "lab_name": "Ambry",
+    "lab_npi": "1851020129",
+    "lab_address": "5249 Spring St, Norwalk, CT 06064",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-18"
+    ],
+    "form_id": "c77eb1e3-94b3-4bcb-a2f1-ed46e6c4e346",
+    "started_at": "2026-02-25T05:02:00.248Z"
+  },
+  "task_id": "9948e5ca-4559-41a6-94b3-6ebd0ab449dd",
+  "patient_id": "PAT-6549",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

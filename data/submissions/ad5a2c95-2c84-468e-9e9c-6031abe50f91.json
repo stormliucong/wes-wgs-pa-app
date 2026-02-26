@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:53:22.574720-05:00",
+  "payload": {
+    "patient_first_name": "Atticus",
+    "patient_last_name": "Fletcher",
+    "patient_dob": "2013-12-26",
+    "sex": "Male",
+    "member_id": "585212768",
+    "patient_address": "513 School St, Trumbull, CT 06316",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Roman Fletcher",
+    "subscriber_dob": "1979-07-11",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "7530393827",
+    "provider_phone": "(475) 455-8421",
+    "provider_fax": "(860) 323-3061",
+    "provider_email": "",
+    "provider_address": "5456 Spring St, Bridgeport, CT 06732",
+    "lab_name": "Invitae",
+    "lab_npi": "6569593205",
+    "lab_address": "1594 School St, Shelton, CT 06950",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "R27.8"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "ad5a2c95-2c84-468e-9e9c-6031abe50f91",
+    "started_at": "2026-02-25T04:50:00.334Z"
+  },
+  "task_id": "9496d91b-c467-4273-adfb-4a2c08511dfb",
+  "patient_id": "PAT-5627",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

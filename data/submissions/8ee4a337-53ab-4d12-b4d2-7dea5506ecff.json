@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:17:45.945402-05:00",
+  "payload": {
+    "patient_first_name": "Reid",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2020-02-11",
+    "sex": "Male",
+    "member_id": "884524306",
+    "patient_address": "5409 Franklin St, New London, CT 06559",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Colton Whitaker",
+    "subscriber_dob": "1985-11-11",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "5430263174",
+    "provider_phone": "(860) 311-3274",
+    "provider_fax": "(860) 352-6839",
+    "provider_email": "",
+    "provider_address": "793 Mill St, New Haven, CT 06387",
+    "lab_name": "GeneDx",
+    "lab_npi": "4345107926",
+    "lab_address": "1465 Hill St, Manchester, CT 06030",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-01",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "J744b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Head injury with concussion and scalp laceration",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S01.01",
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "8ee4a337-53ab-4d12-b4d2-7dea5506ecff",
+    "started_at": "2026-02-25T05:12:56.248Z"
+  },
+  "task_id": "10a9a2cd-5607-42f7-b5cd-0ba3d4216565",
+  "patient_id": "PAT-1804",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

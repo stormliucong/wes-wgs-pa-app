@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:37:08.209628-05:00",
+  "payload": {
+    "patient_first_name": "Daphne",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2015-09-21",
+    "sex": "Female",
+    "member_id": "809519190",
+    "patient_address": "9359 Water St, Stratford, CT 06819",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Skye Valentine",
+    "subscriber_dob": "2003-08-28",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "8985098800",
+    "provider_phone": "8609756273",
+    "provider_fax": "8602334877",
+    "provider_email": "",
+    "provider_address": "463 Spring St, Meriden, CT 06351",
+    "lab_name": "GeneDx",
+    "lab_npi": "6497672833",
+    "lab_address": "5402 Oak Ave, New Britain, CT 06821",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-18",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q10.3",
+      "Q66.89",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-15"
+    ],
+    "form_id": "6e3a2ee0-6be0-4927-8d0f-9a9edab483b8",
+    "started_at": "2026-02-25T04:32:36.192Z"
+  },
+  "task_id": "2238033a-bc0f-455e-a94c-3da87083f342",
+  "patient_id": "PAT-9529",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

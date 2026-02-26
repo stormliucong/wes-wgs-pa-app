@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:06:02.955129-05:00",
+  "payload": {
+    "patient_first_name": "Cynthia",
+    "patient_last_name": "Stewart",
+    "patient_dob": "2022-04-15",
+    "sex": "Female",
+    "member_id": "391708573",
+    "patient_address": "9878 Pleasant St, Manchester, CT 06472",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "William Stewart",
+    "subscriber_dob": "1997-08-24",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Jennifer Wilson",
+    "provider_npi": "4773525038",
+    "provider_phone": "4755999705",
+    "provider_fax": "4753527627",
+    "provider_email": "",
+    "provider_address": "251 West St, Windsor, CT 06816",
+    "lab_name": "Invitae",
+    "lab_npi": "9439193851",
+    "lab_address": "2134 Main St, Hartford, CT 06830",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-12-19",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Jennifer Wilson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q04.2",
+      "F72"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-27"
+    ],
+    "form_id": "c72872d9-0126-4df0-a185-f7c98f3609cf",
+    "started_at": "2026-02-13T23:01:51.445Z"
+  },
+  "task_id": "886ed735-2c76-4c40-bb1a-dc0eb399a273",
+  "patient_id": "PAT-5704",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

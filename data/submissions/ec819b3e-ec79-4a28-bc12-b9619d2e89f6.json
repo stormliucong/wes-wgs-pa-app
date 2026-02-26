@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:53:40.891053-05:00",
+  "payload": {
+    "patient_first_name": "Tobias",
+    "patient_last_name": "Xander",
+    "patient_dob": "2015-04-06",
+    "sex": "Male",
+    "member_id": "570985300",
+    "patient_address": "2431 Maple St, Middletown, CT 06795",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Layla Xander",
+    "subscriber_dob": "1981-08-26",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "2242535555",
+    "provider_phone": "2034109194",
+    "provider_fax": "2038751427",
+    "provider_email": "",
+    "provider_address": "6281 Valley Rd, Milford, CT 06823",
+    "lab_name": "Ambry",
+    "lab_npi": "4060387174",
+    "lab_address": "4101 Washington Ave, West Haven, CT 06397",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-10-01",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "G40.409"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "ec819b3e-ec79-4a28-bc12-b9619d2e89f6",
+    "started_at": "2026-02-25T04:49:44.125Z"
+  },
+  "task_id": "14353828-232d-4e54-80ca-5aedd33f530c",
+  "patient_id": "PAT-2651",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

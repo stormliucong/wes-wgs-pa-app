@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-13T17:53:40.926026-05:00",
+  "payload": {
+    "patient_first_name": "Charles",
+    "patient_last_name": "Rogers",
+    "patient_dob": "2019-10-12",
+    "sex": "Male",
+    "member_id": "945406046",
+    "patient_address": "4818 North St, Enfield, CT 06947",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Karen Rogers",
+    "subscriber_dob": "1994-05-20",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "3451387903",
+    "provider_phone": "9592443547",
+    "provider_fax": "9598607623",
+    "provider_email": "",
+    "provider_address": "96 Park Rd, Bridgeport, CT 06993",
+    "lab_name": "Invitae",
+    "lab_npi": "3191950113",
+    "lab_address": "2213 Main St, Manchester, CT 06463",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-15",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q21.1",
+      "Q16.0",
+      "F82",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-25"
+    ],
+    "form_id": "f99889cb-cd06-4185-b3bb-7b30359eb92d",
+    "started_at": "2026-02-13T22:49:07.766Z"
+  },
+  "task_id": "f0dcb5ac-2ca1-4580-b050-e272b0542f62",
+  "patient_id": "PAT-6685",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

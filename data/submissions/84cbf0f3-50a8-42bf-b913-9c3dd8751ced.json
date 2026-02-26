@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-13T18:31:16.633844-05:00",
+  "payload": {
+    "patient_first_name": "Linda",
+    "patient_last_name": "Cook",
+    "patient_dob": "2011-01-12",
+    "sex": "Female",
+    "member_id": "277926674",
+    "patient_address": "486 School St, Hamden, CT 06717",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Patricia Cook",
+    "subscriber_dob": "1985-12-05",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "8768334839",
+    "provider_phone": "(203) 395-2156",
+    "provider_fax": "(475) 912-3132",
+    "provider_email": "",
+    "provider_address": "3845 Washington Ave, West Haven, CT 06747",
+    "lab_name": "Ambry",
+    "lab_npi": "5687455322",
+    "lab_address": "1593 South St, Stratford, CT 06704",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q22.5",
+      "Q61.3",
+      "Q04.2",
+      "F79"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-05-10"
+    ],
+    "form_id": "84cbf0f3-50a8-42bf-b913-9c3dd8751ced",
+    "started_at": "2026-02-13T23:26:34.369Z"
+  },
+  "task_id": "9ceb26ff-dca5-414d-9c79-d91478caace6",
+  "patient_id": "PAT-2296",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

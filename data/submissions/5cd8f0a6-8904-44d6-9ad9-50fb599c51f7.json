@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:05:47.469889-05:00",
+  "payload": {
+    "patient_first_name": "Reid",
+    "patient_last_name": "Yorke",
+    "patient_dob": "2020-07-22",
+    "sex": "Male",
+    "member_id": "378648708",
+    "patient_address": "312 South St, Milford, CT 06987",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nora Yorke",
+    "subscriber_dob": "2010-07-21",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Sibling",
+    "provider_name": "Susan Clark",
+    "provider_npi": "5541892519",
+    "provider_phone": "(203) 460-2404",
+    "provider_fax": "(203) 532-4473",
+    "provider_email": "",
+    "provider_address": "7908 Cedar St, Milford, CT 06789",
+    "lab_name": "Invitae",
+    "lab_npi": "6718469846",
+    "lab_address": "5532 River Rd, Norwalk, CT 06583",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R27.0",
+      "E88.40"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5cd8f0a6-8904-44d6-9ad9-50fb599c51f7",
+    "started_at": "2026-02-25T04:01:45.353Z"
+  },
+  "task_id": "94e6a453-a33a-4b0d-9048-22e60cf254d4",
+  "patient_id": "PAT-4744",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

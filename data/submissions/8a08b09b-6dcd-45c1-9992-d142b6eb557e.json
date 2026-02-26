@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T17:13:06.890233-05:00",
+  "payload": {
+    "patient_first_name": "Laura",
+    "patient_last_name": "Lee",
+    "patient_dob": "2013-08-31",
+    "sex": "Female",
+    "member_id": "139346325",
+    "patient_address": "8721 Maple St, West Haven, CT 06933",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "David Lee",
+    "subscriber_dob": "2001-05-01",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "3332825383",
+    "provider_phone": "(475) 434-5905",
+    "provider_fax": "(959) 213-9666",
+    "provider_email": "",
+    "provider_address": "5038 Second St, Enfield, CT 06444",
+    "lab_name": "LabCorp",
+    "lab_npi": "8360960940",
+    "lab_address": "7059 Church St, Hamden, CT 06616",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-21",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E73.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "8a08b09b-6dcd-45c1-9992-d142b6eb557e",
+    "started_at": "2026-02-13T22:09:29.991Z"
+  },
+  "task_id": "6c18faef-2633-4cf5-8006-2b5075fe1f11",
+  "patient_id": "PAT-9167",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

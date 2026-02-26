@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:01:55.184448-05:00",
+  "payload": {
+    "patient_first_name": "Hudson",
+    "patient_last_name": "Dunley",
+    "patient_dob": "2021-02-18",
+    "sex": "Male",
+    "member_id": "953276599",
+    "patient_address": "3831 State St, New London, CT 06806",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bianca Dunley",
+    "subscriber_dob": "1986-11-09",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "8034939899",
+    "provider_phone": "8606523862",
+    "provider_fax": "9599701900",
+    "provider_email": "",
+    "provider_address": "5187 Union St, Hamden, CT 06979",
+    "lab_name": "GeneDx",
+    "lab_npi": "8138289630",
+    "lab_address": "4978 River Rd, Middletown, CT 06641",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-10",
+    "cpt_codes": [
+      "81425x1, 81426x1"
+    ],
+    "internal_test_code": "J744e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.319",
+      "R79.89",
+      "Z82.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "dbf23348-cce5-43b3-8c66-38fe5fbb47c0",
+    "started_at": "2026-02-25T03:56:05.924Z"
+  },
+  "task_id": "389f42f2-0277-41ea-92c7-9cdd4435b799",
+  "patient_id": "PAT-7533",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

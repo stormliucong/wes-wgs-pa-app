@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:49:40.577517-05:00",
+  "payload": {
+    "patient_first_name": "Corbin",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2015-06-30",
+    "sex": "Male",
+    "member_id": "584375366",
+    "patient_address": "8042 Mill St, Norwich, CT 06733",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Juniper Merrick",
+    "subscriber_dob": "1981-08-04",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "4448860096",
+    "provider_phone": "(860) 504-8024",
+    "provider_fax": "(959) 308-7525",
+    "provider_email": "",
+    "provider_address": "9750 Hill St, New Haven, CT 06684",
+    "lab_name": "LabCorp",
+    "lab_npi": "2738249925",
+    "lab_address": "7776 Maple St, Hartford, CT 06389",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "G40.309"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "07c3bbb2-a2fb-4fcf-ae76-aa9f70dd0559",
+    "started_at": "2026-02-25T04:45:11.196Z"
+  },
+  "task_id": "6fa9df9a-147a-483f-ae76-c819da104b8a",
+  "patient_id": "PAT-4507",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

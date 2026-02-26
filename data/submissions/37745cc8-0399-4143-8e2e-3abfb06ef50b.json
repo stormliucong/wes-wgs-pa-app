@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:06:16.423163-05:00",
+  "payload": {
+    "patient_first_name": "Callum",
+    "patient_last_name": "Easton",
+    "patient_dob": "2020-02-28",
+    "sex": "Male",
+    "member_id": "965922300",
+    "patient_address": "6183 School St, Trumbull, CT 06136",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Talia Easton",
+    "subscriber_dob": "1986-04-20",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "9097042853",
+    "provider_phone": "9598822393",
+    "provider_fax": "8609258056",
+    "provider_email": "",
+    "provider_address": "8889 West St, Stratford, CT 06471",
+    "lab_name": "GeneDx",
+    "lab_npi": "9450908584",
+    "lab_address": "8271 Broad St, Danbury, CT 06007",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-06",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "37745cc8-0399-4143-8e2e-3abfb06ef50b",
+    "started_at": "2026-02-25T04:01:38.106Z"
+  },
+  "task_id": "0cb7f0cb-0ea2-4574-900a-490277dd338e",
+  "patient_id": "PAT-6211",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

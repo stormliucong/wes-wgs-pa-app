@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:11:22.211978-05:00",
+  "payload": {
+    "patient_first_name": "Miles",
+    "patient_last_name": "Westley",
+    "patient_dob": "2011-07-06",
+    "sex": "Male",
+    "member_id": "208741843",
+    "patient_address": "8865 West St, New Britain, CT 06585",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ronan Westley",
+    "subscriber_dob": "1977-08-10",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "2971735808",
+    "provider_phone": "2035562807",
+    "provider_fax": "2032902490",
+    "provider_email": "",
+    "provider_address": "3583 Church St, Enfield, CT 06379",
+    "lab_name": "LabCorp",
+    "lab_npi": "3080993932",
+    "lab_address": "1759 Pine St, West Haven, CT 06839",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-29",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient admitted for acute head injury following a fall. CT scan revealed concussion without loss of consciousness and scalp laceration.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S01.01XA",
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "7cd9ced1-a569-44bb-9c2e-4824158f4624",
+    "started_at": "2026-02-25T05:07:05.073Z"
+  },
+  "task_id": "fbdc4482-ed5e-417e-84a1-8c10a607e024",
+  "patient_id": "PAT-4442",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

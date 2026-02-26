@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:07:13.233025-05:00",
+  "payload": {
+    "patient_first_name": "Kieran",
+    "patient_last_name": "Irwin",
+    "patient_dob": "2010-12-21",
+    "sex": "Male",
+    "member_id": "985240524",
+    "patient_address": "2716 Church St, Milford, CT 06529",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Maren Irwin",
+    "subscriber_dob": "1976-06-22",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "David Brown",
+    "provider_npi": "8440832853",
+    "provider_phone": "(959) 265-9376",
+    "provider_fax": "(860) 427-6487",
+    "provider_email": "",
+    "provider_address": "331 Oak Ave, Danbury, CT 06109",
+    "lab_name": "GeneDx",
+    "lab_npi": "5130784085",
+    "lab_address": "7697 Franklin St, Hartford, CT 06719",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-07",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q10.3",
+      "Q61.3",
+      "Q39.0",
+      "F71"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-23"
+    ],
+    "form_id": "59c59849-3753-409b-af9b-0f471d342381",
+    "started_at": "2026-02-25T04:01:24.030Z"
+  },
+  "task_id": "8d127d75-7d54-4605-9d80-04236f250390",
+  "patient_id": "PAT-3362",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

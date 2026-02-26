@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-25T16:13:57.735310-05:00",
+  "payload": {
+    "patient_first_name": "Jasper",
+    "patient_last_name": "Prescott",
+    "patient_dob": "2016-06-09",
+    "sex": "Male",
+    "member_id": "361845946",
+    "patient_address": "9596 Court St, Shelton, CT 06230",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Colton Prescott",
+    "subscriber_dob": "1982-08-30",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Michael Smith",
+    "provider_npi": "8118975041",
+    "provider_phone": "4758455076",
+    "provider_fax": "8602284368",
+    "provider_email": "",
+    "provider_address": "2113 Oak Ave, East Hartford, CT 06425",
+    "lab_name": "LabCorp",
+    "lab_npi": "2008678093",
+    "lab_address": "9900 River Rd, West Hartford, CT 06165",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-30",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R62.50"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "b2caed88-4021-4b0d-8fbd-414be9b36cbf",
+    "started_at": "2026-02-25T21:09:03.711Z"
+  },
+  "task_id": "f330a2a1-4096-462b-a44a-7cdb9dcbcb17",
+  "patient_id": "PAT-5290",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

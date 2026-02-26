@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-17T14:49:54.031061-05:00",
+  "payload": {
+    "patient_first_name": "Gregory",
+    "patient_last_name": "Wright",
+    "patient_dob": "2019-04-25",
+    "sex": "Male",
+    "member_id": "723286171",
+    "patient_address": "5614 East St, Milford, CT 06703",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Pamela Wright",
+    "subscriber_dob": "1994-12-27",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "3573086226",
+    "provider_phone": "(959) 204-5110",
+    "provider_fax": "(475) 442-7277",
+    "provider_email": "",
+    "provider_address": "8772 Washington Ave, West Hartford, CT 06308",
+    "lab_name": "Ambry",
+    "lab_npi": "6031645556",
+    "lab_address": "1325 Court St, Danbury, CT 06115",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-21",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "G40.3",
+      "R79.89"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d12b99c1-803a-4d29-8a3f-7a5953299b93",
+    "started_at": "2026-02-17T19:45:04.209Z"
+  },
+  "task_id": "eba2ca96-f102-4d01-9b57-f8843234c969",
+  "patient_id": "PAT-1332",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

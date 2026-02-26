@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:06:45.069050-05:00",
+  "payload": {
+    "patient_first_name": "Tristan",
+    "patient_last_name": "Emerson",
+    "patient_dob": "2014-02-14",
+    "sex": "Male",
+    "member_id": "584348717",
+    "patient_address": "1679 Union St, Hamden, CT 06162",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elodie Emerson",
+    "subscriber_dob": "1979-10-14",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "9063242652",
+    "provider_phone": "4754509826",
+    "provider_fax": "2036432589",
+    "provider_email": "",
+    "provider_address": "1206 Park Rd, Milford, CT 06789",
+    "lab_name": "Ambry",
+    "lab_npi": "2781087221",
+    "lab_address": "8566 Elm St, Newington, CT 06896",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-12",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": true,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.2",
+      "R62.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "4b19bd5a-53a3-4966-b199-7f1486b1f665",
+    "started_at": "2026-02-25T05:02:26.744Z"
+  },
+  "task_id": "ac13f689-1b5d-4d7b-b1b9-f0f28d706d9d",
+  "patient_id": "PAT-6782",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:53:59.697817-05:00",
+  "payload": {
+    "patient_first_name": "Bridget",
+    "patient_last_name": "Dawes",
+    "patient_dob": "2011-06-09",
+    "sex": "Female",
+    "member_id": "424799284",
+    "patient_address": "5531 Main St, Danbury, CT 06150",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elodie Dawes",
+    "subscriber_dob": "1978-01-10",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "3636499523",
+    "provider_phone": "(959) 831-8257",
+    "provider_fax": "(475) 975-3633",
+    "provider_email": "",
+    "provider_address": "5008 Church St, Milford, CT 06970",
+    "lab_name": "GeneDx",
+    "lab_npi": "3667807539",
+    "lab_address": "1212 Park Rd, Trumbull, CT 06195",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q10.4",
+      "Q39.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-17"
+    ],
+    "form_id": "02992ea6-dfed-4021-ad8f-61c2417865d5",
+    "started_at": "2026-02-25T04:50:10.972Z"
+  },
+  "task_id": "b7daad01-8745-4f10-82f5-59fad6c2c5f3",
+  "patient_id": "PAT-4120",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

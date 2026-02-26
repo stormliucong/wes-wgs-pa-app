@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:50:47.468712-05:00",
+  "payload": {
+    "patient_first_name": "Juniper",
+    "patient_last_name": "Quarry",
+    "patient_dob": "2015-08-12",
+    "sex": "Female",
+    "member_id": "912106984",
+    "patient_address": "4479 Union St, Middletown, CT 06932",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Maya Quarry",
+    "subscriber_dob": "1982-02-01",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "5041941706",
+    "provider_phone": "2037764681",
+    "provider_fax": "9595682751",
+    "provider_email": "",
+    "provider_address": "9897 School St, Stratford, CT 06087",
+    "lab_name": "Ambry",
+    "lab_npi": "9761504800",
+    "lab_address": "1175 Meadow Ln, Enfield, CT 06149",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-11-13",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73",
+      "G40.309",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-18"
+    ],
+    "form_id": "6824b308-263d-4bc0-845f-f21dca61b1a7",
+    "started_at": "2026-02-25T04:45:14.772Z"
+  },
+  "task_id": "13793839-0b28-4e95-aa32-2dcefae7acf0",
+  "patient_id": "PAT-8208",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

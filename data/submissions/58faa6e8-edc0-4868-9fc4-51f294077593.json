@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:14:10.551936-05:00",
+  "payload": {
+    "patient_first_name": "Finley",
+    "patient_last_name": "Parkerly",
+    "patient_dob": "2013-08-07",
+    "sex": "Male",
+    "member_id": "624360103",
+    "patient_address": "9692 Mill St, Waterbury, CT 06010",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Tobias Parkerly",
+    "subscriber_dob": "1980-02-02",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "1851645312",
+    "provider_phone": "8609741425",
+    "provider_fax": "4753133641",
+    "provider_email": "",
+    "provider_address": "3778 Forest Ave, Hartford, CT 06113",
+    "lab_name": "GeneDx",
+    "lab_npi": "5465287689",
+    "lab_address": "9172 Church St, Windsor, CT 06980",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-17",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S93.401A",
+      "T36.0X1A",
+      "Z84.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "58faa6e8-edc0-4868-9fc4-51f294077593",
+    "started_at": "2026-02-25T05:08:32.849Z"
+  },
+  "task_id": "fa951315-6b95-4d22-9d07-513feab6cf4a",
+  "patient_id": "PAT-1274",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

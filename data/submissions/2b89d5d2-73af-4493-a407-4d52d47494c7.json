@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:05:17.840482-05:00",
+  "payload": {
+    "patient_first_name": "Zane",
+    "patient_last_name": "Bramwell",
+    "patient_dob": "2019-10-17",
+    "sex": "Male",
+    "member_id": "908273676",
+    "patient_address": "2925 Forest Ave, Newington, CT 06538",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Maren Jarrow",
+    "subscriber_dob": "1985-09-14",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "1113371826",
+    "provider_phone": "(860) 333-2706",
+    "provider_fax": "(203) 551-4432",
+    "provider_email": "",
+    "provider_address": "5407 Church St, West Hartford, CT 06061",
+    "lab_name": "GeneDx",
+    "lab_npi": "9223078528",
+    "lab_address": "2830 Pleasant St, Hamden, CT 06001",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-06",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q21.1",
+      "Q75.0",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-17"
+    ],
+    "form_id": "2b89d5d2-73af-4493-a407-4d52d47494c7",
+    "started_at": "2026-02-25T04:00:51.249Z"
+  },
+  "task_id": "89f257f4-187d-4689-a5f5-4556c48f15cf",
+  "patient_id": "PAT-3364",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

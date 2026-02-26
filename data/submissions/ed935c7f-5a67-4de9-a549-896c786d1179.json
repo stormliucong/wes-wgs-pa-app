@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T17:03:42.002773-05:00",
+  "payload": {
+    "patient_first_name": "Jennifer",
+    "patient_last_name": "Evans",
+    "patient_dob": "2022-08-30",
+    "sex": "Female",
+    "member_id": "337547701",
+    "patient_address": "4525 Valley Rd, Bridgeport, CT 06164",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Gregory Evans",
+    "subscriber_dob": "2012-10-27",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "9313858061",
+    "provider_phone": "(959) 354-8996",
+    "provider_fax": "(203) 582-9173",
+    "provider_email": "",
+    "provider_address": "5861 River Rd, New London, CT 06472",
+    "lab_name": "Ambry",
+    "lab_npi": "7167966816",
+    "lab_address": "1089 Highland Ave, New Britain, CT 06230",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-20",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q89.9",
+      "R62.50"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-25"
+    ],
+    "form_id": "ed935c7f-5a67-4de9-a549-896c786d1179",
+    "started_at": "2026-02-13T21:58:53.280Z"
+  },
+  "task_id": "fb8b208e-cda5-4278-9f33-fcc15bd922ba",
+  "patient_id": "PAT-1902",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

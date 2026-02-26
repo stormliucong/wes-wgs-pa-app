@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:56:09.462313-05:00",
+  "payload": {
+    "patient_first_name": "Eden",
+    "patient_last_name": "Lennox",
+    "patient_dob": "2021-03-08",
+    "sex": "Female",
+    "member_id": "498561081",
+    "patient_address": "1613 River Rd, New London, CT 06686",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Cora Lennox",
+    "subscriber_dob": "1987-06-02",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Patricia Anderson",
+    "provider_npi": "7014216584",
+    "provider_phone": "9599382837",
+    "provider_fax": "9593136230",
+    "provider_email": "",
+    "provider_address": "4778 Sunset Ave, New Haven, CT 06511",
+    "lab_name": "GeneDx",
+    "lab_npi": "6949454286",
+    "lab_address": "290 Oak Ave, Danbury, CT 06496",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "896a",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Patricia Anderson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R56.9",
+      "E88.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "4ac8bc63-ff96-44ac-b390-76f943fcceb9",
+    "started_at": "2026-02-25T04:52:58.572Z"
+  },
+  "task_id": "7728f1a2-5a8f-4633-82fd-a1b6d3641dc0",
+  "patient_id": "PAT-2015",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

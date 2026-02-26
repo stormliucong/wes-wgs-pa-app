@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:00:58.124475-05:00",
+  "payload": {
+    "patient_first_name": "Malcolm",
+    "patient_last_name": "Jarrow",
+    "patient_dob": "2018-07-01",
+    "sex": "Male",
+    "member_id": "418485490",
+    "patient_address": "2504 Sunset Ave, New Britain, CT 06969",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Tristan Jarrow",
+    "subscriber_dob": "1984-08-09",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Family Member",
+    "provider_name": "Michael Smith",
+    "provider_npi": "4004979337",
+    "provider_phone": "4759172672",
+    "provider_fax": "8603473313",
+    "provider_email": "",
+    "provider_address": "8435 Sunset Ave, Trumbull, CT 06674",
+    "lab_name": "GeneDx",
+    "lab_npi": "5700351999",
+    "lab_address": "2899 Court St, Meriden, CT 06218",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-15",
+    "cpt_codes": [
+      "81425x1, 81426x1"
+    ],
+    "internal_test_code": "J744e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q17.2",
+      "Q22.1",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-11"
+    ],
+    "form_id": "0dc89492-a559-49e8-8d03-839045c28fcb",
+    "started_at": "2026-02-25T04:55:45.798Z"
+  },
+  "task_id": "63a80f68-72fb-44ad-84a6-3d8028b8ebf6",
+  "patient_id": "PAT-5219",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

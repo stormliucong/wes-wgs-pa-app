@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:13:39.086648-05:00",
+  "payload": {
+    "patient_first_name": "Zane",
+    "patient_last_name": "Grafton",
+    "patient_dob": "2011-11-17",
+    "sex": "Male",
+    "member_id": "838736775",
+    "patient_address": "3392 Broad St, Bristol, CT 06815",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Zane Grafton",
+    "subscriber_dob": "1977-06-25",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Betty Young",
+    "provider_npi": "1475320497",
+    "provider_phone": "(203) 268-9724",
+    "provider_fax": "(203) 697-7561",
+    "provider_email": "",
+    "provider_address": "6052 Park Rd, New London, CT 06564",
+    "lab_name": "Ambry",
+    "lab_npi": "5586905025",
+    "lab_address": "390 Oak Ave, Middletown, CT 06942",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Betty Young",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "S01.00XA",
+      "T20.00XA",
+      "Z84.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "c380006c-f27c-4d04-8d31-8bcd4db368e6",
+    "started_at": "2026-02-25T05:07:22.671Z"
+  },
+  "task_id": "92313a09-35b2-4e7a-af2f-85c39b545cea",
+  "patient_id": "PAT-1799",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

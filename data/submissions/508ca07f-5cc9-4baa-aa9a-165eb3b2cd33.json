@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:15:33.837171-05:00",
+  "payload": {
+    "patient_first_name": "Weston",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2016-05-02",
+    "sex": "Male",
+    "member_id": "537017665",
+    "patient_address": "7510 Franklin St, Greenwich, CT 06118",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hudson Whitaker",
+    "subscriber_dob": "1982-08-04",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "3882091018",
+    "provider_phone": "8607811293",
+    "provider_fax": "4752248024",
+    "provider_email": "",
+    "provider_address": "4905 Meadow Ln, Manchester, CT 06647",
+    "lab_name": "GeneDx",
+    "lab_npi": "7099523383",
+    "lab_address": "4491 West St, Hamden, CT 06379",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Acute injuries, accidental ingestion of penicillin, burn on head/face/neck, scalp laceration",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "T36.0X1A",
+      "T20.00XA",
+      "S01.01XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "508ca07f-5cc9-4baa-aa9a-165eb3b2cd33",
+    "started_at": "2026-02-25T05:10:39.848Z"
+  },
+  "task_id": "cd4206eb-7bff-4ac6-902b-cf09ba7473ca",
+  "patient_id": "PAT-4609",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

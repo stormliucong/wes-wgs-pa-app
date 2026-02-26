@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-17T15:15:17.832209-05:00",
+  "payload": {
+    "patient_first_name": "Mary",
+    "patient_last_name": "Ward",
+    "patient_dob": "2011-03-12",
+    "sex": "Female",
+    "member_id": "206408134",
+    "patient_address": "2128 South St, Hartford, CT 06267",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Larry Ward",
+    "subscriber_dob": "1986-07-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "4260064963",
+    "provider_phone": "(475) 579-2402",
+    "provider_fax": "(475) 769-5996",
+    "provider_email": "",
+    "provider_address": "5246 Cedar St, Hartford, CT 06622",
+    "lab_name": "LabCorp",
+    "lab_npi": "2106364110",
+    "lab_address": "7984 South St, Hamden, CT 06873",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-07",
+    "cpt_codes": [
+      "81425, 81426×2"
+    ],
+    "internal_test_code": "WGS001X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Acute right ankle injury and scalp laceration",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "S93.401",
+      "S01.01"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "836049f8-b256-40e0-a924-7be8e808c5dd",
+    "started_at": "2026-02-17T20:10:22.032Z"
+  },
+  "task_id": "bd60fdfc-b391-4e6e-a435-7982196fe3b8",
+  "patient_id": "PAT-9484",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

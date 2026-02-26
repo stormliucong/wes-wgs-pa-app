@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:21:57.835218-05:00",
+  "payload": {
+    "patient_first_name": "Asher",
+    "patient_last_name": "Prescott",
+    "patient_dob": "2018-05-13",
+    "sex": "Male",
+    "member_id": "784676855",
+    "patient_address": "9268 Maple St, New Haven, CT 06935",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Roman Prescott",
+    "subscriber_dob": "1985-02-14",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "6421237701",
+    "provider_phone": "2037948004",
+    "provider_fax": "2034518224",
+    "provider_email": "",
+    "provider_address": "5406 River Rd, Enfield, CT 06996",
+    "lab_name": "Ambry",
+    "lab_npi": "2700135833",
+    "lab_address": "1016 River Rd, Norwalk, CT 06965",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E87.2",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "b758d1f3-035e-439e-9ba1-f6a3a66df602",
+    "started_at": "2026-02-25T21:16:47.514Z"
+  },
+  "task_id": "74f2046f-f81e-4f61-96e8-1ad7e5c1a69d",
+  "patient_id": "PAT-3661",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:20:52.638187-05:00",
+  "payload": {
+    "patient_first_name": "Dorian",
+    "patient_last_name": "Ingram",
+    "patient_dob": "2018-11-11",
+    "sex": "Male",
+    "member_id": "687732735",
+    "patient_address": "997 West St, West Haven, CT 06219",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hudson Ingram",
+    "subscriber_dob": "1984-05-01",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "6015593736",
+    "provider_phone": "(959) 993-4706",
+    "provider_fax": "(475) 454-1059",
+    "provider_email": "",
+    "provider_address": "9685 Maple St, Meriden, CT 06512",
+    "lab_name": "GeneDx",
+    "lab_npi": "6245783341",
+    "lab_address": "4385 Franklin St, Enfield, CT 06814",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-07",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "R27.8"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "375f3b72-450e-4683-9154-db5710f00050",
+    "started_at": "2026-02-25T21:16:07.112Z"
+  },
+  "task_id": "0d4e199a-ef62-411b-9777-835d6c59b529",
+  "patient_id": "PAT-4621",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

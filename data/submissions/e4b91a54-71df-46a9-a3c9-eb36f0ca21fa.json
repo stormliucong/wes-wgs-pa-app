@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:06:40.175858-05:00",
+  "payload": {
+    "patient_first_name": "Nadia",
+    "patient_last_name": "Locke",
+    "patient_dob": "2016-12-28",
+    "sex": "Female",
+    "member_id": "261115962",
+    "patient_address": "7103 Franklin St, Windsor, CT 06434",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Anya Locke",
+    "subscriber_dob": "2005-07-18",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Paul Allen",
+    "provider_npi": "1456158446",
+    "provider_phone": "9599483670",
+    "provider_fax": "8608142247",
+    "provider_email": "",
+    "provider_address": "9137 West St, Trumbull, CT 06970",
+    "lab_name": "Ambry",
+    "lab_npi": "3567343481",
+    "lab_address": "8778 Elm St, Bristol, CT 06709",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-17",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F79",
+      "Q21.1",
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-17"
+    ],
+    "form_id": "e4b91a54-71df-46a9-a3c9-eb36f0ca21fa",
+    "started_at": "2026-02-25T04:02:36.765Z"
+  },
+  "task_id": "0031e09e-031b-4b1d-ab10-7a815ea0bbff",
+  "patient_id": "PAT-5660",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

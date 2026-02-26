@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:10:51.990904-05:00",
+  "payload": {
+    "patient_first_name": "Kieran",
+    "patient_last_name": "Dawes",
+    "patient_dob": "2010-03-28",
+    "sex": "Male",
+    "member_id": "244818467",
+    "patient_address": "5035 Hill St, Norwich, CT 06548",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Daphne Dawes",
+    "subscriber_dob": "1976-03-15",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "3973689275",
+    "provider_phone": "9597496459",
+    "provider_fax": "2033626111",
+    "provider_email": "",
+    "provider_address": "4408 Forest Ave, Bristol, CT 06036",
+    "lab_name": "Ambry",
+    "lab_npi": "5676554091",
+    "lab_address": "2150 Center St, East Hartford, CT 06621",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-07",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "15-year-old male seen after an acute head injury. Scalp laceration and concussion.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S01.01",
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "9644b46d-9f2e-4d61-9ade-766cd00ff025",
+    "started_at": "2026-02-25T05:06:04.997Z"
+  },
+  "task_id": "cdc4005b-4fed-4423-9dbc-81fc49c91351",
+  "patient_id": "PAT-6804",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

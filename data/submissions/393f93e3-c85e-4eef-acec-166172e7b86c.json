@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:42:24.857636-05:00",
+  "payload": {
+    "patient_first_name": "Delilah",
+    "patient_last_name": "Seymour",
+    "patient_dob": "2013-08-25",
+    "sex": "Female",
+    "member_id": "443306105",
+    "patient_address": "9663 Oak Ave, Trumbull, CT 06028",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ophelia Seymour",
+    "subscriber_dob": "1979-06-06",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "1870139527",
+    "provider_phone": "(475) 547-5866",
+    "provider_fax": "(475) 354-1074",
+    "provider_email": "",
+    "provider_address": "4747 Union St, Norwalk, CT 06176",
+    "lab_name": "Invitae",
+    "lab_npi": "1877044876",
+    "lab_address": "2711 High St, Milford, CT 06131",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-08-23",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F70",
+      "Q61.3",
+      "Q22.0",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-02"
+    ],
+    "form_id": "393f93e3-c85e-4eef-acec-166172e7b86c",
+    "started_at": "2026-02-25T04:37:55.230Z"
+  },
+  "task_id": "e7108c51-0407-4b70-9de1-2c85cdb70f16",
+  "patient_id": "PAT-8531",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

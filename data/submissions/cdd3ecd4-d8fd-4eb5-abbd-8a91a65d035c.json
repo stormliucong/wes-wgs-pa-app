@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:07:26.545407-05:00",
+  "payload": {
+    "patient_first_name": "Reid",
+    "patient_last_name": "Seymour",
+    "patient_dob": "2020-02-23",
+    "sex": "Male",
+    "member_id": "582429539",
+    "patient_address": "5411 Forest Ave, West Haven, CT 06144",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Atticus Seymour",
+    "subscriber_dob": "2009-01-30",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "5393534360",
+    "provider_phone": "9597217666",
+    "provider_fax": "2037473857",
+    "provider_email": "",
+    "provider_address": "7867 South St, Meriden, CT 06282",
+    "lab_name": "Invitae",
+    "lab_npi": "3596280083",
+    "lab_address": "719 Spring St, Stamford, CT 06381",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-30",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.0",
+      "F71",
+      "Q10.3"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-23"
+    ],
+    "form_id": "cdd3ecd4-d8fd-4eb5-abbd-8a91a65d035c",
+    "started_at": "2026-02-25T04:02:53.568Z"
+  },
+  "task_id": "42ac2fd1-1572-4ad5-8d9f-090af690a6a5",
+  "patient_id": "PAT-8896",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

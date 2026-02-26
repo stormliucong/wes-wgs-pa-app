@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:14:47.083150-05:00",
+  "payload": {
+    "patient_first_name": "Ezra",
+    "patient_last_name": "Alder",
+    "patient_dob": "2014-12-13",
+    "sex": "Male",
+    "member_id": "370575180",
+    "patient_address": "1850 Highland Ave, Meriden, CT 06211",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Rowan Alder",
+    "subscriber_dob": "1980-07-27",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "2128294394",
+    "provider_phone": "(203) 919-8521",
+    "provider_fax": "(860) 403-9821",
+    "provider_email": "",
+    "provider_address": "410 Mill St, Torrington, CT 06850",
+    "lab_name": "GeneDx",
+    "lab_npi": "9646854807",
+    "lab_address": "5144 Sunset Ave, Meriden, CT 06918",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-04",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "896e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.3",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "3b162b6f-2cb5-4592-9972-dbec1bf02e14",
+    "started_at": "2026-02-25T21:09:15.031Z"
+  },
+  "task_id": "7cd43a6f-82c3-45dc-9cf1-a24aa2dfa07b",
+  "patient_id": "PAT-7760",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

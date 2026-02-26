@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T16:20:53.319976-05:00",
+  "payload": {
+    "patient_first_name": "Maya",
+    "patient_last_name": "Nash",
+    "patient_dob": "2017-10-17",
+    "sex": "Female",
+    "member_id": "348470912",
+    "patient_address": "8222 Valley Rd, West Haven, CT 06191",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ivy Nash",
+    "subscriber_dob": "1983-06-26",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "3616555797",
+    "provider_phone": "4755398762",
+    "provider_fax": "9596971289",
+    "provider_email": "",
+    "provider_address": "863 River Rd, Glastonbury, CT 06781",
+    "lab_name": "GeneDx",
+    "lab_npi": "3671147548",
+    "lab_address": "5903 Church St, Bridgeport, CT 06472",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.19",
+      "Q67.3",
+      "F82"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "8454dcec-0ad5-4268-b133-27b635431cfa",
+    "started_at": "2026-02-25T21:15:46.039Z"
+  },
+  "task_id": "311ff0eb-4d5a-4b6c-a4f9-9451dc370075",
+  "patient_id": "PAT-8732",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

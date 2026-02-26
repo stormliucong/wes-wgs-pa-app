@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:41:01.895217-05:00",
+  "payload": {
+    "patient_first_name": "Owen",
+    "patient_last_name": "Vaughn",
+    "patient_dob": "2023-01-15",
+    "sex": "Male",
+    "member_id": "885932847",
+    "patient_address": "2456 Broad St, Windsor, CT 06224",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Leo Vaughn",
+    "subscriber_dob": "1989-01-18",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Family Member",
+    "provider_name": "Betty Young",
+    "provider_npi": "9008043899",
+    "provider_phone": "(860) 598-1118",
+    "provider_fax": "(475) 428-8694",
+    "provider_email": "",
+    "provider_address": "9872 Church St, New Britain, CT 06040",
+    "lab_name": "Ambry",
+    "lab_npi": "2603476882",
+    "lab_address": "8138 Church St, Windsor, CT 06421",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-09-12",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Owen Vaughn is a 3-year-old male with a history notable for a congenital brain malformation consistent with holoprosencephaly",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Betty Young",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f216b4be-e85e-48ce-ab13-bcb319982ffd",
+    "started_at": "2026-02-25T04:37:32.479Z"
+  },
+  "task_id": "5e61b1fa-e70e-44fc-bc85-de1ec8528570",
+  "patient_id": "PAT-6244",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

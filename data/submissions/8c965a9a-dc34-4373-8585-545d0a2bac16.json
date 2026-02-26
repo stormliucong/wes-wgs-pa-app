@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:01:23.777610-05:00",
+  "payload": {
+    "patient_first_name": "Esme",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2019-10-01",
+    "sex": "Female",
+    "member_id": "864055401",
+    "patient_address": "8469 Washington Ave, New Haven, CT 06642",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Willow Valentine",
+    "subscriber_dob": "1985-10-12",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Betty Young",
+    "provider_npi": "6449037250",
+    "provider_phone": "8605171876",
+    "provider_fax": "9595996417",
+    "provider_email": "",
+    "provider_address": "1519 Mill St, Stratford, CT 06884",
+    "lab_name": "LabCorp",
+    "lab_npi": "6238420483",
+    "lab_address": "2391 Elm St, Windsor, CT 06253",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Betty Young",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q17.2",
+      "F82"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-30"
+    ],
+    "form_id": "8c965a9a-dc34-4373-8585-545d0a2bac16",
+    "started_at": "2026-02-25T03:55:32.982Z"
+  },
+  "task_id": "b8a799fc-ca92-44a6-82bb-852679663e7e",
+  "patient_id": "PAT-6849",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

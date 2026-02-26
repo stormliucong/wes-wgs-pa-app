@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:16:29.506197-05:00",
+  "payload": {
+    "patient_first_name": "Willow",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2020-08-23",
+    "sex": "Female",
+    "member_id": "655307433",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Dawson Valentine",
+    "subscriber_dob": "1986-08-30",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "8768720042",
+    "provider_phone": "959-377-2772",
+    "provider_fax": "860-888-6425",
+    "provider_email": "",
+    "provider_address": "4342 Broad St, Norwalk, CT 06841",
+    "lab_name": "Ambry",
+    "lab_npi": "1769086789",
+    "lab_address": "5799 South St, Hamden, CT 06290",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-23",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q02",
+      "Q04.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e8d91edb-638c-4d7f-a4cb-ff1bf716242c",
+    "started_at": "2026-02-25T21:09:13.568Z"
+  },
+  "task_id": "c9ce59d1-c8d5-4496-b7a4-ebce574643f6",
+  "patient_id": "PAT-7162",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

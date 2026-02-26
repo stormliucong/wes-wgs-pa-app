@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:15:58.007460-05:00",
+  "payload": {
+    "patient_first_name": "Delilah",
+    "patient_last_name": "Radcliffe",
+    "patient_dob": "2016-09-17",
+    "sex": "Female",
+    "member_id": "431440527",
+    "patient_address": "1996 Spring St, Stratford, CT 06654",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Daphne Radcliffe",
+    "subscriber_dob": "1982-06-03",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "4920235591",
+    "provider_phone": "2035251810",
+    "provider_fax": "8602832660",
+    "provider_email": "",
+    "provider_address": "7922 Pine St, West Hartford, CT 06986",
+    "lab_name": "Ambry",
+    "lab_npi": "8713590750",
+    "lab_address": "594 State St, West Haven, CT 06178",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-29",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q16.0",
+      "Q10.3",
+      "F72",
+      "Q22.1"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2022-05-10"
+    ],
+    "form_id": "568e10dd-b0a1-43f1-b699-7426c19474ac",
+    "started_at": "2026-02-25T21:09:21.288Z"
+  },
+  "task_id": "542f842e-6eb0-483f-81cd-6cd23b322f9f",
+  "patient_id": "PAT-3960",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

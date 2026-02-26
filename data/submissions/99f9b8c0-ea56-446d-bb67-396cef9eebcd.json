@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-24T23:56:19.188883-05:00",
+  "payload": {
+    "patient_first_name": "Reid",
+    "patient_last_name": "Oakley",
+    "patient_dob": "2014-11-30",
+    "sex": "Male",
+    "member_id": "786909799",
+    "patient_address": "1127 Second St, Hamden, CT 06841",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Owen Oakley",
+    "subscriber_dob": "1980-11-12",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "5956636454",
+    "provider_phone": "(475) 310-4603",
+    "provider_fax": "(860) 271-4059",
+    "provider_email": "",
+    "provider_address": "3653 Court St, Hamden, CT 06879",
+    "lab_name": "GeneDx",
+    "lab_npi": "3065536782",
+    "lab_address": "6999 Pine St, Bridgeport, CT 06490",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "TH78e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q10.9",
+      "Q22.0",
+      "Q21.1",
+      "F82",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-07"
+    ],
+    "form_id": "99f9b8c0-ea56-446d-bb67-396cef9eebcd",
+    "started_at": "2026-02-25T04:51:03.533Z"
+  },
+  "task_id": "2d5d698b-fce9-4159-91aa-4778d68ef1a9",
+  "patient_id": "PAT-8312",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

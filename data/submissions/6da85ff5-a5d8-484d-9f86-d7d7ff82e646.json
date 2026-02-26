@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:07:56.557543-05:00",
+  "payload": {
+    "patient_first_name": "Linda",
+    "patient_last_name": "Rogers",
+    "patient_dob": "2015-08-01",
+    "sex": "Female",
+    "member_id": "502860867",
+    "patient_address": "7441 Maple St, New Haven, CT 06410",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Deborah Rogers",
+    "subscriber_dob": "1990-11-20",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "5706758037",
+    "provider_phone": "(203) 358-1361",
+    "provider_fax": "(959) 743-7549",
+    "provider_email": "",
+    "provider_address": "5877 Broad St, Greenwich, CT 06964",
+    "lab_name": "LabCorp",
+    "lab_npi": "7766246146",
+    "lab_address": "3933 Cedar St, Hartford, CT 06473",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-08-12",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "P94.2",
+      "E73.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-08-20"
+    ],
+    "form_id": "6da85ff5-a5d8-484d-9f86-d7d7ff82e646",
+    "started_at": "2026-02-13T23:03:42.070Z"
+  },
+  "task_id": "f16e01a2-500c-4206-9926-094abe44f4cb",
+  "patient_id": "PAT-5659",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

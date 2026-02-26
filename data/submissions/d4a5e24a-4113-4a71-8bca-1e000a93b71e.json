@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-18T00:33:54.040737-05:00",
+  "payload": {
+    "patient_first_name": "Maria",
+    "patient_last_name": "Bailey",
+    "patient_dob": "2017-09-19",
+    "sex": "Female",
+    "member_id": "423756070",
+    "patient_address": "2198 State St, Meriden, CT 06906",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "William Bailey",
+    "subscriber_dob": "1992-08-20",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "8294557112",
+    "provider_phone": "(475) 280-2256",
+    "provider_fax": "(860) 804-6647",
+    "provider_email": "",
+    "provider_address": "2799 East St, Stamford, CT 06837",
+    "lab_name": "LabCorp",
+    "lab_npi": "1119027691",
+    "lab_address": "7285 Church St, Waterbury, CT 06782",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81415, 81416, 81416"
+    ],
+    "internal_test_code": "620022",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-18",
+    "icd_codes": [
+      "E73.9",
+      "G40.4"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d4a5e24a-4113-4a71-8bca-1e000a93b71e",
+    "started_at": "2026-02-18T05:31:26.750121Z"
+  },
+  "task_id": "0b984db3-5652-4e68-9163-2a01434b5720",
+  "patient_id": "PAT-2388",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

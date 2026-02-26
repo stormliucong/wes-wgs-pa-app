@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T16:13:41.158393-05:00",
+  "payload": {
+    "patient_first_name": "Aiden",
+    "patient_last_name": "Westley",
+    "patient_dob": "2016-05-18",
+    "sex": "Male",
+    "member_id": "897452489",
+    "patient_address": "145 Cedar St, West Hartford, CT 06988",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kira Westley",
+    "subscriber_dob": "1982-12-07",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "1979092370",
+    "provider_phone": "5555555555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Dr",
+    "lab_name": "Ambry",
+    "lab_npi": "8830912617",
+    "lab_address": "15 Enterprise, Aliso Viejo, CA 92656",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES-001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q67.3",
+      "F82"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-18"
+    ],
+    "form_id": "3d46c72f-9764-4044-972e-fe26551b5f81",
+    "started_at": "2026-02-25T21:09:16.268Z"
+  },
+  "task_id": "1da7ba02-bd16-40ef-89b5-c28383927f73",
+  "patient_id": "PAT-4061",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

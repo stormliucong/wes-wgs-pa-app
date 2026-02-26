@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-25T16:16:44.621138-05:00",
+  "payload": {
+    "patient_first_name": "Willow",
+    "patient_last_name": "Quarry",
+    "patient_dob": "2021-01-30",
+    "sex": "Male",
+    "member_id": "602198203",
+    "patient_address": "2599 Elm St, Milford, CT 06163",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Selene Quarry",
+    "subscriber_dob": "1986-03-11",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "6971127017",
+    "provider_phone": "2036251788",
+    "provider_fax": "4756507887",
+    "provider_email": "",
+    "provider_address": "5147 Pine St, Stamford, CT 06067",
+    "lab_name": "Ambry",
+    "lab_npi": "5058711811",
+    "lab_address": "5920 Washington Ave, New Haven, CT 06297",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-19",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.3",
+      "Q21.1",
+      "E70.32",
+      "F72",
+      "Q10.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-01"
+    ],
+    "form_id": "9c735138-a819-4a5a-baa0-b3e0ef25d965",
+    "started_at": "2026-02-25T21:09:38.725Z"
+  },
+  "task_id": "65ae6404-bb54-42f6-80c3-cee36f8f0d69",
+  "patient_id": "PAT-3614",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

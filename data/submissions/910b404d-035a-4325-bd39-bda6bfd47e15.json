@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:41:13.449007-05:00",
+  "payload": {
+    "patient_first_name": "Tristan",
+    "patient_last_name": "Fletcher",
+    "patient_dob": "2015-08-10",
+    "sex": "Male",
+    "member_id": "611197575",
+    "patient_address": "2596 South St, New Haven, CT 06007",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Piper Fletcher",
+    "subscriber_dob": "1981-10-18",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Jennifer Wilson",
+    "provider_npi": "8761930875",
+    "provider_phone": "8607122466",
+    "provider_fax": "4754512503",
+    "provider_email": "",
+    "provider_address": "8115 Church St, New Britain, CT 06070",
+    "lab_name": "GeneDx",
+    "lab_npi": "9002515536",
+    "lab_address": "2932 Pleasant St, Bristol, CT 06077",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-11-25",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "J744b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Jennifer Wilson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R56.9",
+      "E87.2",
+      "Q89.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-15"
+    ],
+    "form_id": "910b404d-035a-4325-bd39-bda6bfd47e15",
+    "started_at": "2026-02-25T04:37:06.378Z"
+  },
+  "task_id": "f69cf751-cac4-4b4f-9f19-c8d1117dd739",
+  "patient_id": "PAT-5632",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

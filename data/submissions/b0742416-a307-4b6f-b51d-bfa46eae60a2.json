@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-13T17:48:04.512690-05:00",
+  "payload": {
+    "patient_first_name": "Carol",
+    "patient_last_name": "Clark",
+    "patient_dob": "2015-09-20",
+    "sex": "Female",
+    "member_id": "670200205",
+    "patient_address": "382 Main St, West Haven, CT 06585",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Christine Clark",
+    "subscriber_dob": "1990-11-03",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "4745281025",
+    "provider_phone": "4756464411",
+    "provider_fax": "4758858752",
+    "provider_email": "",
+    "provider_address": "1164 River Rd, Meriden, CT 06646",
+    "lab_name": "Invitae",
+    "lab_npi": "4467595623",
+    "lab_address": "5457 Highland Ave, Shelton, CT 06050",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2025-08-22",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "R27.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-15"
+    ],
+    "form_id": "b0742416-a307-4b6f-b51d-bfa46eae60a2",
+    "started_at": "2026-02-13T22:44:12.583Z"
+  },
+  "task_id": "69f450d9-56fb-445e-b3bf-62ddcddb1945",
+  "patient_id": "PAT-9254",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

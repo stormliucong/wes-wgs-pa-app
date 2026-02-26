@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:04:58.076060-05:00",
+  "payload": {
+    "patient_first_name": "Piper",
+    "patient_last_name": "Grafton",
+    "patient_dob": "2017-10-05",
+    "sex": "Female",
+    "member_id": "882748538",
+    "patient_address": "8587 Water St, Shelton, CT 06650",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Theo Grafton",
+    "subscriber_dob": "1983-04-20",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "9460478006",
+    "provider_phone": "4758042643",
+    "provider_fax": "8605714955",
+    "provider_email": "",
+    "provider_address": "357 Union St, Stratford, CT 06672",
+    "lab_name": "Invitae",
+    "lab_npi": "4860284345",
+    "lab_address": "8772 North St, New Haven, CT 06979",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-01",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R27.0",
+      "E72.20",
+      "R74.02"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d82cfa33-ce85-457e-9bf3-9b16dcdac1af",
+    "started_at": "2026-02-25T05:00:47.073Z"
+  },
+  "task_id": "eebcc493-33e8-49a8-a869-a684320792bd",
+  "patient_id": "PAT-3724",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

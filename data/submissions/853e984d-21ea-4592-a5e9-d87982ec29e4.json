@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:20:39.035569-05:00",
+  "payload": {
+    "patient_first_name": "Zane",
+    "patient_last_name": "Ulrich",
+    "patient_dob": "2011-04-29",
+    "sex": "Male",
+    "member_id": "197294268",
+    "patient_address": "3113 School St, Newington, CT 06152",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Finley Ulrich",
+    "subscriber_dob": "1978-01-04",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Steven Torres",
+    "provider_npi": "6242391381",
+    "provider_phone": "(475) 847-2046",
+    "provider_fax": "(203) 491-5614",
+    "provider_email": "",
+    "provider_address": "9483 South St, Stamford, CT 06869",
+    "lab_name": "LabCorp",
+    "lab_npi": "9433250426",
+    "lab_address": "7464 Center St, Greenwich, CT 06710",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q02",
+      "F72",
+      "Q17.2",
+      "Q66.8"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-31"
+    ],
+    "form_id": "853e984d-21ea-4592-a5e9-d87982ec29e4",
+    "started_at": "2026-02-25T21:15:58.566Z"
+  },
+  "task_id": "13fe8c9f-2d2c-4c1d-880f-4e9509993f65",
+  "patient_id": "PAT-2078",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

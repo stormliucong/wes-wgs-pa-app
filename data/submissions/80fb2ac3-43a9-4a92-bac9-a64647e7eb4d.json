@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:19:51.933349-05:00",
+  "payload": {
+    "patient_first_name": "Eliana",
+    "patient_last_name": "Darnell",
+    "patient_dob": "2019-05-22",
+    "sex": "Female",
+    "member_id": "247624542",
+    "patient_address": "3560 Spring St, East Hartford, CT 06256",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Spencer Darnell",
+    "subscriber_dob": "1985-11-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "9735736213",
+    "provider_phone": "4756235743",
+    "provider_fax": "2034713742",
+    "provider_email": "",
+    "provider_address": "8142 North St, Trumbull, CT 06391",
+    "lab_name": "Invitae",
+    "lab_npi": "9980494145",
+    "lab_address": "6987 Meadow Ln, Stamford, CT 06569",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-30",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "80fb2ac3-43a9-4a92-bac9-a64647e7eb4d",
+    "started_at": "2026-02-25T21:15:24.026Z"
+  },
+  "task_id": "23af7057-a049-4922-8b99-74445949e65a",
+  "patient_id": "PAT-7714",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

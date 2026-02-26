@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:06:53.134748-05:00",
+  "payload": {
+    "patient_first_name": "Sabrina",
+    "patient_last_name": "Fairmont",
+    "patient_dob": "2015-12-09",
+    "sex": "Female",
+    "member_id": "903462720",
+    "patient_address": "4330 Forest Ave, Hartford, CT 06851",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Tristan Fairmont",
+    "subscriber_dob": "1981-05-27",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "3247319425",
+    "provider_phone": "9594134643",
+    "provider_fax": "4755012702",
+    "provider_email": "",
+    "provider_address": "6779 Church St, Danbury, CT 06072",
+    "lab_name": "Invitae",
+    "lab_npi": "3007877156",
+    "lab_address": "4000 Meadow Ln, Waterbury, CT 06141",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-08",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.0",
+      "Q61.3",
+      "Q66.89"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-07"
+    ],
+    "form_id": "a05225f6-b600-430d-8e87-92a2856cf366",
+    "started_at": "2026-02-25T05:02:05.508Z"
+  },
+  "task_id": "38a2a3b5-a01e-48b6-b0d0-96065a2ea905",
+  "patient_id": "PAT-2700",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

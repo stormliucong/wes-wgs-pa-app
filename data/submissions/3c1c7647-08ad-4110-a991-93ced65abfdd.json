@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:50:13.624046-05:00",
+  "payload": {
+    "patient_first_name": "Arlo",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2015-11-07",
+    "sex": "Male",
+    "member_id": "559778839",
+    "patient_address": "4562 Meadow Ln, New Britain, CT 06393",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Tristan Whitaker",
+    "subscriber_dob": "1981-08-22",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "5497354957",
+    "provider_phone": "4753619965",
+    "provider_fax": "9598784536",
+    "provider_email": "",
+    "provider_address": "6501 Cedar St, Newington, CT 06669",
+    "lab_name": "Invitae",
+    "lab_npi": "2804955394",
+    "lab_address": "6461 Elm St, Norwich, CT 06508",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R62.51"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Normal"
+    ],
+    "prior_test_date": [
+      "2024-06-15"
+    ],
+    "form_id": "3c1c7647-08ad-4110-a991-93ced65abfdd",
+    "started_at": "2026-02-25T04:45:38.696Z"
+  },
+  "task_id": "b100be46-0874-44ba-82d0-952b2a19d15e",
+  "patient_id": "PAT-9804",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

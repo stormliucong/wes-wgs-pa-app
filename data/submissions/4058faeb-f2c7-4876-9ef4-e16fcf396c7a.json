@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:22:41.836513-05:00",
+  "payload": {
+    "patient_first_name": "Pierce",
+    "patient_last_name": "Norwood",
+    "patient_dob": "2010-04-23",
+    "sex": "Female",
+    "member_id": "213170815",
+    "patient_address": "7138 Cedar St, Torrington, CT 06063",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Weston Norwood",
+    "subscriber_dob": "1976-09-16",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "7253999290",
+    "provider_phone": "2039219542",
+    "provider_fax": "8604189184",
+    "provider_email": "",
+    "provider_address": "5646 Pine St, West Haven, CT 06570",
+    "lab_name": "Ambry",
+    "lab_npi": "5131760596",
+    "lab_address": "743 Broad St, Shelton, CT 06755",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.2",
+      "Q87.0",
+      "Q10.0",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-15"
+    ],
+    "form_id": "4058faeb-f2c7-4876-9ef4-e16fcf396c7a",
+    "started_at": "2026-02-25T21:16:35.881Z"
+  },
+  "task_id": "e2b2ab77-c4f7-40d0-9bd5-4ea02a462b09",
+  "patient_id": "PAT-4023",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

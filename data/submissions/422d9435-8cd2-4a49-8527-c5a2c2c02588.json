@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:55:06.970804-05:00",
+  "payload": {
+    "patient_first_name": "Ophelia",
+    "patient_last_name": "Underwood",
+    "patient_dob": "2017-06-17",
+    "sex": "Female",
+    "member_id": "671895138",
+    "patient_address": "78 Park Rd, Greenwich, CT 06464",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Talia Underwood",
+    "subscriber_dob": "1983-08-11",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "8494653091",
+    "provider_phone": "8603678530",
+    "provider_fax": "9593418978",
+    "provider_email": "",
+    "provider_address": "2697 Oak Ave, Stratford, CT 06817",
+    "lab_name": "Ambry",
+    "lab_npi": "9011666658",
+    "lab_address": "6858 State St, New Haven, CT 06080",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70",
+      "G40.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "422d9435-8cd2-4a49-8527-c5a2c2c02588",
+    "started_at": "2026-02-25T04:50:52.177Z"
+  },
+  "task_id": "f87523e3-e7ce-4123-8144-84e4d4dbe0c0",
+  "patient_id": "PAT-6363",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

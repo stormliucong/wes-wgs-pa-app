@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-17T15:35:36.317182-05:00",
+  "payload": {
+    "patient_first_name": "Nicholas",
+    "patient_last_name": "Thompson",
+    "patient_dob": "2020-12-09",
+    "sex": "Male",
+    "member_id": "341076899",
+    "patient_address": "9983 Court St, New London, CT 06187",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Tyler Thompson",
+    "subscriber_dob": "1995-09-30",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "5685551624",
+    "provider_phone": "8603006044",
+    "provider_fax": "2034867401",
+    "provider_email": "",
+    "provider_address": "4724 Washington Ave, Manchester, CT 06680",
+    "lab_name": "Ambry",
+    "lab_npi": "1794832089",
+    "lab_address": "4211 Broad St, Windsor, CT 06041",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-21",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "5-year-old male, scalp wound, ankle sprain",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "S01.01",
+      "S93.401"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "7f38e786-2081-47c2-87b3-8bf1f2f24ee0",
+    "started_at": "2026-02-17T20:31:44.034Z"
+  },
+  "task_id": "bc992a76-820c-4f45-aa47-c09636c12f8b",
+  "patient_id": "PAT-1519",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

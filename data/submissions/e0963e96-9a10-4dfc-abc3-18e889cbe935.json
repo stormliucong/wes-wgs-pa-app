@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:36:02.122766-05:00",
+  "payload": {
+    "patient_first_name": "Aiden",
+    "patient_last_name": "Grafton",
+    "patient_dob": "2012-02-15",
+    "sex": "Male",
+    "member_id": "825514888",
+    "patient_address": "1350 Meadow Ln, New Haven, CT 06533",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bridget Grafton",
+    "subscriber_dob": "1999-07-25",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Karen White",
+    "provider_npi": "8534891500",
+    "provider_phone": "(475) 407-2704",
+    "provider_fax": "(959) 839-6524",
+    "provider_email": "",
+    "provider_address": "9434 West St, New London, CT 06498",
+    "lab_name": "LabCorp",
+    "lab_npi": "4857532686",
+    "lab_address": "6475 Franklin St, Bridgeport, CT 06485",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-28",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.909",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e0963e96-9a10-4dfc-abc3-18e889cbe935",
+    "started_at": "2026-02-25T04:32:35.121Z"
+  },
+  "task_id": "c7df14a5-cc0f-46d8-a6e2-6bd89a9a9e38",
+  "patient_id": "PAT-9723",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

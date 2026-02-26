@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:15:32.884844-05:00",
+  "payload": {
+    "patient_first_name": "Spencer",
+    "patient_last_name": "Goodwin",
+    "patient_dob": "2021-06-04",
+    "sex": "Male",
+    "member_id": "899223187",
+    "patient_address": "6418 Washington Ave, East Hartford, CT 06843",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Mina Goodwin",
+    "subscriber_dob": "1987-06-19",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Legal Guardian",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "5926918713",
+    "provider_phone": "(959) 901-3232",
+    "provider_fax": "(203) 575-8312",
+    "provider_email": "",
+    "provider_address": "4075 Forest Ave, Waterbury, CT 06619",
+    "lab_name": "GeneDx",
+    "lab_npi": "7962073905",
+    "lab_address": "5869 Sunset Ave, Trumbull, CT 06801",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81425, 81426x2"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q16.0",
+      "Q10.3",
+      "Q39.0",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-06"
+    ],
+    "form_id": "4471aa69-4ff0-45aa-aa7a-0e7272246f0e",
+    "started_at": "2026-02-25T21:09:12.721Z"
+  },
+  "task_id": "e7a632e4-516b-486b-8b70-972c2fc9df16",
+  "patient_id": "PAT-9329",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:35:46.940822-05:00",
+  "payload": {
+    "patient_first_name": "Dawson",
+    "patient_last_name": "Ainsley",
+    "patient_dob": "2011-12-29",
+    "sex": "Male",
+    "member_id": "135712166",
+    "patient_address": "6245 Oak Ave, Middletown, CT 06858",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Caleb Ainsley",
+    "subscriber_dob": "2000-09-16",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "9662967690",
+    "provider_phone": "(475) 363-2240",
+    "provider_fax": "(203) 417-5920",
+    "provider_email": "",
+    "provider_address": "1198 Pine St, Torrington, CT 06040",
+    "lab_name": "LabCorp",
+    "lab_npi": "7659829556",
+    "lab_address": "9188 South St, Glastonbury, CT 06625",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "G-1002",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.1",
+      "F82",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-08-15"
+    ],
+    "form_id": "873d35f6-554c-4416-8483-c39a0cc18bc1",
+    "started_at": "2026-02-25T04:32:08.848Z"
+  },
+  "task_id": "694ba87a-45f1-4a9c-b4d9-7f060d05dca6",
+  "patient_id": "PAT-2204",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

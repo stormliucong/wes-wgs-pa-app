@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:16:42.834746-05:00",
+  "payload": {
+    "patient_first_name": "Hugo",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2019-12-09",
+    "sex": "Male",
+    "member_id": "238608175",
+    "patient_address": "1936 Valley Rd, Norwalk, CT 06509",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Talia Merrick",
+    "subscriber_dob": "1985-11-30",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "2855694031",
+    "provider_phone": "(203) 856-4485",
+    "provider_fax": "(475) 410-9479",
+    "provider_email": "",
+    "provider_address": "8654 Washington Ave, Milford, CT 06282",
+    "lab_name": "Invitae",
+    "lab_npi": "1816335366",
+    "lab_address": "8374 Sunset Ave, Greenwich, CT 06535",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-30",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Accidental penicillin poisoning and concussion. See clinical notes.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "T36.0X1A",
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "3b26a8c3-61b4-4e5e-a9bc-91a3ba0e5bdf",
+    "started_at": "2026-02-25T05:11:24.208Z"
+  },
+  "task_id": "c8ffcb1e-44b0-4d3e-973a-2d10fb17cbfe",
+  "patient_id": "PAT-3554",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

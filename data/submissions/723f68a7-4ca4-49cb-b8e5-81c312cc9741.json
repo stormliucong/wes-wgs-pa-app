@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:36:02.574608-05:00",
+  "payload": {
+    "patient_first_name": "Juniper",
+    "patient_last_name": "Somerset",
+    "patient_dob": "2014-03-11",
+    "sex": "Female",
+    "member_id": "570025485",
+    "patient_address": "3384 Highland Ave, Shelton, CT 06658",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elodie Somerset",
+    "subscriber_dob": "2002-10-31",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "2391702103",
+    "provider_phone": "8603826356",
+    "provider_fax": "4758657490",
+    "provider_email": "",
+    "provider_address": "9408 Elm St, Hartford, CT 06658",
+    "lab_name": "GeneDx",
+    "lab_npi": "6326263647",
+    "lab_address": "5628 Maple St, New Haven, CT 06839",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-10",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.909",
+      "E87.2",
+      "E72.20"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "723f68a7-4ca4-49cb-b8e5-81c312cc9741",
+    "started_at": "2026-02-25T04:32:08.603Z"
+  },
+  "task_id": "22f291ac-40c6-4620-b894-25e8662c34a9",
+  "patient_id": "PAT-2184",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-17T15:21:15.332454-05:00",
+  "payload": {
+    "patient_first_name": "Gary",
+    "patient_last_name": "Wright",
+    "patient_dob": "2013-04-14",
+    "sex": "Male",
+    "member_id": "827786080",
+    "patient_address": "4387 Oak Ave, Stamford, CT 06206",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Betty Wright",
+    "subscriber_dob": "1988-03-18",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "8224323424",
+    "provider_phone": "9596505180",
+    "provider_fax": "9592984616",
+    "provider_email": "",
+    "provider_address": "6346 Washington Ave, Newington, CT 06444",
+    "lab_name": "Invitae",
+    "lab_npi": "9615053932",
+    "lab_address": "784 Meadow Ln, Shelton, CT 06607",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-10-14",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "Q04.0",
+      "Q89.8",
+      "R62.50"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-24"
+    ],
+    "form_id": "791333d8-0a23-464e-b7dd-2345ab22ea32",
+    "started_at": "2026-02-17T20:16:19.155Z"
+  },
+  "task_id": "ffd6f7df-f70e-4ced-b160-ed7374c91985",
+  "patient_id": "PAT-1148",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

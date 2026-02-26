@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:46:02.954081-05:00",
+  "payload": {
+    "patient_first_name": "Rowan",
+    "patient_last_name": "Darnell",
+    "patient_dob": "2017-03-27",
+    "sex": "Male",
+    "member_id": "794641633",
+    "patient_address": "714 Second St, Milford, CT 06543",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ezra Darnell",
+    "subscriber_dob": "1983-08-20",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "6970181360",
+    "provider_phone": "9592474478",
+    "provider_fax": "8603762517",
+    "provider_email": "",
+    "provider_address": "2403 Sunset Ave, Milford, CT 06843",
+    "lab_name": "Invitae",
+    "lab_npi": "7592063932",
+    "lab_address": "2206 East St, East Hartford, CT 06790",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-09-27",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "G40.409",
+      "Q89.9",
+      "Z84.81"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "c3adb887-e4c5-4d3b-8105-803d47cb75b9",
+    "started_at": "2026-02-25T04:40:58.198Z"
+  },
+  "task_id": "514b5cf2-97cc-4ee9-9379-574f0965e738",
+  "patient_id": "PAT-5513",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

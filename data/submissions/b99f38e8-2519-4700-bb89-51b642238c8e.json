@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-17T14:44:21.656501-05:00",
+  "payload": {
+    "patient_first_name": "Deborah",
+    "patient_last_name": "Bennett",
+    "patient_dob": "2014-07-21",
+    "sex": "Female",
+    "member_id": "960243989",
+    "patient_address": "9813 State St, Torrington, CT 06232",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kenneth Bennett",
+    "subscriber_dob": "1989-03-18",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "3502255084",
+    "provider_phone": "(860) 628-3788",
+    "provider_fax": "(475) 700-2542",
+    "provider_email": "",
+    "provider_address": "9188 West St, West Hartford, CT 06148",
+    "lab_name": "LabCorp",
+    "lab_npi": "1548125513",
+    "lab_address": "8245 Maple St, Windsor, CT 06906",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "Q21.1",
+      "Q22.0",
+      "Q10.0",
+      "F72",
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-08-16"
+    ],
+    "form_id": "b99f38e8-2519-4700-bb89-51b642238c8e",
+    "started_at": "2026-02-17T19:38:34.827Z"
+  },
+  "task_id": "ae3f0c89-a569-40f9-b280-92901f285375",
+  "patient_id": "PAT-7246",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

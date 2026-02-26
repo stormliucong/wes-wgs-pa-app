@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:05:34.629338-05:00",
+  "payload": {
+    "patient_first_name": "Damian",
+    "patient_last_name": "Xander",
+    "patient_dob": "2019-11-19",
+    "sex": "Male",
+    "member_id": "946572146",
+    "patient_address": "4963 West St, Shelton, CT 06578",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Luca Xander",
+    "subscriber_dob": "1985-03-19",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "9940372658",
+    "provider_phone": "(959) 219-1662",
+    "provider_fax": "(475) 810-3190",
+    "provider_email": "",
+    "provider_address": "12 Church St, New Britain, CT 06491",
+    "lab_name": "Ambry",
+    "lab_npi": "3900735416",
+    "lab_address": "2301 Broad St, Manchester, CT 06854",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-31",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "G40.909",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "10b18fd1-1b08-4758-80a8-0a7757a55ce4",
+    "started_at": "2026-02-25T04:01:35.667Z"
+  },
+  "task_id": "529a6874-61ca-4d59-8655-344b5db5f164",
+  "patient_id": "PAT-4687",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

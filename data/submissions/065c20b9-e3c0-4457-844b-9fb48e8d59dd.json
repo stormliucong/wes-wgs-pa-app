@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-24T23:57:09.518288-05:00",
+  "payload": {
+    "patient_first_name": "Reid",
+    "patient_last_name": "Raines",
+    "patient_dob": "2018-11-22",
+    "sex": "Male",
+    "member_id": "106213585",
+    "patient_address": "9762 Pine St, Trumbull, CT 06460",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Aiden Raines",
+    "subscriber_dob": "1984-07-31",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "6277315599",
+    "provider_phone": "(860) 759-7498",
+    "provider_fax": "(475) 846-6224",
+    "provider_email": "",
+    "provider_address": "2173 South St, Norwalk, CT 06851",
+    "lab_name": "GeneDx",
+    "lab_npi": "6705086197",
+    "lab_address": "8818 Church St, Stamford, CT 06078",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2025-02-25",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "896a",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q39.1",
+      "F88",
+      "F79",
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "065c20b9-e3c0-4457-844b-9fb48e8d59dd",
+    "started_at": "2026-02-25T04:50:49.585Z"
+  },
+  "task_id": "8f1ce8f6-5ee6-4ed7-825a-750da4a3779d",
+  "patient_id": "PAT-8761",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

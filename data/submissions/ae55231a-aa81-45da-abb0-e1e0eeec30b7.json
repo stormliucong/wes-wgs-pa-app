@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:00:23.991955-05:00",
+  "payload": {
+    "patient_first_name": "Miles",
+    "patient_last_name": "Ulrich",
+    "patient_dob": "2018-02-06",
+    "sex": "Male",
+    "member_id": "422456840",
+    "patient_address": "4272 River Rd, West Haven, CT 06334",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Atticus Ulrich",
+    "subscriber_dob": "1984-02-10",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Father",
+    "provider_name": "Karen White",
+    "provider_npi": "2247887464",
+    "provider_phone": "(475) 794-1377",
+    "provider_fax": "(203) 378-2499",
+    "provider_email": "",
+    "provider_address": "6984 Pleasant St, Meriden, CT 06123",
+    "lab_name": "GeneDx",
+    "lab_npi": "1497088097",
+    "lab_address": "6297 Second St, Waterbury, CT 06876",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-21",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "G40.409"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "ae55231a-aa81-45da-abb0-e1e0eeec30b7",
+    "started_at": "2026-02-25T03:55:31.928Z"
+  },
+  "task_id": "53c14ef7-d3b8-4155-8c11-7c998024ed02",
+  "patient_id": "PAT-5237",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

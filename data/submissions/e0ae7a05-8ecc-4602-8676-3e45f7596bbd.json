@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-17T14:27:56.811928-05:00",
+  "payload": {
+    "patient_first_name": "Sharon",
+    "patient_last_name": "Collins",
+    "patient_dob": "2016-02-14",
+    "sex": "Female",
+    "member_id": "975137277",
+    "patient_address": "8171 State St, Hartford, CT 06231",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Gary Collins",
+    "subscriber_dob": "1990-05-05",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "5342080965",
+    "provider_phone": "(203) 480-4504",
+    "provider_fax": "(475) 242-2801",
+    "provider_email": "",
+    "provider_address": "8593 Cedar St, Norwalk, CT 06722",
+    "lab_name": "Invitae",
+    "lab_npi": "4857332984",
+    "lab_address": "8123 Sunset Ave, Bridgeport, CT 06487",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-07",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "R56.9",
+      "R79.89",
+      "R74.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e0ae7a05-8ecc-4602-8676-3e45f7596bbd",
+    "started_at": "2026-02-17T19:23:42.954Z"
+  },
+  "task_id": "44b9f6f8-e40d-47d5-a521-67be78764eac",
+  "patient_id": "PAT-7746",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

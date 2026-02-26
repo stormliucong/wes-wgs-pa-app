@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:01:48.526379-05:00",
+  "payload": {
+    "patient_first_name": "Hazel",
+    "patient_last_name": "Keaton",
+    "patient_dob": "2016-12-26",
+    "sex": "Female",
+    "member_id": "499578066",
+    "patient_address": "7069 Park Rd, Windsor, CT 06657",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Declan Keaton",
+    "subscriber_dob": "1983-01-30",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Father",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "6601906711",
+    "provider_phone": "8606978921",
+    "provider_fax": "8608734373",
+    "provider_email": "",
+    "provider_address": "2467 Forest Ave, Enfield, CT 06656",
+    "lab_name": "Invitae",
+    "lab_npi": "6398686011",
+    "lab_address": "7538 Maple St, Glastonbury, CT 06486",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.3",
+      "Q17.9"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-07"
+    ],
+    "form_id": "75d34b96-e4a7-43f3-a638-65ea1e76dc23",
+    "started_at": "2026-02-25T03:56:04.668Z"
+  },
+  "task_id": "8799d4b4-fc24-4901-96f0-e7868717edfb",
+  "patient_id": "PAT-4232",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

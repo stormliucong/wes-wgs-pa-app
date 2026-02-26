@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:39:32.118857-05:00",
+  "payload": {
+    "patient_first_name": "Hazel",
+    "patient_last_name": "Seymour",
+    "patient_dob": "2019-10-23",
+    "sex": "Female",
+    "member_id": "877053768",
+    "patient_address": "4168 Oak Ave, New Haven, CT 06359",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Aiden Seymour",
+    "subscriber_dob": "2009-08-09",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "6401068981",
+    "provider_phone": "8609834444",
+    "provider_fax": "8605795824",
+    "provider_email": "",
+    "provider_address": "5497 Pleasant St, East Hartford, CT 06500",
+    "lab_name": "LabCorp",
+    "lab_npi": "9384393881",
+    "lab_address": "9877 Hill St, Shelton, CT 06112",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-18",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.41"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f5f7653d-002d-4ff7-9a7c-7457bf07aeba",
+    "started_at": "2026-02-25T04:35:45.039Z"
+  },
+  "task_id": "1ba4d95b-5ead-459e-b4ee-b573f6e08f10",
+  "patient_id": "PAT-1369",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

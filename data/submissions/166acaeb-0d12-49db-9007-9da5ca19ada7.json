@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T16:14:54.894028-05:00",
+  "payload": {
+    "patient_first_name": "Bianca",
+    "patient_last_name": "Grafton",
+    "patient_dob": "2021-06-18",
+    "sex": "Female",
+    "member_id": "514172121",
+    "patient_address": "5325 Oak Ave, Milford, CT 06772",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Callum Grafton",
+    "subscriber_dob": "1987-06-10",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "7564805661",
+    "provider_phone": "(860) 818-9487",
+    "provider_fax": "(959) 360-4567",
+    "provider_email": "",
+    "provider_address": "8787 Oak Ave, Windsor, CT 06735",
+    "lab_name": "GeneDx",
+    "lab_npi": "2852037760",
+    "lab_address": "8910 Maple St, Hamden, CT 06289",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-23",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "J744b",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.2",
+      "R62.0",
+      "R79.89"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "166acaeb-0d12-49db-9007-9da5ca19ada7",
+    "started_at": "2026-02-25T21:09:02.322Z"
+  },
+  "task_id": "368f82df-2c90-4566-816f-393c52050ef2",
+  "patient_id": "PAT-3070",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

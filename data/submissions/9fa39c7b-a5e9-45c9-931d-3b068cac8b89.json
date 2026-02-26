@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T17:43:22.827514-05:00",
+  "payload": {
+    "patient_first_name": "Timothy",
+    "patient_last_name": "Collins",
+    "patient_dob": "2022-02-14",
+    "sex": "Male",
+    "member_id": "542052506",
+    "patient_address": "1649 State St, Hamden, CT 06849",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Melissa Collins",
+    "subscriber_dob": "1997-11-07",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "1299299985",
+    "provider_phone": "(475) 224-6215",
+    "provider_fax": "(959) 984-9543",
+    "provider_email": "",
+    "provider_address": "6611 Court St, Trumbull, CT 06586",
+    "lab_name": "Invitae",
+    "lab_npi": "3840498407",
+    "lab_address": "7159 Highland Ave, Shelton, CT 06530",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-08-23",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "P94.2",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-08-25"
+    ],
+    "form_id": "9fa39c7b-a5e9-45c9-931d-3b068cac8b89",
+    "started_at": "2026-02-13T22:39:06.563Z"
+  },
+  "task_id": "3b4ed1a3-f432-4be6-9a91-b8372f9310c3",
+  "patient_id": "PAT-4682",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

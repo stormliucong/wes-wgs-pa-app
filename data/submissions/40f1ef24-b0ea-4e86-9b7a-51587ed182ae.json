@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:01:34.344210-05:00",
+  "payload": {
+    "patient_first_name": "Kira",
+    "patient_last_name": "Fenwick",
+    "patient_dob": "2013-04-15",
+    "sex": "Female",
+    "member_id": "327591521",
+    "patient_address": "7723 Hill St, Waterbury, CT 06593",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Owen Fenwick",
+    "subscriber_dob": "1980-01-12",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "2627458992",
+    "provider_phone": "(203) 442-1599",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "Waterbury, CT",
+    "lab_name": "GeneDx",
+    "lab_npi": "4394217715",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-14",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "561a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.2",
+      "Q39.2",
+      "R62.50",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-09"
+    ],
+    "form_id": "40f1ef24-b0ea-4e86-9b7a-51587ed182ae",
+    "started_at": "2026-02-25T04:57:18.662Z"
+  },
+  "task_id": "a578670e-ef24-4b3c-b869-7d3c9f3e5a12",
+  "patient_id": "PAT-2607",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

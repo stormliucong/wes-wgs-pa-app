@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:41:14.586732-05:00",
+  "payload": {
+    "patient_first_name": "Elias",
+    "patient_last_name": "Griffith",
+    "patient_dob": "2018-12-13",
+    "sex": "Male",
+    "member_id": "706468732",
+    "patient_address": "85 North St, Danbury, CT 06456",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nora Griffith",
+    "subscriber_dob": "1984-08-12",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "David Brown",
+    "provider_npi": "2717603403",
+    "provider_phone": "5555555555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Way",
+    "lab_name": "Ambry",
+    "lab_npi": "7578954870",
+    "lab_address": "123 Lab St",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-08-27",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q89.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "54592f17-0721-4a87-a083-2f9fc95a0196",
+    "started_at": "2026-02-25T04:37:47.840Z"
+  },
+  "task_id": "e3d77ea9-7efc-4eb1-8810-4c790b89c64d",
+  "patient_id": "PAT-5298",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

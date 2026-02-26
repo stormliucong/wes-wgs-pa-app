@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T16:14:15.729854-05:00",
+  "payload": {
+    "patient_first_name": "Juniper",
+    "patient_last_name": "Bramwell",
+    "patient_dob": "2017-09-24",
+    "sex": "Male",
+    "member_id": "502898573",
+    "patient_address": "8842 High St, Windsor, CT 06070",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kieran Bramwell",
+    "subscriber_dob": "1983-10-23",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "2477214918",
+    "provider_phone": "(203) 963-7415",
+    "provider_fax": "(959) 477-8726",
+    "provider_email": "",
+    "provider_address": "2865 Water St, Greenwich, CT 06487",
+    "lab_name": "LabCorp",
+    "lab_npi": "7181756276",
+    "lab_address": "3572 State St, Hamden, CT 06584",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-14",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R56.9",
+      "E87.2",
+      "Z82.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "3b686a01-ab60-4827-adca-4be1f6eac33f",
+    "started_at": "2026-02-25T21:09:03.402Z"
+  },
+  "task_id": "859ba83d-38c1-41a3-84a5-cc7e1e139f75",
+  "patient_id": "PAT-7895",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

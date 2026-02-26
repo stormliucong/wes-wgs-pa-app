@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:05:16.637457-05:00",
+  "payload": {
+    "patient_first_name": "Jude",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2012-07-30",
+    "sex": "Male",
+    "member_id": "826241537",
+    "patient_address": "5964 Broad St, Shelton, CT 06629",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Rowan Merrick",
+    "subscriber_dob": "1978-07-16",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "8347770256",
+    "provider_phone": "9596684221",
+    "provider_fax": "8609493482",
+    "provider_email": "",
+    "provider_address": "9041 West St, Bridgeport, CT 06774",
+    "lab_name": "Ambry",
+    "lab_npi": "2329803335",
+    "lab_address": "1100 Pine St, Windsor, CT 06295",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-27",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "G40.409"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "ec0d51f6-37b4-4469-ac41-63e278027bf1",
+    "started_at": "2026-02-25T04:00:51.797Z"
+  },
+  "task_id": "6fbc6e29-b035-4608-8f9d-0f5f17853b71",
+  "patient_id": "PAT-5648",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

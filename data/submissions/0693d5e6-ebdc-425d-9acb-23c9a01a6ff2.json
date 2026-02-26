@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:48:59.028248-05:00",
+  "payload": {
+    "patient_first_name": "Colton",
+    "patient_last_name": "Kingsley",
+    "patient_dob": "2014-08-08",
+    "sex": "Male",
+    "member_id": "886522583",
+    "patient_address": "3909 Main St, Enfield, CT 06446",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Declan Kingsley",
+    "subscriber_dob": "1980-04-14",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Father",
+    "provider_name": "Paul Allen",
+    "provider_npi": "3549833943",
+    "provider_phone": "5555555555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Way, Hartford, CT 06106",
+    "lab_name": "Invitae",
+    "lab_npi": "1957998637",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q39.0",
+      "F72"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "0693d5e6-ebdc-425d-9acb-23c9a01a6ff2",
+    "started_at": "2026-02-25T04:45:08.200Z"
+  },
+  "task_id": "aecb9f93-c25b-4a26-a27e-f8d3f45bb269",
+  "patient_id": "PAT-1190",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

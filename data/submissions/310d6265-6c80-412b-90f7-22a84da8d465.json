@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:20:50.316512-05:00",
+  "payload": {
+    "patient_first_name": "Maya",
+    "patient_last_name": "Talbot",
+    "patient_dob": "2012-11-23",
+    "sex": "Male",
+    "member_id": "412326058",
+    "patient_address": "795 Court St, Glastonbury, CT 06875",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Beckett Talbot",
+    "subscriber_dob": "1978-07-16",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "1719836601",
+    "provider_phone": "9592849222",
+    "provider_fax": "2034509440",
+    "provider_email": "",
+    "provider_address": "8805 Pine St, Bristol, CT 06067",
+    "lab_name": "Ambry",
+    "lab_npi": "2394431495",
+    "lab_address": "8883 Oak Ave, Newington, CT 06220",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.909",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "310d6265-6c80-412b-90f7-22a84da8d465",
+    "started_at": "2026-02-25T21:16:07.094Z"
+  },
+  "task_id": "110e01cc-a2a7-411c-8c75-913a65653b00",
+  "patient_id": "PAT-3387",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

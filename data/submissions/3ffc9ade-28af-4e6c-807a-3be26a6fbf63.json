@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:35:52.251247-05:00",
+  "payload": {
+    "patient_first_name": "Aurora",
+    "patient_last_name": "Montrose",
+    "patient_dob": "2020-07-26",
+    "sex": "Female",
+    "member_id": "275946246",
+    "patient_address": "8620 High St, Enfield, CT 06249",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Caleb Montrose",
+    "subscriber_dob": "2009-01-01",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "9254620139",
+    "provider_phone": "8608166034",
+    "provider_fax": "2036307773",
+    "provider_email": "",
+    "provider_address": "6702 Mill St, Waterbury, CT 06245",
+    "lab_name": "GeneDx",
+    "lab_npi": "7653236408",
+    "lab_address": "9931 Broad St, Bridgeport, CT 06135",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q89.9",
+      "Q21.1"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-23"
+    ],
+    "form_id": "3ffc9ade-28af-4e6c-807a-3be26a6fbf63",
+    "started_at": "2026-02-25T04:32:08.557Z"
+  },
+  "task_id": "3e799923-9d82-45af-abcd-0f546ca45db7",
+  "patient_id": "PAT-8089",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

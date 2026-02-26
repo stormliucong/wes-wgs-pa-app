@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:08:54.456845-05:00",
+  "payload": {
+    "patient_first_name": "Miles",
+    "patient_last_name": "Fletcher",
+    "patient_dob": "2019-09-06",
+    "sex": "Male",
+    "member_id": "624132330",
+    "patient_address": "6529 Elm St, East Hartford, CT 06219",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elodie Fletcher",
+    "subscriber_dob": "2009-01-18",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "3941704860",
+    "provider_phone": "(475) 559-2432",
+    "provider_fax": "(860) 381-8391",
+    "provider_email": "",
+    "provider_address": "4362 Franklin St, East Hartford, CT 06018",
+    "lab_name": "Invitae",
+    "lab_npi": "9512911896",
+    "lab_address": "5260 West St, Stamford, CT 06996",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-21",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F71",
+      "H02.52",
+      "Q67.3",
+      "Q21.1"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-05-10"
+    ],
+    "form_id": "fc6c1d47-d59a-432b-a640-da955bc6c053",
+    "started_at": "2026-02-25T04:03:19.625Z"
+  },
+  "task_id": "ff5e1ff4-b096-498d-a04e-4152b7d7e565",
+  "patient_id": "PAT-2021",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

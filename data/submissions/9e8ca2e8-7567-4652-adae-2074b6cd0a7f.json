@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-13T18:13:41.181636-05:00",
+  "payload": {
+    "patient_first_name": "Robert",
+    "patient_last_name": "Walker",
+    "patient_dob": "2012-10-21",
+    "sex": "Male",
+    "member_id": "968068428",
+    "patient_address": "7344 South St, Norwich, CT 06512",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nancy Walker",
+    "subscriber_dob": "1987-05-03",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "6887742888",
+    "provider_phone": "(959) 515-3213",
+    "provider_fax": "(959) 263-2267",
+    "provider_email": "",
+    "provider_address": "3917 Pine St, East Hartford, CT 06195",
+    "lab_name": "Invitae",
+    "lab_npi": "6823380941",
+    "lab_address": "8222 West St, Stratford, CT 06305",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-11-19",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q39.0",
+      "Q61.3",
+      "F82"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-27"
+    ],
+    "form_id": "9e8ca2e8-7567-4652-adae-2074b6cd0a7f",
+    "started_at": "2026-02-13T23:09:33.087Z"
+  },
+  "task_id": "cc88ad5b-4eee-4b64-a2a3-8dce2dbc66b5",
+  "patient_id": "PAT-3256",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:04:52.622942-05:00",
+  "payload": {
+    "patient_first_name": "Eliana",
+    "patient_last_name": "Prescott",
+    "patient_dob": "2018-10-09",
+    "sex": "Female",
+    "member_id": "335811059",
+    "patient_address": "6348 North St, New Britain, CT 06391",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Camila Prescott",
+    "subscriber_dob": "1984-12-05",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "2970417722",
+    "provider_phone": "4752149089",
+    "provider_fax": "8607564161",
+    "provider_email": "",
+    "provider_address": "4461 Broad St, West Hartford, CT 06371",
+    "lab_name": "Ambry",
+    "lab_npi": "6461790331",
+    "lab_address": "2438 Court St, Shelton, CT 06059",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-23",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "R27.9",
+      "R79.89"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "69c6ad6d-e0e9-48b7-b654-90f88e90de3a",
+    "started_at": "2026-02-25T04:01:03.332Z"
+  },
+  "task_id": "d5e6d677-e403-4a9e-b6c0-ff8b8d8ef0bb",
+  "patient_id": "PAT-2927",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

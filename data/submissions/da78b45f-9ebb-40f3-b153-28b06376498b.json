@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T17:08:30.651112-05:00",
+  "payload": {
+    "patient_first_name": "Elizabeth",
+    "patient_last_name": "Stewart",
+    "patient_dob": "2018-03-25",
+    "sex": "Female",
+    "member_id": "307446521",
+    "patient_address": "4116 Pleasant St, West Haven, CT 06825",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ryan Stewart",
+    "subscriber_dob": "2006-07-07",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "6415044003",
+    "provider_phone": "8609961362",
+    "provider_fax": "4756025962",
+    "provider_email": "",
+    "provider_address": "8589 School St, Stratford, CT 06446",
+    "lab_name": "LabCorp",
+    "lab_npi": "7635564262",
+    "lab_address": "5944 Union St, Meriden, CT 06453",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-30",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q39.0",
+      "Q04.2"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-11"
+    ],
+    "form_id": "da78b45f-9ebb-40f3-b153-28b06376498b",
+    "started_at": "2026-02-13T22:04:04.524Z"
+  },
+  "task_id": "e9f91c5f-6ca6-43b6-ba40-7bb2178e6c23",
+  "patient_id": "PAT-5024",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

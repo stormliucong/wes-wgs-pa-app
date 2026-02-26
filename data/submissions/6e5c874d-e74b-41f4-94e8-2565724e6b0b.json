@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:54:30.593358-05:00",
+  "payload": {
+    "patient_first_name": "Ronan",
+    "patient_last_name": "Dalton",
+    "patient_dob": "2019-07-05",
+    "sex": "Male",
+    "member_id": "152772579",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "John Dalton",
+    "subscriber_dob": "1980-01-01",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Dr. Sarah Smith",
+    "provider_npi": "1234567890",
+    "provider_phone": "5551234567",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Dr, Springfield, IL",
+    "lab_name": "Genomics Lab Inc.",
+    "lab_npi": "0987654321",
+    "lab_address": "456 Science Park, Boston, MA",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-05-20",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES-001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Dr. Sarah Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R62.50"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "6e5c874d-e74b-41f4-94e8-2565724e6b0b",
+    "started_at": "2026-02-25T04:51:59.965Z"
+  },
+  "task_id": "5692013c-4b91-46a0-8c04-e32df93e9dcf",
+  "patient_id": "PAT-6712",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

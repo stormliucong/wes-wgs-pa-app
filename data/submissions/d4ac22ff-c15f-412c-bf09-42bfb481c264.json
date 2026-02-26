@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-18T00:44:41.416094-05:00",
+  "payload": {
+    "patient_first_name": "Donna",
+    "patient_last_name": "Price",
+    "patient_dob": "2020-07-08",
+    "sex": "Female",
+    "member_id": "679563198",
+    "patient_address": "4336 Pine St, West Hartford, CT 06525",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Steven Price",
+    "subscriber_dob": "1995-06-10",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Patricia Anderson",
+    "provider_npi": "1243583583",
+    "provider_phone": "2035744439",
+    "provider_fax": "4756426165",
+    "provider_email": "",
+    "provider_address": "241 Center St, Stratford, CT 06514",
+    "lab_name": "Invitae",
+    "lab_npi": "9887921080",
+    "lab_address": "6430 Church St, Bristol, CT 06662",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-29",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Patricia Anderson",
+    "signature_date": "2026-02-18",
+    "icd_codes": [
+      "E88.40",
+      "G40.409",
+      "R79.81",
+      "Z84.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d4ac22ff-c15f-412c-bf09-42bfb481c264",
+    "started_at": "2026-02-18T05:39:31.794Z"
+  },
+  "task_id": "28fedb21-6d4a-4ba6-8fe6-6cbee9cf2dbd",
+  "patient_id": "PAT-5476",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

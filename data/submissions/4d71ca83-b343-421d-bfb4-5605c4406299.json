@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:41:52.617652-05:00",
+  "payload": {
+    "patient_first_name": "Veronica",
+    "patient_last_name": "Vaughn",
+    "patient_dob": "2012-05-04",
+    "sex": "Female",
+    "member_id": "773750538",
+    "patient_address": "217 Broad St, Milford, CT 06849",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Maya Vaughn",
+    "subscriber_dob": "1978-05-26",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "7483383575",
+    "provider_phone": "8608323843",
+    "provider_fax": "8609235052",
+    "provider_email": "",
+    "provider_address": "738 School St, Hamden, CT 06512",
+    "lab_name": "GeneDx",
+    "lab_npi": "2022705570",
+    "lab_address": "1077 Meadow Ln, Hartford, CT 06564",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-11-03",
+    "cpt_codes": [
+      "81415, 81416×1"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.3"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-12"
+    ],
+    "form_id": "4d71ca83-b343-421d-bfb4-5605c4406299",
+    "started_at": "2026-02-25T04:38:18.145Z"
+  },
+  "task_id": "b1bfc13e-a194-4c4b-92db-f9e1cf5c6bdf",
+  "patient_id": "PAT-9321",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

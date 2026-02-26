@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:00:06.488442-05:00",
+  "payload": {
+    "patient_first_name": "Celeste",
+    "patient_last_name": "Tennyson",
+    "patient_dob": "2011-04-23",
+    "sex": "Female",
+    "member_id": "506343311",
+    "patient_address": "1045 Church St, Danbury, CT 06901",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Iris Tennyson",
+    "subscriber_dob": "1978-02-20",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "8560635328",
+    "provider_phone": "5555555555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Way",
+    "lab_name": "Ambry",
+    "lab_npi": "4924440787",
+    "lab_address": "15 Enterprise, Aliso Viejo, CA 92656",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-12",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "4ad6a0ab-fa15-457e-b07c-9266fdf37861",
+    "started_at": "2026-02-25T03:55:40.199Z"
+  },
+  "task_id": "5df74255-6ab4-4e54-982f-637e5019b1d1",
+  "patient_id": "PAT-6413",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

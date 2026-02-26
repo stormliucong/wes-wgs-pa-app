@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:02:59.877050-05:00",
+  "payload": {
+    "patient_first_name": "Noelle",
+    "patient_last_name": "Brant",
+    "patient_dob": "2016-03-19",
+    "sex": "Female",
+    "member_id": "643268921",
+    "patient_address": "890 Oak Ave, Hamden, CT 06167",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nolan Brant",
+    "subscriber_dob": "1982-06-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "1167292164",
+    "provider_phone": "8609131324",
+    "provider_fax": "4755011288",
+    "provider_email": "",
+    "provider_address": "4757 Meadow Ln, Norwalk, CT 06520",
+    "lab_name": "LabCorp",
+    "lab_npi": "1678760345",
+    "lab_address": "9882 Pine St, Stratford, CT 06637",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q66.0",
+      "F80.9",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-18"
+    ],
+    "form_id": "97c76901-d5b1-4b3a-b8cc-50574eb49179",
+    "started_at": "2026-02-25T04:58:14.190Z"
+  },
+  "task_id": "391199f2-6c3f-4a8b-8b6e-7807180b1f43",
+  "patient_id": "PAT-1455",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

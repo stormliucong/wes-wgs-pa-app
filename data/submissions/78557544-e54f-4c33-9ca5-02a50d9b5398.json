@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-17T15:04:38.887723-05:00",
+  "payload": {
+    "patient_first_name": "Stephen",
+    "patient_last_name": "Harris",
+    "patient_dob": "2017-10-30",
+    "sex": "Male",
+    "member_id": "631549296",
+    "patient_address": "5923 West St, Trumbull, CT 06075",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Janet Harris",
+    "subscriber_dob": "1992-04-27",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "7622717688",
+    "provider_phone": "2032508594",
+    "provider_fax": "9599678575",
+    "provider_email": "",
+    "provider_address": "6137 Forest Ave, Middletown, CT 06345",
+    "lab_name": "Invitae",
+    "lab_npi": "7760167964",
+    "lab_address": "6122 Park Rd, Norwalk, CT 06183",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient seen following acute injury event. Right ankle sprain, scalp laceration, and unspecified burn. No other symptoms described beyond acute injuries. No prior genetic/metabolic testing or family history.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "S93.401A",
+      "S01.01XA",
+      "T30.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "78557544-e54f-4c33-9ca5-02a50d9b5398",
+    "started_at": "2026-02-17T19:59:34.283Z"
+  },
+  "task_id": "6564569c-20fd-4808-a5d7-e9da443d4b9f",
+  "patient_id": "PAT-3633",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

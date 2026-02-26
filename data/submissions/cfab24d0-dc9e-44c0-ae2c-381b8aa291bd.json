@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-17T15:18:48.958509-05:00",
+  "payload": {
+    "patient_first_name": "Diane",
+    "patient_last_name": "White",
+    "patient_dob": "2014-06-25",
+    "sex": "Female",
+    "member_id": "512810771",
+    "patient_address": "1653 Broad St, Hamden, CT 06424",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elizabeth White",
+    "subscriber_dob": "1989-09-22",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "3311134941",
+    "provider_phone": "2038833703",
+    "provider_fax": "8606938346",
+    "provider_email": "",
+    "provider_address": "3988 Valley Rd, Bristol, CT 06723",
+    "lab_name": "Invitae",
+    "lab_npi": "5149587475",
+    "lab_address": "7106 Highland Ave, Manchester, CT 06354",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-18",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Acute head injury",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "S06.0",
+      "S01.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "cfab24d0-dc9e-44c0-ae2c-381b8aa291bd",
+    "started_at": "2026-02-17T20:14:36.173Z"
+  },
+  "task_id": "b3c2f31a-fdfb-404b-901d-53b4dc2c390a",
+  "patient_id": "PAT-8669",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:08:31.062892-05:00",
+  "payload": {
+    "patient_first_name": "Damian",
+    "patient_last_name": "Griffith",
+    "patient_dob": "2014-10-05",
+    "sex": "Male",
+    "member_id": "215522513",
+    "patient_address": "1824 Court St, Milford, CT 06303",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Camila Griffith",
+    "subscriber_dob": "1980-10-26",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Patricia Anderson",
+    "provider_npi": "1135333645",
+    "provider_phone": "(475) 521-4874",
+    "provider_fax": "(860) 339-3147",
+    "provider_email": "",
+    "provider_address": "4663 Franklin St, East Hartford, CT 06354",
+    "lab_name": "Ambry",
+    "lab_npi": "8248948617",
+    "lab_address": "8244 Cedar St, West Haven, CT 06905",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient presented with multiple acute injuries: open wound of scalp, sprain of right ankle, and burn of right hand. No family history of genetic disorders reported.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Patricia Anderson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S93.401A",
+      "S01.01XA",
+      "T23.201A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "9b2aeacf-6443-4726-8b9a-c8291db901a5",
+    "started_at": "2026-02-25T05:04:16.136Z"
+  },
+  "task_id": "3e977c55-542c-47f3-a4b5-0528d68e291c",
+  "patient_id": "PAT-1243",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

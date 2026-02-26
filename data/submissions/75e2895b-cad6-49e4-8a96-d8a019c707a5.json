@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:22:47.216826-05:00",
+  "payload": {
+    "patient_first_name": "Daphne",
+    "patient_last_name": "Bexley",
+    "patient_dob": "2022-11-13",
+    "sex": "Female",
+    "member_id": "415191702",
+    "patient_address": "4580 Pleasant St, Trumbull, CT 06156",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Eden Bexley",
+    "subscriber_dob": "1989-02-28",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "4240478828",
+    "provider_phone": "9596437426",
+    "provider_fax": "8603689738",
+    "provider_email": "",
+    "provider_address": "4723 Broad St, Norwich, CT 06984",
+    "lab_name": "LabCorp",
+    "lab_npi": "7795897649",
+    "lab_address": "7491 Valley Rd, New London, CT 06352",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-16",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q22.0",
+      "F72",
+      "Q89.8"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-06"
+    ],
+    "form_id": "75e2895b-cad6-49e4-8a96-d8a019c707a5",
+    "started_at": "2026-02-25T21:17:23.393Z"
+  },
+  "task_id": "b48f6b78-6f58-4ff5-89c8-6b954e8fd466",
+  "patient_id": "PAT-5624",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

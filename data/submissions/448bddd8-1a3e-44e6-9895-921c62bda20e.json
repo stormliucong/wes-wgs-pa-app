@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T17:20:18.872800-05:00",
+  "payload": {
+    "patient_first_name": "Sharon",
+    "patient_last_name": "Cooper",
+    "patient_dob": "2019-01-25",
+    "sex": "Female",
+    "member_id": "922888328",
+    "patient_address": "2093 High St, Norwich, CT 06354",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Brandon Cooper",
+    "subscriber_dob": "2006-03-25",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "5678807738",
+    "provider_phone": "(959) 942-8353",
+    "provider_fax": "(860) 841-5429",
+    "provider_email": "",
+    "provider_address": "1167 Hill St, Trumbull, CT 06206",
+    "lab_name": "GeneDx",
+    "lab_npi": "7824548432",
+    "lab_address": "9320 Court St, Danbury, CT 06994",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "R27.0",
+      "E88.40"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "448bddd8-1a3e-44e6-9895-921c62bda20e",
+    "started_at": "2026-02-13T22:15:08.682Z"
+  },
+  "task_id": "8c3a6d25-788d-4f84-9534-828fa531ce38",
+  "patient_id": "PAT-9972",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

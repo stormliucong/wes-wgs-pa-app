@@ -12,3 +12,6 @@ __pycache__/
 
 # Data (local only)
 data/
+!data/
+!data/initial/
+!data/initial/unstructured_profiles.json

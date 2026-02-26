@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:58:17.596424-05:00",
+  "payload": {
+    "patient_first_name": "Bridget",
+    "patient_last_name": "Tennyson",
+    "patient_dob": "2013-01-18",
+    "sex": "Female",
+    "member_id": "176101569",
+    "patient_address": "1914 West St, Norwalk, CT 06733",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kira Tennyson",
+    "subscriber_dob": "1978-07-15",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "9562614537",
+    "provider_phone": "(203) 576-2569",
+    "provider_fax": "(860) 655-3135",
+    "provider_email": "",
+    "provider_address": "3222 Center St, New Britain, CT 06032",
+    "lab_name": "Invitae",
+    "lab_npi": "2603895011",
+    "lab_address": "943 School St, Meriden, CT 06989",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES-01",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.2",
+      "Q21.1",
+      "F71"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-29"
+    ],
+    "form_id": "dc8c562b-5cc6-4b78-a64b-d33e8fc5349f",
+    "started_at": "2026-02-25T04:54:54.602Z"
+  },
+  "task_id": "968c6b1c-18ad-4ba2-be9d-cecc75118bee",
+  "patient_id": "PAT-2279",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

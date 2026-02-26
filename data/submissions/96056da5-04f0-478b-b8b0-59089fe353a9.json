@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-25T00:06:17.335535-05:00",
+  "payload": {
+    "patient_first_name": "Ronan",
+    "patient_last_name": "Carrow",
+    "patient_dob": "2022-04-21",
+    "sex": "Male",
+    "member_id": "332016533",
+    "patient_address": "334 West St, Middletown, CT 06117",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Willow Carrow",
+    "subscriber_dob": "1988-03-21",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "3960224028",
+    "provider_phone": "4753604538",
+    "provider_fax": "2037329057",
+    "provider_email": "",
+    "provider_address": "5189 Elm St, Hamden, CT 06242",
+    "lab_name": "GeneDx",
+    "lab_npi": "4447214464",
+    "lab_address": "5531 River Rd, West Hartford, CT 06285",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-10",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q61.3",
+      "Q66.8",
+      "Q87.89",
+      "F71"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-21"
+    ],
+    "form_id": "96056da5-04f0-478b-b8b0-59089fe353a9",
+    "started_at": "2026-02-25T05:01:47.787Z"
+  },
+  "task_id": "3f8a6ae1-0fd9-4926-9acb-a72bee22f251",
+  "patient_id": "PAT-9993",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

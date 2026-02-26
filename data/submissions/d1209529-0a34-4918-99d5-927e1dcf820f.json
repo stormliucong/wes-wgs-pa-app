@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-18T00:37:21.793912-05:00",
+  "payload": {
+    "patient_first_name": "Donald",
+    "patient_last_name": "Wright",
+    "patient_dob": "2014-08-31",
+    "sex": "Male",
+    "member_id": "195599139",
+    "patient_address": "123 Main St, Anytown, USA",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Dr. John Doe",
+    "provider_npi": "1234567890",
+    "provider_phone": "5551234567",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "456 Medical Blvd, Metropolis, NY",
+    "lab_name": "Genomics Lab Inc.",
+    "lab_npi": "0987654321",
+    "lab_address": "789 Science Park, Genome City, CA",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-01-15",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES-001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Dr. John Doe",
+    "signature_date": "2026-02-18",
+    "icd_codes": [
+      "R62.50"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d1209529-0a34-4918-99d5-927e1dcf820f",
+    "started_at": "2026-02-18T05:34:34.520Z"
+  },
+  "task_id": "bdb06dcb-ac44-41a7-a502-950ceb30aace",
+  "patient_id": "PAT-8126",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

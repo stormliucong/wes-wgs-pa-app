@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:49:13.238940-05:00",
+  "payload": {
+    "patient_first_name": "Bridget",
+    "patient_last_name": "Huxley",
+    "patient_dob": "2022-06-12",
+    "sex": "Female",
+    "member_id": "254059256",
+    "patient_address": "5468 East St, West Hartford, CT 06824",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Aria Huxley",
+    "subscriber_dob": "1988-04-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "6205182215",
+    "provider_phone": "(860) 459-8490",
+    "provider_fax": "(475) 596-6010",
+    "provider_email": "",
+    "provider_address": "1550 Cedar St, New Britain, CT 06345",
+    "lab_name": "LabCorp",
+    "lab_npi": "5642789815",
+    "lab_address": "388 Meadow Ln, Bristol, CT 06068",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-09-05",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": true,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-06"
+    ],
+    "form_id": "0d34da29-a23e-4ea5-ae92-57a9dbed6476",
+    "started_at": "2026-02-25T04:44:17.021Z"
+  },
+  "task_id": "123e51a6-c160-486b-94ed-98ef45b366d6",
+  "patient_id": "PAT-9193",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

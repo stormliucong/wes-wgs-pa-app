@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:54:42.937293-05:00",
+  "payload": {
+    "patient_first_name": "Ezra",
+    "patient_last_name": "Kendrick",
+    "patient_dob": "2022-08-03",
+    "sex": "Male",
+    "member_id": "893674176",
+    "patient_address": "5799 Church St, Middletown, CT 06345",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Owen Kendrick",
+    "subscriber_dob": "1988-04-10",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "8740888829",
+    "provider_phone": "8605847853",
+    "provider_fax": "2033026633",
+    "provider_email": "",
+    "provider_address": "1003 North St, Milford, CT 06809",
+    "lab_name": "Invitae",
+    "lab_npi": "4801639559",
+    "lab_address": "9386 Center St, Windsor, CT 06047",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.0",
+      "Q21.1",
+      "F82",
+      "Q17.2"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-08-28"
+    ],
+    "form_id": "bcf52a79-291a-4a5a-9e22-ca1d624e9f1a",
+    "started_at": "2026-02-25T04:50:16.659Z"
+  },
+  "task_id": "a73254aa-69d4-41f3-9515-d0878238ad57",
+  "patient_id": "PAT-3415",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

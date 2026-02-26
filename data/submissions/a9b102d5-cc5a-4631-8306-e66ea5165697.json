@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-25T00:00:17.169025-05:00",
+  "payload": {
+    "patient_first_name": "Luca",
+    "patient_last_name": "Griffith",
+    "patient_dob": "2011-11-01",
+    "sex": "Male",
+    "member_id": "677545501",
+    "patient_address": "2590 River Rd, Enfield, CT 06637",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ivy Griffith",
+    "subscriber_dob": "1977-08-23",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "William Jones",
+    "provider_npi": "4428304203",
+    "provider_phone": "(203) 820-9138",
+    "provider_fax": "(860) 740-6848",
+    "provider_email": "",
+    "provider_address": "6580 Center St, Trumbull, CT 06307",
+    "lab_name": "LabCorp",
+    "lab_npi": "2227596898",
+    "lab_address": "6912 State St, New Britain, CT 06942",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-24",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "William Jones",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.2"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-20"
+    ],
+    "form_id": "a9b102d5-cc5a-4631-8306-e66ea5165697",
+    "started_at": "2026-02-25T04:56:31.266Z"
+  },
+  "task_id": "1be12273-e7e7-49c4-9e75-339f3e49ea22",
+  "patient_id": "PAT-9753",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

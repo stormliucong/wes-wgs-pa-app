@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:10:44.419940-05:00",
+  "payload": {
+    "patient_first_name": "Adam",
+    "patient_last_name": "Scott",
+    "patient_dob": "2012-10-22",
+    "sex": "Male",
+    "member_id": "887361243",
+    "patient_address": "6077 Franklin St, Milford, CT 06772",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Diane Scott",
+    "subscriber_dob": "1987-05-01",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "1088752105",
+    "provider_phone": "8602447239",
+    "provider_fax": "2034614559",
+    "provider_email": "",
+    "provider_address": "4623 North St, Waterbury, CT 06340",
+    "lab_name": "LabCorp",
+    "lab_npi": "7211191451",
+    "lab_address": "4607 Sunset Ave, West Hartford, CT 06060",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2025-10-03",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "R56.9",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-09"
+    ],
+    "form_id": "dbe2795c-2b76-4b40-bd54-0c739a9b7ad2",
+    "started_at": "2026-02-13T23:06:43.044Z"
+  },
+  "task_id": "d195453d-c5ef-4c54-8093-e513a5b8aff4",
+  "patient_id": "PAT-8870",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-13T17:03:19.959603-05:00",
+  "payload": {
+    "patient_first_name": "Scott",
+    "patient_last_name": "Rogers",
+    "patient_dob": "2022-04-13",
+    "sex": "Male",
+    "member_id": "126941764",
+    "patient_address": "7231 East St, Stratford, CT 06955",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Edward Rogers",
+    "subscriber_dob": "2010-12-18",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "6065928782",
+    "provider_phone": "(203) 368-1006",
+    "provider_fax": "(475) 221-7502",
+    "provider_email": "",
+    "provider_address": "9030 Court St, Windsor, CT 06214",
+    "lab_name": "LabCorp",
+    "lab_npi": "7914869625",
+    "lab_address": "4468 Spring St, Meriden, CT 06545",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q21.1",
+      "Q39.0",
+      "Q61.3",
+      "F71",
+      "F88"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2023-05-10"
+    ],
+    "form_id": "f62853ff-6c20-4717-b110-ba99551a8913",
+    "started_at": "2026-02-13T21:58:40.555Z"
+  },
+  "task_id": "9d119377-7d9e-40ff-b736-1ec57ecd9777",
+  "patient_id": "PAT-5567",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

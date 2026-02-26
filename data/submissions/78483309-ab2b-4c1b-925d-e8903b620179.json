@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:01:32.843497-05:00",
+  "payload": {
+    "patient_first_name": "Asher",
+    "patient_last_name": "Claremont",
+    "patient_dob": "2017-04-14",
+    "sex": "Male",
+    "member_id": "124041119",
+    "patient_address": "6602 Water St, Newington, CT 06900",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hazel Claremont",
+    "subscriber_dob": "1983-12-29",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "8901256744",
+    "provider_phone": "(959) 530-6377",
+    "provider_fax": "(203) 842-8596",
+    "provider_email": "",
+    "provider_address": "4121 West St, Milford, CT 06566",
+    "lab_name": "Ambry",
+    "lab_npi": "5820395843",
+    "lab_address": "5776 North St, Manchester, CT 06629",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.0",
+      "Q04.2",
+      "F71"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-07"
+    ],
+    "form_id": "78483309-ab2b-4c1b-925d-e8903b620179",
+    "started_at": "2026-02-25T03:55:37.888Z"
+  },
+  "task_id": "724a9d38-1772-415f-8ecd-ba6400a54735",
+  "patient_id": "PAT-7369",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

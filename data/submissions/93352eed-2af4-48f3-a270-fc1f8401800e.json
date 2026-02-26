@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T17:29:36.809083-05:00",
+  "payload": {
+    "patient_first_name": "Rebecca",
+    "patient_last_name": "Moore",
+    "patient_dob": "2014-02-10",
+    "sex": "Female",
+    "member_id": "167037834",
+    "patient_address": "2980 East St, Manchester, CT 06790",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Cynthia Moore",
+    "subscriber_dob": "2001-08-25",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "7096067521",
+    "provider_phone": "9598614836",
+    "provider_fax": "2038593494",
+    "provider_email": "",
+    "provider_address": "6385 Maple St, Enfield, CT 06919",
+    "lab_name": "GeneDx",
+    "lab_npi": "2739806932",
+    "lab_address": "1616 Valley Rd, Windsor, CT 06075",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-12",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E88.40",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "93352eed-2af4-48f3-a270-fc1f8401800e",
+    "started_at": "2026-02-13T22:25:51.532Z"
+  },
+  "task_id": "49b0f922-8ef6-4c79-b975-369e50ce1e4c",
+  "patient_id": "PAT-9389",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

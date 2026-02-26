@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-24T23:55:54.050432-05:00",
+  "payload": {
+    "patient_first_name": "Corbin",
+    "patient_last_name": "Yates",
+    "patient_dob": "2011-04-16",
+    "sex": "Male",
+    "member_id": "554298960",
+    "patient_address": "2444 Sunset Ave, Hamden, CT 06724",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Layla Yates",
+    "subscriber_dob": "1977-09-07",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "3364073569",
+    "provider_phone": "4754368773",
+    "provider_fax": "8603969698",
+    "provider_email": "",
+    "provider_address": "629 Broad St, West Hartford, CT 06361",
+    "lab_name": "GeneDx",
+    "lab_npi": "2048579233",
+    "lab_address": "8917 High St, Greenwich, CT 06737",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": true,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q17.2",
+      "F84.0",
+      "Q04.0",
+      "F88",
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-23"
+    ],
+    "form_id": "e1cd1519-4497-43a6-81b7-71023641d686",
+    "started_at": "2026-02-25T04:51:04.526Z"
+  },
+  "task_id": "b04fee59-f813-4af1-905a-96234a707ed9",
+  "patient_id": "PAT-8442",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

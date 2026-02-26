@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:01:19.098627-05:00",
+  "payload": {
+    "patient_first_name": "Anya",
+    "patient_last_name": "Ainsley",
+    "patient_dob": "2013-09-19",
+    "sex": "Female",
+    "member_id": "821559334",
+    "patient_address": "6439 Mill St, Norwalk, CT 06672",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Eliana Ainsley",
+    "subscriber_dob": "1979-05-31",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "1256153290",
+    "provider_phone": "8603125542",
+    "provider_fax": "4757736962",
+    "provider_email": "",
+    "provider_address": "7143 Forest Ave, Waterbury, CT 06021",
+    "lab_name": "LabCorp",
+    "lab_npi": "2443484512",
+    "lab_address": "1919 Forest Ave, New Britain, CT 06318",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-24",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "bf8a2b81-6d66-4210-a277-fd36cf6e9767",
+    "started_at": "2026-02-25T04:57:34.428Z"
+  },
+  "task_id": "cddcd562-683d-43ef-b27d-e09241e71a62",
+  "patient_id": "PAT-7832",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

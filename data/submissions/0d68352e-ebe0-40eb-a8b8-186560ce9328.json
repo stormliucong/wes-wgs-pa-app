@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T22:58:10.202550-05:00",
+  "payload": {
+    "patient_first_name": "Pierce",
+    "patient_last_name": "Yates",
+    "patient_dob": "2017-06-22",
+    "sex": "Male",
+    "member_id": "239645953",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Dr. Sarah Smith",
+    "provider_npi": "1234567890",
+    "provider_phone": "5551234567",
+    "provider_fax": "5559876543",
+    "provider_email": "sarah.smith@example.com",
+    "provider_address": "123 Medical Center Dr, Springfield, IL",
+    "lab_name": "Genomics Lab Inc.",
+    "lab_npi": "0987654321",
+    "lab_address": "456 Lab Lane, Metropolis, NY",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-01-15",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES-001",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Dr. Sarah Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "0d68352e-ebe0-40eb-a8b8-186560ce9328",
+    "started_at": "2026-02-25T03:55:39.553Z"
+  },
+  "task_id": "8c3cffe8-c9c5-461f-a5d4-a8436070e612",
+  "patient_id": "PAT-8229",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

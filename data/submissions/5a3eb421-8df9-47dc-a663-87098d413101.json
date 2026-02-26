@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-13T16:21:43.832075-05:00",
+  "payload": {
+    "patient_first_name": "Sharon",
+    "patient_last_name": "Brown",
+    "patient_dob": "2017-10-10",
+    "sex": "Female",
+    "member_id": "346645653",
+    "patient_address": "7876 Valley Rd, West Hartford, CT 06268",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Stephen Brown",
+    "subscriber_dob": "1992-05-30",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "2186124348",
+    "provider_phone": "(475) 855-9705",
+    "provider_fax": "(203) 250-4091",
+    "provider_email": "",
+    "provider_address": "7433 Main St, Glastonbury, CT 06739",
+    "lab_name": "Ambry",
+    "lab_npi": "8400429006",
+    "lab_address": "3717 Second St, Norwalk, CT 06582",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q22.0",
+      "Q21.1",
+      "F71",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5a3eb421-8df9-47dc-a663-87098d413101",
+    "started_at": "2026-02-13T21:16:15.562Z"
+  },
+  "task_id": "67890551-24a9-4258-9f44-a256e0056144",
+  "patient_id": "PAT-3758",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

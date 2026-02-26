@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-17T14:23:11.136930-05:00",
+  "payload": {
+    "patient_first_name": "Sandra",
+    "patient_last_name": "Peterson",
+    "patient_dob": "2012-07-14",
+    "sex": "Female",
+    "member_id": "655715949",
+    "patient_address": "7039 Meadow Ln, New Britain, CT 06758",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nicholas Peterson",
+    "subscriber_dob": "1987-04-06",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "8099986139",
+    "provider_phone": "2039244454",
+    "provider_fax": "9593821053",
+    "provider_email": "",
+    "provider_address": "2718 East St, New London, CT 06693",
+    "lab_name": "GeneDx",
+    "lab_npi": "9503269755",
+    "lab_address": "5546 Union St, Glastonbury, CT 06733",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-25",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "Q22.0",
+      "Q67.7",
+      "R62.50"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-01"
+    ],
+    "form_id": "4ba0f99f-6582-4cd5-b4ae-83764b2dc408",
+    "started_at": "2026-02-17T19:17:16.347Z"
+  },
+  "task_id": "0114c24f-2d83-4860-9763-4e5068d90680",
+  "patient_id": "PAT-8384",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

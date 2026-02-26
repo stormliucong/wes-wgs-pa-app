@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:22:15.052040-05:00",
+  "payload": {
+    "patient_first_name": "Griffin",
+    "patient_last_name": "Kendrick",
+    "patient_dob": "2012-09-28",
+    "sex": "Female",
+    "member_id": "403722825",
+    "patient_address": "5871 Union St, Bridgeport, CT 06054",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Luca Kendrick",
+    "subscriber_dob": "1978-06-10",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "David Brown",
+    "provider_npi": "2527041889",
+    "provider_phone": "8603314541",
+    "provider_fax": "2032472452",
+    "provider_email": "",
+    "provider_address": "9733 High St, Manchester, CT 06550",
+    "lab_name": "LabCorp",
+    "lab_npi": "2899738367",
+    "lab_address": "4963 Forest Ave, Bristol, CT 06156",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-04",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.909",
+      "R79.89"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "801958a8-c156-4467-9cff-ffa3e2d79c9b",
+    "started_at": "2026-02-25T21:17:01.291Z"
+  },
+  "task_id": "bf5ce22d-f44e-4ce2-8d67-7ef6d2b4eb68",
+  "patient_id": "PAT-8299",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

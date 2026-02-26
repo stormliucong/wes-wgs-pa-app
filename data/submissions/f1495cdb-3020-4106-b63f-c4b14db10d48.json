@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:02:55.153883-05:00",
+  "payload": {
+    "patient_first_name": "Aiden",
+    "patient_last_name": "Keaton",
+    "patient_dob": "2013-08-09",
+    "sex": "Male",
+    "member_id": "755773671",
+    "patient_address": "9114 Center St, Waterbury, CT 06684",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Esme Westley",
+    "subscriber_dob": "1979-06-23",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Legal Guardian",
+    "provider_name": "Donna Scott",
+    "provider_npi": "4560449346",
+    "provider_phone": "(203) 293-4351",
+    "provider_fax": "(203) 259-6381",
+    "provider_email": "",
+    "provider_address": "3694 Cedar St, Newington, CT 06194",
+    "lab_name": "Ambry",
+    "lab_npi": "3058178104",
+    "lab_address": "5971 Main St, Windsor, CT 06234",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f1495cdb-3020-4106-b63f-c4b14db10d48",
+    "started_at": "2026-02-25T04:58:38.752Z"
+  },
+  "task_id": "ddabd368-e8aa-4971-913a-6c5f4c8901a8",
+  "patient_id": "PAT-9888",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

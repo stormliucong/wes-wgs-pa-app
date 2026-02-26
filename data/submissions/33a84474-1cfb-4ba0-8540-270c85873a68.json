@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:18:13.035590-05:00",
+  "payload": {
+    "patient_first_name": "Tristan",
+    "patient_last_name": "Irwin",
+    "patient_dob": "2012-02-03",
+    "sex": "Male",
+    "member_id": "786779605",
+    "patient_address": "4249 Pleasant St, West Hartford, CT 06961",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Gemma Irwin",
+    "subscriber_dob": "1977-06-18",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "1231072824",
+    "provider_phone": "8605049968",
+    "provider_fax": "2039724679",
+    "provider_email": "",
+    "provider_address": "5757 Meadow Ln, New Haven, CT 06961",
+    "lab_name": "Invitae",
+    "lab_npi": "6322340113",
+    "lab_address": "5830 Water St, Meriden, CT 06732",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Tristan Irwin is a 14-year-old male seen following a recent head injury consistent with a concussion without loss of consciousness. History describes an acute event with subsequent concussion-type symptoms impacting daily function, including headache and a sense of mental “fog,” with reduced tolerance for screen time and schoolwork since the injury; there has been no reported blackout at the time of impact. He also has a superficial burn involving the head and neck region, described as an unspecified-degree burn affecting the skin of this area. The burn has been associated with localized pain and tenderness, with visible erythema over the involved scalp/neck region and sensitivity to touch; no additional burn sites are described. The combined injuries have led to short-term limitations in usual activities, particularly tasks requiring sustained concentration and comfort with head/neck movement. No family history or prior genetic/metabolic testing information is available in the record for this encounter, and no prior test dates or results are provided.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "R51.9",
+      "T20.10XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "33a84474-1cfb-4ba0-8540-270c85873a68",
+    "started_at": "2026-02-25T05:12:44.685Z"
+  },
+  "task_id": "ec5f7d3a-19b4-4bf1-9eae-b1fd52d5609c",
+  "patient_id": "PAT-5249",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

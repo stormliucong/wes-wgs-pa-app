@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:04:27.249826-05:00",
+  "payload": {
+    "patient_first_name": "Layla",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2015-06-30",
+    "sex": "Female",
+    "member_id": "769648574",
+    "patient_address": "4168 Sunset Ave, Manchester, CT 06246",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ophelia Merrick",
+    "subscriber_dob": "1981-11-29",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "4260162920",
+    "provider_phone": "2033354083",
+    "provider_fax": "9597849693",
+    "provider_email": "",
+    "provider_address": "1819 Elm St, Hartford, CT 06376",
+    "lab_name": "Invitae",
+    "lab_npi": "4259161118",
+    "lab_address": "5677 Center St, Meriden, CT 06503",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-27",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G11.8",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "9caa3579-dfb8-416b-9847-7513972964f9",
+    "started_at": "2026-02-25T05:00:31.633Z"
+  },
+  "task_id": "02cdeff8-75b3-450d-bb90-5f3314057ea8",
+  "patient_id": "PAT-9049",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

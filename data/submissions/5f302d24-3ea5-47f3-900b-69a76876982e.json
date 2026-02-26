@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:04:48.148879-05:00",
+  "payload": {
+    "patient_first_name": "Ophelia",
+    "patient_last_name": "Lennox",
+    "patient_dob": "2014-09-16",
+    "sex": "Female",
+    "member_id": "449412959",
+    "patient_address": "5411 Valley Rd, Enfield, CT 06341",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Gavin Lennox",
+    "subscriber_dob": "1981-01-10",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "3129796280",
+    "provider_phone": "(475) 827-6052",
+    "provider_fax": "(475) 859-6550",
+    "provider_email": "",
+    "provider_address": "9467 North St, New Haven, CT 06916",
+    "lab_name": "GeneDx",
+    "lab_npi": "3055169376",
+    "lab_address": "8049 Park Rd, West Haven, CT 06138",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-09",
+    "cpt_codes": [
+      "81415, 81416×1"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R27.0",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5f302d24-3ea5-47f3-900b-69a76876982e",
+    "started_at": "2026-02-25T05:00:50.954Z"
+  },
+  "task_id": "00045ca0-057a-4df0-9f0a-bde823343a1e",
+  "patient_id": "PAT-6990",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

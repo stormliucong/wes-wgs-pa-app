@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-13T18:04:02.515373-05:00",
+  "payload": {
+    "patient_first_name": "Ruth",
+    "patient_last_name": "Hall",
+    "patient_dob": "2012-12-25",
+    "sex": "Female",
+    "member_id": "823868730",
+    "patient_address": "6469 Church St, Stamford, CT 06353",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Donna Hall",
+    "subscriber_dob": "1987-04-26",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Betty Young",
+    "provider_npi": "6399864890",
+    "provider_phone": "(959) 763-4516",
+    "provider_fax": "(860) 680-9589",
+    "provider_email": "",
+    "provider_address": "3298 Center St, Windsor, CT 06167",
+    "lab_name": "Ambry",
+    "lab_npi": "7172343273",
+    "lab_address": "603 Mill St, Norwalk, CT 06615",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-05",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Betty Young",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q21.1",
+      "Q39.0",
+      "F82"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-10"
+    ],
+    "form_id": "85b736ba-a9dd-4706-9985-4cbdafef267a",
+    "started_at": "2026-02-13T22:59:37.281Z"
+  },
+  "task_id": "5758f1b4-8e50-4d94-8d3a-43d577edbb8b",
+  "patient_id": "PAT-7754",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

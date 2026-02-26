@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:07:04.550248-05:00",
+  "payload": {
+    "patient_first_name": "Skye",
+    "patient_last_name": "Huxley",
+    "patient_dob": "2016-08-28",
+    "sex": "Female",
+    "member_id": "389581265",
+    "patient_address": "1351 Pine St, Greenwich, CT 06343",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Roman Huxley",
+    "subscriber_dob": "2005-12-09",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "3189054465",
+    "provider_phone": "9599998115",
+    "provider_fax": "2037953144",
+    "provider_email": "",
+    "provider_address": "8789 Center St, Glastonbury, CT 06674",
+    "lab_name": "Invitae",
+    "lab_npi": "3873858586",
+    "lab_address": "6719 Washington Ave, Waterbury, CT 06677",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-25",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "005b0abb-62a7-4ce9-95d2-1bedf6afa29e",
+    "started_at": "2026-02-25T04:02:01.937Z"
+  },
+  "task_id": "8ce23885-a507-4e7f-88c5-7fba68be3971",
+  "patient_id": "PAT-3344",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

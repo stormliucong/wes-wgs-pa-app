@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T22:59:47.392519-05:00",
+  "payload": {
+    "patient_first_name": "Daphne",
+    "patient_last_name": "Ashford",
+    "patient_dob": "2011-04-07",
+    "sex": "Female",
+    "member_id": "668941732",
+    "patient_address": "9006 Valley Rd, Torrington, CT 06943",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elias Ashford",
+    "subscriber_dob": "1977-12-04",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "3218818371",
+    "provider_phone": "9593151771",
+    "provider_fax": "8604908792",
+    "provider_email": "",
+    "provider_address": "2640 Maple St, Bristol, CT 06530",
+    "lab_name": "GeneDx",
+    "lab_npi": "3176622299",
+    "lab_address": "2304 Sunset Ave, Trumbull, CT 06340",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-19",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "b4087c1b-ab44-43b1-9ef7-befa33a0d4c4",
+    "started_at": "2026-02-25T03:55:33.402Z"
+  },
+  "task_id": "25bf3c1e-bdf7-4301-82c4-550129e423e7",
+  "patient_id": "PAT-9202",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

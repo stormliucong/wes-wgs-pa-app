@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:40:06.586123-05:00",
+  "payload": {
+    "patient_first_name": "Anya",
+    "patient_last_name": "Bramwell",
+    "patient_dob": "2021-05-22",
+    "sex": "Female",
+    "member_id": "528546908",
+    "patient_address": "4457 Highland Ave, Enfield, CT 06780",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nadia Bramwell",
+    "subscriber_dob": "2009-06-03",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "1760380494",
+    "provider_phone": "4752799573",
+    "provider_fax": "2032936307",
+    "provider_email": "",
+    "provider_address": "263 Pine St, Bristol, CT 06364",
+    "lab_name": "Ambry",
+    "lab_npi": "3210712411",
+    "lab_address": "9217 High St, Greenwich, CT 06822",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-02",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.2",
+      "F72",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-07"
+    ],
+    "form_id": "cfd38264-22b2-4411-b59c-a906954e67f0",
+    "started_at": "2026-02-25T04:35:40.141Z"
+  },
+  "task_id": "b9bf882d-2516-49c4-8ea0-2c632cd98294",
+  "patient_id": "PAT-1896",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

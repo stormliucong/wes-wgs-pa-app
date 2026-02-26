@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:36:28.697024-05:00",
+  "payload": {
+    "patient_first_name": "Aiden",
+    "patient_last_name": "Granger",
+    "patient_dob": "2010-10-12",
+    "sex": "Male",
+    "member_id": "503772950",
+    "patient_address": "5764 South St, Windsor, CT 06527",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elodie Granger",
+    "subscriber_dob": "1999-08-11",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Patricia Anderson",
+    "provider_npi": "9491904908",
+    "provider_phone": "4753474756",
+    "provider_fax": "8602191912",
+    "provider_email": "",
+    "provider_address": "9485 Mill St, Trumbull, CT 06993",
+    "lab_name": "LabCorp",
+    "lab_npi": "6411076177",
+    "lab_address": "5903 Center St, Windsor, CT 06622",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Patricia Anderson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.909",
+      "E87.2",
+      "Z84.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "72466198-e63f-43a6-85d4-85385b15efb6",
+    "started_at": "2026-02-25T04:32:25.398Z"
+  },
+  "task_id": "ad3d19b0-1a88-4b82-92c9-e52bdaa26bf8",
+  "patient_id": "PAT-9252",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

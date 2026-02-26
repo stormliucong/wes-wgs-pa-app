@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-25T00:01:46.385663-05:00",
+  "payload": {
+    "patient_first_name": "Maren",
+    "patient_last_name": "Conrad",
+    "patient_dob": "2012-04-09",
+    "sex": "Female",
+    "member_id": "159496994",
+    "patient_address": "5775 West St, New London, CT 06614",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jocelyn Conrad",
+    "subscriber_dob": "1978-10-19",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "2615079720",
+    "provider_phone": "2036066729",
+    "provider_fax": "2038755265",
+    "provider_email": "",
+    "provider_address": "926 East St, Norwalk, CT 06889",
+    "lab_name": "LabCorp",
+    "lab_npi": "9577028495",
+    "lab_address": "5545 Hill St, Milford, CT 06195",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-12",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-01"
+    ],
+    "form_id": "a6ff4f10-a21c-455d-a021-313c1b0fa357",
+    "started_at": "2026-02-25T04:57:57.345Z"
+  },
+  "task_id": "f467c9d6-1ffc-4a87-809d-b7d4f192a4a4",
+  "patient_id": "PAT-6904",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

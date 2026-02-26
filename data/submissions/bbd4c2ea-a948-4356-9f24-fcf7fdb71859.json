@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:00:31.550949-05:00",
+  "payload": {
+    "patient_first_name": "Soren",
+    "patient_last_name": "Kingsley",
+    "patient_dob": "2019-04-08",
+    "sex": "Male",
+    "member_id": "865400092",
+    "patient_address": "3594 Second St, Torrington, CT 06972",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Dorian Kingsley",
+    "subscriber_dob": "1985-11-07",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "8709013828",
+    "provider_phone": "4759632677",
+    "provider_fax": "4755786816",
+    "provider_email": "",
+    "provider_address": "3150 Water St, Torrington, CT 06758",
+    "lab_name": "LabCorp",
+    "lab_npi": "9325396318",
+    "lab_address": "3298 Hill St, Shelton, CT 06076",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-08",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R27.0",
+      "T36.0X1A",
+      "S01.01XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "bbd4c2ea-a948-4356-9f24-fcf7fdb71859",
+    "started_at": "2026-02-25T04:55:23.286Z"
+  },
+  "task_id": "b7ceaa6e-b0cb-45ad-a8ec-11394fefad3b",
+  "patient_id": "PAT-8346",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

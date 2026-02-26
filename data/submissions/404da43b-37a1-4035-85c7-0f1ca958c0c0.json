@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:14:34.367725-05:00",
+  "payload": {
+    "patient_first_name": "Felix",
+    "patient_last_name": "Seymour",
+    "patient_dob": "2011-01-24",
+    "sex": "Male",
+    "member_id": "946716197",
+    "patient_address": "5079 Water St, Stratford, CT 06275",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Brooks Seymour",
+    "subscriber_dob": "1976-09-26",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Patricia Anderson",
+    "provider_npi": "5328141595",
+    "provider_phone": "8603217980",
+    "provider_fax": "2032347461",
+    "provider_email": "",
+    "provider_address": "8098 West St, Glastonbury, CT 06320",
+    "lab_name": "LabCorp",
+    "lab_npi": "5169452326",
+    "lab_address": "1764 Court St, Meriden, CT 06613",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Patricia Anderson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q02",
+      "Q04.9"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-07"
+    ],
+    "form_id": "404da43b-37a1-4035-85c7-0f1ca958c0c0",
+    "started_at": "2026-02-25T21:09:17.581Z"
+  },
+  "task_id": "860db23f-5043-4738-b422-4a83a1da834a",
+  "patient_id": "PAT-2049",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

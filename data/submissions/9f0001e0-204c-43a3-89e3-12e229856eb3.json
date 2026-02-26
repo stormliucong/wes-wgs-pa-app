@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T16:52:07.364837-05:00",
+  "payload": {
+    "patient_first_name": "Nicholas",
+    "patient_last_name": "Cook",
+    "patient_dob": "2017-01-06",
+    "sex": "Male",
+    "member_id": "353869459",
+    "patient_address": "5264 Church St, Middletown, CT 06569",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kimberly Cook",
+    "subscriber_dob": "2006-12-22",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "9759860127",
+    "provider_phone": "9594475781",
+    "provider_fax": "8607617244",
+    "provider_email": "",
+    "provider_address": "2291 Second St, Stratford, CT 06610",
+    "lab_name": "GeneDx",
+    "lab_npi": "6163937604",
+    "lab_address": "2768 Hill St, Greenwich, CT 06611",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-31",
+    "cpt_codes": [
+      "81425, 81426x2"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E73.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "9f0001e0-204c-43a3-89e3-12e229856eb3",
+    "started_at": "2026-02-13T21:48:33.218Z"
+  },
+  "task_id": "97d0b3cb-c9d3-4091-bb8a-a8bfada389cb",
+  "patient_id": "PAT-1008",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

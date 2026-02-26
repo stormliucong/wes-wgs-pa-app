@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:03:13.970773-05:00",
+  "payload": {
+    "patient_first_name": "Tobias",
+    "patient_last_name": "Yates",
+    "patient_dob": "2011-05-29",
+    "sex": "Male",
+    "member_id": "754308524",
+    "patient_address": "73 Water St, Stratford, CT 06528",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Beckett Yates",
+    "subscriber_dob": "1978-01-31",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "9092482539",
+    "provider_phone": "5551234567",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "100 Medical Plaza, Stratford, CT 06528",
+    "lab_name": "LabCorp",
+    "lab_npi": "3914231482",
+    "lab_address": "123 Lab Way, Burlington, NC 27215",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES-01",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": true,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q87.0",
+      "F84.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "53f3a9b4-954b-453e-945f-c2415ff646f7",
+    "started_at": "2026-02-25T05:00:04.642Z"
+  },
+  "task_id": "0c95f0ec-d769-4edb-b6dd-046d5f3d948b",
+  "patient_id": "PAT-8318",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

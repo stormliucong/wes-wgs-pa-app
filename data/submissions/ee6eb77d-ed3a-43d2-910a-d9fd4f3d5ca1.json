@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:21:05.891568-05:00",
+  "payload": {
+    "patient_first_name": "Isla",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2012-02-29",
+    "sex": "Male",
+    "member_id": "495680608",
+    "patient_address": "5596 Valley Rd, Stratford, CT 06517",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Spencer Whitaker",
+    "subscriber_dob": "1978-08-05",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "2667545805",
+    "provider_phone": "8606958037",
+    "provider_fax": "8604974447",
+    "provider_email": "",
+    "provider_address": "9982 Second St, Norwalk, CT 06915",
+    "lab_name": "GeneDx",
+    "lab_npi": "3612375040",
+    "lab_address": "784 Franklin St, Newington, CT 06148",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": true,
+    "other_details": "See clinical summary below for details.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.2",
+      "E73.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "ee6eb77d-ed3a-43d2-910a-d9fd4f3d5ca1",
+    "started_at": "2026-02-25T21:15:24.445Z"
+  },
+  "task_id": "dd241cab-a6c0-4a1c-8cd5-9bf25f50f2fb",
+  "patient_id": "PAT-1943",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

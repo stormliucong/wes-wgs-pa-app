@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:49:15.360634-05:00",
+  "payload": {
+    "patient_first_name": "Noelle",
+    "patient_last_name": "Lennox",
+    "patient_dob": "2018-11-08",
+    "sex": "Female",
+    "member_id": "260778669",
+    "patient_address": "4661 Elm St, Waterbury, CT 06044",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Delilah Lennox",
+    "subscriber_dob": "1984-08-25",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "5524237543",
+    "provider_phone": "8604848724",
+    "provider_fax": "9599888951",
+    "provider_email": "",
+    "provider_address": "5569 Oak Ave, Hamden, CT 06880",
+    "lab_name": "Ambry",
+    "lab_npi": "8164340803",
+    "lab_address": "6910 Highland Ave, Milford, CT 06994",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.5",
+      "F72"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-03"
+    ],
+    "form_id": "67a7b318-25d5-4e11-9fb6-816d583c37f8",
+    "started_at": "2026-02-25T04:45:20.948Z"
+  },
+  "task_id": "170aa529-09b5-4111-9d47-2530330723b0",
+  "patient_id": "PAT-5531",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:01:16.172092-05:00",
+  "payload": {
+    "patient_first_name": "Sienna",
+    "patient_last_name": "Jarvis",
+    "patient_dob": "2018-01-22",
+    "sex": "Female",
+    "member_id": "423086490",
+    "patient_address": "9522 Elm St, New Britain, CT 06814",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ophelia Jarvis",
+    "subscriber_dob": "1983-06-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "William Jones",
+    "provider_npi": "7553405451",
+    "provider_phone": "4753641722",
+    "provider_fax": "2033358040",
+    "provider_email": "",
+    "provider_address": "7798 Pine St, Middletown, CT 06317",
+    "lab_name": "Invitae",
+    "lab_npi": "9605509078",
+    "lab_address": "3056 Highland Ave, Meriden, CT 06269",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "William Jones",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q17.2",
+      "Q21.1",
+      "Q22.0",
+      "R62.50"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-21"
+    ],
+    "form_id": "03cf825f-3d32-4669-b9ce-c02e18861011",
+    "started_at": "2026-02-25T03:55:42.147Z"
+  },
+  "task_id": "9469d9e6-1c6c-4e6b-9410-9364cb77e1a5",
+  "patient_id": "PAT-4197",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

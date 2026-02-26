@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T16:21:27.561827-05:00",
+  "payload": {
+    "patient_first_name": "Hugo",
+    "patient_last_name": "Yates",
+    "patient_dob": "2011-02-04",
+    "sex": "Male",
+    "member_id": "719285644",
+    "patient_address": "4982 Washington Ave, Trumbull, CT 06652",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Vivienne Yates",
+    "subscriber_dob": "1976-04-06",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "5304319169",
+    "provider_phone": "2033826739",
+    "provider_fax": "2038822697",
+    "provider_email": "",
+    "provider_address": "4551 Pleasant St, New Britain, CT 06521",
+    "lab_name": "GeneDx",
+    "lab_npi": "5866821304",
+    "lab_address": "996 South St, Greenwich, CT 06889",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q17.8",
+      "Q10.0",
+      "F88"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-09"
+    ],
+    "form_id": "c6568b1a-a1b4-4634-a8bb-587c3a6c6305",
+    "started_at": "2026-02-25T21:15:59.660Z"
+  },
+  "task_id": "5a929a2d-834e-4af6-8128-d9c373d4bfa8",
+  "patient_id": "PAT-7311",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

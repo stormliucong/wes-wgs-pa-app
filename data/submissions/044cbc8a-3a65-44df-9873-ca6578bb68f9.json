@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-18T00:23:07.124617-05:00",
+  "payload": {
+    "patient_first_name": "Barbara",
+    "patient_last_name": "Perez",
+    "patient_dob": "2016-05-16",
+    "sex": "Female",
+    "member_id": "343233116",
+    "patient_address": "8457 River Rd, New Haven, CT 06164",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Theresa Perez",
+    "subscriber_dob": "1991-03-01",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Betty Young",
+    "provider_npi": "5273211927",
+    "provider_phone": "(860) 961-2874",
+    "provider_fax": "(860) 786-8379",
+    "provider_email": "",
+    "provider_address": "611 State St, Middletown, CT 06944",
+    "lab_name": "Ambry",
+    "lab_npi": "5819639273",
+    "lab_address": "8463 Highland Ave, West Hartford, CT 06132",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-27",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Betty Young",
+    "signature_date": "2026-02-18",
+    "icd_codes": [
+      "Q04.0",
+      "F72",
+      "Q67.3",
+      "Q10.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-05"
+    ],
+    "form_id": "044cbc8a-3a65-44df-9873-ca6578bb68f9",
+    "started_at": "2026-02-18T05:17:27.762Z"
+  },
+  "task_id": "2be62b91-ee8a-45b3-8e68-0d715f7b37a7",
+  "patient_id": "PAT-1567",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

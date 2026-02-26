@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:06:06.629965-05:00",
+  "payload": {
+    "patient_first_name": "Gemma",
+    "patient_last_name": "Hadley",
+    "patient_dob": "2012-04-12",
+    "sex": "Female",
+    "member_id": "491608797",
+    "patient_address": "779 Cedar St, West Hartford, CT 06611",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Atticus Hadley",
+    "subscriber_dob": "1978-04-23",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "3112285733",
+    "provider_phone": "4759445828",
+    "provider_fax": "2037596636",
+    "provider_email": "",
+    "provider_address": "9497 Valley Rd, Waterbury, CT 06104",
+    "lab_name": "Invitae",
+    "lab_npi": "7658382144",
+    "lab_address": "1170 High St, Milford, CT 06647",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-18",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q17.2",
+      "F71",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2020-05-10"
+    ],
+    "form_id": "f9758e89-6fae-4737-ae9f-6f33e2f2b7d3",
+    "started_at": "2026-02-25T04:01:28.279Z"
+  },
+  "task_id": "eebdae9c-c712-4a1e-84bb-ad0662a71d55",
+  "patient_id": "PAT-2760",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

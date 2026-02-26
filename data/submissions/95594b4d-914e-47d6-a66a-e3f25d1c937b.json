@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:49:57.288709-05:00",
+  "payload": {
+    "patient_first_name": "Damian",
+    "patient_last_name": "Prescott",
+    "patient_dob": "2013-11-20",
+    "sex": "Male",
+    "member_id": "778268648",
+    "patient_address": "5231 South St, Windsor, CT 06397",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Sienna Prescott",
+    "subscriber_dob": "1979-09-10",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "1552447781",
+    "provider_phone": "(203) 895-1201",
+    "provider_fax": "(203) 561-6958",
+    "provider_email": "",
+    "provider_address": "3280 Spring St, Norwich, CT 06254",
+    "lab_name": "Invitae",
+    "lab_npi": "8402952799",
+    "lab_address": "2199 Maple St, New Haven, CT 06455",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-09-14",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-05-10"
+    ],
+    "form_id": "95594b4d-914e-47d6-a66a-e3f25d1c937b",
+    "started_at": "2026-02-25T04:45:18.801Z"
+  },
+  "task_id": "3e69ba43-6f7f-4b44-9c1d-3714ca13ea63",
+  "patient_id": "PAT-5361",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

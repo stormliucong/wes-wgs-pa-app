@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-10T14:19:04.911773-05:00",
+  "payload": {
+    "patient_first_name": "Jeffrey",
+    "patient_last_name": "Jackson",
+    "patient_dob": "2008-09-23",
+    "sex": "Male",
+    "member_id": "488548139",
+    "patient_address": "7971 Second St, Bristol, CT 06229",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Andrew Jackson",
+    "subscriber_dob": "1977-07-10",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "8493968706",
+    "provider_phone": "(475) 827-4695",
+    "provider_fax": "(203) 856-3799",
+    "provider_email": "",
+    "provider_address": "4258 South St, Stamford, CT 06406",
+    "lab_name": "LabCorp",
+    "lab_npi": "3735388820",
+    "lab_address": "4019 Meadow Ln, Bristol, CT 06502",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-10",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620022",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-10",
+    "icd_codes": [
+      "E70.0",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "676b7095-5bb2-4f6f-8c43-c67c0a143d1f",
+    "started_at": "2026-02-10T19:11:50.170Z"
+  },
+  "task_id": "667e7e1a-c9a3-497c-9006-9274b3860188",
+  "patient_id": "PAT-9605",
+  "sample_type": "2c",
+  "llm": "claude-opus-4-5-20251101"
+}

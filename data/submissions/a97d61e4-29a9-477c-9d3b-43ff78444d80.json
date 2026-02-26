@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-13T17:29:25.323375-05:00",
+  "payload": {
+    "patient_first_name": "Stephen",
+    "patient_last_name": "Reed",
+    "patient_dob": "2018-06-19",
+    "sex": "Male",
+    "member_id": "988463732",
+    "patient_address": "8238 Oak Ave, Greenwich, CT 06326",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Brian Reed",
+    "subscriber_dob": "2008-01-30",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "3196887761",
+    "provider_phone": "(860) 334-1862",
+    "provider_fax": "(475) 324-2773",
+    "provider_email": "",
+    "provider_address": "3572 Broad St, Meriden, CT 06855",
+    "lab_name": "LabCorp",
+    "lab_npi": "4468853474",
+    "lab_address": "7694 Broad St, New Britain, CT 06943",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-02",
+    "cpt_codes": [
+      "81425, 81426×2"
+    ],
+    "internal_test_code": "WGS001X",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q21.1",
+      "F82",
+      "Q04.8"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-29"
+    ],
+    "form_id": "a97d61e4-29a9-477c-9d3b-43ff78444d80",
+    "started_at": "2026-02-13T22:24:56.710Z"
+  },
+  "task_id": "216f49f1-0e3d-401e-a07f-1e1320a413d3",
+  "patient_id": "PAT-4280",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

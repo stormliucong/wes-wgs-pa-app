@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:36:42.121216-05:00",
+  "payload": {
+    "patient_first_name": "Reid",
+    "patient_last_name": "Fletcher",
+    "patient_dob": "2021-10-25",
+    "sex": "Male",
+    "member_id": "735957647",
+    "patient_address": "5652 Second St, Milford, CT 06495",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Dawson Fletcher",
+    "subscriber_dob": "2011-06-16",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "8309170419",
+    "provider_phone": "(475) 236-7512",
+    "provider_fax": "(860) 623-8691",
+    "provider_email": "",
+    "provider_address": "4689 Spring St, Hartford, CT 06350",
+    "lab_name": "Ambry",
+    "lab_npi": "3602668616",
+    "lab_address": "2418 Second St, Middletown, CT 06290",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "19a81b2b-714b-44ad-9310-c7296e629779",
+    "started_at": "2026-02-25T04:32:31.419Z"
+  },
+  "task_id": "dc594aa1-adba-4264-a760-8528cda67408",
+  "patient_id": "PAT-8705",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

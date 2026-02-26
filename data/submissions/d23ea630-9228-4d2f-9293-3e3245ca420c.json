@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T17:55:59.316248-05:00",
+  "payload": {
+    "patient_first_name": "Jacob",
+    "patient_last_name": "Anderson",
+    "patient_dob": "2018-04-25",
+    "sex": "Male",
+    "member_id": "173356234",
+    "patient_address": "6729 Church St, Manchester, CT 06126",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Scott Anderson",
+    "subscriber_dob": "1993-11-04",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "8381709579",
+    "provider_phone": "8607809522",
+    "provider_fax": "9599078012",
+    "provider_email": "",
+    "provider_address": "4019 South St, New London, CT 06845",
+    "lab_name": "GeneDx",
+    "lab_npi": "1918194085",
+    "lab_address": "2383 Broad St, Hamden, CT 06176",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-12-27",
+    "cpt_codes": [
+      "81425x1, 81426x1"
+    ],
+    "internal_test_code": "TH78e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E87.2",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-29"
+    ],
+    "form_id": "d23ea630-9228-4d2f-9293-3e3245ca420c",
+    "started_at": "2026-02-13T22:51:57.980Z"
+  },
+  "task_id": "aa0865da-8ad3-480d-b465-5bde4c630cf3",
+  "patient_id": "PAT-1840",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

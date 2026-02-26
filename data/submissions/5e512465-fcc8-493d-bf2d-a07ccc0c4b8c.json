@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:54:45.056052-05:00",
+  "payload": {
+    "patient_first_name": "Arlo",
+    "patient_last_name": "Hollis",
+    "patient_dob": "2015-07-11",
+    "sex": "Male",
+    "member_id": "326582200",
+    "patient_address": "2752 Spring St, Hartford, CT 06112",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Delilah Hollis",
+    "subscriber_dob": "1981-06-04",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "1897030070",
+    "provider_phone": "(959) 832-7568",
+    "provider_fax": "(959) 974-1077",
+    "provider_email": "",
+    "provider_address": "9501 Second St, Trumbull, CT 06271",
+    "lab_name": "GeneDx",
+    "lab_npi": "5186821672",
+    "lab_address": "5510 Sunset Ave, Danbury, CT 06465",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2023-10-01",
+    "cpt_codes": [
+      "81425x1, 81426x2"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "G40.309"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5e512465-fcc8-493d-bf2d-a07ccc0c4b8c",
+    "started_at": "2026-02-25T04:50:03.178Z"
+  },
+  "task_id": "c415f60b-3f7f-411d-8352-5d99dde252b6",
+  "patient_id": "PAT-6336",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

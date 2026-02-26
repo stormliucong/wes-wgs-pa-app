@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-25T00:03:26.309129-05:00",
+  "payload": {
+    "patient_first_name": "Bennett",
+    "patient_last_name": "Bishop",
+    "patient_dob": "2016-07-05",
+    "sex": "Male",
+    "member_id": "139470778",
+    "patient_address": "3941 Meadow Ln, Glastonbury, CT 06960",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Tobias Bishop",
+    "subscriber_dob": "1983-02-05",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "8001274087",
+    "provider_phone": "(475) 862-5424",
+    "provider_fax": "(959) 374-7853",
+    "provider_email": "",
+    "provider_address": "8631 Elm St, Trumbull, CT 06154",
+    "lab_name": "LabCorp",
+    "lab_npi": "9415619488",
+    "lab_address": "7802 Center St, Meriden, CT 06179",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "P94.2",
+      "T36.0X1A",
+      "S93.401A",
+      "T30.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "4c527bc5-cc82-408f-9d91-4f1e0df381c4",
+    "started_at": "2026-02-25T04:58:15.947Z"
+  },
+  "task_id": "609213fb-e45d-4dea-b61d-707c47603d8e",
+  "patient_id": "PAT-5910",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

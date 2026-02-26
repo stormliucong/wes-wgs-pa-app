@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-17T14:10:16.558430-05:00",
+  "payload": {
+    "patient_first_name": "Julie",
+    "patient_last_name": "Ramsey",
+    "patient_dob": "2019-10-26",
+    "sex": "Female",
+    "member_id": "980672907",
+    "patient_address": "8599 Spring St, Newington, CT 06114",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kevin Ramsey",
+    "subscriber_dob": "1994-11-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "9858043468",
+    "provider_phone": "2035755391",
+    "provider_fax": "9596431896",
+    "provider_email": "",
+    "provider_address": "9540 Valley Rd, Stamford, CT 06572",
+    "lab_name": "LabCorp",
+    "lab_npi": "7744995002",
+    "lab_address": "5583 Court St, Milford, CT 06628",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-04",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "E70.21",
+      "R26.0",
+      "S93.401A",
+      "S01.01XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "4db55053-5e0c-411b-8d36-3715417216ea",
+    "started_at": "2026-02-17T19:05:31.786Z"
+  },
+  "task_id": "bf09a667-9ba5-4136-8066-072d829adb98",
+  "patient_id": "PAT-4426",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:45:05.229258-05:00",
+  "payload": {
+    "patient_first_name": "Gemma",
+    "patient_last_name": "Grafton",
+    "patient_dob": "2017-01-04",
+    "sex": "Female",
+    "member_id": "537363417",
+    "patient_address": "1285 Highland Ave, Waterbury, CT 06252",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bridget Whitaker",
+    "subscriber_dob": "1982-07-21",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "4485061839",
+    "provider_phone": "8609856800",
+    "provider_fax": "9594934841",
+    "provider_email": "",
+    "provider_address": "7088 North St, Torrington, CT 06195",
+    "lab_name": "LabCorp",
+    "lab_npi": "7058858282",
+    "lab_address": "",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-11-12",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003X",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "de6e82f2-2a30-4565-a431-d42e4a6a93ad",
+    "started_at": "2026-02-25T04:41:22.398Z"
+  },
+  "task_id": "fc93552e-e5fa-4ea9-bd9e-ee4b571acd49",
+  "patient_id": "PAT-6307",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

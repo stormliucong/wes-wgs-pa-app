@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:00:18.181787-05:00",
+  "payload": {
+    "patient_first_name": "Soren",
+    "patient_last_name": "Ingram",
+    "patient_dob": "2012-02-11",
+    "sex": "Male",
+    "member_id": "973174878",
+    "patient_address": "2450 Maple St, Bristol, CT 06159",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Alina Ingram",
+    "subscriber_dob": "1977-06-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "5605336897",
+    "provider_phone": "9592775939",
+    "provider_fax": "4755009421",
+    "provider_email": "",
+    "provider_address": "7721 Park Rd, West Haven, CT 06727",
+    "lab_name": "GeneDx",
+    "lab_npi": "3439693068",
+    "lab_address": "7144 South St, East Hartford, CT 06162",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-06",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "F71",
+      "Q04.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-28"
+    ],
+    "form_id": "d13ea1c2-fe4d-4b1f-82c9-e5a372202123",
+    "started_at": "2026-02-25T03:55:56.277Z"
+  },
+  "task_id": "ba403aea-6ec2-4fdf-af2d-ffdf6d03f71c",
+  "patient_id": "PAT-9953",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

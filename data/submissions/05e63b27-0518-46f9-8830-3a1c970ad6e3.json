@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-17T15:08:26.380491-05:00",
+  "payload": {
+    "patient_first_name": "James",
+    "patient_last_name": "Price",
+    "patient_dob": "2013-11-07",
+    "sex": "Male",
+    "member_id": "490045093",
+    "patient_address": "8884 Highland Ave, West Hartford, CT 06011",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Theresa Price",
+    "subscriber_dob": "1989-01-15",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "7081549856",
+    "provider_phone": "8602745009",
+    "provider_fax": "8603529888",
+    "provider_email": "",
+    "provider_address": "3967 Main St, Enfield, CT 06778",
+    "lab_name": "GeneDx",
+    "lab_npi": "2365136900",
+    "lab_address": "9471 High St, Hamden, CT 06652",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81425×1, 81426×1"
+    ],
+    "internal_test_code": "TH78e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient seen following acute injury event: right ankle sprain, scalp laceration, and concussion. No family history or dysmorphic features reported.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "S93.401A",
+      "S01.01XA",
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "05e63b27-0518-46f9-8830-3a1c970ad6e3",
+    "started_at": "2026-02-17T20:02:55.169Z"
+  },
+  "task_id": "97788d00-bd67-4167-a26d-f5880eb7f343",
+  "patient_id": "PAT-9920",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

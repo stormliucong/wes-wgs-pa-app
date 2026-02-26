@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:14:21.434921-05:00",
+  "payload": {
+    "patient_first_name": "Mina",
+    "patient_last_name": "Osborn",
+    "patient_dob": "2014-08-07",
+    "sex": "Female",
+    "member_id": "243171710",
+    "patient_address": "4182 Court St, Stamford, CT 06464",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Corbin Osborn",
+    "subscriber_dob": "1981-03-06",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "1604724458",
+    "provider_phone": "2033119309",
+    "provider_fax": "4753588641",
+    "provider_email": "",
+    "provider_address": "1192 Mill St, West Haven, CT 06676",
+    "lab_name": "GeneDx",
+    "lab_npi": "1367239844",
+    "lab_address": "4198 Maple St, Newington, CT 06851",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-22",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "896e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "00abcaa5-ece2-42b0-9a44-fba962738055",
+    "started_at": "2026-02-25T21:09:39.145Z"
+  },
+  "task_id": "9456644a-4c7a-4142-acd6-f4fd0a61f02c",
+  "patient_id": "PAT-1955",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

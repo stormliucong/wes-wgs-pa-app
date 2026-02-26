@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:57:30.683497-05:00",
+  "payload": {
+    "patient_first_name": "Aurora",
+    "patient_last_name": "Bexley",
+    "patient_dob": "2016-05-27",
+    "sex": "Female",
+    "member_id": "786020617",
+    "patient_address": "6289 South St, Greenwich, CT 06856",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Luca Bexley",
+    "subscriber_dob": "1982-03-10",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "7554862599",
+    "provider_phone": "(475) 486-8634",
+    "provider_fax": "(860) 207-1389",
+    "provider_email": "",
+    "provider_address": "4566 North St, Meriden, CT 06672",
+    "lab_name": "GeneDx",
+    "lab_npi": "5361820698",
+    "lab_address": "9506 Broad St, New Haven, CT 06017",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "896e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.0",
+      "Q61.3",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-03"
+    ],
+    "form_id": "240398e5-860b-4790-a6bf-c6b134a4ca95",
+    "started_at": "2026-02-25T04:53:23.437Z"
+  },
+  "task_id": "72257a29-0053-4713-ba3a-55b122168fd4",
+  "patient_id": "PAT-4762",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

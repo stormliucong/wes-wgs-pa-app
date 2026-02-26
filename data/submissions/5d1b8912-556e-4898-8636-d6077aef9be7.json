@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:03:01.533611-05:00",
+  "payload": {
+    "patient_first_name": "Jonathan",
+    "patient_last_name": "Sanchez",
+    "patient_dob": "2016-10-06",
+    "sex": "Male",
+    "member_id": "372361940",
+    "patient_address": "2230 Court St, West Hartford, CT 06069",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Sarah Sanchez",
+    "subscriber_dob": "1991-04-08",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "3253710412",
+    "provider_phone": "(475) 300-4452",
+    "provider_fax": "(959) 924-7981",
+    "provider_email": "",
+    "provider_address": "6359 East St, Manchester, CT 06249",
+    "lab_name": "LabCorp",
+    "lab_npi": "5611491555",
+    "lab_address": "8576 Court St, Glastonbury, CT 06074",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2025-08-15",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E70.0",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "negative"
+    ],
+    "prior_test_date": [
+      "2025-08-17"
+    ],
+    "form_id": "5d1b8912-556e-4898-8636-d6077aef9be7",
+    "started_at": "2026-02-13T22:58:50.117Z"
+  },
+  "task_id": "5d44cd41-f668-4f82-b6e1-b1672f46fde0",
+  "patient_id": "PAT-1545",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

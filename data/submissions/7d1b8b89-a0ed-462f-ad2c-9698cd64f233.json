@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:04:55.837063-05:00",
+  "payload": {
+    "patient_first_name": "Hazel",
+    "patient_last_name": "Dalton",
+    "patient_dob": "2019-08-10",
+    "sex": "Female",
+    "member_id": "600724677",
+    "patient_address": "7062 Highland Ave, Stamford, CT 06576",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Rowan Dalton",
+    "subscriber_dob": "1985-04-30",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "7022857808",
+    "provider_phone": "8606279202",
+    "provider_fax": "2035345713",
+    "provider_email": "",
+    "provider_address": "9105 Hill St, Stratford, CT 06432",
+    "lab_name": "Ambry",
+    "lab_npi": "6390293582",
+    "lab_address": "3863 High St, Danbury, CT 06036",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-11",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.3",
+      "E87.2",
+      "Z84.3",
+      "R94.31"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "7d1b8b89-a0ed-462f-ad2c-9698cd64f233",
+    "started_at": "2026-02-25T05:00:30.409Z"
+  },
+  "task_id": "48c9f37a-1883-4e87-904b-3c4c06bb18ea",
+  "patient_id": "PAT-9482",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

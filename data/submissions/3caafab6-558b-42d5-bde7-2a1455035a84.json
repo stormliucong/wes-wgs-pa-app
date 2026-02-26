@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:05:22.184025-05:00",
+  "payload": {
+    "patient_first_name": "Elodie",
+    "patient_last_name": "Dawes",
+    "patient_dob": "2015-07-12",
+    "sex": "Female",
+    "member_id": "211218791",
+    "patient_address": "7113 Pine St, New London, CT 06207",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Noelle Dawes",
+    "subscriber_dob": "1981-06-01",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "3000339101",
+    "provider_phone": "8609048603",
+    "provider_fax": "9599085622",
+    "provider_email": "",
+    "provider_address": "5227 School St, Manchester, CT 06054",
+    "lab_name": "Ambry",
+    "lab_npi": "5299907341",
+    "lab_address": "4435 Pine St, Glastonbury, CT 06989",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-17",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q67.3",
+      "Q17.8",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-23"
+    ],
+    "form_id": "3caafab6-558b-42d5-bde7-2a1455035a84",
+    "started_at": "2026-02-25T04:00:25.069Z"
+  },
+  "task_id": "d4329126-b164-4f34-b755-1659e46fac2e",
+  "patient_id": "PAT-7930",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

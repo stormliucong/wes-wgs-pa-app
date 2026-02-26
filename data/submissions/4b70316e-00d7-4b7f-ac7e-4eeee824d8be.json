@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:07:04.016715-05:00",
+  "payload": {
+    "patient_first_name": "Mina",
+    "patient_last_name": "Keaton",
+    "patient_dob": "2017-03-04",
+    "sex": "Female",
+    "member_id": "327525114",
+    "patient_address": "4492 Court St, Danbury, CT 06904",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Naomi Keaton",
+    "subscriber_dob": "1983-07-30",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "4535667549",
+    "provider_phone": "2034847456",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "9530 Washington Ave, Newington, CT 06523",
+    "lab_name": "GeneDx",
+    "lab_npi": "5056468767",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Recent adverse exposure to penicillin",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.9",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "4b70316e-00d7-4b7f-ac7e-4eeee824d8be",
+    "started_at": "2026-02-25T05:01:37.034Z"
+  },
+  "task_id": "7389b883-a490-4440-8695-2986bdcea8aa",
+  "patient_id": "PAT-6220",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

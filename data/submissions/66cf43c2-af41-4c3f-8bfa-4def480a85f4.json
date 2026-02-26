@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T16:15:19.121740-05:00",
+  "payload": {
+    "patient_first_name": "Alina",
+    "patient_last_name": "Kingsley",
+    "patient_dob": "2010-07-19",
+    "sex": "Male",
+    "member_id": "740217869",
+    "patient_address": "6110 Forest Ave, Trumbull, CT 06635",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kieran Kingsley",
+    "subscriber_dob": "1976-08-17",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "6156240123",
+    "provider_phone": "4753849281",
+    "provider_fax": "8604869692",
+    "provider_email": "",
+    "provider_address": "5200 Center St, Windsor, CT 06010",
+    "lab_name": "GeneDx",
+    "lab_npi": "7115338690",
+    "lab_address": "2787 Oak Ave, Hartford, CT 06497",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-18",
+    "cpt_codes": [
+      "81425×1, 81426×2"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.0",
+      "Q67.3",
+      "R62.50",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-31"
+    ],
+    "form_id": "66cf43c2-af41-4c3f-8bfa-4def480a85f4",
+    "started_at": "2026-02-25T21:09:30.750Z"
+  },
+  "task_id": "ba5cd902-a77a-4f4c-b4da-11b318440c8b",
+  "patient_id": "PAT-1174",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

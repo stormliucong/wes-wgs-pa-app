@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:54:51.626279-05:00",
+  "payload": {
+    "patient_first_name": "Malcolm",
+    "patient_last_name": "Fenwick",
+    "patient_dob": "2011-02-20",
+    "sex": "Male",
+    "member_id": "663665193",
+    "patient_address": "6218 Valley Rd, Middletown, CT 06462",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Dawson Fenwick",
+    "subscriber_dob": "1976-05-12",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "8383073256",
+    "provider_phone": "(860) 716-6105",
+    "provider_fax": "(475) 399-4573",
+    "provider_email": "",
+    "provider_address": "5147 Pleasant St, Norwich, CT 06465",
+    "lab_name": "Ambry",
+    "lab_npi": "7320483604",
+    "lab_address": "6520 Spring St, West Hartford, CT 06175",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.2",
+      "E73.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "37c83789-06ca-4521-9868-e4cfac795c71",
+    "started_at": "2026-02-25T04:50:44.186Z"
+  },
+  "task_id": "7ea6fa95-a42e-46cb-878e-1cc3fe703fbf",
+  "patient_id": "PAT-3209",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

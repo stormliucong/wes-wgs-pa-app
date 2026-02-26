@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T18:32:50.921913-05:00",
+  "payload": {
+    "patient_first_name": "Matthew",
+    "patient_last_name": "Moore",
+    "patient_dob": "2018-08-17",
+    "sex": "Male",
+    "member_id": "234484196",
+    "patient_address": "2220 Park Rd, Newington, CT 06302",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Monica Moore",
+    "subscriber_dob": "1993-03-05",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "8311013287",
+    "provider_phone": "(959) 451-9044",
+    "provider_fax": "(475) 875-9820",
+    "provider_email": "",
+    "provider_address": "5744 Union St, Milford, CT 06936",
+    "lab_name": "LabCorp",
+    "lab_npi": "1202546519",
+    "lab_address": "1124 Pleasant St, Newington, CT 06246",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E70.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "8f1330b0-97f6-40da-8d50-4643d7a9a026",
+    "started_at": "2026-02-13T23:29:00.465Z"
+  },
+  "task_id": "b7603ce3-c6cf-4f6f-9878-af4d1cbc6dcd",
+  "patient_id": "PAT-2001",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

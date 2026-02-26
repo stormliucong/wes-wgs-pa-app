@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:42:04.849358-05:00",
+  "payload": {
+    "patient_first_name": "Talia",
+    "patient_last_name": "Radcliffe",
+    "patient_dob": "2021-11-23",
+    "sex": "Female",
+    "member_id": "893125314",
+    "patient_address": "2373 State St, New Britain, CT 06943",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Emmett Radcliffe",
+    "subscriber_dob": "1987-06-10",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "1522146800",
+    "provider_phone": "8609053856",
+    "provider_fax": "9595446236",
+    "provider_email": "",
+    "provider_address": "9155 Church St, Hamden, CT 06757",
+    "lab_name": "Invitae",
+    "lab_npi": "9312143510",
+    "lab_address": "4525 Mill St, Meriden, CT 06971",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2025-12-28",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R26.89"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-31"
+    ],
+    "form_id": "264784b9-27ce-4338-9d06-374e8e2bfd58",
+    "started_at": "2026-02-25T04:37:42.786Z"
+  },
+  "task_id": "2a1c6c15-3b8e-4c20-9a5c-1f5659f59aff",
+  "patient_id": "PAT-9315",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

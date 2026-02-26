@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:55:22.534807-05:00",
+  "payload": {
+    "patient_first_name": "Rosalie",
+    "patient_last_name": "Somerset",
+    "patient_dob": "2016-01-25",
+    "sex": "Female",
+    "member_id": "126060227",
+    "patient_address": "8313 Water St, Torrington, CT 06289",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Arlo Somerset",
+    "subscriber_dob": "1981-06-21",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "6911609503",
+    "provider_phone": "(860) 446-1801",
+    "provider_fax": "(959) 293-7112",
+    "provider_email": "",
+    "provider_address": "7937 Cedar St, Hartford, CT 06714",
+    "lab_name": "GeneDx",
+    "lab_npi": "4192574074",
+    "lab_address": "5588 Court St, New Britain, CT 06735",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "793c34a1-ffd6-41fa-8f01-130a0d40fa6f",
+    "started_at": "2026-02-25T04:51:12.025Z"
+  },
+  "task_id": "f410edee-aac7-447d-87f9-cbfa34340177",
+  "patient_id": "PAT-9904",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

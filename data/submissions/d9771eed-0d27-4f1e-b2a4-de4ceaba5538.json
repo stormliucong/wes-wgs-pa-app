@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:12:50.929807-05:00",
+  "payload": {
+    "patient_first_name": "Veronica",
+    "patient_last_name": "Voss",
+    "patient_dob": "2010-11-28",
+    "sex": "Female",
+    "member_id": "995085832",
+    "patient_address": "2234 Main St, Glastonbury, CT 06207",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kira Voss",
+    "subscriber_dob": "1976-04-15",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "2860658059",
+    "provider_phone": "9595871284",
+    "provider_fax": "2033585655",
+    "provider_email": "",
+    "provider_address": "4680 State St, Manchester, CT 06651",
+    "lab_name": "LabCorp",
+    "lab_npi": "3506662314",
+    "lab_address": "486 Union St, Greenwich, CT 06499",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "T20.05XA",
+      "T36.0X1A",
+      "Z84.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d9771eed-0d27-4f1e-b2a4-de4ceaba5538",
+    "started_at": "2026-02-25T05:07:55.295Z"
+  },
+  "task_id": "72056858-8911-4220-9b4e-b470448ee910",
+  "patient_id": "PAT-3361",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

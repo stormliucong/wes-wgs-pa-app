@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:50:23.206866-05:00",
+  "payload": {
+    "patient_first_name": "Roman",
+    "patient_last_name": "Easton",
+    "patient_dob": "2018-08-15",
+    "sex": "Male",
+    "member_id": "200003421",
+    "patient_address": "1112 Valley Rd, Bristol, CT 06080",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Beckett Easton",
+    "subscriber_dob": "1984-06-11",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Steven Torres",
+    "provider_npi": "5770032902",
+    "provider_phone": "(475) 683-3645",
+    "provider_fax": "(475) 876-6707",
+    "provider_email": "",
+    "provider_address": "9971 Pine St, Danbury, CT 06342",
+    "lab_name": "Invitae",
+    "lab_npi": "7572894897",
+    "lab_address": "4475 Pleasant St, Trumbull, CT 06506",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-16"
+    ],
+    "form_id": "4f92a342-1fd4-4917-8e19-d2deae9cff31",
+    "started_at": "2026-02-25T04:46:27.834Z"
+  },
+  "task_id": "bc940008-34c9-4cbf-b75c-596990031312",
+  "patient_id": "PAT-9796",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

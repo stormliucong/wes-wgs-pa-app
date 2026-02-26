@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:06:25.927013-05:00",
+  "payload": {
+    "patient_first_name": "Skye",
+    "patient_last_name": "Fenwick",
+    "patient_dob": "2011-04-13",
+    "sex": "Female",
+    "member_id": "153560184",
+    "patient_address": "4848 Church St, Torrington, CT 06598",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Griffin Fenwick",
+    "subscriber_dob": "1999-04-09",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "5840582055",
+    "provider_phone": "5555555555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Dr",
+    "lab_name": "Ambry",
+    "lab_npi": "4888820369",
+    "lab_address": "15 Enterprise, Aliso Viejo, CA 92656",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-24",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "a03c7c3a-3cea-4c50-b114-249e8332120a",
+    "started_at": "2026-02-25T04:02:19.588Z"
+  },
+  "task_id": "3b9e778b-bde0-4c91-a3ee-12b7224d54c6",
+  "patient_id": "PAT-3140",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

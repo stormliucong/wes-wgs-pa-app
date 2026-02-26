@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:35:23.724486-05:00",
+  "payload": {
+    "patient_first_name": "Theo",
+    "patient_last_name": "Dawes",
+    "patient_dob": "2011-09-06",
+    "sex": "Male",
+    "member_id": "531816209",
+    "patient_address": "9301 Maple St, Shelton, CT 06363",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Griffin Dawes",
+    "subscriber_dob": "2001-01-23",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "6248443804",
+    "provider_phone": "(203) 528-6392",
+    "provider_fax": "(203) 673-3179",
+    "provider_email": "",
+    "provider_address": "1729 North St, New Haven, CT 06080",
+    "lab_name": "Invitae",
+    "lab_npi": "5549657080",
+    "lab_address": "5483 East St, New Haven, CT 06898",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-03",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.2",
+      "E73.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "6bb7110a-8e18-419a-8986-f12c9ec9f1f9",
+    "started_at": "2026-02-25T04:32:00.372Z"
+  },
+  "task_id": "76f070d1-dcb2-4109-a2a7-4c6b1f0f16d3",
+  "patient_id": "PAT-4786",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

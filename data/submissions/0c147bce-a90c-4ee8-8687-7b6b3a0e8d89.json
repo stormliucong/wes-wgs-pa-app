@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:12:19.834871-05:00",
+  "payload": {
+    "patient_first_name": "Damian",
+    "patient_last_name": "Goodwin",
+    "patient_dob": "2016-11-18",
+    "sex": "Male",
+    "member_id": "476211514",
+    "patient_address": "9410 High St, Hamden, CT 06737",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Owen Goodwin",
+    "subscriber_dob": "1982-04-14",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Legal Guardian",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "3589714993",
+    "provider_phone": "8609578492",
+    "provider_fax": "9593314397",
+    "provider_email": "",
+    "provider_address": "3495 Mill St, Hamden, CT 06104",
+    "lab_name": "Invitae",
+    "lab_npi": "1409190606",
+    "lab_address": "1179 Elm St, Trumbull, CT 06436",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-22",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient seen for acute injuries: scalp laceration, accidental penicillin overdose, and superficial burn. No prior genetic history.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S01.01XA",
+      "T36.0X1A",
+      "T30.1XXA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "0c147bce-a90c-4ee8-8687-7b6b3a0e8d89",
+    "started_at": "2026-02-25T05:07:07.532Z"
+  },
+  "task_id": "471aeefb-c958-493c-b350-f7ae9f956f30",
+  "patient_id": "PAT-5701",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

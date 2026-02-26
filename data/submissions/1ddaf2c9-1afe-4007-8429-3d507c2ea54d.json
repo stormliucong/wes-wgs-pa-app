@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:01:06.031966-05:00",
+  "payload": {
+    "patient_first_name": "Elodie",
+    "patient_last_name": "Ashford",
+    "patient_dob": "2010-03-29",
+    "sex": "Female",
+    "member_id": "839552130",
+    "patient_address": "6388 Franklin St, Norwich, CT 06706",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Arlo Ashford",
+    "subscriber_dob": "1976-12-01",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "1884958717",
+    "provider_phone": "(475) 910-8988",
+    "provider_fax": "(959) 329-2053",
+    "provider_email": "",
+    "provider_address": "3222 High St, New Haven, CT 06070",
+    "lab_name": "Invitae",
+    "lab_npi": "4370696932",
+    "lab_address": "7596 Church St, Hamden, CT 06328",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-18",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "R62.50",
+      "Q67.8",
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-04"
+    ],
+    "form_id": "1ddaf2c9-1afe-4007-8429-3d507c2ea54d",
+    "started_at": "2026-02-25T03:55:57.028Z"
+  },
+  "task_id": "6534c519-12e2-450f-a285-f2af38ef6981",
+  "patient_id": "PAT-2505",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

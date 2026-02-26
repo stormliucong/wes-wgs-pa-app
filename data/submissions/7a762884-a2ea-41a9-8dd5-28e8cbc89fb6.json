@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-13T17:07:43.931715-05:00",
+  "payload": {
+    "patient_first_name": "Andrew",
+    "patient_last_name": "Turner",
+    "patient_dob": "2011-02-05",
+    "sex": "Male",
+    "member_id": "390834963",
+    "patient_address": "8140 Pleasant St, Stratford, CT 06443",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Samuel Turner",
+    "subscriber_dob": "1999-10-11",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "2415908612",
+    "provider_phone": "9595395047",
+    "provider_fax": "9597812561",
+    "provider_email": "",
+    "provider_address": "6920 Maple St, Torrington, CT 06510",
+    "lab_name": "GeneDx",
+    "lab_npi": "6686429153",
+    "lab_address": "1493 Court St, Bridgeport, CT 06621",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-08",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "896a",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "E88.40",
+      "P94.2",
+      "Z84.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "7a762884-a2ea-41a9-8dd5-28e8cbc89fb6",
+    "started_at": "2026-02-13T22:03:01.963Z"
+  },
+  "task_id": "6df268d1-3ea2-41bc-8c15-81af09fd2ceb",
+  "patient_id": "PAT-8833",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

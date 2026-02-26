@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:49:24.473732-05:00",
+  "payload": {
+    "patient_first_name": "Ivy",
+    "patient_last_name": "Ainsley",
+    "patient_dob": "2014-10-12",
+    "sex": "Female",
+    "member_id": "689266962",
+    "patient_address": "2224 Maple St, Hartford, CT 06659",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Delilah Ainsley",
+    "subscriber_dob": "1980-11-10",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Jennifer Wilson",
+    "provider_npi": "6292782492",
+    "provider_phone": "(475) 961-7364",
+    "provider_fax": "(475) 389-3020",
+    "provider_email": "",
+    "provider_address": "9571 Main St, Stamford, CT 06384",
+    "lab_name": "Invitae",
+    "lab_npi": "9858098679",
+    "lab_address": "576 State St, New Britain, CT 06655",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-11",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Jennifer Wilson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.2"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-14"
+    ],
+    "form_id": "46d27af8-8a4f-402a-8d86-30e33c03a24c",
+    "started_at": "2026-02-25T04:45:04.794Z"
+  },
+  "task_id": "dad89045-fb25-4a86-8381-a08463e43f12",
+  "patient_id": "PAT-9625",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:02:50.591110-05:00",
+  "payload": {
+    "patient_first_name": "Tobias",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2018-04-20",
+    "sex": "Male",
+    "member_id": "797085028",
+    "patient_address": "8075 Spring St, Hamden, CT 06115",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Marina Merrick",
+    "subscriber_dob": "1984-10-16",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "1253061660",
+    "provider_phone": "4758782017",
+    "provider_fax": "8603279539",
+    "provider_email": "",
+    "provider_address": "7260 School St, New London, CT 06275",
+    "lab_name": "GeneDx",
+    "lab_npi": "4970615542",
+    "lab_address": "2088 Cedar St, Windsor, CT 06585",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-15",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q67.3",
+      "F82",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-10"
+    ],
+    "form_id": "f7bd6c49-0e82-45d1-9dfd-1906580c76ac",
+    "started_at": "2026-02-25T04:58:31.914Z"
+  },
+  "task_id": "c87378dc-0fb9-4da2-9f5d-f2159c86d79e",
+  "patient_id": "PAT-8199",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

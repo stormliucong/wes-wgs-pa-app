@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:35:38.980038-05:00",
+  "payload": {
+    "patient_first_name": "Aiden",
+    "patient_last_name": "Brant",
+    "patient_dob": "2016-08-27",
+    "sex": "Male",
+    "member_id": "960846352",
+    "patient_address": "916 Main St, Meriden, CT 06009",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Roman Brant",
+    "subscriber_dob": "2006-05-08",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "9610945964",
+    "provider_phone": "(860) 921-6875",
+    "provider_fax": "(475) 818-8008",
+    "provider_email": "",
+    "provider_address": "9918 North St, Shelton, CT 06439",
+    "lab_name": "Invitae",
+    "lab_npi": "1814253139",
+    "lab_address": "8704 Church St, Trumbull, CT 06544",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-15",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "G40.309"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "6c3ed51a-d5fd-4c0b-bec4-f58b5a1fee9b",
+    "started_at": "2026-02-25T04:32:05.972Z"
+  },
+  "task_id": "1bf840f5-a7d2-4112-8c54-e80ab0f78085",
+  "patient_id": "PAT-3174",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-13T19:00:11.657234-05:00",
+  "payload": {
+    "patient_first_name": "John",
+    "patient_last_name": "Gray",
+    "patient_dob": "2018-05-29",
+    "sex": "Male",
+    "member_id": "397384266",
+    "patient_address": "9639 Mill St, New Haven, CT 06757",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jennifer Gray",
+    "subscriber_dob": "1993-03-06",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "4457851430",
+    "provider_phone": "(203) 742-2926",
+    "provider_fax": "(475) 365-5047",
+    "provider_email": "",
+    "provider_address": "7186 Highland Ave, New Britain, CT 06971",
+    "lab_name": "Invitae",
+    "lab_npi": "7434848529",
+    "lab_address": "33 High St, Milford, CT 06251",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-02-14",
+    "icd_codes": [
+      "Q04.0",
+      "Q61.3"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-13"
+    ],
+    "form_id": "50171723-26b4-439a-86e4-b43f18f1f23c",
+    "started_at": "2026-02-13T23:56:33.050Z"
+  },
+  "task_id": "912cc89f-76cb-4cb8-89a5-09051f8a5021",
+  "patient_id": "PAT-5471",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

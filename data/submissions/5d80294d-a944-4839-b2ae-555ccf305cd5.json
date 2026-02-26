@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-13T17:58:52.651663-05:00",
+  "payload": {
+    "patient_first_name": "Patricia",
+    "patient_last_name": "Hall",
+    "patient_dob": "2012-11-28",
+    "sex": "Female",
+    "member_id": "568112252",
+    "patient_address": "9777 High St, Trumbull, CT 06025",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Pamela Hall",
+    "subscriber_dob": "1987-08-21",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "7868307623",
+    "provider_phone": "(959) 667-2138",
+    "provider_fax": "(959) 576-4037",
+    "provider_email": "",
+    "provider_address": "1988 South St, West Hartford, CT 06803",
+    "lab_name": "GeneDx",
+    "lab_npi": "3406809005",
+    "lab_address": "1063 School St, Hamden, CT 06737",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-12-12",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q66.89",
+      "M26.04",
+      "Q61.3",
+      "F88",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2023-05-10"
+    ],
+    "form_id": "5d80294d-a944-4839-b2ae-555ccf305cd5",
+    "started_at": "2026-02-13T22:54:18.949Z"
+  },
+  "task_id": "940be7be-ddd5-48e9-8208-e923594ac450",
+  "patient_id": "PAT-2162",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

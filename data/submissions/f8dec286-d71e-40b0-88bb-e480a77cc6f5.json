@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:06:31.578990-05:00",
+  "payload": {
+    "patient_first_name": "Piper",
+    "patient_last_name": "Fletcher",
+    "patient_dob": "2012-02-25",
+    "sex": "Female",
+    "member_id": "729411438",
+    "patient_address": "307 Water St, West Haven, CT 06022",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Eden Fletcher",
+    "subscriber_dob": "1977-11-28",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "9221265931",
+    "provider_phone": "4754493905",
+    "provider_fax": "4758071495",
+    "provider_email": "",
+    "provider_address": "6057 Oak Ave, Enfield, CT 06258",
+    "lab_name": "Ambry",
+    "lab_npi": "5429389963",
+    "lab_address": "7966 Forest Ave, East Hartford, CT 06442",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-28",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E87.2",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f8dec286-d71e-40b0-88bb-e480a77cc6f5",
+    "started_at": "2026-02-25T05:02:33.581Z"
+  },
+  "task_id": "c1af93e9-0f87-4fc5-8ec2-ceb0b7f7ca0a",
+  "patient_id": "PAT-8874",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

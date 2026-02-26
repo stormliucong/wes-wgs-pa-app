@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:36:24.566953-05:00",
+  "payload": {
+    "patient_first_name": "Hudson",
+    "patient_last_name": "Prescott",
+    "patient_dob": "2010-08-08",
+    "sex": "Male",
+    "member_id": "674731578",
+    "patient_address": "7127 East St, Shelton, CT 06802",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jude Prescott",
+    "subscriber_dob": "2000-11-24",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "6104141851",
+    "provider_phone": "8604762867",
+    "provider_fax": "4756652256",
+    "provider_email": "",
+    "provider_address": "4318 School St, Trumbull, CT 06707",
+    "lab_name": "Ambry",
+    "lab_npi": "3142227922",
+    "lab_address": "1273 Franklin St, Newington, CT 06701",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-01",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q17.9",
+      "Q87.89",
+      "R27.8"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "6edb91bc-c5bd-41ec-bf03-35f5ca52634e",
+    "started_at": "2026-02-25T04:31:59.157Z"
+  },
+  "task_id": "8e3746f2-a992-4078-a7bb-0f84eb0cc3a6",
+  "patient_id": "PAT-8755",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

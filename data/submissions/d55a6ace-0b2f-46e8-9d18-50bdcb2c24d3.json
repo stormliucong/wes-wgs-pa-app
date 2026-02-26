@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:53:57.468317-05:00",
+  "payload": {
+    "patient_first_name": "Beckett",
+    "patient_last_name": "Abbott",
+    "patient_dob": "2016-11-02",
+    "sex": "Male",
+    "member_id": "544760705",
+    "patient_address": "3196 West St, Meriden, CT 06929",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Arlo Abbott",
+    "subscriber_dob": "1982-06-08",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "William Jones",
+    "provider_npi": "5773799672",
+    "provider_phone": "2037249544",
+    "provider_fax": "9593497033",
+    "provider_email": "",
+    "provider_address": "5550 Valley Rd, Norwalk, CT 06368",
+    "lab_name": "LabCorp",
+    "lab_npi": "1250384458",
+    "lab_address": "4425 Washington Ave, Newington, CT 06182",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "William Jones",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d55a6ace-0b2f-46e8-9d18-50bdcb2c24d3",
+    "started_at": "2026-02-25T04:50:29.678Z"
+  },
+  "task_id": "b3c3e95c-b4d2-494a-b206-9def4d08fa65",
+  "patient_id": "PAT-3736",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

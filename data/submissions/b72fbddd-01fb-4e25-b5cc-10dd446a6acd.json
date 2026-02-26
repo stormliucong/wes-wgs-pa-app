@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-13T17:29:09.885639-05:00",
+  "payload": {
+    "patient_first_name": "Edward",
+    "patient_last_name": "Young",
+    "patient_dob": "2020-06-24",
+    "sex": "Male",
+    "member_id": "688614291",
+    "patient_address": "4020 Oak Ave, West Haven, CT 06026",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jeffrey Young",
+    "subscriber_dob": "2011-01-26",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "8336028637",
+    "provider_phone": "2033643794",
+    "provider_fax": "8604061700",
+    "provider_email": "",
+    "provider_address": "2843 West St, Middletown, CT 06491",
+    "lab_name": "Ambry",
+    "lab_npi": "7179268729",
+    "lab_address": "9120 Main St, Newington, CT 06664",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-23",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q67.3",
+      "Q17.2",
+      "Q39.0",
+      "F72"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-05-10"
+    ],
+    "form_id": "b72fbddd-01fb-4e25-b5cc-10dd446a6acd",
+    "started_at": "2026-02-13T22:24:55.251Z"
+  },
+  "task_id": "f8d28da8-6504-48b0-bb0b-f4c1f6bb39c2",
+  "patient_id": "PAT-2343",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:47:21.865085-05:00",
+  "payload": {
+    "patient_first_name": "Gemma",
+    "patient_last_name": "Griffith",
+    "patient_dob": "2019-01-28",
+    "sex": "Female",
+    "member_id": "748179938",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "1234567890",
+    "provider_phone": "5555555555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Dr",
+    "lab_name": "Invitae",
+    "lab_npi": "0987654321",
+    "lab_address": "123 Lab Street",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-01-01",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "WES123",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R62.50"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f54bd502-45bc-41fb-9aef-658a9e28acf1",
+    "started_at": "2026-02-25T04:44:52.573Z"
+  },
+  "task_id": "f60db916-ad60-44a4-ac0f-1ceed906b7a3",
+  "patient_id": "PAT-4443",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

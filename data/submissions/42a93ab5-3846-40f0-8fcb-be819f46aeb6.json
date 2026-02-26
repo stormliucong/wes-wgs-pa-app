@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:36:57.612858-05:00",
+  "payload": {
+    "patient_first_name": "Aurora",
+    "patient_last_name": "Orwell",
+    "patient_dob": "2011-11-28",
+    "sex": "Female",
+    "member_id": "563194653",
+    "patient_address": "771 Church St, Norwalk, CT 06817",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Anya Orwell",
+    "subscriber_dob": "2000-07-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "4767103792",
+    "provider_phone": "(475) 571-3160",
+    "provider_fax": "(475) 334-7787",
+    "provider_email": "",
+    "provider_address": "3621 Franklin St, Manchester, CT 06976",
+    "lab_name": "Invitae",
+    "lab_npi": "2277742068",
+    "lab_address": "3288 Main St, New Haven, CT 06564",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-17",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F72",
+      "Q87.0",
+      "Q21.1",
+      "Q75.8"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-15"
+    ],
+    "form_id": "42a93ab5-3846-40f0-8fcb-be819f46aeb6",
+    "started_at": "2026-02-25T04:32:34.672Z"
+  },
+  "task_id": "2ab0c772-71df-4eea-a1fc-579e3dfd23d9",
+  "patient_id": "PAT-6269",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

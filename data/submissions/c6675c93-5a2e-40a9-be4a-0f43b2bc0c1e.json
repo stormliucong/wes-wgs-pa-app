@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:49:22.613922-05:00",
+  "payload": {
+    "patient_first_name": "Emmett",
+    "patient_last_name": "Irwin",
+    "patient_dob": "2012-01-08",
+    "sex": "Male",
+    "member_id": "702907106",
+    "patient_address": "9131 Oak Ave, Bridgeport, CT 06106",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Soren Irwin",
+    "subscriber_dob": "1977-12-29",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "4429814142",
+    "provider_phone": "8606643462",
+    "provider_fax": "9597442773",
+    "provider_email": "",
+    "provider_address": "8953 Park Rd, Hamden, CT 06547",
+    "lab_name": "LabCorp",
+    "lab_npi": "7279410097",
+    "lab_address": "6929 Park Rd, New Haven, CT 06824",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F72",
+      "Q04.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-15"
+    ],
+    "form_id": "c6675c93-5a2e-40a9-be4a-0f43b2bc0c1e",
+    "started_at": "2026-02-25T04:45:17.150Z"
+  },
+  "task_id": "be5e76e3-c6b8-48e8-a38c-45d71d7e89fd",
+  "patient_id": "PAT-7214",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

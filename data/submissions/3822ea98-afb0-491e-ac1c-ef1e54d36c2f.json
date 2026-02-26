@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:36:51.799780-05:00",
+  "payload": {
+    "patient_first_name": "Arlo",
+    "patient_last_name": "Xander",
+    "patient_dob": "2014-06-17",
+    "sex": "Male",
+    "member_id": "195624304",
+    "patient_address": "8603 Union St, Glastonbury, CT 06426",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Felix Xander",
+    "subscriber_dob": "2004-12-27",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "3952114037",
+    "provider_phone": "2032293535",
+    "provider_fax": "9593946362",
+    "provider_email": "",
+    "provider_address": "3081 Pine St, Torrington, CT 06040",
+    "lab_name": "LabCorp",
+    "lab_npi": "1225005158",
+    "lab_address": "9446 Second St, Hartford, CT 06827",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-21",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.409",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "3822ea98-afb0-491e-ac1c-ef1e54d36c2f",
+    "started_at": "2026-02-25T04:32:33.607Z"
+  },
+  "task_id": "4d619c58-96ef-4640-b7db-d47e281dcc6c",
+  "patient_id": "PAT-4821",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:36:05.564657-05:00",
+  "payload": {
+    "patient_first_name": "Beckett",
+    "patient_last_name": "Tennyson",
+    "patient_dob": "2016-05-11",
+    "sex": "Male",
+    "member_id": "912252714",
+    "patient_address": "2042 Pine St, Glastonbury, CT 06809",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Gavin Tennyson",
+    "subscriber_dob": "2006-12-08",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "4776685172",
+    "provider_phone": "2033461419",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "100 Main St, Hartford, CT 06106",
+    "lab_name": "GeneDx",
+    "lab_npi": "5552625858",
+    "lab_address": "",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-19",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.3",
+      "Q04.0",
+      "Q21.1",
+      "R62.50"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "87bf9510-3b49-41cc-b72f-28296ed30123",
+    "started_at": "2026-02-25T04:31:57.148Z"
+  },
+  "task_id": "3f82d42e-8f5f-48d4-a9c2-7fb95f63e94a",
+  "patient_id": "PAT-7398",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

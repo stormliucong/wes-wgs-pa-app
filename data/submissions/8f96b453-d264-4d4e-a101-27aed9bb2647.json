@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:49:08.278759-05:00",
+  "payload": {
+    "patient_first_name": "Naomi",
+    "patient_last_name": "Irwin",
+    "patient_dob": "2019-01-31",
+    "sex": "Female",
+    "member_id": "205006736",
+    "patient_address": "3727 Pine St, Windsor, CT 06359",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hazel Irwin",
+    "subscriber_dob": "1985-01-10",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "4025641838",
+    "provider_phone": "(203) 625-7769",
+    "provider_fax": "(860) 978-3085",
+    "provider_email": "",
+    "provider_address": "7379 West St, New Britain, CT 06731",
+    "lab_name": "Invitae",
+    "lab_npi": "9089927994",
+    "lab_address": "2436 Franklin St, Norwich, CT 06405",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-10-11",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q89.7",
+      "R62.0",
+      "Q17.8",
+      "Q61.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "8f96b453-d264-4d4e-a101-27aed9bb2647",
+    "started_at": "2026-02-25T04:45:08.260Z"
+  },
+  "task_id": "06d2c637-a2f6-4006-be2d-59b2d476335a",
+  "patient_id": "PAT-5452",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

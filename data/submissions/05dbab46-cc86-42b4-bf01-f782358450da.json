@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:20:34.959512-05:00",
+  "payload": {
+    "patient_first_name": "Hazel",
+    "patient_last_name": "Ingram",
+    "patient_dob": "2019-12-19",
+    "sex": "Male",
+    "member_id": "984189749",
+    "patient_address": "1611 Main St, Stamford, CT 06826",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Quentin Ingram",
+    "subscriber_dob": "1986-02-22",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Father",
+    "provider_name": "Michael Smith",
+    "provider_npi": "8202759681",
+    "provider_phone": "(959) 546-1232",
+    "provider_fax": "(959) 508-4075",
+    "provider_email": "",
+    "provider_address": "6548 State St, Norwalk, CT 06169",
+    "lab_name": "GeneDx",
+    "lab_npi": "9505467284",
+    "lab_address": "7528 Water St, Middletown, CT 06500",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-19",
+    "cpt_codes": [
+      "81425x1, 81426x2"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.1",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "05dbab46-cc86-42b4-bf01-f782358450da",
+    "started_at": "2026-02-25T21:15:43.350Z"
+  },
+  "task_id": "1eb52ea5-2d8e-4d64-8d02-5bc7ef1bd0b0",
+  "patient_id": "PAT-5801",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:06:25.785766-05:00",
+  "payload": {
+    "patient_first_name": "Brady",
+    "patient_last_name": "Somerset",
+    "patient_dob": "2020-10-21",
+    "sex": "Male",
+    "member_id": "803586157",
+    "patient_address": "5338 Meadow Ln, Greenwich, CT 06955",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Dorian Somerset",
+    "subscriber_dob": "2009-10-03",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "5150221935",
+    "provider_phone": "2036479933",
+    "provider_fax": "8602688361",
+    "provider_email": "",
+    "provider_address": "9545 Spring St, New Britain, CT 06790",
+    "lab_name": "GeneDx",
+    "lab_npi": "6014569842",
+    "lab_address": "8856 South St, Windsor, CT 06804",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-19",
+    "cpt_codes": [
+      "81425x1, 81426x2"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.4",
+      "F71",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-05"
+    ],
+    "form_id": "01ba0143-9f48-45f2-a265-666af538d526",
+    "started_at": "2026-02-25T04:01:52.825Z"
+  },
+  "task_id": "0abcd69d-c2e3-41be-9f9c-ad53fd126f24",
+  "patient_id": "PAT-9005",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

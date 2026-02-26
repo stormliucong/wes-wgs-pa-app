@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-25T16:17:33.034677-05:00",
+  "payload": {
+    "patient_first_name": "Griffin",
+    "patient_last_name": "Easton",
+    "patient_dob": "2013-06-12",
+    "sex": "Male",
+    "member_id": "195948699",
+    "patient_address": "2725 Park Rd, Norwich, CT 06812",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Zane Easton",
+    "subscriber_dob": "1979-09-18",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "8883986349",
+    "provider_phone": "475-383-7165",
+    "provider_fax": "860-816-9984",
+    "provider_email": "",
+    "provider_address": "1898 Pleasant St, East Hartford, CT 06098",
+    "lab_name": "GeneDx",
+    "lab_npi": "8400826019",
+    "lab_address": "1685 Church St, Hamden, CT 06385",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2025-02-25",
+    "icd_codes": [
+      "G40.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "c9766742-7d81-449d-bf32-34a82cb025ed",
+    "started_at": "2026-02-25T21:09:09.119Z"
+  },
+  "task_id": "8eea93fd-2946-483c-af39-934d1adc5eda",
+  "patient_id": "PAT-9615",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

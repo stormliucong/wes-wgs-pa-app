@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-24T23:59:47.411683-05:00",
+  "payload": {
+    "patient_first_name": "Rosalie",
+    "patient_last_name": "Bexley",
+    "patient_dob": "2011-04-19",
+    "sex": "Female",
+    "member_id": "457038192",
+    "patient_address": "3742 State St, Danbury, CT 06715",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Corbin Bexley",
+    "subscriber_dob": "1977-04-12",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "David Brown",
+    "provider_npi": "6492399405",
+    "provider_phone": "4753467113",
+    "provider_fax": "8604577807",
+    "provider_email": "",
+    "provider_address": "7052 Court St, Norwalk, CT 06691",
+    "lab_name": "Invitae",
+    "lab_npi": "9761372663",
+    "lab_address": "5415 Mill St, Milford, CT 06547",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "David Brown",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F79",
+      "Q21.1",
+      "Q17.2",
+      "Q75.3",
+      "Q87.8"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-13"
+    ],
+    "form_id": "db69fc30-f41c-42a4-9378-9af9a2f5479d",
+    "started_at": "2026-02-25T04:54:39.814Z"
+  },
+  "task_id": "675738c5-d7e6-4584-9b56-bd3feef98cb9",
+  "patient_id": "PAT-2831",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

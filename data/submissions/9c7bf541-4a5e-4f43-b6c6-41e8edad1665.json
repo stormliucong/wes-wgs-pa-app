@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:08:28.617501-05:00",
+  "payload": {
+    "patient_first_name": "Isla",
+    "patient_last_name": "Claremont",
+    "patient_dob": "2013-08-08",
+    "sex": "Female",
+    "member_id": "452056097",
+    "patient_address": "7469 Maple St, New Haven, CT 06137",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Iris Claremont",
+    "subscriber_dob": "1980-02-05",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "8853210336",
+    "provider_phone": "2034822313",
+    "provider_fax": "8603486317",
+    "provider_email": "",
+    "provider_address": "3597 Spring St, Bristol, CT 06584",
+    "lab_name": "LabCorp",
+    "lab_npi": "3195510669",
+    "lab_address": "6134 Elm St, Torrington, CT 06411",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "12yo female, acute injuries, concussion, ankle sprain, burn injury",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "T30.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "9c7bf541-4a5e-4f43-b6c6-41e8edad1665",
+    "started_at": "2026-02-25T05:03:49.896Z"
+  },
+  "task_id": "188027ef-ea75-4741-8ca6-df006a926bad",
+  "patient_id": "PAT-1353",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

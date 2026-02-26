@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:58:36.398246-05:00",
+  "payload": {
+    "patient_first_name": "Theo",
+    "patient_last_name": "Underwood",
+    "patient_dob": "2017-06-16",
+    "sex": "Male",
+    "member_id": "925870166",
+    "patient_address": "5700 State St, Hartford, CT 06049",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Damian Underwood",
+    "subscriber_dob": "1983-06-15",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "4341562510",
+    "provider_phone": "9593367584",
+    "provider_fax": "8607368146",
+    "provider_email": "",
+    "provider_address": "6414 Elm St, New Britain, CT 06447",
+    "lab_name": "Invitae",
+    "lab_npi": "4068457969",
+    "lab_address": "9600 Pleasant St, East Hartford, CT 06953",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q04.0",
+      "Q76.1",
+      "Q22.5"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5c2c5e94-e805-43dd-ac5c-2dff7ba6a5c7",
+    "started_at": "2026-02-25T04:54:48.101Z"
+  },
+  "task_id": "30df5b2d-a4c3-43bd-abf4-df22a8670dc6",
+  "patient_id": "PAT-8317",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

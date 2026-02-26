@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:21:58.787964-05:00",
+  "payload": {
+    "patient_first_name": "Leo",
+    "patient_last_name": "Irwin",
+    "patient_dob": "2016-11-19",
+    "sex": "Female",
+    "member_id": "555359450",
+    "patient_address": "6554 Forest Ave, West Hartford, CT 06556",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Alina Irwin",
+    "subscriber_dob": "1982-08-12",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "2890465832",
+    "provider_phone": "8602799216",
+    "provider_fax": "2036949699",
+    "provider_email": "",
+    "provider_address": "868 Water St, Norwich, CT 06829",
+    "lab_name": "GeneDx",
+    "lab_npi": "5505164348",
+    "lab_address": "8336 Meadow Ln, Newington, CT 06326",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-27",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "896a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q21.1",
+      "Q66.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e7fe5610-8a09-4a65-8415-9ec9ebf92e22",
+    "started_at": "2026-02-25T21:17:39.905Z"
+  },
+  "task_id": "5e372d3d-2b57-4654-8604-03415350727f",
+  "patient_id": "PAT-7231",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

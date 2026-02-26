@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-13T18:56:52.626970-05:00",
+  "payload": {
+    "patient_first_name": "Shirley",
+    "patient_last_name": "Bell",
+    "patient_dob": "2017-04-17",
+    "sex": "Female",
+    "member_id": "717413536",
+    "patient_address": "4123 Sunset Ave, New London, CT 06493",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Angela Bell",
+    "subscriber_dob": "1992-09-13",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "9316420306",
+    "provider_phone": "(959) 405-9631",
+    "provider_fax": "(475) 284-8877",
+    "provider_email": "",
+    "provider_address": "3491 Pleasant St, Enfield, CT 06022",
+    "lab_name": "GeneDx",
+    "lab_npi": "7603216668",
+    "lab_address": "9312 Mill St, Trumbull, CT 06181",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "G40.909",
+      "E87.2",
+      "Z82.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "3fff1f2a-bab7-46d1-997e-9793a359f2a2",
+    "started_at": "2026-02-13T23:52:29.138Z"
+  },
+  "task_id": "346b4ee7-473e-42b5-8798-14a5eb863296",
+  "patient_id": "PAT-4746",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:13:28.888573-05:00",
+  "payload": {
+    "patient_first_name": "Dorian",
+    "patient_last_name": "Quarry",
+    "patient_dob": "2019-05-21",
+    "sex": "Male",
+    "member_id": "515981314",
+    "patient_address": "1258 Park Rd, Waterbury, CT 06525",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Anya Quarry",
+    "subscriber_dob": "1985-07-02",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "1613899590",
+    "provider_phone": "9594109087",
+    "provider_fax": "2034623584",
+    "provider_email": "",
+    "provider_address": "6111 Highland Ave, Stratford, CT 06896",
+    "lab_name": "GeneDx",
+    "lab_npi": "5507051919",
+    "lab_address": "5805 Franklin St, Torrington, CT 06711",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-16",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "TH78e",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Dorian Quarry is a 6-year-old male seen after two acute injuries. History is notable for a recent open wound of the scalp... He also has an acute right ankle sprain...",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S01.0",
+      "S93.4"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "edb23972-4f87-4567-8225-b465571d7a45",
+    "started_at": "2026-02-25T05:07:44.302Z"
+  },
+  "task_id": "67c83431-f5f3-44cc-9ff3-218b7021195d",
+  "patient_id": "PAT-6469",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

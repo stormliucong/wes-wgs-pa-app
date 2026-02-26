@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-24T23:54:31.648385-05:00",
+  "payload": {
+    "patient_first_name": "Luca",
+    "patient_last_name": "Orwell",
+    "patient_dob": "2019-09-02",
+    "sex": "Male",
+    "member_id": "255711396",
+    "patient_address": "9338 School St, New London, CT 06307",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Isla Orwell",
+    "subscriber_dob": "1985-11-16",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "1858838476",
+    "provider_phone": "8609059073",
+    "provider_fax": "9594804930",
+    "provider_email": "",
+    "provider_address": "4614 Court St, Hamden, CT 06581",
+    "lab_name": "Invitae",
+    "lab_npi": "7172154803",
+    "lab_address": "1267 Hill St, Bridgeport, CT 06689",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "G40.309"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e69cb9f6-abac-4428-a0f7-6db5face633c",
+    "started_at": "2026-02-25T04:50:31.985Z"
+  },
+  "task_id": "41717d1f-ad6e-4a68-b021-c57202e590b2",
+  "patient_id": "PAT-7238",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:05:27.783315-05:00",
+  "payload": {
+    "patient_first_name": "Kaia",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2016-12-06",
+    "sex": "Female",
+    "member_id": "536521789",
+    "patient_address": "9214 Maple St, New Haven, CT 06583",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kieran Whitaker",
+    "subscriber_dob": "1982-10-09",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Betty Young",
+    "provider_npi": "2099649605",
+    "provider_phone": "(475) 978-3230",
+    "provider_fax": "(475) 702-8246",
+    "provider_email": "",
+    "provider_address": "7592 Elm St, New Haven, CT 06248",
+    "lab_name": "GeneDx",
+    "lab_npi": "2062608808",
+    "lab_address": "5049 Washington Ave, Norwalk, CT 06976",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-10",
+    "cpt_codes": [
+      "81425×1, 81426×2"
+    ],
+    "internal_test_code": "TH78a",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Betty Young",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E70.9",
+      "R27.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "9181f7a4-caa0-4590-a10a-5170ffac7448",
+    "started_at": "2026-02-25T04:00:51.546Z"
+  },
+  "task_id": "062221f5-1515-48e1-ba1e-aef137b12572",
+  "patient_id": "PAT-7959",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

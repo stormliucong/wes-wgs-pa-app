@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:44:25.149376-05:00",
+  "payload": {
+    "patient_first_name": "Luca",
+    "patient_last_name": "Conrad",
+    "patient_dob": "2019-12-30",
+    "sex": "Male",
+    "member_id": "334064275",
+    "patient_address": "8025 Second St, Enfield, CT 06353",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Anya Conrad",
+    "subscriber_dob": "1985-12-08",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "William Jones",
+    "provider_npi": "7241198920",
+    "provider_phone": "2033273714",
+    "provider_fax": "4757903664",
+    "provider_email": "",
+    "provider_address": "3791 Meadow Ln, Hamden, CT 06491",
+    "lab_name": "Invitae",
+    "lab_npi": "3288135426",
+    "lab_address": "387 Maple St, Bridgeport, CT 06965",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2025-12-29",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "William Jones",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q39.0",
+      "Q66.89",
+      "F71"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-08"
+    ],
+    "form_id": "4fcecafb-fe20-48e3-8a53-f62f699e8dea",
+    "started_at": "2026-02-25T04:40:21.942Z"
+  },
+  "task_id": "4bfeb7eb-dc56-430a-9950-037c620baecb",
+  "patient_id": "PAT-8390",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

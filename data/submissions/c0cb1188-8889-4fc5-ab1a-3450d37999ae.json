@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:01:49.515238-05:00",
+  "payload": {
+    "patient_first_name": "Ivy",
+    "patient_last_name": "Harlan",
+    "patient_dob": "2017-06-11",
+    "sex": "Female",
+    "member_id": "329134238",
+    "patient_address": "9561 Franklin St, Manchester, CT 06321",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bennett Harlan",
+    "subscriber_dob": "1984-02-02",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Daniel Jackson",
+    "provider_npi": "2958983426",
+    "provider_phone": "2035072820",
+    "provider_fax": "4757349759",
+    "provider_email": "",
+    "provider_address": "7044 Oak Ave, Hartford, CT 06040",
+    "lab_name": "GeneDx",
+    "lab_npi": "6125933696",
+    "lab_address": "690 Cedar St, Norwich, CT 06863",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-22",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "J744b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Daniel Jackson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q30.0",
+      "Q39.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-10"
+    ],
+    "form_id": "c0cb1188-8889-4fc5-ab1a-3450d37999ae",
+    "started_at": "2026-02-25T03:55:59.529Z"
+  },
+  "task_id": "f66ebc1b-8a28-463b-ad73-97cffe7d266a",
+  "patient_id": "PAT-7999",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

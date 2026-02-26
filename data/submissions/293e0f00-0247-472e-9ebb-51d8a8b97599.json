@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T16:15:21.012392-05:00",
+  "payload": {
+    "patient_first_name": "Marina",
+    "patient_last_name": "Bishop",
+    "patient_dob": "2019-01-23",
+    "sex": "Female",
+    "member_id": "782441254",
+    "patient_address": "6717 Mill St, Glastonbury, CT 06838",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Colton Bishop",
+    "subscriber_dob": "1984-09-07",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Jennifer Wilson",
+    "provider_npi": "5216543086",
+    "provider_phone": "(959) 820-3188",
+    "provider_fax": "(860) 735-3476",
+    "provider_email": "",
+    "provider_address": "4349 Sunset Ave, Hartford, CT 06788",
+    "lab_name": "Ambry",
+    "lab_npi": "8907191389",
+    "lab_address": "6765 Court St, East Hartford, CT 06024",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-02",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Jennifer Wilson",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q67.3",
+      "Q04.0",
+      "F88"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-15"
+    ],
+    "form_id": "293e0f00-0247-472e-9ebb-51d8a8b97599",
+    "started_at": "2026-02-25T21:09:30.800Z"
+  },
+  "task_id": "0f3e7644-8830-4d76-a9ce-6374778841ee",
+  "patient_id": "PAT-6037",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

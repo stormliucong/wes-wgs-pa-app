@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T16:21:05.058652-05:00",
+  "payload": {
+    "patient_first_name": "Hudson",
+    "patient_last_name": "Radcliffe",
+    "patient_dob": "2023-02-22",
+    "sex": "Female",
+    "member_id": "410467406",
+    "patient_address": "4215 Oak Ave, Stamford, CT 06471",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Gemma Radcliffe",
+    "subscriber_dob": "1992-07-15",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "9462497799",
+    "provider_phone": "2035064727",
+    "provider_fax": "9598967645",
+    "provider_email": "",
+    "provider_address": "337 Water St, Manchester, CT 06098",
+    "lab_name": "Invitae",
+    "lab_npi": "1334849765",
+    "lab_address": "5752 Broad St, Stamford, CT 06073",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-27",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "125acf30-acb7-44c8-b027-03699cc7a9bd",
+    "started_at": "2026-02-25T21:16:26.295Z"
+  },
+  "task_id": "b19a358e-3ea2-468f-92a6-d695c1401b95",
+  "patient_id": "PAT-4480",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

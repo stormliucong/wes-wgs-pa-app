@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-17T15:30:45.175401-05:00",
+  "payload": {
+    "patient_first_name": "Christopher",
+    "patient_last_name": "Wilson",
+    "patient_dob": "2014-04-29",
+    "sex": "Male",
+    "member_id": "292386895",
+    "patient_address": "105 High St, West Hartford, CT 06697",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Patrick Wilson",
+    "subscriber_dob": "1989-06-22",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "7840337815",
+    "provider_phone": "(959) 943-1464",
+    "provider_fax": "(959) 954-3806",
+    "provider_email": "",
+    "provider_address": "62 Mill St, Waterbury, CT 06762",
+    "lab_name": "Invitae",
+    "lab_npi": "2518678157",
+    "lab_address": "8849 Highland Ave, West Haven, CT 06613",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-17",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "S09.90XA",
+      "S01.01XA",
+      "S06.0X0A",
+      "T36.0X1A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e1d1689e-0465-4c82-81e1-256a54cd8067",
+    "started_at": "2026-02-17T20:25:17.594Z"
+  },
+  "task_id": "777814c3-0ee6-4052-9395-82f7be8e8622",
+  "patient_id": "PAT-4545",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

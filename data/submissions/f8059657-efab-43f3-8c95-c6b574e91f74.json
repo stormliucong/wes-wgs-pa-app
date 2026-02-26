@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:54:30.830867-05:00",
+  "payload": {
+    "patient_first_name": "Zane",
+    "patient_last_name": "Westley",
+    "patient_dob": "2013-12-22",
+    "sex": "Male",
+    "member_id": "108627241",
+    "patient_address": "128 Hill St, Windsor, CT 06464",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Maya Westley",
+    "subscriber_dob": "1979-03-18",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "1266976701",
+    "provider_phone": "(203) 736-3494",
+    "provider_fax": "(203) 951-2538",
+    "provider_email": "",
+    "provider_address": "4119 South St, Manchester, CT 06327",
+    "lab_name": "LabCorp",
+    "lab_npi": "3354777585",
+    "lab_address": "436 Church St, Shelton, CT 06817",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f8059657-efab-43f3-8c95-c6b574e91f74",
+    "started_at": "2026-02-25T04:51:11.893Z"
+  },
+  "task_id": "d33cbec8-e622-4957-aef1-aca28bac3394",
+  "patient_id": "PAT-1374",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

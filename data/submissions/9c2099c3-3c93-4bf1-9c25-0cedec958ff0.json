@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-24T23:00:52.959169-05:00",
+  "payload": {
+    "patient_first_name": "Colette",
+    "patient_last_name": "Caldwell",
+    "patient_dob": "2017-08-07",
+    "sex": "Female",
+    "member_id": "647275995",
+    "patient_address": "1364 Pine St, Manchester, CT 06333",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Daphne Caldwell",
+    "subscriber_dob": "1983-10-14",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "1931880552",
+    "provider_phone": "4753495475",
+    "provider_fax": "2032312881",
+    "provider_email": "",
+    "provider_address": "3245 Spring St, Bridgeport, CT 06612",
+    "lab_name": "Invitae",
+    "lab_npi": "5880864120",
+    "lab_address": "7154 Main St, New London, CT 06944",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q17.2",
+      "Q04.2",
+      "Q66.8",
+      "F80.9",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-13"
+    ],
+    "form_id": "9c2099c3-3c93-4bf1-9c25-0cedec958ff0",
+    "started_at": "2026-02-25T03:55:43.064Z"
+  },
+  "task_id": "d1742a69-1842-4dbe-8b8d-aa701405151f",
+  "patient_id": "PAT-3860",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,70 @@
+{
+  "submitted_at": "2026-02-25T16:14:15.807594-05:00",
+  "payload": {
+    "patient_first_name": "Finley",
+    "patient_last_name": "Locke",
+    "patient_dob": "2022-04-09",
+    "sex": "Male",
+    "member_id": "420441345",
+    "patient_address": "4217 Oak Ave, Manchester, CT 06134",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "1316723737",
+    "provider_phone": "7177753380",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "4349 Carlisle Pike, Camp Hill, PA 17011",
+    "lab_name": "Ambry Genetics",
+    "lab_npi": "1861568784",
+    "lab_address": "7 Argonaut, Aliso Viejo, CA 92656",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-05-15",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "R69"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "a8a784e4-0f58-401a-8ffc-67e077852483",
+    "started_at": "2026-02-25T21:09:36.874Z"
+  },
+  "task_id": "3c6ef878-32ca-47f4-9148-d7c85671d59d",
+  "patient_id": "PAT-1606",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

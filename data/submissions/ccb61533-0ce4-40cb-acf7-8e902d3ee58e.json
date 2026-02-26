@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-24T23:54:22.256513-05:00",
+  "payload": {
+    "patient_first_name": "Bennett",
+    "patient_last_name": "Ingram",
+    "patient_dob": "2013-03-14",
+    "sex": "Male",
+    "member_id": "834440852",
+    "patient_address": "3287 Valley Rd, Danbury, CT 06652",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Declan Ingram",
+    "subscriber_dob": "1979-07-15",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "4215081006",
+    "provider_phone": "2035356988",
+    "provider_fax": "8607974071",
+    "provider_email": "",
+    "provider_address": "2680 Water St, West Haven, CT 06462",
+    "lab_name": "GeneDx",
+    "lab_npi": "3053747644",
+    "lab_address": "9362 Highland Ave, Milford, CT 06870",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81425x1, 81426x1"
+    ],
+    "internal_test_code": "J744e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q61.3",
+      "Q21.1",
+      "Q04.0",
+      "F71",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-16"
+    ],
+    "form_id": "ccb61533-0ce4-40cb-acf7-8e902d3ee58e",
+    "started_at": "2026-02-25T04:49:45.953Z"
+  },
+  "task_id": "8a4e9ac0-1bc4-45b8-a019-9f62c43b2111",
+  "patient_id": "PAT-3820",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-25T00:00:20.308993-05:00",
+  "payload": {
+    "patient_first_name": "Isla",
+    "patient_last_name": "Radcliffe",
+    "patient_dob": "2019-09-25",
+    "sex": "Female",
+    "member_id": "934038726",
+    "patient_address": "5812 Union St, Middletown, CT 06413",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Rowan Radcliffe",
+    "subscriber_dob": "1985-04-21",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "3396592337",
+    "provider_phone": "9595263143",
+    "provider_fax": "8604844558",
+    "provider_email": "",
+    "provider_address": "9905 Union St, West Haven, CT 06529",
+    "lab_name": "Invitae",
+    "lab_npi": "7710515870",
+    "lab_address": "8050 Mill St, Danbury, CT 06103",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-18",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q22.0",
+      "Q66.89",
+      "F72",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-19"
+    ],
+    "form_id": "24964b75-beb2-4645-89b2-4ddc05eb3e2a",
+    "started_at": "2026-02-25T04:55:13.197Z"
+  },
+  "task_id": "377509ab-6b62-4a78-9954-388dea1a2b49",
+  "patient_id": "PAT-6242",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

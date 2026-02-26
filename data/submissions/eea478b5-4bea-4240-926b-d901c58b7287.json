@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-25T16:21:20.086726-05:00",
+  "payload": {
+    "patient_first_name": "Jocelyn",
+    "patient_last_name": "Kingsley",
+    "patient_dob": "2012-03-18",
+    "sex": "Male",
+    "member_id": "688107033",
+    "patient_address": "2519 Franklin St, Middletown, CT 06371",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Gemma Kingsley",
+    "subscriber_dob": "1978-09-03",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Legal Guardian",
+    "provider_name": "Steven Torres",
+    "provider_npi": "2102294512",
+    "provider_phone": "(860) 545-2941",
+    "provider_fax": "(959) 543-9301",
+    "provider_email": "",
+    "provider_address": "7727 Spring St, Manchester, CT 06527",
+    "lab_name": "GeneDx",
+    "lab_npi": "1141949700",
+    "lab_address": "5652 Highland Ave, Hartford, CT 06022",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-30",
+    "cpt_codes": [
+      "81425x1, 81426x2"
+    ],
+    "internal_test_code": "TH78a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": true,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "F72",
+      "H02.4",
+      "Q17.8",
+      "F84.0",
+      "Q89.7"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-02"
+    ],
+    "form_id": "eea478b5-4bea-4240-926b-d901c58b7287",
+    "started_at": "2026-02-25T21:15:05.720Z"
+  },
+  "task_id": "2c76e01f-fae9-42db-b673-90a0d19962ba",
+  "patient_id": "PAT-9693",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

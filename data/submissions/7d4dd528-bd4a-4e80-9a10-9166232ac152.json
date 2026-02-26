@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-13T18:47:23.700127-05:00",
+  "payload": {
+    "patient_first_name": "Christina",
+    "patient_last_name": "Torres",
+    "patient_dob": "2021-05-01",
+    "sex": "Female",
+    "member_id": "677031308",
+    "patient_address": "7558 Washington Ave, Shelton, CT 06806",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Janet Torres",
+    "subscriber_dob": "1996-10-20",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "William Jones",
+    "provider_npi": "8462738234",
+    "provider_phone": "4752856739",
+    "provider_fax": "9599946914",
+    "provider_email": "",
+    "provider_address": "6698 State St, West Hartford, CT 06241",
+    "lab_name": "Invitae",
+    "lab_npi": "1016814161",
+    "lab_address": "1587 Hill St, Bridgeport, CT 06047",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "William Jones",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q04.0",
+      "Q87.0",
+      "Q67.3",
+      "Q10.1",
+      "F82"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-03"
+    ],
+    "form_id": "7d4dd528-bd4a-4e80-9a10-9166232ac152",
+    "started_at": "2026-02-13T23:42:42.552Z"
+  },
+  "task_id": "f6a0799b-0016-48a6-89ce-c0563ac72700",
+  "patient_id": "PAT-8273",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

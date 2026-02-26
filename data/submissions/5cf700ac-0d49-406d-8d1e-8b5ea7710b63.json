@@ -1,0 +1,74 @@
+{
+  "submitted_at": "2026-02-24T23:37:16.397702-05:00",
+  "payload": {
+    "patient_first_name": "Camila",
+    "patient_last_name": "Carrow",
+    "patient_dob": "2011-09-24",
+    "sex": "Female",
+    "member_id": "652280835",
+    "patient_address": "6743 Elm St, Hartford, CT 06903",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Aria Carrow",
+    "subscriber_dob": "2000-12-26",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "6664957505",
+    "provider_phone": "4759589416",
+    "provider_fax": "2032502369",
+    "provider_email": "",
+    "provider_address": "8449 East St, Greenwich, CT 06766",
+    "lab_name": "LabCorp",
+    "lab_npi": "2781780232",
+    "lab_address": "975 South St, Middletown, CT 06725",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-23",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": true,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q87.2",
+      "F84.0",
+      "Q61.3",
+      "F88",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-31"
+    ],
+    "form_id": "5cf700ac-0d49-406d-8d1e-8b5ea7710b63",
+    "started_at": "2026-02-25T04:32:24.644Z"
+  },
+  "task_id": "bc2a5d70-a3a3-4026-b1f5-c793d06729b1",
+  "patient_id": "PAT-4566",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}

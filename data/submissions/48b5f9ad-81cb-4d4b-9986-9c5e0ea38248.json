@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:14:59.944117-05:00",
+  "payload": {
+    "patient_first_name": "Cora",
+    "patient_last_name": "Yates",
+    "patient_dob": "2011-07-18",
+    "sex": "Female",
+    "member_id": "292652624",
+    "patient_address": "7577 Union St, Waterbury, CT 06332",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Emery Yates",
+    "subscriber_dob": "1977-10-15",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "1532258268",
+    "provider_phone": "2035525816",
+    "provider_fax": "2039659797",
+    "provider_email": "",
+    "provider_address": "7600 Franklin St, Greenwich, CT 06652",
+    "lab_name": "Invitae",
+    "lab_npi": "8643663533",
+    "lab_address": "2458 Washington Ave, Shelton, CT 06394",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient clinical history suggests underlying genetic condition",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "S01.01XA",
+      "S93.401A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "48b5f9ad-81cb-4d4b-9986-9c5e0ea38248",
+    "started_at": "2026-02-25T05:10:04.148Z"
+  },
+  "task_id": "e8f09e81-2c51-426a-8c9d-4e90f400cfd4",
+  "patient_id": "PAT-2921",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

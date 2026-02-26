@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T23:58:21.790373-05:00",
+  "payload": {
+    "patient_first_name": "Elias",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2013-08-30",
+    "sex": "Male",
+    "member_id": "785855637",
+    "patient_address": "6116 Valley Rd, West Haven, CT 06986",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kira Merrick",
+    "subscriber_dob": "1979-09-12",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "William Jones",
+    "provider_npi": "8805398988",
+    "provider_phone": "959-436-7700",
+    "provider_fax": "959-379-8985",
+    "provider_email": "",
+    "provider_address": "1558 Park Rd, Milford, CT 06536",
+    "lab_name": "LabCorp",
+    "lab_npi": "4255067376",
+    "lab_address": "1107 Mill St, Newington, CT 06062",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "William Jones",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E88.40",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e2f98ecd-86ea-47e8-9579-77bd02a6dd57",
+    "started_at": "2026-02-25T04:54:13.739Z"
+  },
+  "task_id": "aa9c6aa4-b0eb-4997-aefe-3e9a1f036d71",
+  "patient_id": "PAT-1661",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

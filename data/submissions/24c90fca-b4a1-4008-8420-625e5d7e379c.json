@@ -1,0 +1,75 @@
+{
+  "submitted_at": "2026-02-13T16:32:10.228333-05:00",
+  "payload": {
+    "patient_first_name": "Nicholas",
+    "patient_last_name": "Anderson",
+    "patient_dob": "2014-08-11",
+    "sex": "Male",
+    "member_id": "481956162",
+    "patient_address": "933 Broad St, Shelton, CT 06348",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Shirley Anderson",
+    "subscriber_dob": "1989-03-06",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "7872665023",
+    "provider_phone": "4755254099",
+    "provider_fax": "9599299029",
+    "provider_email": "",
+    "provider_address": "7713 Sunset Ave, Torrington, CT 06712",
+    "lab_name": "LabCorp",
+    "lab_npi": "1627275128",
+    "lab_address": "1244 River Rd, Bristol, CT 06673",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-09",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-13",
+    "icd_codes": [
+      "Q21.1",
+      "Q22.0",
+      "Q22.4",
+      "Q87.0",
+      "Q10.0",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Normal"
+    ],
+    "prior_test_date": [
+      "2023-11-15"
+    ],
+    "form_id": "24c90fca-b4a1-4008-8420-625e5d7e379c",
+    "started_at": "2026-02-13T21:27:17.507Z"
+  },
+  "task_id": "3f34ddea-4b0c-4731-85e6-f67c7d1fcceb",
+  "patient_id": "PAT-2546",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-17T14:58:47.966441-05:00",
+  "payload": {
+    "patient_first_name": "Larry",
+    "patient_last_name": "Richardson",
+    "patient_dob": "2011-11-10",
+    "sex": "Male",
+    "member_id": "142755424",
+    "patient_address": "5894 Valley Rd, Torrington, CT 06521",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jason Richardson",
+    "subscriber_dob": "1986-10-21",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "1766007746",
+    "provider_phone": "(959) 806-1044",
+    "provider_fax": "(203) 352-8442",
+    "provider_email": "",
+    "provider_address": "6920 Pine St, Waterbury, CT 06509",
+    "lab_name": "LabCorp",
+    "lab_npi": "7732217442",
+    "lab_address": "1082 Water St, West Hartford, CT 06965",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-04",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient suffered acute trauma: concussion, scalp laceration, and ankle sprain. No specific genetic history noted.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-17",
+    "icd_codes": [
+      "S06.0X0A",
+      "S01.01XA",
+      "S93.401A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "3a80c7ab-c6c9-4f41-b605-e138611691ab",
+    "started_at": "2026-02-17T19:54:25.180Z"
+  },
+  "task_id": "f68927c8-7ba3-4822-a435-27e33ab03f6f",
+  "patient_id": "PAT-9475",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

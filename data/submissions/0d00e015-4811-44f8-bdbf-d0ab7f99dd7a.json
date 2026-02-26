@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:59:12.859089-05:00",
+  "payload": {
+    "patient_first_name": "Layla",
+    "patient_last_name": "Quinlan",
+    "patient_dob": "2022-06-08",
+    "sex": "Female",
+    "member_id": "656762335",
+    "patient_address": "7118 Spring St, New Britain, CT 06504",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "9720268953",
+    "provider_phone": "555-555-5555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Way",
+    "lab_name": "GeneDx",
+    "lab_npi": "7233217781",
+    "lab_address": "207 Perry Pkwy, Gaithersburg, MD",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-25",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": true,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "P94.2",
+      "E87.2",
+      "Z84.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "0d00e015-4811-44f8-bdbf-d0ab7f99dd7a",
+    "started_at": "2026-02-25T04:55:41.653Z"
+  },
+  "task_id": "0fb6c942-0961-46fa-8cfa-580dd4dc7501",
+  "patient_id": "PAT-5022",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

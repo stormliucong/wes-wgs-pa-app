@@ -1,0 +1,73 @@
+{
+  "submitted_at": "2026-02-24T23:49:58.797692-05:00",
+  "payload": {
+    "patient_first_name": "Alina",
+    "patient_last_name": "Underwood",
+    "patient_dob": "2020-08-28",
+    "sex": "Female",
+    "member_id": "536501619",
+    "patient_address": "1715 South St, Milford, CT 06237",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Malcolm Underwood",
+    "subscriber_dob": "1986-08-12",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Robert Miller",
+    "provider_npi": "8107625694",
+    "provider_phone": "(475) 973-2999",
+    "provider_fax": "(475) 667-9462",
+    "provider_email": "",
+    "provider_address": "4994 Second St, New Britain, CT 06702",
+    "lab_name": "Ambry",
+    "lab_npi": "6729152846",
+    "lab_address": "5225 South St, Greenwich, CT 06244",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-18",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q89.9",
+      "Q10.3",
+      "Q66.9",
+      "F82"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d8e62e10-33a5-4b5d-9345-e94562969a38",
+    "started_at": "2026-02-25T04:45:17.465Z"
+  },
+  "task_id": "d090d602-690d-47d1-830c-1490a8745649",
+  "patient_id": "PAT-8926",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

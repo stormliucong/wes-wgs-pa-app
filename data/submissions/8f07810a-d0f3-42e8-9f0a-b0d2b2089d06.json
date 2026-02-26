@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-24T22:59:33.756931-05:00",
+  "payload": {
+    "patient_first_name": "Gemma",
+    "patient_last_name": "Bexley",
+    "patient_dob": "2019-09-08",
+    "sex": "Female",
+    "member_id": "161312430",
+    "patient_address": "1479 Court St, Torrington, CT 06893",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Zoe Bexley",
+    "subscriber_dob": "1985-10-29",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "6648082384",
+    "provider_phone": "4754288184",
+    "provider_fax": "9597461073",
+    "provider_email": "",
+    "provider_address": "7962 Oak Ave, Manchester, CT 06861",
+    "lab_name": "Ambry",
+    "lab_npi": "4153539629",
+    "lab_address": "2965 Oak Ave, Windsor, CT 06430",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-16",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9991",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "E73",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "8f07810a-d0f3-42e8-9f0a-b0d2b2089d06",
+    "started_at": "2026-02-25T03:55:42.292Z"
+  },
+  "task_id": "6ebeaf31-530b-4312-933f-e70ebb353a08",
+  "patient_id": "PAT-5619",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

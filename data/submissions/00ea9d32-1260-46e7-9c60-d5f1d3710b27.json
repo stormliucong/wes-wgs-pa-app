@@ -1,0 +1,71 @@
+{
+  "submitted_at": "2026-02-25T00:12:02.368679-05:00",
+  "payload": {
+    "patient_first_name": "Hudson",
+    "patient_last_name": "Dawes",
+    "patient_dob": "2016-11-17",
+    "sex": "Male",
+    "member_id": "700727892",
+    "patient_address": "296 Spring St, West Hartford, CT 06188",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Atticus Dawes",
+    "subscriber_dob": "1982-12-23",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Steven Torres",
+    "provider_npi": "3855858343",
+    "provider_phone": "9598437043",
+    "provider_fax": "9598638656",
+    "provider_email": "",
+    "provider_address": "6111 State St, Norwalk, CT 06436",
+    "lab_name": "LabCorp",
+    "lab_npi": "8704608408",
+    "lab_address": "4483 Park Rd, Manchester, CT 06716",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-06",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Acute event",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "T36.0X1A",
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "00ea9d32-1260-46e7-9c60-d5f1d3710b27",
+    "started_at": "2026-02-25T05:07:48.151Z"
+  },
+  "task_id": "646639dc-3d36-4a1f-bfd7-a3d4141f0bea",
+  "patient_id": "PAT-4971",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

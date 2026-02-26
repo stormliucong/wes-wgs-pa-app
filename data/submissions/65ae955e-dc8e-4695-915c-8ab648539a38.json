@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-25T00:09:05.258954-05:00",
+  "payload": {
+    "patient_first_name": "Ivy",
+    "patient_last_name": "Xander",
+    "patient_dob": "2014-03-30",
+    "sex": "Female",
+    "member_id": "232919323",
+    "patient_address": "1200 Park Rd, Norwalk, CT 06012",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Owen Xander",
+    "subscriber_dob": "1980-12-29",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "Other",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "3185850601",
+    "provider_phone": "4755544546",
+    "provider_fax": "2037902135",
+    "provider_email": "",
+    "provider_address": "2442 Mill St, New Haven, CT 06032",
+    "lab_name": "LabCorp",
+    "lab_npi": "7009234963",
+    "lab_address": "706 Second St, Waterbury, CT 06851",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-14",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "11-year-old female with acute injury, toxic exposure, concussion, accidental antibiotic exposure, and burn. WES requested to evaluate for underlying genetic factors affecting recovery or drug metabolism.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "S06.0X0A",
+      "T36.91XA",
+      "T20.10XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "65ae955e-dc8e-4695-915c-8ab648539a38",
+    "started_at": "2026-02-25T05:04:28.489Z"
+  },
+  "task_id": "a45fe46e-8fb4-4602-b243-9c5605567b91",
+  "patient_id": "PAT-7800",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

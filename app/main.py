@@ -710,7 +710,10 @@ def api_search_patients():
     results = []
     
     # Search unstructured profiles JSON (generated synthetic EHR-like data)
-    unstructured_file = Path(__file__).resolve().parent.parent / "unstructured_profiles.json"
+    project_root = Path(__file__).resolve().parent.parent
+    unstructured_file = project_root / "data" / "initial" / "unstructured_profiles.json"
+    if not unstructured_file.exists():
+        unstructured_file = project_root / "unstructured_profiles.json"
     if unstructured_file.exists():
         try:
             with open(unstructured_file, 'r', encoding='utf-8') as f:

@@ -1,0 +1,72 @@
+{
+  "submitted_at": "2026-02-24T23:06:58.085545-05:00",
+  "payload": {
+    "patient_first_name": "Miles",
+    "patient_last_name": "Marlow",
+    "patient_dob": "2011-02-17",
+    "sex": "Male",
+    "member_id": "850717823",
+    "patient_address": "9814 Pleasant St, Windsor, CT 06624",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Miles Marlow",
+    "subscriber_dob": "2000-07-26",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "1130838178",
+    "provider_phone": "2038166041",
+    "provider_fax": "4759426053",
+    "provider_email": "",
+    "provider_address": "7705 Forest Ave, New Britain, CT 06031",
+    "lab_name": "GeneDx",
+    "lab_npi": "6429669860",
+    "lab_address": "6867 Hill St, Meriden, CT 06235",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-17",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-02-25",
+    "icd_codes": [
+      "Q17.2",
+      "Q04.0",
+      "Q67.3"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-29"
+    ],
+    "form_id": "e4687b3e-9fc7-474f-bc87-dd0a1c84db50",
+    "started_at": "2026-02-25T04:03:14.601Z"
+  },
+  "task_id": "474a6b59-c023-4818-a845-3b87bdfb02ad",
+  "patient_id": "PAT-3260",
+  "sample_type": "2a",
+  "llm": "gemini-3-pro-preview"
+}
