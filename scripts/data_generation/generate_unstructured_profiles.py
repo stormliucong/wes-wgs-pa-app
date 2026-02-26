@@ -2,6 +2,7 @@ import json
 import logging
 import sys
 import time
+import argparse
 from pathlib import Path
 from typing import Dict, List, Optional
 from openai import OpenAI
@@ -11,6 +12,7 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 client = OpenAI()
+ROOT_DIR = Path(__file__).resolve().parents[2]
 
 def profile_key(profile: Dict) -> str:
     patient_id = profile.get("patient_id")
@@ -153,8 +155,8 @@ def process_batch(batch_input: str) -> Optional[List[str]]:
     except Exception as e:
         logger.error(f"Error processing the batch: {e}")
 
-def extract_clinical_notes(raw_responses):
-    clinical_notes = []
+def extract_output(raw_responses):
+    outputs = []
     for line in raw_responses:
         line = line.strip()
         if not line:
@@ -162,15 +164,15 @@ def extract_clinical_notes(raw_responses):
         try:
             result = json.loads(line)
         except json.JSONDecodeError:
-            clinical_notes.append("")
+            outputs.append("")
             continue
 
         output = result.get("response").get("body").get("output")
         content = output[0].get("content")
-        clinical_note = content[0].get("text")
-        clinical_notes.append(clinical_note)
+        output_msg = content[0].get("text")
+        outputs.append(output_msg)
 
-    return clinical_notes
+    return outputs
                 
 def create_unstructured_profiles(
     all_samples: List[dict],
@@ -204,20 +206,28 @@ def create_unstructured_profiles(
     )
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate unstructured clinical-note profiles from structured samples")
+    parser.add_argument("--input", default=str(ROOT_DIR / "data" / "generated" / "all_samples.json"), help="Input structured samples JSON path")
+    parser.add_argument("--output", default=str(ROOT_DIR / "data" / "unstructured" / "unstructured_profiles.json"), help="Output unstructured profiles JSON path")
+    parser.add_argument("--batch-input", default=str(ROOT_DIR / "data" / "batch" / "batch_input.jsonl"), help="Batch input JSONL path")
+    args = parser.parse_args()
+
     try:
-        with open("all_samples.json", "r", encoding="utf-8") as f:
+        with open(args.input, "r", encoding="utf-8") as f:
             groundtruth_profiles = json.load(f)
         if not isinstance(groundtruth_profiles, list):
             logger.error("Input JSON must be a list of patient profiles.")
             sys.exit(1)
     except FileNotFoundError:
-        logger.error(f"File not found: all_samples.json")
+        logger.error(f"File not found: {args.input}")
         sys.exit(1)
     except json.JSONDecodeError as e:
         logger.error(f"Error decoding JSON: {e}")
         sys.exit(1)
 
-    output_path = "unstructured_profiles.json"
+    output_path = args.output
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.batch_input).parent.mkdir(parents=True, exist_ok=True)
     try:
         existing_profiles = load_existing_profiles(output_path)
     except (json.JSONDecodeError, ValueError) as e:
@@ -230,19 +240,19 @@ if __name__ == "__main__":
         sys.exit(0)
     logger.info(f"Found {len(missing_profiles)} new profiles to generate clinical notes for.")
     
-    batch_input_file = "batch_input.jsonl"
+    batch_input_file = args.batch_input
     create_batch_input(missing_profiles, batch_input_file)
     batch_output = process_batch(batch_input_file)
     if batch_output is None:
         logger.error("No batch output returned from processing.")
         sys.exit(1)
-    clinical_notes = extract_clinical_notes(batch_output)
-    if clinical_notes is None:
-        logger.error("No clinical notes returned from batch processing.")
+    outputs = extract_output(batch_output)
+    if outputs is None:
+        logger.error("No outputs returned from batch processing.")
         sys.exit(1)
     create_unstructured_profiles(
         missing_profiles,
-        clinical_notes,
+        outputs,
         output_path=output_path,
         existing_profiles=existing_profiles,
     )

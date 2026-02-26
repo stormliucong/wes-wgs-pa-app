@@ -2,6 +2,7 @@ import os
 import re
 import json
 import uuid
+import argparse
 from pathlib import Path
 from typing import Optional, List, Tuple, Dict
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -209,7 +210,7 @@ def delete_submission(session: requests.Session, base_url: str, filename: str) -
     if not body.get("ok", False):
         raise RuntimeError(f"Delete failed for {filename}: {body}")
 
-def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
+def execute_one_patient(patient_name, patient_id, sample_type, llm, output_dir: Path) -> Dict:
     prompt = (
         f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
         f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization Form for this patient."
@@ -225,7 +226,7 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
         final_task = wait_for_task(task_id)
     session = requests.Session()
     first, last = _split_name(patient_name)
-    local_dir = Path(__file__).resolve().parent / "data" / "submissions"
+    local_dir = output_dir
     saved_path = get_submission_by_patient(session, BASE_URL, first, last, llm, 
                                            patient_id, task_id, sample_type, local_dir)
     filename = saved_path.name if saved_path else None
@@ -242,7 +243,7 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm) -> Dict:
         "llm": llm,
     }
 
-def run_parallel_jobs(jobs: List[Dict], workers: int = 50) -> List[Dict]:
+def run_parallel_jobs(jobs: List[Dict], output_dir: Path, workers: int = 50) -> List[Dict]:
     """Run a list of jobs in parallel. Each job: {patient_name, patient_id, sample_type, llm}."""
     results: List[Dict] = []
     if MAX_ACTIVE_SESSIONS > 0:
@@ -254,7 +255,7 @@ def run_parallel_jobs(jobs: List[Dict], workers: int = 50) -> List[Dict]:
             patient_id = job.get("patient_id")
             sample_type = job.get("sample_type")
             llm = job.get("llm")
-            futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type, llm)] = (patient_name, llm)
+            futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type, llm, output_dir)] = (patient_name, llm)
 
         for fut in as_completed(futures):
             patient, llm = futures[fut]
@@ -265,35 +266,44 @@ def run_parallel_jobs(jobs: List[Dict], workers: int = 50) -> List[Dict]:
     return results
 
 if __name__ == "__main__":
-    samples_path = Path(__file__).resolve().parent / "all_samples.json"
+    root_dir = Path(__file__).resolve().parents[2]
+    parser = argparse.ArgumentParser(description="Run browser-automation submissions for selected patient samples")
+    parser.add_argument("--input", default=str(root_dir / "data" / "generated" / "all_samples.json"), help="Input samples JSON path")
+    parser.add_argument("--output-dir", default=str(root_dir / "data" / "automation" / "submissions"), help="Output directory for downloaded submissions")
+    parser.add_argument("--sample-type", default="4", help="Sample type to process")
+    parser.add_argument("--workers", type=int, default=50, help="Max concurrent workers")
+    parser.add_argument("--llm", default="gemini-3-pro-preview", help="LLM model to run")
+    parser.add_argument("--dedupe-by-name", action="store_true", default=True, help="Deduplicate jobs by patient full name")
+    args = parser.parse_args()
+
+    samples_path = Path(args.input)
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
 
-    target_type = "4"
+    target_type = str(args.sample_type)
     target_samples = [s for s in samples if str(s.get("sample_type")) == target_type]
 
-    unique_samples_by_name: Dict[str, Dict] = {}
-    for sample in target_samples:
-        first = sample.get("patient_first_name", "")
-        last = sample.get("patient_last_name", "")
-        patient_name = f"{first} {last}".strip()
-        if not patient_name:
-            continue
-        if patient_name not in unique_samples_by_name:
-            unique_samples_by_name[patient_name] = sample
+    if args.dedupe_by_name:
+        unique_samples_by_name: Dict[str, Dict] = {}
+        for sample in target_samples:
+            first = sample.get("patient_first_name", "")
+            last = sample.get("patient_last_name", "")
+            patient_name = f"{first} {last}".strip()
+            if not patient_name:
+                continue
+            if patient_name not in unique_samples_by_name:
+                unique_samples_by_name[patient_name] = sample
+        selected_samples = list(unique_samples_by_name.values())
+    else:
+        selected_samples = target_samples
 
-    selected_samples = list(unique_samples_by_name.values())
     print(
         f"Total sample_type={target_type} profiles: {len(target_samples)} | "
         f"unique patient names to process: {len(selected_samples)}"
     )
 
-    # Define LLMs to test
-    basic = "browser-use-2.0"
-    gemini_flash = "gemini-3-flash-preview" 
-    claude_opus = "claude-opus-4-5-20251101"
-    gemini_pro = "gemini-3-pro-preview"
-    llama = "llama-4-maverick-17b-128e-instruct"
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
     
     jobs: List[Dict] = []
     for s in selected_samples:
@@ -304,9 +314,9 @@ if __name__ == "__main__":
             "patient_name": patient_name,
             "patient_id": s.get("patient_id"),
             "sample_type": s.get("sample_type"),
-            "llm": gemini_pro,
+            "llm": args.llm,
         })
 
-    results = run_parallel_jobs(jobs, workers=50)
+    results = run_parallel_jobs(jobs, output_dir=output_dir, workers=args.workers)
     for res in results:
         print(f"Processed: {res}")

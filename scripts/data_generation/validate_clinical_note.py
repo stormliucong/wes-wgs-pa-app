@@ -5,6 +5,7 @@ import os
 import sys
 import time
 from typing import Dict, List, Tuple, Optional
+from pathlib import Path
 
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -14,6 +15,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 client = OpenAI()
+ROOT_DIR = Path(__file__).resolve().parents[2]
 def create_prompt(clinical_note: str, rationale: int) -> str:
     if rationale == 1:
         checkboxes = "1a), 1b), 1c), and 2."
@@ -61,7 +63,7 @@ def create_batch_input(profiles: List[dict], output: str):
             outfile.write(json_line + '\n')
     logger.info(f"Batch input file created: {output}")
 
-def process_batch(batch_input: str) -> Optional[List[str]]:
+def process_batch(batch_input: str, raw_output_path: Optional[str] = None) -> Optional[List[str]]:
     """Submit a JSONL batch to OpenAI and wait for completion, returning raw output lines."""
     try:
         upload_batch = client.files.create(file=open(batch_input, "rb"), purpose="batch")
@@ -96,12 +98,11 @@ def process_batch(batch_input: str) -> Optional[List[str]]:
             raw = client.files.content(file_id)
             raw_text = getattr(raw, "text", None)
 
-            if raw_text:
-                output_path = "validation_raw_output.jsonl"
+            if raw_text and raw_output_path:
                 try:
-                    with open(output_path, "w", encoding="utf-8") as out_f:
+                    with open(raw_output_path, "w", encoding="utf-8") as out_f:
                         out_f.write(raw_text)
-                    logger.info(f"Wrote batch output to {output_path}")
+                    logger.info(f"Wrote batch output to {raw_output_path}")
                 except Exception as write_err:
                     logger.warning(f"Failed to write batch output to file: {write_err}")
             
@@ -149,26 +150,36 @@ def filter_profiles_by_decision(profiles: List[dict], decisions: List[str]) -> L
     return filtered
 
 def main():
+    parser = argparse.ArgumentParser(description="Validate generated clinical notes and keep only approved profiles")
+    parser.add_argument("--input", default=str(ROOT_DIR / "data" / "unstructured" / "unstructured_profiles.json"), help="Input unstructured profiles JSON path")
+    parser.add_argument("--output", default=str(ROOT_DIR / "data" / "unstructured" / "validated_profiles.json"), help="Output validated profiles JSON path")
+    parser.add_argument("--batch-input", default=str(ROOT_DIR / "data" / "batch" / "validation_batch_input.jsonl"), help="Batch input JSONL path")
+    parser.add_argument("--raw-output", default=str(ROOT_DIR / "data" / "batch" / "validation_raw_output.jsonl"), help="Raw batch output JSONL path")
+    args = parser.parse_args()
+
+    Path(args.output).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.batch_input).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.raw_output).parent.mkdir(parents=True, exist_ok=True)
 
     try:
-        with open("unstructured_profiles.json", "r", encoding="utf-8") as f:
+        with open(args.input, "r", encoding="utf-8") as f:
             profiles = json.load(f)
         if not isinstance(profiles, list):
             logger.error("Input JSON must be a list of profiles.")
             sys.exit(1)
     except FileNotFoundError:
-        logger.error("File not found: unstructured_profiles.json")
+        logger.error(f"File not found: {args.input}")
         sys.exit(1)
     except json.JSONDecodeError as e:
         logger.error(f"Error decoding JSON: {e}")
         sys.exit(1)
 
     # Create batch input JSONL
-    batch_input_file = "validation_batch_input.jsonl"
+    batch_input_file = args.batch_input
     create_batch_input(profiles, batch_input_file)
 
     # Submit batch and wait for results
-    raw = process_batch(batch_input_file)
+    raw = process_batch(batch_input_file, raw_output_path=args.raw_output)
     if not raw:
         logger.error("Batch returned no output.")
         sys.exit(1)
@@ -181,9 +192,9 @@ def main():
 
     # Filter profiles by decision
     filtered = filter_profiles_by_decision(profiles, decisions)
-    with open("validated_profiles.json", "w", encoding="utf-8") as f:
+    with open(args.output, "w", encoding="utf-8") as f:
         json.dump(filtered, f, indent=2, ensure_ascii=False)
-    logger.info(f"Wrote {len(filtered)} validated profiles to validated_profiles.json")
+    logger.info(f"Wrote {len(filtered)} validated profiles to {args.output}")
 
 if __name__ == "__main__":
     main()

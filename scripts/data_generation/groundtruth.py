@@ -668,13 +668,18 @@ def _collect_existing_constraints(groundtruth_path: Path, all_samples_path: Path
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate synthetic patient data for WES/WGS pre-authorization testing')
-    parser.add_argument('-o', '--output', type=str, default='test_patients_groundtruth.json',
-                        help='Output file path (default: test_patients_groundtruth.json)')
+    root_dir = Path(__file__).resolve().parents[2]
+    parser.add_argument('--groundtruth-output', type=str, default=str(root_dir / 'data' / 'generated' / 'groundtruth.json'),
+                        help='Output path for generated groundtruth profiles')
+    parser.add_argument('--samples-output', type=str, default=str(root_dir / 'data' / 'generated' / 'all_samples.json'),
+                        help='Output path for generated labeled sample profiles')
     args = parser.parse_args()
 
     generator = GroundtruthGenerator()
-    groundtruth_path = Path("groundtruth.json")
-    all_samples_path = Path("all_samples.json")
+    groundtruth_path = Path(args.groundtruth_output)
+    all_samples_path = Path(args.samples_output)
+    groundtruth_path.parent.mkdir(parents=True, exist_ok=True)
+    all_samples_path.parent.mkdir(parents=True, exist_ok=True)
     existing_ids, existing_non4_names, existing_4_names = _collect_existing_constraints(
         groundtruth_path,
         all_samples_path,
@@ -692,7 +697,7 @@ if __name__ == '__main__':
 
     n = sum(sample_categories.values())
     groundtruth_profiles = generator.generate_bulk_groundtruth_profiles(n, reserved_patient_ids=existing_ids)
-    generator.save_as_json(groundtruth_profiles, "groundtruth.json")
+    generator.save_as_json(groundtruth_profiles, str(groundtruth_path))
 
     all_sample_profiles = generator.generate_all_sample_profiles(
         groundtruth_profiles,
@@ -700,4 +705,4 @@ if __name__ == '__main__':
         existing_non4_names=existing_non4_names,
         existing_4_names=existing_4_names,
     )
-    generator.save_as_json(all_sample_profiles, "all_samples.json")
+    generator.save_as_json(all_sample_profiles, str(all_samples_path))

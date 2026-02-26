@@ -10,5 +10,5 @@ __pycache__/
 # VSCode
 .vscode/
 
-# Data (keep directory, ignore JSON)
-data/submissions/*.json
+# Data (local only)
+data/

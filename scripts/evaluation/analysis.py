@@ -3,6 +3,8 @@
 (1, 2a, 2b, 2c, 3a, 3c)
 """
 
+import logging
+import argparse
 from typing import List, Dict, Optional, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
@@ -17,7 +19,14 @@ try:
     from zoneinfo import ZoneInfo
 except Exception:
     ZoneInfo = None
+from openai import OpenAI
+from scripts.data_generation.generate_unstructured_profiles import process_batch, extract_output
 from dotenv import load_dotenv
+
+load_dotenv()
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+client = OpenAI()
 
 # ---------------- Browser-Use Cloud helpers ----------------
 load_dotenv()
@@ -146,7 +155,23 @@ def get_tasks(start_et: str, end_et: str):
         results_dir = Path("data/results")
         results_dir.mkdir(parents=True, exist_ok=True)
 
-    return tasks_out
+    def _pick_preferred_task(current: Dict, candidate: Dict) -> Dict:
+        """Prefer successful task when duplicate IDs are found; otherwise keep current."""
+        if current.get("isSuccess") is False and candidate.get("isSuccess") is True:
+            return candidate
+        return current
+
+    deduped_by_id: Dict[str, Dict] = {}
+
+    for task in tasks_out:
+        task_id = task.get("id")
+
+        if task_id not in deduped_by_id:
+            deduped_by_id[task_id] = task
+        else:
+            deduped_by_id[task_id] = _pick_preferred_task(deduped_by_id[task_id], task)
+
+    return list(deduped_by_id.values())
 
 def indexed_gt(groundtruths: List[Dict]) -> Dict:
     indexed = {}
@@ -180,7 +205,6 @@ def check_submission(submission: Dict, groundtruth: Dict):
         if isinstance(value, list):
             return value
         return [value]
-
 
     def _cpt_counter(value) -> Dict[str, int]:
         counter: Dict[str, int] = {"81415": 0, "81416": 0}
@@ -313,14 +337,14 @@ def check_submission(submission: Dict, groundtruth: Dict):
     summary["confusion_label"] = "FP" if submission.get("sample_type") in {"2a", "2b", "2c", "3b"} else "TP"
     return summary
 
-def get_submitted_summaries() -> List[Dict]:
-    gt_path = Path("groundtruth.json")
+def get_submitted_summaries(groundtruth_path: Path, submissions_dir: Path) -> List[Dict]:
+    gt_path = groundtruth_path
     with gt_path.open("r", encoding="utf-8") as f:
         groundtruths = json.load(f)
     indexed_groundtruths = indexed_gt(groundtruths)
     summaries = []
 
-    submission_path = Path("data/submissions")
+    submission_path = submissions_dir
     for submission_file in submission_path.glob("*.json"):
         with submission_file.open("r", encoding="utf-8") as f:
             submission = json.load(f)
@@ -359,6 +383,67 @@ def check_non_submitted(task_list:List[Dict]) -> List[Dict]:
         }
         summaries.append(summary)
     return summaries
+
+def create_user_prompt(summary:Dict) -> str:
+    key_info = ['sample_type', 'output_msg']
+    input_dict = {}
+    for key in key_info:
+        input_dict[key] = summary.get(key, '')
+
+    prompt = f"""You are a helpful and precise assistant for checking the quality of a medical data extraction task.
+    Here is the information about the task:
+    {json.dumps(input_dict, indent=2)}"""
+
+    return prompt
+
+def create_batch_input(summaries: List[Dict], output):   
+    with open(output, 'w', encoding='utf-8') as outfile:
+        for i, summary in enumerate(summaries):
+            body = {
+                "model": "gpt-5.2",
+                "input": [
+                    {"role": "user", "content": create_user_prompt(summary)}
+                ],
+                "max_output_tokens": 10,
+                "temperature": 0
+            }
+            request_object = {
+                "custom_id": f"summary_{i+1}",
+                "method": "POST",
+                "url": "/v1/responses",
+                "body": body,
+            }
+            json_line = json.dumps(request_object, ensure_ascii=False)
+            outfile.write(json_line + '\n')
+
+    logger.info(f"Batch input file created successfully: {output}")
+
+def process_summaries(non_submitted_summaries, batch_input_file: str):
+    try:
+        batch_output = process_batch(batch_input_file)
+        if not batch_output:
+            logger.error("No batch output returned from processing.")
+            return non_submitted_summaries
+
+        classification_results = extract_output(batch_output)
+        updated_summaries = []
+
+        for idx, summary in enumerate(non_submitted_summaries):
+            row = dict(summary or {})
+            row["classification_result"] = classification_results[idx] if idx < len(classification_results) else ""
+            updated_summaries.append(row)
+
+        if len(classification_results) != len(non_submitted_summaries):
+            logger.warning(
+                "Classification output count (%s) does not match non-submitted summaries count (%s).",
+                len(classification_results),
+                len(non_submitted_summaries),
+            )
+
+        return updated_summaries
+    except Exception as e:
+        logger.error(f"Error processing summaries: {e}")
+        return non_submitted_summaries
 
 def raw_summary(
     submitted: List[Dict],
@@ -556,28 +641,31 @@ def table_icd_code(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
     result = pd.concat([filtered[["llm", "sample_type", "patient_name"]], metrics], axis=1)
     return result
 
-if __name__ == "__main__":    
-    # start_et = "2026-02-10T00:00:00"
-    # end_et = "2026-02-18T15:00:00"
-    # tasks = get_tasks(start_et, end_et)   
-    # tasks_steps = get_tasks_steps(tasks)
-    # submitted_summaries = get_submitted_summaries()
-    # non_submitted_summaries = check_non_submitted(tasks)
-    # raw_summary_table = raw_summary(submitted_summaries, non_submitted_summaries, tasks_steps)
-    # table_1 = accuracy_table(raw_summary_table, "patient_first_name", "internal_test_code")
-    # table_2 = accuracy_table(raw_summary_table, "mca", "prior_test_date")
-    # table_3 = table_icd_code(raw_summary_table)
-    # results_dir = Path("data/results")
-    # results_dir.mkdir(parents=True, exist_ok=True)
-    # output_path: Path = results_dir / "summary.xlsx"
-    # raw_summary_table.to_excel(output_path, index=False)
-    # metrics_df = compute_metrics(raw_summary_table)
-    # with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
-    #     raw_summary_table.to_excel(writer, sheet_name='Raw summary', index=False)
-    #     metrics_df.to_excel(writer, sheet_name='Overall metrics', index=False)
-    #     table_1.to_excel(writer, sheet_name='Table 1 - accuracy', index=False)
-    #     table_2.to_excel(writer, sheet_name='Table 2 - clinical info', index=False)
-    #     table_3.to_excel(writer, sheet_name='Table 3 - ICD codes', index=False)
+if __name__ == "__main__":
+    root_dir = Path(__file__).resolve().parents[2]
+    parser = argparse.ArgumentParser(description="Evaluate submitted forms against generated ground truth")
+    parser.add_argument("--groundtruth", default=str(root_dir / "data" / "generated" / "groundtruth.json"), help="Input groundtruth JSON path")
+    parser.add_argument("--submissions-dir", default=str(root_dir / "data" / "automation" / "submissions"), help="Input submissions directory")
+    parser.add_argument("--results", default=str(root_dir / "data" / "results" / "summary.xlsx"), help="Output Excel summary path")
+    parser.add_argument("--start-et", default="2026-02-10T00:00:00", help="Task fetch start time in ET")
+    parser.add_argument("--end-et", default="2026-02-18T15:00:00", help="Task fetch end time in ET")
+    args = parser.parse_args()
 
-    result = get_task("614262e5-7084-455f-ae34-8cf483958a93")
-    print(json.dumps(result, indent=2))
+    tasks = get_tasks(args.start_et, args.end_et)
+    tasks_steps = get_tasks_steps(tasks)
+    submitted_summaries = get_submitted_summaries(Path(args.groundtruth), Path(args.submissions_dir))
+    non_submitted_summaries = check_non_submitted(tasks)
+    raw_summary_table = raw_summary(submitted_summaries, non_submitted_summaries, tasks_steps)
+    table_1 = accuracy_table(raw_summary_table, "patient_first_name", "internal_test_code")
+    table_2 = accuracy_table(raw_summary_table, "mca", "prior_test_date")
+    table_3 = table_icd_code(raw_summary_table)
+
+    output_path = Path(args.results)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    metrics_df = compute_metrics(raw_summary_table)
+    with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
+        raw_summary_table.to_excel(writer, sheet_name='Raw summary', index=False)
+        metrics_df.to_excel(writer, sheet_name='Overall metrics', index=False)
+        table_1.to_excel(writer, sheet_name='Table 1 - accuracy', index=False)
+        table_2.to_excel(writer, sheet_name='Table 2 - clinical info', index=False)
+        table_3.to_excel(writer, sheet_name='Table 3 - ICD codes', index=False)
