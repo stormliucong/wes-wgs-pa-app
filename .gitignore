@@ -10,8 +10,5 @@ __pycache__/
 # VSCode
 .vscode/
 
-# Data (local only)
-data/
-!data/
-!data/initial/
-!data/initial/unstructured_profiles.json
+# Data files
+data/submissions/
