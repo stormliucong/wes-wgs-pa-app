@@ -140,8 +140,23 @@ def process_batch(batch_input: str) -> Optional[List[str]]:
         if batch.status == "completed":
             output_file_id = getattr(batch, "output_file_id", None)
             if output_file_id is None:
-                logger.error("Batch completed but output_file_id is None")
-                return None
+                error_file_id = getattr(batch, "error_file_id", None)
+                request_counts = getattr(batch, "request_counts", None)
+                logger.error(
+                    "Batch completed but output_file_id is None (error_file_id=%s, request_counts=%s)",
+                    error_file_id,
+                    request_counts,
+                )
+                if error_file_id:
+                    try:
+                        error_raw = client.files.content(error_file_id)
+                        error_text = getattr(error_raw, "text", None)
+                        if error_text is None:
+                            error_text = error_raw.read().decode("utf-8")
+                        logger.error("Batch error file (first 2000 chars): %s", (error_text or "")[:2000])
+                    except Exception as read_error:
+                        logger.error("Unable to read batch error file: %s", read_error)
+                return []
             raw = client.files.content(output_file_id)
             raw_text = getattr(raw, "text", None)
             if raw_text is None:
@@ -154,6 +169,7 @@ def process_batch(batch_input: str) -> Optional[List[str]]:
            
     except Exception as e:
         logger.error(f"Error processing the batch: {e}")
+        return []
 
 def extract_output(raw_responses):
     outputs = []

@@ -5,13 +5,13 @@
 import logging
 import argparse
 from typing import List, Dict, Optional, Tuple
-from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import re
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import pandas as pd
 import os
+import sys
 import requests
 import pytz
 try:
@@ -19,7 +19,13 @@ try:
 except Exception:
     ZoneInfo = None
 from openai import OpenAI
-from scripts.data_generation.generate_unstructured_profiles import process_batch, extract_output
+try:
+    from scripts.data_generation.generate_unstructured_profiles import process_batch, extract_output
+except ModuleNotFoundError:
+    project_root = Path(__file__).resolve().parents[2]
+    if str(project_root) not in sys.path:
+        sys.path.insert(0, str(project_root))
+    from scripts.data_generation.generate_unstructured_profiles import process_batch, extract_output
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -312,8 +318,7 @@ def check_submission(submission: Dict, groundtruth: Dict):
         "num_incorrect": 0,
         "num_missing": 0,
         "incorrect_fields": {},
-        "missing_fields":[],
-        "output_msg": ""
+        "missing_fields":[]
     }
 
     for key in payload:
@@ -391,7 +396,13 @@ def create_user_prompt(summary:Dict) -> str:
     key_info = ['sample_type', 'output_msg']
     input_dict = {}
     for key in key_info:
-        input_dict[key] = summary.get(key, '')
+        value = summary.get(key, '')
+        if key == 'output_msg':
+            value = str(value or '')
+            max_chars = 6000
+            if len(value) > max_chars:
+                value = value[:max_chars] + "\n...[truncated]"
+        input_dict[key] = value
 
     prompt = f"""You will be given an AI agent’s final output message after it failed to submit a pre-authorization webform for Whole Exome Sequencing (WES) or Whole Genome Sequencing (WGS). Your task is to classify the reason for non-submission into exactly one of the categories defined below.
 1) Technical error: the submission process terminated prematurely due to system-level or platform constraints, rather than a content-based decision. Examples include maximum step limit reached, browser refresh or session timeout resulting in data loss, [age navigation failure and API or network error. This category applies only when the failure is clearly operational/technical and not a deliberate decision based on patient or insurance data.
@@ -410,12 +421,13 @@ Please ONLY return one selected category. Below is the sample type and output me
 def create_batch_input(summaries: List[Dict], output):   
     with open(output, 'w', encoding='utf-8') as outfile:
         for i, summary in enumerate(summaries):
+            prompt = create_user_prompt(summary)
             body = {
                 "model": "gpt-5.2",
                 "input": [
-                    {"role": "user", "content": create_user_prompt(summary)}
+                    {"role": "user", "content": prompt}
                 ],
-                "max_output_tokens": 10,
+                "max_output_tokens": 20,
                 "temperature": 0
             }
             request_object = {
@@ -429,12 +441,15 @@ def create_batch_input(summaries: List[Dict], output):
 
     logger.info(f"Batch input file created successfully: {output}")
 
-def process_summaries(non_submitted_summaries, batch_input_file: str):
+def process_non_submitted_summaries(non_submitted_summaries, batch_input_file: str):
     try:
         batch_output = process_batch(batch_input_file)
         if not batch_output:
-            logger.error("No batch output returned from processing.")
-            return non_submitted_summaries
+            logger.warning("No batch output returned from processing; leaving classification_result empty.")
+            return [
+                {**dict(summary or {}), "classification_result": ""}
+                for summary in non_submitted_summaries
+            ]
 
         classification_results = extract_output(batch_output)
         updated_summaries = []
@@ -455,6 +470,22 @@ def process_summaries(non_submitted_summaries, batch_input_file: str):
     except Exception as e:
         logger.error(f"Error processing summaries: {e}")
         return non_submitted_summaries
+    
+def non_submitted_table(non_submitted_summaries: List[Dict]) -> pd.DataFrame:
+    selected_cols = [
+        "task_id",
+        "llm",
+        "sample_type",
+        "patient_name",
+        "confusion_label",
+        "classification_result",
+        "output_msg",
+    ]
+    df = pd.DataFrame(non_submitted_summaries).reindex(columns=selected_cols)
+    sort_cols = [c for c in ["llm", "sample_type"] if c in df.columns]
+    if sort_cols:
+        df = df.sort_values(by=sort_cols, kind="stable", na_position="last", ignore_index=True)
+    return df
 
 def raw_summary(
     submitted: List[Dict],
@@ -462,13 +493,29 @@ def raw_summary(
     tasks_steps: Optional[Dict[str, Optional[int]]] = None,
 ) -> pd.DataFrame:
     """Convert a list of summary dicts into a pandas DataFrame, sorted by LLM then sample type."""
+    submitted_cols = {
+        key
+        for row in submitted
+        if isinstance(row, dict)
+        for key in row.keys()
+    }
+    non_submitted_cols = {
+        key
+        for row in non_submitted
+        if isinstance(row, dict)
+        for key in row.keys()
+    }
+    common_cols = submitted_cols & non_submitted_cols
+    
     rows = []
     for r in submitted + non_submitted:
-        row = dict(r or {})
+        source_row = dict(r or {})
+        row = {k: source_row.get(k) for k in common_cols} if common_cols else source_row
         rows.append(row)
     df = pd.DataFrame(rows)
 
-    df["number_of_steps"] = df["task_id"].map(tasks_steps or {}).astype("Int64")
+    if "task_id" in df.columns:
+        df["number_of_steps"] = df["task_id"].map(tasks_steps or {}).astype("Int64")
     if {"task_id", "number_of_steps"}.issubset(df.columns):
         cols = list(df.columns)
         cols.remove("number_of_steps")
@@ -476,8 +523,9 @@ def raw_summary(
         cols.insert(task_id_idx + 1, "number_of_steps")
         df = df[cols]
 
-    submitted_ids = set(df.loc[df["submitted"] == True, "task_id"])
-    df = df[~(df["task_id"].isin(submitted_ids) & (df["submitted"] != True))].copy()
+    if {"submitted", "task_id"}.issubset(df.columns):
+        submitted_ids = set(df.loc[df["submitted"] == True, "task_id"])
+        df = df[~(df["task_id"].isin(submitted_ids) & (df["submitted"] != True))].copy()
 
     sort_cols = [c for c in ["llm", "sample_type"] if c in df.columns]
     if sort_cols:
@@ -655,21 +703,61 @@ def table_icd_code(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
 if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="Evaluate submitted forms against generated ground truth")
-    parser.add_argument("--groundtruth", default=str(root_dir / "data" / "generated" / "groundtruth.json"), help="Input groundtruth JSON path")
-    parser.add_argument("--submissions-dir", default=str(root_dir / "data" / "automation" / "submissions"), help="Input submissions directory")
+    parser.add_argument("--groundtruth", default=str(root_dir / "data" / "initial" / "groundtruth.json"), help="Input groundtruth JSON path")
+    parser.add_argument("--submissions-dir", default=str(root_dir / "data" / "submissions"), help="Input submissions directory")
     parser.add_argument("--results", default=str(root_dir / "data" / "results" / "summary.xlsx"), help="Output Excel summary path")
+    parser.add_argument("--batch-input", default=str(root_dir / "data" / "batch_input" / "non_submitted_batch_input.jsonl"), help="Batch input JSONL path for non-submitted classification")
+    parser.add_argument("--non-submitted-json", default=str(root_dir / "data" / "results" / "non_submitted_summaries.json"), help="Output JSON path for processed non-submitted summaries")
     parser.add_argument("--start-et", default="2026-02-10T00:00:00", help="Task fetch start time in ET")
-    parser.add_argument("--end-et", default="2026-02-18T15:00:00", help="Task fetch end time in ET")
+    parser.add_argument("--end-et", default="2026-02-25T18:00:00", help="Task fetch end time in ET")
     args = parser.parse_args()
+
+    groundtruth_path = Path(args.groundtruth)
+    if not groundtruth_path.exists():
+        fallback_candidates = [
+            root_dir / "data" / "initial" / "groundtruth.json",
+            root_dir / "data" / "generated" / "groundtruth.json",
+            root_dir / "groundtruth.json",
+        ]
+        for candidate in fallback_candidates:
+            if candidate.exists():
+                logger.warning("Groundtruth not found at %s; using %s", groundtruth_path, candidate)
+                groundtruth_path = candidate
+                break
+        else:
+            raise FileNotFoundError(f"Groundtruth file not found: {groundtruth_path}")
+
+    submissions_dir = Path(args.submissions_dir)
+    if not submissions_dir.exists():
+        submissions_fallback_candidates = [
+            root_dir / "data" / "submissions",
+            root_dir / "data" / "automation" / "submissions",
+        ]
+        for candidate in submissions_fallback_candidates:
+            if candidate.exists():
+                logger.warning("Submissions dir not found at %s; using %s", submissions_dir, candidate)
+                submissions_dir = candidate
+                break
 
     tasks = get_tasks(args.start_et, args.end_et)
     tasks_steps = get_tasks_steps(tasks)
-    submitted_summaries = get_submitted_summaries(Path(args.groundtruth), Path(args.submissions_dir))
-    non_submitted_summaries = check_non_submitted(tasks)
-    raw_summary_table = raw_summary(submitted_summaries, non_submitted_summaries, tasks_steps)
+    submitted_summaries = get_submitted_summaries(groundtruth_path, submissions_dir)
+
+    non_submitted_json_path = Path(args.non_submitted_json)
+    if not non_submitted_json_path.exists():
+        raise FileNotFoundError(f"Non-submitted summaries file not found: {non_submitted_json_path}")
+
+    with non_submitted_json_path.open("r", encoding="utf-8") as f:
+        updated_non_submitted = json.load(f)
+        
+    if not isinstance(updated_non_submitted, list):
+        raise ValueError(f"Expected a JSON list in {non_submitted_json_path}")
+    
+    raw_summary_table = raw_summary(submitted_summaries, updated_non_submitted, tasks_steps)
     table_1 = accuracy_table(raw_summary_table, "patient_first_name", "internal_test_code")
     table_2 = accuracy_table(raw_summary_table, "mca", "prior_test_date")
     table_3 = table_icd_code(raw_summary_table)
+    table_4 = non_submitted_table(updated_non_submitted)
 
     output_path = Path(args.results)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -680,3 +768,4 @@ if __name__ == "__main__":
         table_1.to_excel(writer, sheet_name='Table 1 - accuracy', index=False)
         table_2.to_excel(writer, sheet_name='Table 2 - clinical info', index=False)
         table_3.to_excel(writer, sheet_name='Table 3 - ICD codes', index=False)
+        table_4.to_excel(writer, sheet_name='Table 4 - Non-submitted', index=False)
