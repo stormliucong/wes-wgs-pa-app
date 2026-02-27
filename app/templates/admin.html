@@ -269,6 +269,13 @@
                    class="btn btn-success btn-sm">
                     📊 Export CSV
                 </a>
+                <button id="deleteAllBtn"
+                        type="button"
+                        class="btn btn-danger btn-sm"
+                        style="margin-left: 0.5rem;"
+                        onclick="deleteAllSubmissions('{{ submissions|length }}')">
+                    🗑️ Delete All
+                </button>
                 {% endif %}
             </div>
         </div>
@@ -412,6 +419,48 @@
                     btn.disabled = false;
                     btn.innerHTML = '🗑️ Delete';
                 });
+            });
+        }
+
+        function deleteAllSubmissions(count) {
+            const confirmMessage = `Are you sure you want to delete ALL ${count} submission(s)?\n\nThis action cannot be undone.`;
+            if (!confirm(confirmMessage)) {
+                return;
+            }
+
+            const deleteAllBtn = document.getElementById('deleteAllBtn');
+            if (deleteAllBtn) {
+                deleteAllBtn.disabled = true;
+                deleteAllBtn.innerHTML = '⏳ Deleting All...';
+            }
+
+            fetch(`{{ url_for('admin_delete_all_submissions') }}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`Successfully deleted ${data.deleted} submission(s).`);
+                    window.location.reload();
+                } else {
+                    const errorMessage = data.error || 'Failed to delete all submissions.';
+                    alert(errorMessage);
+                    if (deleteAllBtn) {
+                        deleteAllBtn.disabled = false;
+                        deleteAllBtn.innerHTML = '🗑️ Delete All';
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while deleting all submissions. Please try again.');
+                if (deleteAllBtn) {
+                    deleteAllBtn.disabled = false;
+                    deleteAllBtn.innerHTML = '🗑️ Delete All';
+                }
             });
         }
 

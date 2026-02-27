@@ -469,6 +469,39 @@ def admin_delete_submission(filename):
         return jsonify({"success": False, "error": f"Failed to delete file: {str(e)}"}), 500
 
 
+@app.post("/admin/delete-all")
+def admin_delete_all_submissions():
+    """Delete all submission files from the admin dashboard."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+
+    data_dir = data_root() / "submissions"
+    if not data_dir.exists():
+        return jsonify({"success": True, "deleted": 0, "message": "No submissions directory found"})
+
+    deleted = 0
+    errors = []
+    for file_path in data_dir.glob("*.json"):
+        try:
+            file_path.resolve().relative_to(data_dir.resolve())
+            file_path.unlink()
+            deleted += 1
+        except Exception as e:
+            errors.append(f"{file_path.name}: {e}")
+
+    if errors:
+        return jsonify(
+            {
+                "success": False,
+                "deleted": deleted,
+                "error": "Some files could not be deleted",
+                "details": errors,
+            }
+        ), 500
+
+    return jsonify({"success": True, "deleted": deleted, "message": f"Deleted {deleted} submission(s)"})
+
+
 @app.get("/admin/logout")
 def admin_logout():
     """Logout admin user."""
