@@ -47,7 +47,7 @@ MODEL_COST_PER_STEP: Dict[str, float] = {
     "claude-sonnet-4-6": 0.05,
     "gemini-3-pro-preview": 0.03,
     "o3": 0.03,
-    "gemini-3-flash-preview": 0.015,
+    "gemini-flash-latest": 0.0075,
 }
 
 def _api_headers() -> Dict[str, str]:
@@ -150,8 +150,6 @@ def get_tasks(start_et: str, end_et: str):
                 "isSuccess": task.get("isSuccess"),
                 "output": task.get("output"),
                 "judgement": task.get("judgement"),
-                # cost may be in metadata or through SDK extension
-                # if present in response, include; else None
                 "cost": task.get("cost"),
                 "metadata": task.get("metadata", {})
             })
@@ -160,27 +158,17 @@ def get_tasks(start_et: str, end_et: str):
         if len(items) < page_size:
             break
         page += 1
-        
-        results_dir = Path("data/results")
+
+    try:
+        results_dir = Path(__file__).resolve().parents[2] / "data" / "results"
         results_dir.mkdir(parents=True, exist_ok=True)
+        output_path = results_dir / "all_tasks.json"
+        with output_path.open("w", encoding="utf-8") as f:
+            json.dump(tasks_out, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        logger.warning("Failed to write tasks to file: %s", e)
 
-    def _pick_preferred_task(current: Dict, candidate: Dict) -> Dict:
-        """Prefer successful task when duplicate IDs are found; otherwise keep current."""
-        if current.get("isSuccess") is False and candidate.get("isSuccess") is True:
-            return candidate
-        return current
-
-    deduped_by_id: Dict[str, Dict] = {}
-
-    for task in tasks_out:
-        task_id = task.get("id")
-
-        if task_id not in deduped_by_id:
-            deduped_by_id[task_id] = task
-        else:
-            deduped_by_id[task_id] = _pick_preferred_task(deduped_by_id[task_id], task)
-
-    return list(deduped_by_id.values())
+    return tasks_out
 
 def indexed_gt(groundtruths: List[Dict]) -> Dict:
     indexed = {}
@@ -189,7 +177,7 @@ def indexed_gt(groundtruths: List[Dict]) -> Dict:
         indexed[patient_id] = profile
     return indexed
 
-def check_submission(submission: Dict, groundtruth: Dict):
+def check_submitted(submission: Dict, groundtruth: Dict):
     """Check if the submission matches the groundtruth"""
     payload = submission.get("payload", {})
 
@@ -342,7 +330,7 @@ def check_submission(submission: Dict, groundtruth: Dict):
     summary["num_incorrect"] = len(summary["incorrect_fields"])
     summary["missing_fields"] = [k for k, v in payload.items() if v in (None, "", [], {})]
     summary["num_missing"] = len(summary["missing_fields"])
-    summary["confusion_label"] = "FP" if submission.get("sample_type") in {"2a", "2b", "2c", "3b"} else "TP"
+    summary["confusion_label"] = "TP" if submission.get("sample_type") in {"1", "3a"} else "FP"
     return summary
 
 def get_submitted_summaries(groundtruth_path: Path, submissions_dir: Path) -> List[Dict]:
@@ -367,12 +355,22 @@ def get_submitted_summaries(groundtruth_path: Path, submissions_dir: Path) -> Li
             print(f"No groundtruth found for patient_id {patient_id} in submission {submission_file}")
             continue
         
-        summary = check_submission(submission, groundtruth)
+        summary = check_submitted(submission, groundtruth)
         summaries.append(summary)
     return summaries
 
-def check_non_submitted(task_list:List[Dict]) -> List[Dict]: 
-    non_submitted_tasks = [t for t in task_list if t.get("isSuccess") is False]
+def check_non_submitted(task_list:List[Dict], submitted_summaries: List[Dict]) -> List[Dict]: 
+    submitted_task_ids = {
+        str(summary.get("task_id")).strip()
+        for summary in submitted_summaries
+        if isinstance(summary, dict) and summary.get("task_id")
+    }
+    non_submitted_tasks = [
+        t for t in task_list
+        if t.get("isSuccess") is False
+        and str(t.get("id", "")).strip() not in submitted_task_ids
+    ]
+
     summaries = []
     for task in non_submitted_tasks:
         sample_type = task.get("metadata", {}).get("sample_type", "")
@@ -482,6 +480,15 @@ def non_submitted_table(non_submitted_summaries: List[Dict]) -> pd.DataFrame:
         "output_msg",
     ]
     df = pd.DataFrame(non_submitted_summaries).reindex(columns=selected_cols)
+    if "classification_result" in df.columns:
+        df["classification_result"] = (
+            df["classification_result"]
+            .fillna("")
+            .astype(str)
+            .apply(lambda value: re.sub(r"[^A-Za-z\s]+", "", value))
+            .str.replace(r"\s+", " ", regex=True)
+            .str.strip()
+        )
     sort_cols = [c for c in ["llm", "sample_type"] if c in df.columns]
     if sort_cols:
         df = df.sort_values(by=sort_cols, kind="stable", na_position="last", ignore_index=True)
@@ -493,25 +500,16 @@ def raw_summary(
     tasks_steps: Optional[Dict[str, Optional[int]]] = None,
 ) -> pd.DataFrame:
     """Convert a list of summary dicts into a pandas DataFrame, sorted by LLM then sample type."""
-    submitted_cols = {
-        key
-        for row in submitted
-        if isinstance(row, dict)
-        for key in row.keys()
-    }
-    non_submitted_cols = {
-        key
-        for row in non_submitted
-        if isinstance(row, dict)
-        for key in row.keys()
-    }
-    common_cols = submitted_cols & non_submitted_cols
-    
     rows = []
-    for r in submitted + non_submitted:
+    for r in submitted:
+        rows.append(dict(r or {}))
+
+    for r in non_submitted:
         source_row = dict(r or {})
-        row = {k: source_row.get(k) for k in common_cols} if common_cols else source_row
-        rows.append(row)
+        source_row.pop("output_msg", None)
+        source_row.pop("classification_result", None)
+        rows.append(source_row)
+
     df = pd.DataFrame(rows)
 
     if "task_id" in df.columns:
@@ -703,7 +701,7 @@ def table_icd_code(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
 if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="Evaluate submitted forms against generated ground truth")
-    parser.add_argument("--groundtruth", default=str(root_dir / "data" / "initial" / "groundtruth.json"), help="Input groundtruth JSON path")
+    parser.add_argument("--groundtruth", default=str(root_dir / "data" / "initial" / "all_samples.json"), help="Input groundtruth JSON path")
     parser.add_argument("--submissions-dir", default=str(root_dir / "data" / "submissions"), help="Input submissions directory")
     parser.add_argument("--results", default=str(root_dir / "data" / "results" / "summary.xlsx"), help="Output Excel summary path")
     parser.add_argument("--batch-input", default=str(root_dir / "data" / "batch_input" / "non_submitted_batch_input.jsonl"), help="Batch input JSONL path for non-submitted classification")
@@ -713,31 +711,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     groundtruth_path = Path(args.groundtruth)
-    if not groundtruth_path.exists():
-        fallback_candidates = [
-            root_dir / "data" / "initial" / "groundtruth.json",
-            root_dir / "data" / "generated" / "groundtruth.json",
-            root_dir / "groundtruth.json",
-        ]
-        for candidate in fallback_candidates:
-            if candidate.exists():
-                logger.warning("Groundtruth not found at %s; using %s", groundtruth_path, candidate)
-                groundtruth_path = candidate
-                break
-        else:
-            raise FileNotFoundError(f"Groundtruth file not found: {groundtruth_path}")
-
     submissions_dir = Path(args.submissions_dir)
-    if not submissions_dir.exists():
-        submissions_fallback_candidates = [
-            root_dir / "data" / "submissions",
-            root_dir / "data" / "automation" / "submissions",
-        ]
-        for candidate in submissions_fallback_candidates:
-            if candidate.exists():
-                logger.warning("Submissions dir not found at %s; using %s", submissions_dir, candidate)
-                submissions_dir = candidate
-                break
 
     tasks = get_tasks(args.start_et, args.end_et)
     tasks_steps = get_tasks_steps(tasks)
