@@ -27,7 +27,7 @@ BASE_URL ="https://wes-wgs-pa-app-u2c8s.ondigitalocean.app"
 API_BASE = os.getenv("BROWSER_USE_API_BASE", "https://api.browser-use.com/api/v2").rstrip("/")
 
 # Concurrency guard for Browser-Use sessions/tasks
-MAX_ACTIVE_SESSIONS = int(os.getenv("BROWSER_USE_MAX_SESSIONS", "50"))
+MAX_ACTIVE_SESSIONS = int(os.getenv("BROWSER_USE_MAX_SESSIONS", "250"))
 _SESSION_SEMAPHORE = threading.Semaphore(MAX_ACTIVE_SESSIONS)
 
 def _api_headers() -> Dict[str, str]:
@@ -169,31 +169,44 @@ def get_submission_by_patient(session: requests.Session, base_url: str, first_na
     resp = session.post(f"{base_url}/download/patient", json={
         "patient_first_name": first_name,
         "patient_last_name": last_name
-    })
+    }, stream=True)
+
+    if resp.status_code == 404:
+        return None
 
     resp.raise_for_status()
+
+    filename = _filename_from_disposition(resp.headers.get("Content-Disposition")) or f"submission_{uuid.uuid4().hex}.json"
+
+    content_type = (resp.headers.get("Content-Type") or "").lower()
+    if "application/json" in content_type and "attachment" not in (resp.headers.get("Content-Disposition") or "").lower():
+        try:
+            body_json = resp.json()
+        except ValueError:
+            return None
+        if body_json.get("file") is None:
+            return None
     try:
-        body = resp.json()
-    except ValueError:
+        body = json.loads(resp.content.decode("utf-8"))
+    except (ValueError, UnicodeDecodeError, json.JSONDecodeError):
         return None
 
     payload = body.get("payload")
-    form_id = payload.get("form_id", "")
     if payload is None:
         return None
+
     body["task_id"] = task_id
     body["patient_id"] = patient_id
     body["sample_type"] = sample_type
     body["llm"] = llm
 
-    # Build filename using patient_id from payload
-    fname = f"{form_id}.json"
-    out_path = dest_dir / fname
+    out_path = dest_dir / filename
     with out_path.open("w", encoding="utf-8") as f:
         json.dump(body, f, ensure_ascii=False, indent=2)
+
     # Attempt to delete the server-side submission using the filename
     try:
-        delete_submission(session, base_url, fname)
+        delete_submission(session, base_url, filename)
     except Exception:
         pass
     return out_path
@@ -243,7 +256,7 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm, output_dir: 
         "llm": llm,
     }
 
-def run_parallel_jobs(jobs: List[Dict], output_dir: Path, workers: int = 50) -> List[Dict]:
+def run_parallel_jobs(jobs: List[Dict], workers: int, output_dir: Path) -> List[Dict]:
     """Run a list of jobs in parallel. Each job: {patient_name, patient_id, sample_type, llm}."""
     results: List[Dict] = []
     if MAX_ACTIVE_SESSIONS > 0:
@@ -268,11 +281,11 @@ def run_parallel_jobs(jobs: List[Dict], output_dir: Path, workers: int = 50) -> 
 if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="Run browser-automation submissions for selected patient samples")
-    parser.add_argument("--input", default=str(root_dir / "data" / "generated" / "all_samples.json"), help="Input samples JSON path")
-    parser.add_argument("--output-dir", default=str(root_dir / "data" / "automation" / "submissions"), help="Output directory for downloaded submissions")
-    parser.add_argument("--sample-type", default="4", help="Sample type to process")
-    parser.add_argument("--workers", type=int, default=50, help="Max concurrent workers")
-    parser.add_argument("--llm", default="gemini-3-pro-preview", help="LLM model to run")
+    parser.add_argument("--input", default=str(root_dir / "data" / "initial" / "all_samples.json"), help="Input samples JSON path")
+    parser.add_argument("--output-dir", default=str(root_dir / "data" / "submissions"), help="Output directory for downloaded submissions")
+    parser.add_argument("--sample-type", help="Sample type to process")
+    parser.add_argument("--workers", type=int, default=100, help="Max concurrent workers")
+    parser.add_argument("--llm", default="gemini-flash-latest", help="LLM model to run")
     parser.add_argument("--dedupe-by-name", action="store_true", default=True, help="Deduplicate jobs by patient full name")
     args = parser.parse_args()
 
@@ -280,25 +293,19 @@ if __name__ == "__main__":
     with samples_path.open("r", encoding="utf-8") as f:
         samples = json.load(f)
 
-    target_type = str(args.sample_type)
-    target_samples = [s for s in samples if str(s.get("sample_type")) == target_type]
-
-    if args.dedupe_by_name:
-        unique_samples_by_name: Dict[str, Dict] = {}
-        for sample in target_samples:
-            first = sample.get("patient_first_name", "")
-            last = sample.get("patient_last_name", "")
-            patient_name = f"{first} {last}".strip()
-            if not patient_name:
-                continue
-            if patient_name not in unique_samples_by_name:
-                unique_samples_by_name[patient_name] = sample
-        selected_samples = list(unique_samples_by_name.values())
-    else:
-        selected_samples = target_samples
+    unique_samples_by_name: Dict[str, Dict] = {}
+    for sample in samples:
+        first = sample.get("patient_first_name", "")
+        last = sample.get("patient_last_name", "")
+        patient_name = f"{first} {last}".strip()
+        if not patient_name:
+            continue
+        if patient_name not in unique_samples_by_name:
+            unique_samples_by_name[patient_name] = sample
+    selected_samples = list(unique_samples_by_name.values())
 
     print(
-        f"Total sample_type={target_type} profiles: {len(target_samples)} | "
+        f"Total sample_type={args.sample_type} profiles: {len(samples)} | "
         f"unique patient names to process: {len(selected_samples)}"
     )
 
@@ -306,7 +313,7 @@ if __name__ == "__main__":
     output_dir.mkdir(parents=True, exist_ok=True)
     
     jobs: List[Dict] = []
-    for s in selected_samples:
+    for s in selected_samples[15:]:
         first = s.get("patient_first_name", "")
         last = s.get("patient_last_name", "")
         patient_name = f"{first} {last}".strip()
@@ -317,6 +324,6 @@ if __name__ == "__main__":
             "llm": args.llm,
         })
 
-    results = run_parallel_jobs(jobs, output_dir=output_dir, workers=args.workers)
+    results = run_parallel_jobs(jobs, workers=args.workers, output_dir=output_dir)
     for res in results:
         print(f"Processed: {res}")

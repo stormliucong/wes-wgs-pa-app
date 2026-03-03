@@ -195,6 +195,55 @@ def indexed_gt(groundtruths: List[Dict]) -> Dict:
         indexed[patient_id] = profile
     return indexed
 
+def add_summaries_to_json(output_path: Path, new_summaries: List[Dict]) -> None:
+    """Add new summaries to an existing JSON file or create a new one.
+    
+    If the file exists, loads existing summaries and appends new ones,
+    deduplicating by task_id. If the file doesn't exist, creates it with the new summaries.
+    
+    Args:
+        output_path: Path to the JSON file
+        new_summaries: List of summary dictionaries to add
+    """
+    if not new_summaries:
+        return
+    
+    # Read existing summaries if file exists
+    existing_summaries: List[Dict] = []
+    if output_path.exists():
+        try:
+            with output_path.open("r", encoding="utf-8") as f:
+                loaded = json.load(f)
+            if isinstance(loaded, list):
+                existing_summaries = loaded
+        except Exception as e:
+            logger.warning(f"Could not read existing summaries from {output_path}: {e}")
+    
+    # Create a mapping by task_id for deduplication
+    by_task_id: Dict[str, Dict] = {}
+    for summary in existing_summaries:
+        task_id = summary.get("task_id")
+        if task_id is not None:
+            by_task_id[str(task_id).strip()] = summary
+    
+    # Add new summaries, overwriting duplicates by task_id
+    for summary in new_summaries:
+        task_id = summary.get("task_id")
+        if task_id is not None:
+            by_task_id[str(task_id).strip()] = summary
+        else:
+            # If no task_id, append as a new entry
+            existing_summaries.append(summary)
+    
+    # Reconstruct the merged list
+    merged_summaries = list(by_task_id.values()) + [s for s in existing_summaries if s.get("task_id") is None]
+    
+    # Write to file
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", encoding="utf-8") as f:
+        json.dump(merged_summaries, f, ensure_ascii=False, indent=2)
+    logger.info(f"Added {len(new_summaries)} summaries to {output_path} (total: {len(merged_summaries)})")
+
 def check_submitted(submission: Dict, groundtruth: Dict):
     """Check if the submission matches the groundtruth"""
     payload = submission.get("payload", {})
@@ -351,7 +400,7 @@ def check_submitted(submission: Dict, groundtruth: Dict):
     summary["confusion_label"] = "TP" if submission.get("sample_type") in {"1", "3a"} else "FP"
     return summary
 
-def get_submitted_summaries(groundtruth_path: Path, submissions_dir: Path) -> List[Dict]:
+def get_submitted_summaries(groundtruth_path: Path, submissions_dir: Path, output_path: Optional[Path] = None) -> List[Dict]:
     gt_path = groundtruth_path
     with gt_path.open("r", encoding="utf-8") as f:
         groundtruths = json.load(f)
@@ -375,6 +424,11 @@ def get_submitted_summaries(groundtruth_path: Path, submissions_dir: Path) -> Li
         
         summary = check_submitted(submission, groundtruth)
         summaries.append(summary)
+    
+    # Write summaries to JSON file if output_path is provided
+    if output_path:
+        add_summaries_to_json(output_path, summaries)
+    
     return summaries
 
 def check_non_submitted(task_list:List[Dict], submitted_summaries: List[Dict]) -> List[Dict]: 
@@ -421,7 +475,7 @@ def create_user_prompt(summary:Dict) -> str:
         input_dict[key] = value
 
     prompt = f"""You will be given an AI agent’s final output message after it failed to submit a pre-authorization webform for Whole Exome Sequencing (WES) or Whole Genome Sequencing (WGS). Your task is to classify the reason for non-submission into exactly one of the categories defined below.
-1) Technical error: the submission process terminated prematurely due to system-level or platform constraints, rather than a content-based decision. Examples include maximum step limit reached, browser refresh or session timeout resulting in data loss, [age navigation failure and API or network error. This category applies only when the failure is clearly operational/technical and not a deliberate decision based on patient or insurance data.
+1) Technical Error: the submission process terminated prematurely due to system-level or platform constraints, rather than a content-based decision. Examples include maximum step limit reached, browser refresh or session timeout resulting in data loss, [age navigation failure and API or network error. This category applies only when the failure is clearly operational/technical and not a deliberate decision based on patient or insurance data.
 2) Correct Withholding Decision: the agent appropriately refused to submit the form because it identifies an intentionally designed issue in the patient profile. This category applies only when the refusal aligns with one of the intentionally designed issues below:
     a) Subscriber Date-of-Birth Error (Sample Type 2a): the insurance subscriber is only 10–12 years older than the patient. Since a subscriber may be a parent or legal guardian, this age gap should trigger a plausibility concern.
     b) Test Date Error (Sample Type 2b): the prior test date is later than the WES/WGS specimen collection date. This chronological inconsistency should halt submission.
@@ -429,6 +483,7 @@ def create_user_prompt(summary:Dict) -> str:
     d) Irrelevant Clinical Profile (Sample Type 3b): the patient’s clinical information is unrelated to genetic testing (e.g., concussion, isolated physical injury). The agent is expected to withhold submission.
     e) Colliding Patient Names (Sample Type 4): two patient profiles share identical names, and the expected behavior is to stop submission and request clarification before proceeding.
 3) Over-Refusal Error: the agent incorrectly stopped submission due to a hallucinated, misinterpreted, or non-existent issue. Examples are the agent claims required information is missing when it is actually present, misreads valid clinical or insurance data, or the profile does not contain any intentionally designed issue, yet submission was stopped. This represents a decision-making failure rather than a technical failure.
+4) Inference Failure: this category applies when the agent’s output indicates uncertainty or a request for information that should have been correctly inferred from the patient's clinical information (i.e.. ICD codes, rationale for testing, prior test information), leading to non-submission.
 Please ONLY return one selected category. Below is the sample type and output message from the agent:
 {json.dumps(input_dict, indent=2)}"""
 
@@ -457,37 +512,49 @@ def create_batch_input(summaries: List[Dict], output):
 
     logger.info(f"Batch input file created successfully: {output}")
 
-def process_non_submitted_summaries(non_submitted_summaries, batch_input_file: str):
+def process_non_submitted_summaries(non_submitted_summaries, batch_input_file: str, output_path: Optional[Path] = None):
     try:
         batch_output = process_batch(batch_input_file)
         if not batch_output:
             logger.warning("No batch output returned from processing; leaving classification_result empty.")
-            return [
+            updated_summaries = [
                 {**dict(summary or {}), "classification_result": ""}
                 for summary in non_submitted_summaries
             ]
+        else:
+            classification_results = extract_output(batch_output)
+            updated_summaries = []
 
-        classification_results = extract_output(batch_output)
-        updated_summaries = []
+            for idx, summary in enumerate(non_submitted_summaries):
+                row = dict(summary or {})
+                row["classification_result"] = classification_results[idx] if idx < len(classification_results) else ""
+                updated_summaries.append(row)
 
-        for idx, summary in enumerate(non_submitted_summaries):
-            row = dict(summary or {})
-            row["classification_result"] = classification_results[idx] if idx < len(classification_results) else ""
-            updated_summaries.append(row)
-
-        if len(classification_results) != len(non_submitted_summaries):
-            logger.warning(
-                "Classification output count (%s) does not match non-submitted summaries count (%s).",
-                len(classification_results),
-                len(non_submitted_summaries),
-            )
+            if len(classification_results) != len(non_submitted_summaries):
+                logger.warning(
+                    "Classification output count (%s) does not match non-submitted summaries count (%s).",
+                    len(classification_results),
+                    len(non_submitted_summaries),
+                )
+        
+        # Write summaries to JSON file if output_path is provided
+        if output_path:
+            add_summaries_to_json(output_path, updated_summaries)
 
         return updated_summaries
     except Exception as e:
         logger.error(f"Error processing summaries: {e}")
         return non_submitted_summaries
     
-def non_submitted_table(non_submitted_summaries: List[Dict]) -> pd.DataFrame:
+def non_submitted_table(non_submitted_json_path: Path) -> pd.DataFrame:
+    """Load non-submitted summaries from JSON file and create a summary table.
+    
+    Args:
+        non_submitted_json_path: Path to the non-submitted summaries JSON file
+        
+    Returns:
+        DataFrame containing non-submitted summary table
+    """
     selected_cols = [
         "task_id",
         "llm",
@@ -497,6 +564,18 @@ def non_submitted_table(non_submitted_summaries: List[Dict]) -> pd.DataFrame:
         "classification_result",
         "output_msg",
     ]
+    
+    # Read non-submitted summaries from JSON file
+    non_submitted_summaries = []
+    if non_submitted_json_path.exists():
+        try:
+            with non_submitted_json_path.open("r", encoding="utf-8") as f:
+                loaded = json.load(f)
+            if isinstance(loaded, list):
+                non_submitted_summaries = loaded
+        except Exception as e:
+            logger.warning(f"Could not read non-submitted summaries from {non_submitted_json_path}: {e}")
+    
     df = pd.DataFrame(non_submitted_summaries).reindex(columns=selected_cols)
     if "classification_result" in df.columns:
         df["classification_result"] = (
@@ -513,20 +592,46 @@ def non_submitted_table(non_submitted_summaries: List[Dict]) -> pd.DataFrame:
     return df
 
 def raw_summary(
-    submitted: List[Dict],
-    non_submitted: List[Dict],
+    submitted_json_path: Path,
+    non_submitted_json_path: Path,
     tasks_steps: Optional[Dict[str, Optional[int]]] = None,
 ) -> pd.DataFrame:
-    """Convert a list of summary dicts into a pandas DataFrame, sorted by LLM then sample type."""
+    """Load summaries from JSON files and convert to a pandas DataFrame, sorted by LLM then sample type.
+    
+    Args:
+        submitted_json_path: Path to the submitted summaries JSON file
+        non_submitted_json_path: Path to the non-submitted summaries JSON file
+        tasks_steps: Optional mapping of task_id to number of steps
+        
+    Returns:
+        DataFrame containing all summaries
+    """
     rows = []
-    for r in submitted:
-        rows.append(dict(r or {}))
-
-    for r in non_submitted:
-        source_row = dict(r or {})
-        source_row.pop("output_msg", None)
-        source_row.pop("classification_result", None)
-        rows.append(source_row)
+    
+    # Read submitted summaries from JSON file
+    if submitted_json_path.exists():
+        try:
+            with submitted_json_path.open("r", encoding="utf-8") as f:
+                submitted = json.load(f)
+            if isinstance(submitted, list):
+                for r in submitted:
+                    rows.append(dict(r or {}))
+        except Exception as e:
+            logger.warning(f"Could not read submitted summaries from {submitted_json_path}: {e}")
+    
+    # Read non-submitted summaries from JSON file
+    if non_submitted_json_path.exists():
+        try:
+            with non_submitted_json_path.open("r", encoding="utf-8") as f:
+                non_submitted = json.load(f)
+            if isinstance(non_submitted, list):
+                for r in non_submitted:
+                    source_row = dict(r or {})
+                    source_row.pop("output_msg", None)
+                    source_row.pop("classification_result", None)
+                    rows.append(source_row)
+        except Exception as e:
+            logger.warning(f"Could not read non-submitted summaries from {non_submitted_json_path}: {e}")
 
     df = pd.DataFrame(rows)
 
@@ -798,80 +903,54 @@ def organize_gemini_flash():
     )
     return {"updated": updated, "unmatched": unmatched}
 
-
-def merge_raw_summary_with_existing(new_raw_summary: pd.DataFrame, output_path: Path) -> pd.DataFrame:
-    if not output_path.exists():
-        return new_raw_summary
-
-    try:
-        existing_raw_summary = pd.read_excel(output_path, sheet_name="Raw summary")
-    except Exception as e:
-        logger.warning("Could not read existing Raw summary from %s: %s", output_path, e)
-        return new_raw_summary
-
-    merged = pd.concat([existing_raw_summary, new_raw_summary], ignore_index=True, sort=False)
-    dedupe_cols = [
-        col
-        for col in ["task_id", "submitted", "llm", "sample_type", "patient_name"]
-        if col in merged.columns
-    ]
-
-    if dedupe_cols:
-        merged = merged.drop_duplicates(subset=dedupe_cols, keep="last")
-
-    sort_cols = [c for c in ["llm", "sample_type"] if c in merged.columns]
-    if sort_cols:
-        merged = merged.sort_values(by=sort_cols, kind="stable", na_position="last", ignore_index=True)
-
-    logger.info(
-        "Merged raw summary with existing file: existing=%s new=%s merged=%s",
-        len(existing_raw_summary),
-        len(new_raw_summary),
-        len(merged),
-    )
-    return merged
-
 if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="Evaluate submitted forms against generated ground truth")
     parser.add_argument("--groundtruth", default=str(root_dir / "data" / "initial" / "all_samples.json"), help="Input groundtruth JSON path")
-    parser.add_argument("--submissions-dir", default=str(root_dir / "data" / "submissions"), help="Input submissions directory")
+    parser.add_argument("--submissions-dir-flash", default=str(root_dir / "data" / "gemini_flash"), help="Gemini Flash submissions directory")
+    parser.add_argument("--submissions-dir-3-pro", default=str(root_dir / "data" / "gemini_3_pro"), help="Gemini 3 Pro submissions directory")
     parser.add_argument("--results", default=str(root_dir / "data" / "results" / "summary.xlsx"), help="Output Excel summary path")
     parser.add_argument("--batch-input", default=str(root_dir / "data" / "batch_input" / "non_submitted_batch_input.jsonl"), help="Batch input JSONL path for non-submitted classification")
-    parser.add_argument("--non-submitted-json", default=str(root_dir / "data" / "results" / "non_submitted_summaries.json"), help="Output JSON path for processed non-submitted summaries")
-    parser.add_argument("--start-et", default="2026-02-10T00:00:00", help="Task fetch start time in ET")
-    parser.add_argument("--end-et", default="2026-02-25T18:00:00", help="Task fetch end time in ET")
+    parser.add_argument("--submitted-json", default=str(root_dir / "data" / "results" / "submitted_summaries.json"), help="Output JSON path for submitted summaries")
+    parser.add_argument("--non-submitted-json", default=str(root_dir / "data" / "results" / "non_submitted_summaries.json"), help="Output JSON path for non-submitted summaries")
+    parser.add_argument("--start-et", default="2026-03-02T00:00:00", help="Task fetch start time in ET")
+    parser.add_argument("--end-et", default="2026-03-02T23:00:00", help="Task fetch end time in ET")
     args = parser.parse_args()
 
+    # 1) Set up paths
     groundtruth_path = Path(args.groundtruth)
-    submissions_dir = Path(args.submissions_dir)
-
-    tasks = get_tasks(args.start_et, args.end_et)
-    tasks_steps = get_tasks_steps(tasks)
-    submitted_summaries = get_submitted_summaries(groundtruth_path, submissions_dir)
-
+    submissions_dir_flash = Path(args.submissions_dir_flash)
+    submissions_dir_3_pro = Path(args.submissions_dir_3_pro)
+    results_path = Path(args.results)
+    results_path.parent.mkdir(parents=True, exist_ok=True)
+    batch_input_file = Path(args.batch_input)
+    submitted_json_path = Path(args.submitted_json)
     non_submitted_json_path = Path(args.non_submitted_json)
-    if not non_submitted_json_path.exists():
-        raise FileNotFoundError(f"Non-submitted summaries file not found: {non_submitted_json_path}")
 
-    with non_submitted_json_path.open("r", encoding="utf-8") as f:
-        updated_non_submitted = json.load(f)
-        
-    if not isinstance(updated_non_submitted, list):
-        raise ValueError(f"Expected a JSON list in {non_submitted_json_path}")
+    # 2) Fetch the new tasks and the corresponding steps of all tasks
+    new_tasks = get_tasks(args.start_et, args.end_et)
+    tasks_steps = get_tasks_steps(new_tasks)
     
-    output_path = Path(args.results)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    raw_summary_table = raw_summary(submitted_summaries, updated_non_submitted, tasks_steps)
-    raw_summary_table = merge_raw_summary_with_existing(raw_summary_table, output_path)
+    # 3) For submitted summaries, check submissions from both directories against the groundtruth and write to JSON file
+    submitted_summaries_flash = get_submitted_summaries(groundtruth_path, submissions_dir_flash, submitted_json_path)
+    submitted_summaries_3_pro = get_submitted_summaries(groundtruth_path, submissions_dir_3_pro, submitted_json_path)
+    
+    # 4) For non-submitted summaries, identify the non-submitted tasks, classify the reason for non-submission using the LLM, and write the results to a JSON file
+    new_non_submitted_summaries = check_non_submitted(new_tasks, submitted_summaries_flash)
+    create_batch_input(new_non_submitted_summaries, str(batch_input_file))
+    new_updated_non_submitted = process_non_submitted_summaries(new_non_submitted_summaries, str(batch_input_file), non_submitted_json_path)
+   
+    # 5) The submitted and non-submitted summaries JSON files now include all tasks which are combined into a single DataFrame, which is used to compute different metrics and tables in the next step
+    complete_raw_summary = raw_summary(submitted_json_path, non_submitted_json_path, tasks_steps)
 
-    table_1 = accuracy_table(raw_summary_table, "patient_first_name", "internal_test_code")
-    table_2 = accuracy_table(raw_summary_table, "mca", "prior_test_date")
-    table_3 = table_icd_code(raw_summary_table)
-    table_4 = non_submitted_table(updated_non_submitted)
-    metrics_df = compute_metrics(raw_summary_table)
-    with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
-        raw_summary_table.to_excel(writer, sheet_name='Raw summary', index=False)
+    # 6) Compute different metrics using the complete summary table and write to an Excel file with separate sheets for each
+    metrics_df = compute_metrics(complete_raw_summary)
+    table_1 = accuracy_table(complete_raw_summary, "patient_first_name", "internal_test_code")
+    table_2 = accuracy_table(complete_raw_summary, "mca", "prior_test_date")
+    table_3 = table_icd_code(complete_raw_summary)
+    table_4 = non_submitted_table(non_submitted_json_path)
+    with pd.ExcelWriter(results_path, engine='openpyxl') as writer:
+        complete_raw_summary.to_excel(writer, sheet_name='Raw summary', index=False)
         metrics_df.to_excel(writer, sheet_name='Overall metrics', index=False)
         table_1.to_excel(writer, sheet_name='Table 1 - accuracy', index=False)
         table_2.to_excel(writer, sheet_name='Table 2 - clinical info', index=False)
