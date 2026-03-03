@@ -1,3 +1,13 @@
+# Ignore all data subdirectories except data/initial
+/data/*
+!/data/initial/
+!/data/initial/**
+
+# Common Python ignores
+__pycache__/
+*.py[cod]
+.venv/
+venv/
 # Python
 __pycache__/
 *.pyc
@@ -9,6 +19,3 @@ __pycache__/
 
 # VSCode
 .vscode/
-
-# Data files
-data/submissions/

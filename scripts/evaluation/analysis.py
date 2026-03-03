@@ -163,8 +163,26 @@ def get_tasks(start_et: str, end_et: str):
         results_dir = Path(__file__).resolve().parents[2] / "data" / "results"
         results_dir.mkdir(parents=True, exist_ok=True)
         output_path = results_dir / "all_tasks.json"
+        existing_tasks: List[Dict] = []
+        if output_path.exists():
+            with output_path.open("r", encoding="utf-8") as f:
+                loaded = json.load(f)
+            if isinstance(loaded, list):
+                existing_tasks = loaded
+
+        merged_by_id: Dict[str, Dict] = {}
+        for task in existing_tasks:
+            task_id = str(task.get("id", "")).strip()
+            if task_id:
+                merged_by_id[task_id] = task
+        for task in tasks_out:
+            task_id = str(task.get("id", "")).strip()
+            if task_id:
+                merged_by_id[task_id] = task
+
+        merged_tasks = list(merged_by_id.values())
         with output_path.open("w", encoding="utf-8") as f:
-            json.dump(tasks_out, f, ensure_ascii=False, indent=2)
+            json.dump(merged_tasks, f, ensure_ascii=False, indent=2)
     except Exception as e:
         logger.warning("Failed to write tasks to file: %s", e)
 
@@ -698,6 +716,121 @@ def table_icd_code(raw_summary_table: pd.DataFrame) -> pd.DataFrame:
     result = pd.concat([filtered[["llm", "sample_type", "patient_name"]], metrics], axis=1)
     return result
 
+def organize_gemini_flash():
+    start = "2026-03-02T00:00:00"
+    end = "2026-03-02T23:00:00"
+    gemini_flash_tasks = get_tasks(start, end)
+
+    def _norm_name(name: str) -> str:
+        return " ".join(str(name or "").strip().lower().split())
+
+    tasks_by_name: Dict[str, List[Dict]] = {}
+    for task in gemini_flash_tasks:
+        metadata = task.get("metadata") or {}
+        patient_name = _norm_name(metadata.get("patient_name", ""))
+        if not patient_name:
+            continue
+        tasks_by_name.setdefault(patient_name, []).append(task)
+
+    for patient_name, task_list in tasks_by_name.items():
+        task_list.sort(key=lambda t: t.get("startedAt") or "", reverse=True)
+
+    gemini_dir = Path(__file__).resolve().parents[2] / "data" / "gemini_flash"
+    if not gemini_dir.exists():
+        raise FileNotFoundError(f"Gemini flash submissions directory not found: {gemini_dir}")
+
+    updated = 0
+    unmatched = 0
+    seen_task_ids = set()
+
+    for file_path in sorted(gemini_dir.glob("*.json")):
+        try:
+            with file_path.open("r", encoding="utf-8") as f:
+                submission = json.load(f)
+        except Exception as e:
+            logger.warning("Skipping unreadable file %s: %s", file_path.name, e)
+            continue
+
+        payload = submission.get("payload") or {}
+        patient_name = _norm_name(
+            f"{payload.get('patient_first_name', '')} {payload.get('patient_last_name', '')}"
+        )
+        if not patient_name:
+            logger.warning("Skipping file with missing patient name: %s", file_path.name)
+            unmatched += 1
+            continue
+
+        candidates = tasks_by_name.get(patient_name, [])
+        matched_task = None
+        for candidate in candidates:
+            candidate_id = candidate.get("id")
+            if candidate_id and candidate_id not in seen_task_ids:
+                matched_task = candidate
+                break
+
+        if matched_task is None and candidates:
+            matched_task = candidates[0]
+
+        if matched_task is None:
+            unmatched += 1
+            continue
+
+        metadata = matched_task.get("metadata") or {}
+        task_id = matched_task.get("id")
+        if task_id:
+            seen_task_ids.add(task_id)
+
+        submission["task_id"] = task_id
+        submission["patient_id"] = metadata.get("patient_id")
+        submission["sample_type"] = metadata.get("sample_type")
+        submission["llm"] = matched_task.get("llm")
+
+        with file_path.open("w", encoding="utf-8") as f:
+            json.dump(submission, f, ensure_ascii=False, indent=2)
+
+        updated += 1
+
+    logger.info(
+        "organize_gemini_flash complete: updated=%s unmatched=%s total_files=%s",
+        updated,
+        unmatched,
+        len(list(gemini_dir.glob('*.json'))),
+    )
+    return {"updated": updated, "unmatched": unmatched}
+
+
+def merge_raw_summary_with_existing(new_raw_summary: pd.DataFrame, output_path: Path) -> pd.DataFrame:
+    if not output_path.exists():
+        return new_raw_summary
+
+    try:
+        existing_raw_summary = pd.read_excel(output_path, sheet_name="Raw summary")
+    except Exception as e:
+        logger.warning("Could not read existing Raw summary from %s: %s", output_path, e)
+        return new_raw_summary
+
+    merged = pd.concat([existing_raw_summary, new_raw_summary], ignore_index=True, sort=False)
+    dedupe_cols = [
+        col
+        for col in ["task_id", "submitted", "llm", "sample_type", "patient_name"]
+        if col in merged.columns
+    ]
+
+    if dedupe_cols:
+        merged = merged.drop_duplicates(subset=dedupe_cols, keep="last")
+
+    sort_cols = [c for c in ["llm", "sample_type"] if c in merged.columns]
+    if sort_cols:
+        merged = merged.sort_values(by=sort_cols, kind="stable", na_position="last", ignore_index=True)
+
+    logger.info(
+        "Merged raw summary with existing file: existing=%s new=%s merged=%s",
+        len(existing_raw_summary),
+        len(new_raw_summary),
+        len(merged),
+    )
+    return merged
+
 if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="Evaluate submitted forms against generated ground truth")
@@ -727,14 +860,15 @@ if __name__ == "__main__":
     if not isinstance(updated_non_submitted, list):
         raise ValueError(f"Expected a JSON list in {non_submitted_json_path}")
     
+    output_path = Path(args.results)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     raw_summary_table = raw_summary(submitted_summaries, updated_non_submitted, tasks_steps)
+    raw_summary_table = merge_raw_summary_with_existing(raw_summary_table, output_path)
+
     table_1 = accuracy_table(raw_summary_table, "patient_first_name", "internal_test_code")
     table_2 = accuracy_table(raw_summary_table, "mca", "prior_test_date")
     table_3 = table_icd_code(raw_summary_table)
     table_4 = non_submitted_table(updated_non_submitted)
-
-    output_path = Path(args.results)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
     metrics_df = compute_metrics(raw_summary_table)
     with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
         raw_summary_table.to_excel(writer, sheet_name='Raw summary', index=False)
