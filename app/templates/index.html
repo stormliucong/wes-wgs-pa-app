@@ -13,7 +13,7 @@
           <a href="/ehr" style="color: #007bff; text-decoration: none;">🔍 Patient Search (EHR)</a>
         </div>
         <div style="display:flex; gap:0.5rem; align-items:center;">
-          <button type="button" id="resetFormBtn" class="secondary" style="color:#b00020; border-color:#b00020;">Delete & Start New Form</button>
+          <button type="button" id="reportIssueBtn" class="secondary">Report Issues</button>
           <a href="/logout" class="secondary" style="text-decoration:none; padding:0.4rem 0.8rem; border:1px solid #ccc; border-radius:6px;">Logout</a>
         </div>
       </div>
@@ -433,5 +433,90 @@
     </div>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+    <!-- Report Issue Modal -->
+    <div id="issueModal" class="modal-overlay" style="display:none;">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3>Report an Issue</h3>
+          <button type="button" id="closeIssueModal" class="modal-close">&times;</button>
+        </div>
+        <form id="issueForm">
+          <div class="modal-body">
+            <div>
+              <label for="issue_patient_name">Patient Name</label>
+              <input id="issue_patient_name" name="patient_name" placeholder="Full name" />
+            </div>
+            <div>
+              <label for="issue_patient_dob">Patient Date of Birth</label>
+              <input id="issue_patient_dob" name="patient_dob" type="date" />
+            </div>
+            <div>
+              <label for="issue_member_id">Member ID</label>
+              <input id="issue_member_id" name="member_id" placeholder="Member ID" />
+            </div>
+            <div>
+              <label for="issue_description">Issue Description <span style="color:var(--danger)">*</span></label>
+              <textarea id="issue_description" name="description" rows="4" required placeholder="Describe the issue..."></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="cancelIssueBtn" class="secondary">Cancel</button>
+            <button type="submit" id="submitIssueBtn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+    (function () {
+      const modal = document.getElementById('issueModal');
+      const openBtn = document.getElementById('reportIssueBtn');
+      const closeBtn = document.getElementById('closeIssueModal');
+      const cancelBtn = document.getElementById('cancelIssueBtn');
+      const issueForm = document.getElementById('issueForm');
+
+      function openModal() { modal.style.display = 'flex'; }
+      function closeModal() { modal.style.display = 'none'; issueForm.reset(); }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      cancelBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+      issueForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('submitIssueBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        const data = {
+          patient_name: document.getElementById('issue_patient_name').value.trim(),
+          patient_dob:  document.getElementById('issue_patient_dob').value,
+          member_id:    document.getElementById('issue_member_id').value.trim(),
+          description:  document.getElementById('issue_description').value.trim(),
+          page:         window.location.href,
+        };
+        try {
+          const res = await fetch('/report-issue', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+          const body = await res.json();
+          if (res.ok && body.ok) {
+            closeModal();
+            alert('Issue reported successfully. Thank you!');
+          } else {
+            alert(body.error || 'Failed to submit issue. Please try again.');
+          }
+        } catch (_) {
+          alert('Network error. Please try again.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit';
+        }
+      });
+    })();
+    </script>
   </body>
 </html>

@@ -325,9 +325,12 @@ def admin_dashboard():
     all_submissions = get_submissions_data()
     test_types = sorted(set(s["test_type"] for s in all_submissions if s["test_type"]))
     
-    return render_template("admin.html", 
-                         submissions=submissions, 
+    issues = get_issues_data()
+
+    return render_template("admin.html",
+                         submissions=submissions,
                          test_types=test_types,
+                         issues=issues,
                          current_filters={
                              "search": search,
                              "date_from": date_from,
@@ -513,6 +516,99 @@ def admin_logout():
 def ehr_search():
     """Render the EHR patient search page."""
     return render_template("ehr.html")
+
+
+ISSUES_DIR = DATA_DIR / "issues"
+
+try:
+    ISSUES_DIR.mkdir(parents=True, exist_ok=True)
+except Exception:
+    logger.exception("Failed to initialize issues directory at startup")
+
+
+@app.post("/report-issue")
+def report_issue():
+    """Accept an issue report from any authenticated user and store it as JSON."""
+    if not session.get("user_authenticated"):
+        return jsonify({"ok": False, "error": "Not authenticated"}), 401
+
+    data = request.get_json(silent=True) or request.form.to_dict()
+    description = (data.get("description") or "").strip()
+
+    if not description:
+        return jsonify({"ok": False, "error": "Description is required"}), 400
+
+    try:
+        ISSUES_DIR.mkdir(parents=True, exist_ok=True)
+        record = {
+            "id": str(uuid.uuid4()),
+            "reported_at": datetime.utcnow().isoformat() + "Z",
+            "username": session.get("username", "anonymous"),
+            "patient_name": (data.get("patient_name") or "").strip(),
+            "patient_dob": (data.get("patient_dob") or "").strip(),
+            "member_id": (data.get("member_id") or "").strip(),
+            "description": description,
+            "page": (data.get("page") or "").strip(),
+        }
+        filepath = ISSUES_DIR / f"{record['id']}.json"
+        with filepath.open("w", encoding="utf-8") as f:
+            json.dump(record, f, ensure_ascii=False, indent=2)
+        return jsonify({"ok": True})
+    except Exception as exc:
+        logger.exception("Failed to save issue report")
+        return jsonify({"ok": False, "error": str(exc)}), 500
+
+
+def get_issues_data():
+    """Load all issue report files and return as a list."""
+    issues = []
+    if not ISSUES_DIR.exists():
+        return issues
+    for file_path in ISSUES_DIR.glob("*.json"):
+        try:
+            with file_path.open("r", encoding="utf-8") as f:
+                issues.append(json.load(f))
+        except (json.JSONDecodeError, OSError):
+            continue
+    issues.sort(key=lambda x: x.get("reported_at") or "", reverse=True)
+    return issues
+
+
+@app.get("/admin/issues/download/<issue_id>")
+def admin_download_issue(issue_id: str):
+    """Download a single issue report JSON file."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+    # Sanitize: allow only UUID-like characters
+    safe_id = "".join(ch for ch in issue_id if ch.isalnum() or ch == "-")
+    file_path = ISSUES_DIR / f"{safe_id}.json"
+    if not file_path.exists():
+        return "Issue not found", 404
+    try:
+        file_path.resolve().relative_to(ISSUES_DIR.resolve())
+    except ValueError:
+        return "Invalid path", 400
+    return send_file(file_path, as_attachment=True, download_name=f"issue_{safe_id}.json")
+
+
+@app.post("/admin/issues/delete/<issue_id>")
+def admin_delete_issue(issue_id: str):
+    """Delete a single issue report JSON file."""
+    if not session.get("admin_authenticated"):
+        return jsonify({"success": False, "error": "Not authenticated"}), 401
+    safe_id = "".join(ch for ch in issue_id if ch.isalnum() or ch == "-")
+    file_path = ISSUES_DIR / f"{safe_id}.json"
+    if not file_path.exists():
+        return jsonify({"success": False, "error": "Issue not found"}), 404
+    try:
+        file_path.resolve().relative_to(ISSUES_DIR.resolve())
+    except ValueError:
+        return jsonify({"success": False, "error": "Invalid path"}), 400
+    try:
+        file_path.unlink()
+        return jsonify({"success": True})
+    except OSError as e:
+        return jsonify({"success": False, "error": str(e)}), 500
 
 # ---------------- Public download/delete endpoints (no auth) ----------------
 

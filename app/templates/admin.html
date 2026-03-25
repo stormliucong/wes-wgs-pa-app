@@ -334,8 +334,56 @@
         </div>
         {% endif %}
 
+        <!-- Reported Issues Section -->
+        <h2 style="margin-top: 3rem; margin-bottom: 1rem; color: #333; border-top: 2px solid #eee; padding-top: 2rem;">
+            Reported Issues
+        </h2>
+
+        {% if issues %}
+        <div class="table-responsive">
+            <table class="submissions-table">
+                <thead>
+                    <tr>
+                        <th>Reported At</th>
+                        <th>Patient Name</th>
+                        <th>Date of Birth</th>
+                        <th>Member ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for issue in issues %}
+                    <tr>
+                        <td class="date-cell">
+                            {{ issue.reported_at.replace('T', ' ').replace('Z', '').split('.')[0] if issue.reported_at else 'N/A' }}
+                        </td>
+                        <td>{{ issue.patient_name or '—' }}</td>
+                        <td class="date-cell">{{ issue.patient_dob or '—' }}</td>
+                        <td>{{ issue.member_id or '—' }}</td>
+                        <td class="actions-cell">
+                            <a href="{{ url_for('admin_download_issue', issue_id=issue.id) }}"
+                               class="btn btn-primary btn-sm">
+                                📥 Download
+                            </a>
+                            <button onclick="deleteIssue('{{ issue.id }}', '{{ issue.patient_name }}')"
+                                    class="btn btn-danger btn-sm"
+                                    style="margin-left: 0.5rem;">
+                                🗑️ Delete
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="no-submissions">
+            <p>No issues have been reported yet.</p>
+        </div>
+        {% endif %}
+
     </div>
-    
+
     <script>
         // Auto-focus search field if no other inputs have values
         document.addEventListener('DOMContentLoaded', function() {
@@ -464,6 +512,33 @@
             });
         }
 
+        function deleteIssue(issueId, patientName) {
+            const label = patientName || issueId;
+            if (!confirm(`Are you sure you want to delete the issue report for "${label}"?\n\nThis action cannot be undone.`)) {
+                return;
+            }
+            const btn = document.querySelector(`button[onclick*="${issueId}"]`);
+            if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Deleting...'; }
+
+            fetch(`{{ url_for('admin_delete_issue', issue_id='') }}${issueId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    const row = btn && btn.closest('tr');
+                    if (row) row.remove();
+                } else {
+                    alert(`Failed to delete issue: ${data.error}`);
+                    if (btn) { btn.disabled = false; btn.innerHTML = '🗑️ Delete'; }
+                }
+            })
+            .catch(() => {
+                alert('An error occurred while deleting the issue. Please try again.');
+                if (btn) { btn.disabled = false; btn.innerHTML = '🗑️ Delete'; }
+            });
+        }
     </script>
 </body>
 </html>

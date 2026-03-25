@@ -7,7 +7,7 @@
   const form = document.querySelector('#pa-form');
   const alertBox = document.querySelector('#alert-box');
   const errorsBox = document.querySelector('#form-errors');
-  const resetFormBtn = document.querySelector('#resetFormBtn');
+  const resetFormBtn = null; // button removed; issue reporting handled by modal in index.html
 
   // Subscriber / primary insurance controls
   const subscriberDetails = document.querySelector('#subscriber-details');
