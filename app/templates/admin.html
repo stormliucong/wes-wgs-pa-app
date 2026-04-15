@@ -264,6 +264,13 @@
                 <strong>{{ submissions|length }}</strong> submission(s) found
             </div>
             <div>
+                {% if admin_file_count %}
+                <a href="{{ url_for('admin_download_all') }}"
+                   class="btn btn-primary btn-sm"
+                   style="margin-right: 0.5rem;">
+                    Download All JSON
+                </a>
+                {% endif %}
                 {% if submissions %}
                 <a href="{{ url_for('admin_export_csv') }}?{{ request.query_string.decode() }}" 
                    class="btn btn-success btn-sm">

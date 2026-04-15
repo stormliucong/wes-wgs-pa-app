@@ -13,7 +13,6 @@ import random
 from contextlib import contextmanager
 import requests
 from dotenv import load_dotenv
-
 load_dotenv()
 raw_api_key: Optional[str] = os.getenv("BROWSER_USE_API_KEY")
 if raw_api_key is None or not raw_api_key.strip():
@@ -94,7 +93,8 @@ def create_session(start_url: Optional[str] = None) -> str:
     body = resp.json()
     return body["id"]
 
-def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] = None) -> str:
+
+def create_task(task_text: str, llm: str, max_steps: int, metadata: Optional[Dict[str, object]] = None) -> str:
     """Create and start a task and return task ID.
 
     metadata, when provided, is sent to Browser-Use Cloud so it
@@ -105,7 +105,7 @@ def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] 
         "llm": llm,
         "thinking": True,
         "vision": True, 
-        "maxSteps": 40,
+        "maxSteps": max_steps,
         "allowedDomains": [BASE_URL.split("//", 1)[-1]]
     }
     if metadata:
@@ -113,6 +113,7 @@ def create_task(task_text: str, llm: str, metadata: Optional[Dict[str, object]] 
     resp = _request_with_retries("POST", f"{API_BASE}/tasks", headers=_api_headers(), json=payload, timeout=30)
     # 202 Accepted on success
     if resp.status_code not in (200, 202):
+        print(f"[create_task] {resp.status_code} response body: {resp.text[:500]}")
         resp.raise_for_status()
     return resp.json()["id"]
 
@@ -223,25 +224,31 @@ def delete_submission(session: requests.Session, base_url: str, filename: str) -
     if not body.get("ok", False):
         raise RuntimeError(f"Delete failed for {filename}: {body}")
 
-def execute_one_patient(patient_name, patient_id, sample_type, llm, output_dir: Path) -> Dict:
-    prompt = (
-        f"Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username \"user2\" and password \"pass789\". "
-        f"Then find the patient record for {patient_name}, use the patient search function on the site, fill out and submit a Pre-Authorization Form for this patient."
-        f"Verify all required fields and then directly submit. If you find any issues, immediately stop the process and report the issue."
-    )
+def execute_one_patient(patient_name, patient_id, sample_type, llm, max_steps: int, output_dir: Path) -> Dict:
+    prompt = f"""Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username "user2" and password "pass789". 
+    Then find the patient record for {patient_name} using the patient search function on the site, then fill out and submit a Pre-Authorization Form for this patient. 
+    Verify all required fields and then directly submit. If you find any issues, immediately stop the process and report the issue.
+    """
     task_metadata: Dict[str, object] = {
         "patient_id": patient_id,
         "patient_name": patient_name,
         "sample_type": sample_type,
+        "max_steps": str(max_steps)
     }
     with _session_limit():
-        task_id = create_task(task_text=prompt, llm=llm, metadata=task_metadata)
+        task_id = create_task(task_text=prompt, llm=llm, max_steps= max_steps, metadata=task_metadata)
         final_task = wait_for_task(task_id)
     session = requests.Session()
     first, last = _split_name(patient_name)
     local_dir = output_dir
-    saved_path = get_submission_by_patient(session, BASE_URL, first, last, llm, 
-                                           patient_id, task_id, sample_type, local_dir)
+    saved_path = None
+    for attempt in range(5):
+        saved_path = get_submission_by_patient(session, BASE_URL, first, last, llm,
+                                               patient_id, task_id, sample_type, local_dir)
+        if saved_path is not None:
+            break
+        if attempt < 4:
+            time.sleep(5 * (attempt + 1))
     filename = saved_path.name if saved_path else None
     if saved_path:
         try:
@@ -256,7 +263,7 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm, output_dir: 
         "llm": llm,
     }
 
-def run_parallel_jobs(jobs: List[Dict], workers: int, output_dir: Path) -> List[Dict]:
+def run_parallel_jobs(jobs: List[Dict], workers: int, max_steps: int, output_dir: Path) -> List[Dict]:
     """Run a list of jobs in parallel. Each job: {patient_name, patient_id, sample_type, llm}."""
     results: List[Dict] = []
     if MAX_ACTIVE_SESSIONS > 0:
@@ -268,7 +275,7 @@ def run_parallel_jobs(jobs: List[Dict], workers: int, output_dir: Path) -> List[
             patient_id = job.get("patient_id")
             sample_type = job.get("sample_type")
             llm = job.get("llm")
-            futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type, llm, output_dir)] = (patient_name, llm)
+            futures[pool.submit(execute_one_patient, patient_name, patient_id, sample_type, llm, max_steps, output_dir)] = (patient_name, llm)
 
         for fut in as_completed(futures):
             patient, llm = futures[fut]
@@ -278,45 +285,59 @@ def run_parallel_jobs(jobs: List[Dict], workers: int, output_dir: Path) -> List[
                 results.append({"patient": patient, "llm": llm, "error": str(e)})
     return results
 
+def ablation_study_subset():
+    summaries_path = Path(__file__).resolve().parents[2] / "data" / "results" / "non_submitted_summaries.json"
+    with open(summaries_path, "r", encoding="utf-8") as f:
+        summaries = json.load(f)
+    return [d for d in summaries if "technical error" in d.get("issue_class", "").lower() and d.get("llm") == "gemini-flash-latest"]
+
 if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="Run browser-automation submissions for selected patient samples")
     parser.add_argument("--input", default=str(root_dir / "data" / "initial" / "all_samples.json"), help="Input samples JSON path")
-    parser.add_argument("--output-dir", default=str(root_dir / "data" / "submissions"), help="Output directory for downloaded submissions")
+    parser.add_argument("--output-dir", default=str(root_dir / "data" / "gemini_flash_ablation"), help="Output directory for downloaded submissions")
     parser.add_argument("--sample-type", help="Sample type to process")
-    parser.add_argument("--workers", type=int, default=100, help="Max concurrent workers")
+    parser.add_argument("--workers", type=int, default=50, help="Max concurrent workers")
     parser.add_argument("--llm", default="gemini-flash-latest", help="LLM model to run")
     parser.add_argument("--dedupe-by-name", action="store_true", default=True, help="Deduplicate jobs by patient full name")
+    parser.add_argument("--max-steps", type=int, default=70, help="Maximum steps per browser task")
     args = parser.parse_args()
-
-    samples_path = Path(args.input)
-    with samples_path.open("r", encoding="utf-8") as f:
-        samples = json.load(f)
-
-    unique_samples_by_name: Dict[str, Dict] = {}
-    for sample in samples:
-        first = sample.get("patient_first_name", "")
-        last = sample.get("patient_last_name", "")
-        patient_name = f"{first} {last}".strip()
-        if not patient_name:
-            continue
-        if patient_name not in unique_samples_by_name:
-            unique_samples_by_name[patient_name] = sample
-    selected_samples = list(unique_samples_by_name.values())
-
-    print(
-        f"Total sample_type={args.sample_type} profiles: {len(samples)} | "
-        f"unique patient names to process: {len(selected_samples)}"
-    )
-
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     
+    # samples_path = Path(args.input)
+    # with samples_path.open("r", encoding="utf-8") as f:
+    #     samples = json.load(f)
+    # sample_2a_indexes = [34, 36, 40, 41, 42, 44, 49, 50, 51, 52, 55, 236, 247, 259, 263, 266, 269, 275, 279, 282, 286, 296, 299, 309, 315]
+    # sample_2a = [samples[i] for i in sample_2a_indexes]
+    # sample_2b = samples[330:355]
+    # sample_2c = samples[440:465]
+    # sample_3b = samples[600:625]
+    # sample_4 = samples[650:700]
+    
+    ablation_subset = ablation_study_subset()
+    # unique_samples_by_name: Dict[str, Dict] = {}
+    # for sample in ablation_subset:
+    #     first = sample.get("patient_first_name", "")
+    #     last = sample.get("patient_last_name", "")
+    #     patient_name = f"{first} {last}".strip()
+    #     if not patient_name:
+    #         continue
+    #     if patient_name not in unique_samples_by_name:
+    #         unique_samples_by_name[patient_name] = sample
+    # selected_samples = list(unique_samples_by_name.values())
+
+    # print(
+    #     f"Total sample_type={args.sample_type} profiles: {len(selected_samples)} | "
+    #     f"unique patient names to process: {len(selected_samples)}"
+    # )
+
     jobs: List[Dict] = []
-    for s in selected_samples[15:]:
-        first = s.get("patient_first_name", "")
-        last = s.get("patient_last_name", "")
-        patient_name = f"{first} {last}".strip()
+    for s in ablation_subset[5:]:
+        # first = s.get("patient_first_name", "")
+        # last = s.get("patient_last_name", "")
+        # patient_name = f"{first} {last}".strip()
+        patient_name = s.get("patient_name")
         jobs.append({
             "patient_name": patient_name,
             "patient_id": s.get("patient_id"),
@@ -324,6 +345,6 @@ if __name__ == "__main__":
             "llm": args.llm,
         })
 
-    results = run_parallel_jobs(jobs, workers=args.workers, output_dir=output_dir)
+    results = run_parallel_jobs(jobs, workers=args.workers, max_steps=args.max_steps, output_dir=output_dir)
     for res in results:
         print(f"Processed: {res}")

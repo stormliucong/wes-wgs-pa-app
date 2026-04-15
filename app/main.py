@@ -4,9 +4,10 @@ import csv
 import json
 import os
 import uuid
+import zipfile
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from io import StringIO
+from io import BytesIO, StringIO
 import logging
 try:
     from zoneinfo import ZoneInfo
@@ -326,11 +327,13 @@ def admin_dashboard():
     test_types = sorted(set(s["test_type"] for s in all_submissions if s["test_type"]))
     
     issues = get_issues_data()
+    drafts = get_drafts_data()
 
     return render_template("admin.html",
                          submissions=submissions,
                          test_types=test_types,
                          issues=issues,
+                         admin_file_count=len(all_submissions) + len(issues) + len(drafts),
                          current_filters={
                              "search": search,
                              "date_from": date_from,
@@ -351,6 +354,48 @@ def admin_download_single(filename):
         return "File not found", 404
     
     return send_file(file_path, as_attachment=True, download_name=filename)
+
+
+@app.get("/admin/download-all")
+def admin_download_all():
+    """Download all admin-managed JSON files as a ZIP archive."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+
+    archive_entries = [
+        ("submissions", data_root() / "submissions"),
+        ("issues", ISSUES_DIR),
+        ("drafts", _drafts_dir()),
+    ]
+
+    archive_buffer = BytesIO()
+    archived_count = 0
+
+    with zipfile.ZipFile(archive_buffer, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for folder_name, source_dir in archive_entries:
+            if not source_dir.exists():
+                continue
+
+            for file_path in sorted(source_dir.glob("*.json")):
+                try:
+                    file_path.resolve().relative_to(source_dir.resolve())
+                except ValueError:
+                    continue
+
+                archive.write(file_path, arcname=f"{folder_name}/{file_path.name}")
+                archived_count += 1
+
+    if archived_count == 0:
+        return jsonify({"success": False, "error": "No files available for download"}), 404
+
+    archive_buffer.seek(0)
+    timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+    return send_file(
+            archive_buffer,
+            as_attachment=True,
+            download_name=f"admin_files_{timestamp}.zip",
+            mimetype="application/zip",
+        )
 
 @app.get("/admin/export")
 def admin_export_csv():
