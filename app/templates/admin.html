@@ -264,6 +264,13 @@
                 <strong>{{ submissions|length }}</strong> submission(s) found
             </div>
             <div>
+                {% if submissions %}
+                <a href="{{ url_for('admin_download_all_submissions') }}"
+                   class="btn btn-success btn-sm"
+                   style="margin-right: 0.5rem;">
+                    📥 Download All Submissions (ZIP)
+                </a>
+                {% endif %}
                 {% if admin_file_count %}
                 <a href="{{ url_for('admin_download_all') }}"
                    class="btn btn-primary btn-sm"
