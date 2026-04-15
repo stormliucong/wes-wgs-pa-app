@@ -265,8 +265,13 @@
             </div>
             <div>
                 {% if submissions %}
-                <a href="{{ url_for('admin_export_csv') }}?{{ request.query_string.decode() }}" 
-                   class="btn btn-success btn-sm">
+                <a href="{{ url_for('admin_download_all_submissions') }}"
+                   class="btn btn-primary btn-sm">
+                    📥 Download All
+                </a>
+                <a href="{{ url_for('admin_export_csv') }}?{{ request.query_string.decode() }}"
+                   class="btn btn-success btn-sm"
+                   style="margin-left: 0.5rem;">
                     📊 Export CSV
                 </a>
                 <button id="deleteAllBtn"

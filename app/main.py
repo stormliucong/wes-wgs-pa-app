@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import csv
+import io
 import json
 import os
 import uuid
+import zipfile
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from io import StringIO
@@ -348,6 +350,39 @@ def admin_download_single(filename):
         return "File not found", 404
     
     return send_file(file_path, as_attachment=True, download_name=filename)
+
+@app.get("/admin/download-all-submissions")
+def admin_download_all_submissions():
+    """Download all submission JSON files as a ZIP archive."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+
+    submissions_dir = data_root() / "submissions"
+    archive_buffer = io.BytesIO()
+    archived_count = 0
+
+    with zipfile.ZipFile(archive_buffer, "w", compression=zipfile.ZIP_DEFLATED) as zf:
+        if submissions_dir.exists():
+            for file_path in sorted(submissions_dir.glob("*.json")):
+                try:
+                    file_path.resolve().relative_to(submissions_dir.resolve())
+                except ValueError:
+                    continue
+                zf.write(file_path, arcname=file_path.name)
+                archived_count += 1
+
+    if archived_count == 0:
+        return jsonify({"success": False, "error": "No submission files found"}), 404
+
+    archive_buffer.seek(0)
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    return send_file(
+        archive_buffer,
+        as_attachment=True,
+        download_name=f"submissions_{timestamp}.zip",
+        mimetype="application/zip",
+    )
+
 
 @app.get("/admin/export")
 def admin_export_csv():
