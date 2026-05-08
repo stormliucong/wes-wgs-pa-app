@@ -225,8 +225,8 @@ def delete_submission(session: requests.Session, base_url: str, filename: str) -
         raise RuntimeError(f"Delete failed for {filename}: {body}")
 
 def execute_one_patient(patient_name, patient_id, sample_type, llm, max_steps: int, output_dir: Path) -> Dict:
-    prompt = f"""Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username "user2" and password "pass789". 
-    Then find the patient record for {patient_name} using the patient search function on the site, then fill out and submit a Pre-Authorization Form for this patient. 
+    prompt = f"""Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with username "user2" and password "pass789".
+    Then find the patient record for {patient_name} using the patient search function on the site, then fill out and submit a Pre-Authorization Form for this patient.
     Verify all required fields and then directly submit. If you find any issues, immediately stop the process and report the issue.
     """
     task_metadata: Dict[str, object] = {
@@ -236,29 +236,32 @@ def execute_one_patient(patient_name, patient_id, sample_type, llm, max_steps: i
         "max_steps": str(max_steps)
     }
     with _session_limit():
-        task_id = create_task(task_text=prompt, llm=llm, max_steps= max_steps, metadata=task_metadata)
+        task_id = create_task(task_text=prompt, llm=llm, max_steps=max_steps, metadata=task_metadata)
         final_task = wait_for_task(task_id)
-    session = requests.Session()
+
+    task_status = (final_task.get("status") or "").lower()
+    if task_status == "stopped":
+        print(f"[{patient_name}] task {task_id} was stopped, skipping download")
+        return {"patient": patient_name, "task_id": task_id, "filename": None, "saved_path": None, "llm": llm}
+
+    # Brief wait for the server to persist the submission file before polling
+    time.sleep(10)
+
+    http_session = requests.Session()
     first, last = _split_name(patient_name)
-    local_dir = output_dir
     saved_path = None
-    for attempt in range(5):
-        saved_path = get_submission_by_patient(session, BASE_URL, first, last, llm,
-                                               patient_id, task_id, sample_type, local_dir)
+    for attempt in range(8):
+        saved_path = get_submission_by_patient(http_session, BASE_URL, first, last, llm,
+                                               patient_id, task_id, sample_type, output_dir)
         if saved_path is not None:
             break
-        if attempt < 4:
-            time.sleep(5 * (attempt + 1))
-    filename = saved_path.name if saved_path else None
-    if saved_path:
-        try:
-            delete_submission(session, BASE_URL, saved_path.name)
-        except Exception:
-            pass
+        if attempt < 7:
+            time.sleep(10 * (attempt + 1))
+
     return {
         "patient": patient_name,
         "task_id": task_id,
-        "filename": filename,
+        "filename": saved_path.name if saved_path else None,
         "saved_path": str(saved_path) if saved_path else None,
         "llm": llm,
     }
@@ -295,12 +298,12 @@ if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="Run browser-automation submissions for selected patient samples")
     parser.add_argument("--input", default=str(root_dir / "data" / "initial" / "all_samples.json"), help="Input samples JSON path")
-    parser.add_argument("--output-dir", default=str(root_dir / "data" / "gemini_flash_ablation"), help="Output directory for downloaded submissions")
+    parser.add_argument("--output-dir", default=str(root_dir / "data" / "gemini_flash_ablation_100"), help="Output directory for downloaded submissions")
     parser.add_argument("--sample-type", help="Sample type to process")
     parser.add_argument("--workers", type=int, default=50, help="Max concurrent workers")
     parser.add_argument("--llm", default="gemini-flash-latest", help="LLM model to run")
     parser.add_argument("--dedupe-by-name", action="store_true", default=True, help="Deduplicate jobs by patient full name")
-    parser.add_argument("--max-steps", type=int, default=70, help="Maximum steps per browser task")
+    parser.add_argument("--max-steps", type=int, default=100, help="Maximum steps per browser task")
     args = parser.parse_args()
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)

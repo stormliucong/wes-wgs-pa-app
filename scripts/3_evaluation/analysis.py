@@ -20,12 +20,12 @@ except Exception:
     ZoneInfo = None
 from openai import OpenAI
 try:
-    from scripts.data_generation.generate_unstructured_profiles import process_batch, extract_output
+    from scripts.1_data_generation.generate_unstructured_profiles import process_batch, extract_output
 except ModuleNotFoundError:
     project_root = Path(__file__).resolve().parents[2]
     if str(project_root) not in sys.path:
         sys.path.insert(0, str(project_root))
-    from scripts.data_generation.generate_unstructured_profiles import process_batch, extract_output
+    from scripts.1_data_generation.generate_unstructured_profiles import process_batch, extract_output
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -47,7 +47,7 @@ MODEL_COST_PER_STEP: Dict[str, float] = {
     "claude-sonnet-4-6": 0.05,
     "gemini-3-pro-preview": 0.03,
     "o3": 0.03,
-    "gemini-flash-latest": 0.0075,
+    "gemini-flash-latest": 0.006,
 }
 
 def _api_headers() -> Dict[str, str]:
@@ -97,7 +97,7 @@ def get_tasks_steps(tasks: List[Dict]) -> Dict[str, Optional[int]]:
     """Compatibility wrapper for existing call sites."""
     return get_all_tasks_steps(tasks)
 
-def get_tasks(start_et: str, end_et: str):
+def get_tasks(start_et: str, end_et: str, output_path: Optional[Path] = None) -> List[Dict]:
     """
     Fetches all tasks from Browser Use Cloud within a given Eastern Time range.
 
@@ -162,7 +162,8 @@ def get_tasks(start_et: str, end_et: str):
     try:
         results_dir = Path(__file__).resolve().parents[2] / "data" / "results"
         results_dir.mkdir(parents=True, exist_ok=True)
-        output_path = results_dir / "all_tasks.json"
+        if output_path is None:
+            output_path = results_dir / "all_tasks.json"
         existing_tasks: List[Dict] = []
         if output_path.exists():
             with output_path.open("r", encoding="utf-8") as f:
@@ -421,7 +422,7 @@ def get_submitted_summaries(groundtruth_path: Path, submissions_dir: Path, outpu
         if not groundtruth:
             print(f"No groundtruth found for patient_id {patient_id} in submission {submission_file}")
             continue
-        
+         
         summary = check_submitted(submission, groundtruth)
         summaries.append(summary)
     
