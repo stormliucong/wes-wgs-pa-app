@@ -3,3 +3,9 @@ gunicorn==21.2.0
 requests==2.31.0
 openai>=1.46.0
 python-dotenv>=1.0.1
+pandas>=2.0.0
+openpyxl>=3.1.0
+pytz>=2024.1
+pydantic>=2.0.0
+google-genai>=1.0.0
+prompt_toolkit>=3.0.0
