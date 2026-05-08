@@ -2,6 +2,8 @@
 /data/*
 !/data/initial/
 !/data/initial/**
+data/batch_input/
+data/drafts/
 
 # Common Python ignores
 __pycache__/
