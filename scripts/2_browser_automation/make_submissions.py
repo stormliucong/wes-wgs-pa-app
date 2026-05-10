@@ -297,7 +297,7 @@ def ablation_study_subset():
 if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="Run browser-automation submissions for selected patient samples")
-    parser.add_argument("--input", default=str(root_dir / "data" / "initial" / "all_samples.json"), help="Input samples JSON path")
+    parser.add_argument("--input", default=str(root_dir / "data" / "patient_data" / "all_samples.json"), help="Input samples JSON path")
     parser.add_argument("--output-dir", default=str(root_dir / "data" / "gemini_flash_ablation_100"), help="Output directory for downloaded submissions")
     parser.add_argument("--sample-type", help="Sample type to process")
     parser.add_argument("--workers", type=int, default=50, help="Max concurrent workers")

@@ -334,7 +334,7 @@ def write_review_results_to_excel():
 
 if __name__ == "__main__":
     
-    profiles_path = Path(__file__).resolve().parents[2] / "data" / "initial" / "unstructured_profiles.json"
+    profiles_path = Path(__file__).resolve().parents[2] / "data" / "patient_data" / "unstructured_profiles.json"
     gemini_response_path = Path(__file__).resolve().parents[2] / "data" / "results" / "gemini_api_responses.json"
     
     with open(profiles_path, "r", encoding="utf-8") as f:

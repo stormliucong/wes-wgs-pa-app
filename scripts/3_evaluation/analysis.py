@@ -4,6 +4,7 @@
 
 import logging
 import argparse
+import importlib.util
 from typing import List, Dict, Optional, Tuple
 import json
 import re
@@ -11,36 +12,39 @@ from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import pandas as pd
 import os
-import sys
 import requests
 import pytz
-try:
-    from zoneinfo import ZoneInfo
-except Exception:
-    ZoneInfo = None
-from openai import OpenAI
-try:
-    from scripts.1_data_generation.generate_unstructured_profiles import process_batch, extract_output
-except ModuleNotFoundError:
-    project_root = Path(__file__).resolve().parents[2]
-    if str(project_root) not in sys.path:
-        sys.path.insert(0, str(project_root))
-    from scripts.1_data_generation.generate_unstructured_profiles import process_batch, extract_output
 from dotenv import load_dotenv
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
-client = OpenAI()
+
+# Import from sibling folder whose name starts with a digit (not a valid Python identifier),
+# so importlib.util is required instead of a normal import statement.
+def _load_module_from_path(module_name: str, rel_path: str):
+    path = Path(__file__).resolve().parent.parent / rel_path
+    spec = importlib.util.spec_from_file_location(module_name, path)
+    assert spec is not None and spec.loader is not None, f"Cannot load module from {path}"
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)  # type: ignore[union-attr]
+    return mod
+
+_profile_gen = _load_module_from_path(
+    "generate_unstructured_profiles",
+    "1_data_generation/generate_unstructured_profiles.py",
+)
+process_batch = _profile_gen.process_batch
+extract_output = _profile_gen.extract_output
 
 # ---------------- Browser-Use Cloud helpers ----------------
-load_dotenv()
-raw_api_key: Optional[str] = os.getenv("BROWSER_USE_API_KEY")
-if raw_api_key is None or not raw_api_key.strip():
-    raise RuntimeError("BROWSER_USE_API_KEY not found in environment")
-api_key: str = raw_api_key.strip()
-
 API_BASE = "https://api.browser-use.com/api/v2/tasks"
+
+def _api_headers() -> Dict[str, str]:
+    key = os.getenv("BROWSER_USE_API_KEY", "").strip()
+    if not key:
+        raise RuntimeError("BROWSER_USE_API_KEY not found in environment")
+    return {"X-Browser-Use-API-Key": key}
 
 MODEL_COST_PER_STEP: Dict[str, float] = {
     "claude-opus-4-5-20251101": 0.1,
@@ -50,10 +54,6 @@ MODEL_COST_PER_STEP: Dict[str, float] = {
     "gemini-flash-latest": 0.006,
 }
 
-def _api_headers() -> Dict[str, str]:
-    return {
-        "X-Browser-Use-API-Key": api_key,
-    }
 def get_task(task_id: str) -> Dict:
     resp = requests.get(f"{API_BASE}/{task_id}", headers=_api_headers(), timeout=60)
     resp.raise_for_status()
@@ -68,8 +68,8 @@ def _to_float(value) -> Optional[float]:
     except (TypeError, ValueError):
         return None
 
-def get_cost_per_step(model_name: str):
-    return MODEL_COST_PER_STEP[model_name]
+def get_cost_per_step(model_name: str) -> Optional[float]:
+    return MODEL_COST_PER_STEP.get(model_name)
 
 def _estimate_steps_from_cost(task: Dict) -> Optional[int]:
     task_cost = _to_float(task.get("cost"))
@@ -476,7 +476,7 @@ def create_user_prompt(summary:Dict) -> str:
         input_dict[key] = value
 
     prompt = f"""You will be given an AI agent’s final output message after it failed to submit a pre-authorization webform for Whole Exome Sequencing (WES) or Whole Genome Sequencing (WGS). Your task is to classify the reason for non-submission into exactly one of the categories defined below.
-1) Technical Error: the submission process terminated prematurely due to system-level or platform constraints, rather than a content-based decision. Examples include maximum step limit reached, browser refresh or session timeout resulting in data loss, [age navigation failure and API or network error. This category applies only when the failure is clearly operational/technical and not a deliberate decision based on patient or insurance data.
+1) Technical Error: the submission process terminated prematurely due to system-level or platform constraints, rather than a content-based decision. Examples include maximum step limit reached, browser refresh or session timeout resulting in data loss, page navigation failure and API or network error. This category applies only when the failure is clearly operational/technical and not a deliberate decision based on patient or insurance data.
 2) Correct Withholding Decision: the agent appropriately refused to submit the form because it identifies an intentionally designed issue in the patient profile. This category applies only when the refusal aligns with one of the intentionally designed issues below:
     a) Subscriber Date-of-Birth Error (Sample Type 2a): the insurance subscriber is only 10–12 years older than the patient. Since a subscriber may be a parent or legal guardian, this age gap should trigger a plausibility concern.
     b) Test Date Error (Sample Type 2b): the prior test date is later than the WES/WGS specimen collection date. This chronological inconsistency should halt submission.
@@ -907,7 +907,7 @@ def organize_gemini_flash():
 if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="Evaluate submitted forms against generated ground truth")
-    parser.add_argument("--groundtruth", default=str(root_dir / "data" / "initial" / "all_samples.json"), help="Input groundtruth JSON path")
+    parser.add_argument("--groundtruth", default=str(root_dir / "data" / "patient_data" / "all_samples.json"), help="Input groundtruth JSON path")
     parser.add_argument("--submissions-dir-flash", default=str(root_dir / "data" / "gemini_flash"), help="Gemini Flash submissions directory")
     parser.add_argument("--submissions-dir-3-pro", default=str(root_dir / "data" / "gemini_3_pro"), help="Gemini 3 Pro submissions directory")
     parser.add_argument("--results", default=str(root_dir / "data" / "results" / "summary.xlsx"), help="Output Excel summary path")

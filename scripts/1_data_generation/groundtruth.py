@@ -669,7 +669,7 @@ def _collect_existing_constraints(groundtruth_path: Path, all_samples_path: Path
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate synthetic patient data for WES/WGS pre-authorization testing')
     root_dir = Path(__file__).resolve().parents[2]
-    parser.add_argument('--groundtruth-output', type=str, default=str(root_dir / 'data' / 'generated' / 'groundtruth.json'),
+    parser.add_argument('--groundtruth-output', type=str, default=str(root_dir / 'data' / 'generated' / 'perfect_profiles.json'),
                         help='Output path for generated groundtruth profiles')
     parser.add_argument('--samples-output', type=str, default=str(root_dir / 'data' / 'generated' / 'all_samples.json'),
                         help='Output path for generated labeled sample profiles')
