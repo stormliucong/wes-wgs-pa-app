@@ -2,7 +2,7 @@
 Synthetic Patient Data Generator for WES/WGS Pre-Authorization Form
 This script generates groundtruth profiles (i.e., think of completely correct submitted forms). All data is completely fictional and for testing purposes only.
 
-Sample categories:
+Patient profile categories:
 
   label_type = 1 (PERFECT):
     - All clinical indications, and family history are relevant to the test request
