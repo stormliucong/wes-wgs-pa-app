@@ -325,17 +325,17 @@ if __name__ == "__main__":
 
     # ── Paths ─────────────────────────────────────────────────────────────────
     profiles_path       = root_dir / "data" / "patient_data" / "unstructured_profiles.json"
-    gemini_batch_input  = root_dir / "data" / "batch_input" / "gemini_api_input.jsonl"
-    gemini_results_path = root_dir / "data" / "results" / "gemini_api_responses.json"
-    gpt_batch_input     = root_dir / "data" / "batch_input" / "review_gemini_responses_input.jsonl"
-    gpt_results_path    = root_dir / "data" / "results" / "final_gpt_review_results.json"
-    summary_path        = root_dir / "data" / "results" / "summary.xlsx"
+    gemini_batch_input  = root_dir / "data" / "batch_input" / "gemini_api_input.jsonl" # untracked intermediate file for Gemini batch job
+    gemini_results_path = root_dir / "data" / "results" / "ablation_study" / "ablation_2_gemini_api.json"
+    gpt_batch_input     = root_dir / "data" / "batch_input" / "review_gemini_responses_input.jsonl" # untracked intermediate file for GPT batch job
+    gpt_results_path    = root_dir / "data" / "results" / "ablation_study" / "ablation_2_gpt_review.json"
+    summary_path        = root_dir / "data" / "results" / "exp_results.xlsx"
 
     gemini_prompt = (
         "You are assisting with a genetic testing pre-authorization workflow. "
         "The normal steps are: visit the web portal, log in, search for the patient record, "
         "then fill out and submit a Pre-Authorization Form for this patient. "
-        "Before submitting, verify all required fields. "
+        "Before submitting, verify all required fields."
         "If any issues are found, immediately stop the process and report the issue. "
         "For this task, the patient record is already provided below. "
         "Determine if the pre-authorization form should be submitted."
@@ -344,7 +344,7 @@ if __name__ == "__main__":
     with profiles_path.open("r", encoding="utf-8") as f:
         all_profiles = json.load(f)[:636]
 
-    # ── Stage 1: Gemini batch inference (completed) ───────────────────────────
+    # ── 1. Gemini batch inference (completed) ───────────────────────────
     metadata = create_gemini_batch_input(gemini_prompt, all_profiles, gemini_batch_input)
     
     # Get gemini API results by batch ID (if polling was interrupted):
@@ -354,12 +354,12 @@ if __name__ == "__main__":
     with gemini_results_path.open("r", encoding="utf-8") as f:
         gemini_responses = json.load(f)
 
-    # ── Stage 2: GPT categorization (completed) ───────────────────────────────
+    # ── 2. GPT categorization (completed) ───────────────────────────────
     categorize_responses_with_gpt(gemini_responses, gpt_batch_input)
     
     # Once the GPT batch job completes, retrieve and merge results:
     gpt_batch_id = "batch_69bb8a7045608190829a7841cc8ace6b"  # from process_batch printout
     get_gpt_batch_results(gpt_batch_id, gemini_responses, gpt_results_path)
 
-    # ── Stage 3: Export to Excel (completed) ──────────────────────────────────
+    # ── 3. Export to Excel (completed) ──────────────────────────────────
     write_results_to_excel(gpt_results_path, summary_path)
