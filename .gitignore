@@ -1,9 +1,8 @@
-# Ignore all data subdirectories except data/initial
+# Ignore all data subdirectories except data/patient_data
 /data/*
-!/data/initial/
-!/data/initial/**
+!/data/patient_data/
+!/data/patient_data/**
 data/batch_input/
-data/drafts/
 
 # Common Python ignores
 __pycache__/
