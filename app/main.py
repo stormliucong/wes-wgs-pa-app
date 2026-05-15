@@ -779,7 +779,7 @@ def api_search_patients():
     
     # Search unstructured profiles JSON (generated synthetic EHR-like data)
     project_root = Path(__file__).resolve().parent.parent
-    unstructured_file = project_root / "data" / "initial" / "unstructured_profiles.json"
+    unstructured_file = project_root / "data" / "patient_data" / "unstructured_profiles.json"
     if not unstructured_file.exists():
         unstructured_file = project_root / "unstructured_profiles.json"
     if unstructured_file.exists():
