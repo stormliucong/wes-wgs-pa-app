@@ -265,6 +265,7 @@ def execute_one_patient(
     llm: str,
     max_steps: int,
     output_dir: Path,
+    prompt_template: str,
 ) -> Dict:
     """Run the full submission pipeline for a single patient.
 
@@ -272,14 +273,7 @@ def execute_one_patient(
     for the saved submission. Polling retries with increasing delays because the
     server may take several seconds to persist the file after the agent finishes.
     """
-    prompt = (
-        f'Visit the web app at {BASE_URL}. On the first log-in page, sign in with '
-        f'username "user2" and password "pass789". '
-        f"Find the patient record for {patient_name} using the patient search function, "
-        f"then fill out and submit a Pre-Authorization Form for this patient. "
-        f"Verify all required fields before submitting. "
-        f"If you find any issues, immediately stop and report them."
-    )
+    prompt = prompt_template.format(patient_name=patient_name)
     task_metadata: Dict[str, object] = {
         "patient_id": patient_id,
         "patient_name": patient_name,
@@ -321,7 +315,7 @@ def execute_one_patient(
     }
 
 
-def run_parallel_jobs(jobs: List[Dict], workers: int, max_steps: int, output_dir: Path) -> List[Dict]:
+def run_parallel_jobs(jobs: List[Dict], workers: int, max_steps: int, output_dir: Path, prompt_template: str) -> List[Dict]:
     """Process a list of patient jobs concurrently.
 
     Each job dict must contain: patient_name, patient_id, sample_type, llm.
@@ -337,7 +331,7 @@ def run_parallel_jobs(jobs: List[Dict], workers: int, max_steps: int, output_dir
                 execute_one_patient,
                 job["patient_name"], job["patient_id"],
                 job["sample_type"], job["llm"],
-                max_steps, output_dir,
+                max_steps, output_dir, prompt_template,
             ): (job["patient_name"], job["llm"])
             for job in jobs
         }
@@ -350,9 +344,9 @@ def run_parallel_jobs(jobs: List[Dict], workers: int, max_steps: int, output_dir
 
     return results
 
-# ── Data loading ──────────────────────────────────────────────────────────────
+# ── Ablation Study Data loading ──────────────────────────────────────────────────────────────
 
-def load_ablation_subset() -> List[Dict]:
+def ablation_1_subset() -> List[Dict]:
     """Return gemini-flash-latest records that failed with a technical error.
 
     These are sourced from non_submitted_summaries.json and form the retry
@@ -367,6 +361,38 @@ def load_ablation_subset() -> List[Dict]:
         and d.get("llm") == "gemini-flash-latest"
     ]
 
+def ablation_3_subset(n_per_type: int = 25) -> List[Dict]:
+    """Randomly sample patients per sample type for the gemini-3-pro-preview ablation.
+
+    Loads all_samples.json, keeps only sample types [2a, 2b, 2c, 3b, 4], draws
+    up to n_per_type records at random from each group, and returns a flat list
+    of dicts with patient_name, patient_id, sample_type, and llm.
+    """
+    TARGET_TYPES = {"2a", "2b", "2c", "3b", "4"}
+    LLM = "gemini-3-pro-preview"
+
+    path = Path(__file__).resolve().parents[2] / "data" / "results" / "submitted_summaries.json"
+    with path.open("r", encoding="utf-8") as f:
+        submitted_tasks: List[Dict] = json.load(f)
+
+    by_type: Dict[str, List[Dict]] = {}
+    for s in submitted_tasks:
+        st = s.get("sample_type")
+        if st in TARGET_TYPES:
+            by_type.setdefault(st, []).append(s)
+
+    result: List[Dict] = []
+    for st, group in by_type.items():
+        chosen = random.sample(group, min(n_per_type, len(group)))
+        for s in chosen:
+            result.append({
+                "patient_name": s.get("patient_name"),
+                "patient_id":   s.get("patient_id"),
+                "sample_type":  st,
+                "llm":          LLM,
+            })
+
+    return result
  
 # ── Entry point ───────────────────────────────────────────────────────────────
 if __name__ == "__main__":
@@ -380,7 +406,7 @@ modes:
   primary   Run all samples from --input, optionally filtered by --sample-type.
             Each LLM has its own output directory (e.g. data/gemini_flash).
 
-  ablation  Retry the gemini-flash-latest technical-error cases from the primary
+  ablation 1 Retry the gemini-flash-latest technical-error cases from the primary
             experiment with a different --max-steps value. Used to study how step
             budget affects task completion.
 
@@ -403,8 +429,11 @@ examples:
                         help="[primary] Path to all_samples.json")
     parser.add_argument("--sample-type", default=None,
                         help="[primary] Filter to a specific sample type (e.g. 1, 2a, 3b)")
-    parser.add_argument("--output-dir", default=str(root_dir / "data" / "gemini_flash"),
+    
+    # Other output folders to store submissions under the data directory: gemini_3_pro, claude_opus, ablation_1_55, ablation_1_70, ablation_1_80, ablation_1_100, ablation_3
+    parser.add_argument("--output-dir", default=str(root_dir / "data" / "gemini_flash"), 
                         help="Directory where downloaded submission files are saved")
+    
     parser.add_argument("--workers", type=int, default=50,
                         help="Max concurrent worker threads")
     parser.add_argument("--max-steps", type=int, default=40,
@@ -429,8 +458,19 @@ examples:
             for s in patient_data
         ]
 
-    else:  # ablation
-        subset = load_ablation_subset()
+    elif args.mode == "ablation_1":
+        subset = ablation_1_subset()
+        jobs = [
+            {
+                "patient_name": s["patient_name"],
+                "patient_id":   s.get("patient_id"),
+                "sample_type":  s.get("sample_type"),
+                "llm":          args.llm,
+            }
+            for s in subset
+        ]
+    else:
+        subset = ablation_3_subset()
         jobs = [
             {
                 "patient_name": s["patient_name"],
@@ -441,7 +481,18 @@ examples:
             for s in subset
         ]
 
+    # This prompt shall be adjusted as needed for ablation study 3 - add "carefully review "
+    prompt_template = (
+        f'Visit the web app at {BASE_URL}. On the first log-in page, sign in with '
+        f'username "user2" and password "pass789". '
+        f"Find the patient record for {{patient_name}} using the patient search function, "
+        # f"carefully review date-related information in the patient record," # add this sentence for ablation study 3
+        f"then fill out and submit a Pre-Authorization Form for this patient. "
+        f"Verify all required fields before submitting. "
+        f"If you find any issues, immediately stop and report them."
+    )
+
     print(f"Mode: {args.mode} | Jobs: {len(jobs)} | Model: {args.llm} | max_steps: {args.max_steps}")
-    results = run_parallel_jobs(jobs, workers=args.workers, max_steps=args.max_steps, output_dir=output_dir)
+    results = run_parallel_jobs(jobs, workers=args.workers, max_steps=args.max_steps, output_dir=output_dir, prompt_template=prompt_template)
     for res in results:
         print(f"  {res}")
