@@ -161,8 +161,6 @@ def validate_submission(payload: Dict[str, Any]) -> Tuple[bool, Dict[str, str]]:
         relation = payload.get("subscriber_relation")
         if not relation:
             errors["subscriber_relation"] = "Subscriber relationship is required when the patient is not the primary subscriber."
-        elif relation == "Other" and not payload.get("subscriber_relation_other"):
-            errors["subscriber_relation_other"] = "Please specify the subscriber relationship when 'Other' is selected."
 
     # If prior test negative is selected, require prior test details
     prior_negative_raw = payload.get("prior_test_negative")

@@ -73,7 +73,7 @@
     const showOther = subscriberDetails && subscriberDetails.style.display !== 'none' && subscriberRelationSelect.value === 'Other';
     subscriberRelationOtherWrapper.style.display = showOther ? '' : 'none';
     if (subscriberRelationOtherInput) {
-      subscriberRelationOtherInput.required = showOther;
+      subscriberRelationOtherInput.required = false;
       if (!showOther) subscriberRelationOtherInput.value = '';
     }
   }
@@ -660,8 +660,7 @@
         const missingSubscriber =
           !subscriberNameInput?.value?.trim() ||
           !subscriberDobInput?.value?.trim() ||
-          !subscriberRelationSelect?.value?.trim() ||
-          (subscriberRelationSelect?.value === 'Other' && !subscriberRelationOtherInput?.value?.trim());
+          !subscriberRelationSelect?.value?.trim();
         if (missingSubscriber) {
           showError('Subscriber details are required when the patient is not the primary subscriber.');
           showStep(0);
