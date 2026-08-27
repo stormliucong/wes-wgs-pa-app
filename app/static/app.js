@@ -724,4 +724,77 @@
       }
     });
   }
+
+  // Flag Issues modal (independent of the main form; never touches #pa-form data)
+  const flagIssueBtn = document.querySelector('#flagIssueBtn');
+  const flagIssueModal = document.querySelector('#flag-issue-modal');
+  const flagIssueCancelBtn = document.querySelector('#flag-issue-cancel-btn');
+  const flagIssueSubmitBtn = document.querySelector('#flag-issue-submit-btn');
+  const flagPatientNameInput = document.querySelector('#flag_patient_name');
+  const flagIssueTextInput = document.querySelector('#flag_issue_text');
+  const flagIssueErrors = document.querySelector('#flag-issue-errors');
+  let flagIssueStartedAt = null;
+
+  function showFlagIssueError(msg) {
+    if (!flagIssueErrors) return;
+    flagIssueErrors.textContent = msg;
+    flagIssueErrors.style.display = 'block';
+  }
+  function clearFlagIssueError() {
+    if (!flagIssueErrors) return;
+    flagIssueErrors.textContent = '';
+    flagIssueErrors.style.display = 'none';
+  }
+  function openFlagIssueModal() {
+    flagIssueStartedAt = new Date().toISOString();
+    clearFlagIssueError();
+    if (flagPatientNameInput) flagPatientNameInput.value = '';
+    if (flagIssueTextInput) flagIssueTextInput.value = '';
+    if (flagIssueModal) flagIssueModal.style.display = 'block';
+  }
+  function closeFlagIssueModal() {
+    if (flagIssueModal) flagIssueModal.style.display = 'none';
+  }
+
+  if (flagIssueBtn) {
+    flagIssueBtn.addEventListener('click', openFlagIssueModal);
+  }
+  if (flagIssueCancelBtn) {
+    flagIssueCancelBtn.addEventListener('click', closeFlagIssueModal);
+  }
+  if (flagIssueSubmitBtn) {
+    flagIssueSubmitBtn.addEventListener('click', async () => {
+      const patientName = (flagPatientNameInput?.value || '').trim();
+      const issueText = (flagIssueTextInput?.value || '').trim();
+      if (!patientName || !issueText) {
+        showFlagIssueError('Please fill in both patient name and issue description.');
+        return;
+      }
+      clearFlagIssueError();
+      flagIssueSubmitBtn.disabled = true;
+      try {
+        const res = await fetch('/flag_issue', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            patient_name: patientName,
+            issue_text: issueText,
+            started_at: flagIssueStartedAt,
+          }),
+        });
+        let body = {};
+        try { body = await res.json(); } catch (_) { body = {}; }
+        if (!res.ok || !body.ok) {
+          showFlagIssueError(body?.message || 'Failed to submit. Please try again.');
+          return;
+        }
+        closeFlagIssueModal();
+        showAlert('success', 'Issue flagged. Thank you!');
+      } catch (err) {
+        showFlagIssueError('Network error while submitting.');
+      } finally {
+        flagIssueSubmitBtn.disabled = false;
+      }
+    });
+  }
 })();
