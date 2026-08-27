@@ -21,6 +21,15 @@ def _safe_str(value):
     """Safely convert a value to a string, handling None."""
     return str(value) if value is not None else ""
 
+def _parse_dt(value):
+    """Parse an ISO-8601 timestamp ('Z' suffix or explicit offset) into an aware datetime, or None."""
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except (ValueError, TypeError):
+        return None
+
 from flask import Flask, jsonify, render_template, request, send_file, session, redirect, url_for, make_response
 
 # Local imports
@@ -225,18 +234,29 @@ def get_submissions_data():
                 data = json.load(f)
                 
             # Extract metadata
+            payload = data.get("payload", {}) or {}
+            submitted_at = data.get("submitted_at", "")
+            started_at = payload.get("started_at", "")
+
+            completion_seconds = data.get("completion_seconds")
+            if completion_seconds is None:
+                submitted_dt = _parse_dt(submitted_at)
+                started_dt = _parse_dt(started_at)
+                if submitted_dt is not None and started_dt is not None:
+                    completion_seconds = round((submitted_dt - started_dt).total_seconds(), 3)
+
             submission = {
                 "filename": file_path.name,
                 "patient_id": data.get("patient_id", ""),
-                "submitted_at": data.get("submitted_at", ""),
-                "completion_seconds": data.get("completion_seconds"),
-                "payload": data.get("payload", {}),
+                "started_at": started_at,
+                "submitted_at": submitted_at,
+                "completion_seconds": completion_seconds,
+                "payload": payload,
                 "file_size": file_path.stat().st_size,
                 "file_path": str(file_path)
             }
-            
+
             # Add searchable fields from payload
-            payload = submission["payload"]
             submission["patient_name"] = f"{payload.get('patient_first_name', '')} {payload.get('patient_last_name', '')}".strip()
             submission["provider_name"] = payload.get("provider_name", "")
             submission["test_type"] = payload.get("test_type", "")
