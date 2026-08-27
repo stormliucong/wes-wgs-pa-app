@@ -203,7 +203,9 @@ def submit():
             eastern = timezone(timedelta(hours=-5))
         submitted_dt = datetime.now(eastern)
         submitted_at = submitted_dt.isoformat()
+        started_at = payload.pop("started_at", None)
         record = {
+            "started_at": started_at,
             "submitted_at": submitted_at,
             "payload": payload,
         }
@@ -236,7 +238,8 @@ def get_submissions_data():
             # Extract metadata
             payload = data.get("payload", {}) or {}
             submitted_at = data.get("submitted_at", "")
-            started_at = payload.get("started_at", "")
+            # Older submissions nested started_at inside payload; newer ones store it top-level.
+            started_at = data.get("started_at") or payload.get("started_at", "")
 
             completion_seconds = data.get("completion_seconds")
             if completion_seconds is None:
