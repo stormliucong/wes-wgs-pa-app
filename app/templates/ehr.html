@@ -46,17 +46,17 @@
       margin-bottom: 1rem;
       overflow: hidden;
       transition: box-shadow 0.2s;
-      cursor: pointer;
     }
-    
+
     .patient-card:hover {
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
-    
+
     .patient-header {
       background: #f8f9fa;
       padding: 1rem;
       border-bottom: 1px solid #ddd;
+      cursor: pointer;
     }
     
     .patient-name {
@@ -252,10 +252,13 @@
         const html = patients.map(patient => createPatientCard(patient)).join('');
         searchResults.innerHTML = html;
         
-        // Add click handlers for expanding cards
-        document.querySelectorAll('.patient-card').forEach(card => {
-          card.addEventListener('click', function() {
-            this.classList.toggle('expanded');
+        // Add click handlers for expanding cards. Bound to the header only (not the
+        // whole card) so selecting/copying text inside the expanded details doesn't
+        // bubble up and immediately collapse the card.
+        document.querySelectorAll('.patient-header').forEach(header => {
+          header.addEventListener('click', function() {
+            const card = this.closest('.patient-card');
+            if (card) card.classList.toggle('expanded');
           });
         });
       }
