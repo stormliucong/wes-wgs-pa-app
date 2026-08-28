@@ -291,6 +291,7 @@
                 <thead>
                     <tr>
                         <th>File</th>
+                        <th>Started</th>
                         <th>Submitted</th>
                         <th>Patient Name</th>
                         <th>Provider</th>
@@ -303,6 +304,9 @@
                     <tr>
                         <td class="filename-cell" title="{{ submission.filename }}">
                             {{ submission.filename }}
+                        </td>
+                        <td class="date-cell">
+                            {{ submission.started_at.replace('T', ' ').replace('Z', '').split('.')[0] if submission.started_at else 'N/A' }}
                         </td>
                         <td class="date-cell">
                             {{ submission.submitted_at.replace('T', ' ').replace('Z', '').split('.')[0] if submission.submitted_at else 'N/A' }}
