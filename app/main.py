@@ -623,6 +623,41 @@ def admin_delete_submission(filename):
         return jsonify({"success": False, "error": f"Failed to delete file: {str(e)}"}), 500
 
 
+@app.get("/admin/flags/export")
+def admin_export_flags_excel():
+    """Export all flagged issues as an Excel (.xlsx) file."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+
+    from openpyxl import Workbook
+
+    flags = get_flags_data()
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Flagged Issues"
+    ws.append(["Started At", "Submitted At", "Patient Name", "Issue"])
+    for flag in flags:
+        ws.append([
+            flag.get("started_at", ""),
+            flag.get("submitted_at", ""),
+            flag.get("patient_name", ""),
+            flag.get("issue_text", ""),
+        ])
+
+    buffer = io.BytesIO()
+    wb.save(buffer)
+    buffer.seek(0)
+
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    return send_file(
+        buffer,
+        as_attachment=True,
+        download_name=f"flagged_issues_{timestamp}.xlsx",
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    )
+
+
 @app.post("/admin/flags/delete/<filename>")
 def admin_delete_flag(filename):
     """Delete a single flagged-issue file."""

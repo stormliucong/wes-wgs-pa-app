@@ -349,6 +349,13 @@
                 <div>
                     🚩 <strong>{{ flags|length }}</strong> flagged issue(s)
                 </div>
+                <div>
+                    {% if flags %}
+                    <a href="{{ url_for('admin_export_flags_excel') }}" class="btn btn-success btn-sm">
+                        📊 Download as Excel
+                    </a>
+                    {% endif %}
+                </div>
             </div>
 
             {% if flags %}
