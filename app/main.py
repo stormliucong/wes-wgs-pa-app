@@ -206,7 +206,13 @@ def submit():
             eastern = timezone(timedelta(hours=-5))
         submitted_dt = datetime.now(eastern)
         submitted_at = submitted_dt.isoformat()
-        started_at = payload.pop("started_at", None)
+
+        # started_at arrives from the browser as a UTC ISO string (new Date().toISOString());
+        # convert it to Eastern so it's directly comparable to submitted_at.
+        started_raw = payload.pop("started_at", None)
+        started_dt = _parse_dt(started_raw)
+        started_at = started_dt.astimezone(eastern).isoformat() if started_dt else started_raw
+
         record = {
             "started_at": started_at,
             "submitted_at": submitted_at,
