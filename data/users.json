@@ -1,4 +1,11 @@
 {
-  "user1": { "password": "123456" },
-  "user2": { "password": "pass789" }
+  "user2": {
+    "password": "pass789"
+  },
+  "human1": {
+    "password": "human123"
+  },
+  "user1": {
+    "password": "123456"
+  }
 }
