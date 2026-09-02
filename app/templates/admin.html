@@ -293,6 +293,7 @@
                         <th>File</th>
                         <th>Started</th>
                         <th>Submitted</th>
+                        <th>User</th>
                         <th>Patient Name</th>
                         <th>Provider</th>
                         <th>Test Type</th>
@@ -310,6 +311,9 @@
                         </td>
                         <td class="date-cell">
                             {{ submission.submitted_at.replace('T', ' ').replace('Z', '').split('.')[0] if submission.submitted_at else 'N/A' }}
+                        </td>
+                        <td>
+                            {{ submission.username or 'N/A' }}
                         </td>
                         <td>
                             {{ submission.patient_name or 'N/A' }}

@@ -216,6 +216,7 @@ def submit():
         record = {
             "started_at": started_at,
             "submitted_at": submitted_at,
+            "username": session.get("username", "anonymous"),
             "payload": payload,
         }
 
@@ -317,6 +318,7 @@ def get_submissions_data():
                 "started_at": started_at,
                 "submitted_at": submitted_at,
                 "completion_seconds": completion_seconds,
+                "username": data.get("username", ""),
                 "payload": payload,
                 "file_size": file_path.stat().st_size,
                 "file_path": str(file_path)
@@ -562,12 +564,12 @@ def admin_export_csv():
     
     # Header row
     headers = [
-        "Filename", "Started At", "Submitted At", "Completion Seconds", "Patient Name", "Provider Name", 
-        "Test Type", "Patient DOB", "Provider NPI", "Diagnosis Code", 
+        "Filename", "Started At", "Submitted At", "Completion Seconds", "User", "Patient Name", "Provider Name",
+        "Test Type", "Patient DOB", "Provider NPI", "Diagnosis Code",
         "Clinical History", "Prior Testing"
     ]
     writer.writerow(headers)
-    
+
     # Data rows
     for submission in submissions:
         payload = submission["payload"]
@@ -576,6 +578,7 @@ def admin_export_csv():
             submission.get("started_at", ""),
             submission["submitted_at"],
             submission.get("completion_seconds", ""),
+            submission.get("username", ""),
             submission["patient_name"],
             submission["provider_name"],
             submission["test_type"],
