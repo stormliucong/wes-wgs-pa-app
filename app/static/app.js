@@ -697,14 +697,21 @@
           return;
         }
         showAlert('success', 'Submitted successfully. Reference: ' + (body.file || 'n/a'));
-        // After submission, start a new form automatically
+        // After submission, start a new form automatically. If the server call fails,
+        // still generate a fresh form_id client-side -- otherwise the stale, already-used
+        // form_id stays cached and the *next* submission silently overwrites this one's
+        // file on the server (both share the same form_id-derived filename).
         try {
           const resNew = await fetch('/draft/start_new', { method: 'POST' });
           const bodyNew = await resNew.json();
           if (resNew.ok && bodyNew.ok) {
             setNewFormMeta(bodyNew.form_id, bodyNew.started_at);
+          } else {
+            setNewFormMeta((crypto.randomUUID && crypto.randomUUID()) || String(Date.now()), new Date().toISOString());
           }
-        } catch (_) {}
+        } catch (_) {
+          setNewFormMeta((crypto.randomUUID && crypto.randomUUID()) || String(Date.now()), new Date().toISOString());
+        }
         form.reset();
         // reset dynamic lists to one row each
         if (icdList) {
