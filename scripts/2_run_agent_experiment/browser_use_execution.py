@@ -59,18 +59,25 @@ def _request_with_retries(
     method: str,
     url: str,
     *,
-    headers: Dict[str, str],
+    headers: Optional[Dict[str, str]] = None,
     json: Optional[Dict] = None,
     timeout: int = 30,
     max_retries: int = 5,
+    session: Optional[requests.Session] = None,
+    stream: bool = False,
 ) -> requests.Response:
-    """HTTP request with exponential back-off on 429 (rate-limit) and 5xx errors."""
+    """HTTP request with exponential back-off on connection errors, 429 (rate-limit), and 5xx errors.
+
+    Pass `session` to reuse a requests.Session (e.g. for connection pooling against the web
+    app); otherwise falls back to the plain `requests` module, as used for the Browser-Use API.
+    """
     backoff = 1.0
     last_resp: Optional[requests.Response] = None
+    requester = session.request if session is not None else requests.request
 
     for attempt in range(max_retries):
         try:
-            resp = requests.request(method, url, headers=headers, json=json, timeout=timeout)
+            resp = requester(method, url, headers=headers, json=json, timeout=timeout, stream=stream)
             last_resp = resp
         except requests.RequestException:
             if attempt >= max_retries - 1:
@@ -195,10 +202,10 @@ def get_submission_by_patient(
     from being picked up by future runs.
     """
     dest_dir.mkdir(parents=True, exist_ok=True)
-    resp = session.post(
-        f"{base_url}/download/patient",
+    resp = _request_with_retries(
+        "POST", f"{base_url}/download/patient",
         json={"patient_first_name": first_name, "patient_last_name": last_name},
-        stream=True,
+        session=session, stream=True,
     )
 
     if resp.status_code == 404:
@@ -246,7 +253,10 @@ def get_submission_by_patient(
 
 def delete_submission(session: requests.Session, base_url: str, filename: str) -> None:
     """Remove a submission file from the web app server."""
-    resp = session.post(f"{base_url}/delete", json={"filename": filename})
+    resp = _request_with_retries(
+        "POST", f"{base_url}/delete", json={"filename": filename},
+        session=session, max_retries=3,
+    )
     if resp.status_code != 200:
         raise RuntimeError(f"Delete failed for {filename}: {resp.status_code} {resp.text}")
     try:
