@@ -314,7 +314,6 @@ def execute_one_patient(
         "llm": llm,
     }
 
-
 def run_parallel_jobs(jobs: List[Dict], workers: int, max_steps: int, output_dir: Path, prompt_template: str) -> List[Dict]:
     """Process a list of patient jobs concurrently.
 
@@ -345,7 +344,6 @@ def run_parallel_jobs(jobs: List[Dict], workers: int, max_steps: int, output_dir
     return results
 
 # ── Ablation Study Data loading ──────────────────────────────────────────────────────────────
-
 def ablation_1_subset() -> List[Dict]:
     """Return gemini-flash-latest records that failed with a technical error.
 
@@ -393,7 +391,64 @@ def ablation_3_subset(n_per_type: int = 25) -> List[Dict]:
             })
 
     return result
- 
+
+# ── Replication Study Data loading ────────────────────────────────────────────
+
+# Cache file for the replication draw: generated once via random sampling, then
+# reused so every replication run works with the exact same 100 patients.
+REPLICATION_SUBSET_PATH = Path(__file__).resolve().parents[2] / "data" / "patient_data" / "replication_subset.json"
+
+def replication_subset(n_samples: int = 100, seed: int = 42) -> List[Dict]:
+    """Return the 100 patient profiles for a replication run.
+
+    If REPLICATION_SUBSET_PATH already exists, its contents are loaded as-is so
+    every run reuses the identical set of patients. Otherwise a fresh subset is
+    drawn at random from all_samples.json and cached there for future runs.
+
+    Sample type 4 has 200 records but only 100 unique patient names (each name is
+    shared by two records), and the download step matches submissions by patient
+    name — so drawing both records for the same name would make the later lookup
+    ambiguous. To avoid this, type-4 records are first collapsed to one record per
+    unique name before sampling, capping how much type 4 can contribute and
+    guaranteeing no two chosen profiles collide on name.
+    """
+    if REPLICATION_SUBSET_PATH.exists():
+        with REPLICATION_SUBSET_PATH.open("r", encoding="utf-8") as f:
+            return json.load(f)
+
+    path = Path(__file__).resolve().parents[2] / "data" / "patient_data" / "all_samples.json"
+    with path.open("r", encoding="utf-8") as f:
+        all_samples: List[Dict] = json.load(f)
+
+    rng = random.Random(seed)
+
+    non_type4 = [s for s in all_samples if s.get("sample_type") != "4"]
+    type4 = [s for s in all_samples if s.get("sample_type") == "4"]
+
+    by_name: Dict[Tuple[Optional[str], Optional[str]], List[Dict]] = {}
+    for s in type4:
+        key = (s.get("patient_first_name"), s.get("patient_last_name"))
+        by_name.setdefault(key, []).append(s)
+    type4_deduped = [rng.choice(records) for records in by_name.values()]
+
+    candidates = non_type4 + type4_deduped
+    chosen = rng.sample(candidates, min(n_samples, len(candidates)))
+
+    subset = [
+        {
+            "patient_name": f"{s['patient_first_name']} {s['patient_last_name']}".strip(),
+            "patient_id":   s.get("patient_id"),
+            "sample_type":  s.get("sample_type"),
+        }
+        for s in chosen
+    ]
+
+    REPLICATION_SUBSET_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with REPLICATION_SUBSET_PATH.open("w", encoding="utf-8") as f:
+        json.dump(subset, f, indent=2)
+
+    return subset
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     root_dir = Path(__file__).resolve().parents[2]
@@ -410,6 +465,11 @@ modes:
             experiment with a different --max-steps value. Used to study how step
             budget affects task completion.
 
+  replication Randomly draw 100 profiles from --input for a replication run, cached
+            to data/patient_data/replication_subset.json so every run reuses the same
+            patients. Sample type 4 is deduped to one record per unique patient
+            name first, since it has 200 records sharing only 100 unique names.
+
 examples:
   # Primary run with Gemini Flash
   python make_submissions.py --mode primary --llm gemini-flash-latest --output-dir data/gemini_flash
@@ -421,19 +481,19 @@ examples:
   python make_submissions.py --mode ablation --max-steps 55 --output-dir data/ablation_55
         """,
     )
-    parser.add_argument("--mode", choices=["primary", "ablation_1", "ablation_3"], default="primary",
-                        help="Experiment mode (default: primary)")
-    parser.add_argument("--llm", default="gemini-flash-latest",
+    parser.add_argument("--mode", choices=["primary", "ablation_1", "ablation_3", "replication"], default="replication",
+                        help="Experiment mode (default: replication)")
+    parser.add_argument("--llm", default="gemini-3-pro-preview",
                         help="LLM model identifier: gemini-flash-latest | gemini-3-pro-preview | claude-opus-4-5-20251101")
     parser.add_argument("--input", default=str(root_dir / "data" / "patient_data" / "all_samples.json"),
                         help="[primary] Path to all_samples.json")
     parser.add_argument("--sample-type", default=None,
                         help="[primary] Filter to a specific sample type (e.g. 1, 2a, 3b)")
-    
+
     # Other output folders to store submissions under the data directory: gemini_3_pro, claude_opus, ablation_1_55, ablation_1_70, ablation_1_80, ablation_1_100, ablation_3
-    parser.add_argument("--output-dir", default=str(root_dir / "data" / "gemini_flash"), 
+    parser.add_argument("--output-dir", default=str(root_dir / "data" / "replication_1"),
                         help="Directory where downloaded submission files are saved")
-    
+
     parser.add_argument("--workers", type=int, default=50,
                         help="Max concurrent worker threads")
     parser.add_argument("--max-steps", type=int, default=40,
@@ -469,8 +529,20 @@ examples:
             }
             for s in subset
         ]
-    else:
+    elif args.mode == "ablation_3":
         subset = ablation_3_subset()
+        jobs = [
+            {
+                "patient_name": s["patient_name"],
+                "patient_id":   s.get("patient_id"),
+                "sample_type":  s.get("sample_type"),
+                "llm":          args.llm,
+            }
+            for s in subset
+        ]
+
+    else:
+        subset = replication_subset(100)
         jobs = [
             {
                 "patient_name": s["patient_name"],
@@ -483,13 +555,13 @@ examples:
 
     # This prompt shall be adjusted as needed for ablation study 3 - add "carefully review "
     prompt_template = (
-        f'Visit the web app at {BASE_URL}. On the first log-in page, sign in with '
+        f'Visit the web app at {BASE_URL}. On the first log-in page, do user sign-in with '
         f'username "user2" and password "pass789". '
-        f"Find the patient record for {{patient_name}} using the patient search function, "
+        f"Then find the patient record for {{patient_name}} using the patient search function on the site, "
         # f"carefully review date-related information in the patient record," # add this sentence for ablation study 3
         f"then fill out and submit a Pre-Authorization Form for this patient. "
-        f"Verify all required fields before submitting. "
-        f"If you find any issues, immediately stop and report them."
+        f"Verify all required fields and then directly submit. "
+        f"If you find any issues, immediately stop the process and report the issue."
     )
 
     print(f"Mode: {args.mode} | Jobs: {len(jobs)} | Model: {args.llm} | max_steps: {args.max_steps}")
