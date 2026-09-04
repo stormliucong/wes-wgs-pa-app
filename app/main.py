@@ -60,12 +60,14 @@ def data_root() -> Path:
 DATA_DIR = data_root()
 SUBMISSIONS_DIR = DATA_DIR / "submissions"
 DRAFTS_DIR = DATA_DIR / "drafts"
+FLAGS_DIR = DATA_DIR / "flags"
 USERS_FILE = DATA_DIR / "users.json"
 
 # Ensure writable store at import time (per process)
 try:
     SUBMISSIONS_DIR.mkdir(parents=True, exist_ok=True)
     DRAFTS_DIR.mkdir(parents=True, exist_ok=True)
+    FLAGS_DIR.mkdir(parents=True, exist_ok=True)
     if not USERS_FILE.exists():
         DATA_DIR.mkdir(parents=True, exist_ok=True)
         USERS_FILE.write_text("{}", encoding="utf-8")
@@ -76,6 +78,7 @@ def ensure_data_store():
     try:
         SUBMISSIONS_DIR.mkdir(parents=True, exist_ok=True)
         DRAFTS_DIR.mkdir(parents=True, exist_ok=True)
+        FLAGS_DIR.mkdir(parents=True, exist_ok=True)
         if not USERS_FILE.exists():
             DATA_DIR.mkdir(parents=True, exist_ok=True)
             USERS_FILE.write_text("{}", encoding="utf-8")
@@ -225,6 +228,60 @@ def submit():
         logger.exception("Submission failed")
         return jsonify({"ok": False, "message": f"Server error while submitting: {type(exc).__name__}: {exc}"}), 500
 
+@app.post("/flag_issue")
+def flag_issue():
+    """Accept a flagged-issue report and store it as its own JSON file, separate from form submissions."""
+    try:
+        data = request.get_json(silent=True) or request.form.to_dict()
+
+        patient_name = str((data or {}).get("patient_name") or "").strip()
+        issue_text = str((data or {}).get("issue_text") or "").strip()
+
+        errors = {}
+        if not patient_name:
+            errors["patient_name"] = "Patient name is required"
+        if not issue_text:
+            errors["issue_text"] = "Issue description is required"
+        if errors:
+            return jsonify({"ok": False, "errors": errors}), 400
+
+        flags_dir = data_root() / "flags"
+        flags_dir.mkdir(parents=True, exist_ok=True)
+
+        if ZoneInfo:
+            try:
+                eastern = ZoneInfo("America/New_York")
+            except Exception:
+                eastern = timezone.utc
+        else:
+            eastern = timezone(timedelta(hours=-5))
+        submitted_dt = datetime.now(eastern)
+        submitted_at = submitted_dt.isoformat()
+
+        # started_at arrives from the browser as a UTC ISO string (new Date().toISOString());
+        # convert it to Eastern so it's directly comparable to submitted_at.
+        started_raw = (data or {}).get("started_at")
+        started_dt = _parse_dt(started_raw)
+        started_at = started_dt.astimezone(eastern).isoformat() if started_dt else submitted_at
+
+        record = {
+            "started_at": started_at,
+            "submitted_at": submitted_at,
+            "patient_name": patient_name,
+            "issue_text": issue_text,
+            "username": session.get("username", "anonymous"),
+        }
+
+        filename = f"{uuid.uuid4().hex}.json"
+        filepath = flags_dir / filename
+        with filepath.open("w", encoding="utf-8") as f:
+            json.dump(record, f, ensure_ascii=False, indent=2)
+
+        return jsonify({"ok": True, "file": filename})
+    except Exception as exc:
+        logger.exception("Flag issue submission failed")
+        return jsonify({"ok": False, "message": f"Server error while flagging issue: {type(exc).__name__}: {exc}"}), 500
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
@@ -281,6 +338,36 @@ def get_submissions_data():
     # Sort by submission date (newest first) with safe fallback
     submissions.sort(key=lambda x: x.get("submitted_at") or "", reverse=True)
     return submissions
+
+def get_flags_data():
+    """Load all flagged-issue files and return as a list with metadata."""
+    flags_dir = data_root() / "flags"
+    flags = []
+
+    if not flags_dir.exists():
+        return flags
+
+    for file_path in flags_dir.glob("*.json"):
+        try:
+            with file_path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+
+            flags.append({
+                "filename": file_path.name,
+                "started_at": data.get("started_at", ""),
+                "submitted_at": data.get("submitted_at", ""),
+                "patient_name": data.get("patient_name", ""),
+                "issue_text": data.get("issue_text", ""),
+                "username": data.get("username", ""),
+                "file_path": str(file_path),
+            })
+        except (json.JSONDecodeError, KeyError):
+            # Skip corrupted files
+            continue
+
+    # Sort by submission date (newest first) with safe fallback
+    flags.sort(key=lambda x: x.get("submitted_at") or "", reverse=True)
+    return flags
 
 @app.get("/admin")
 def admin_login():
@@ -358,9 +445,12 @@ def admin_dashboard():
     all_submissions = get_submissions_data()
     test_types = sorted(set(s["test_type"] for s in all_submissions if s["test_type"]))
 
+    flags = get_flags_data()
+
     return render_template("admin.html",
                          submissions=submissions,
                          test_types=test_types,
+                         flags=flags,
                          current_filters={
                              "search": search,
                              "date_from": date_from,
@@ -530,6 +620,65 @@ def admin_delete_submission(filename):
     
     try:
         # Delete the file
+        file_path.unlink()
+        return jsonify({"success": True, "message": f"Successfully deleted {filename}"})
+    except OSError as e:
+        return jsonify({"success": False, "error": f"Failed to delete file: {str(e)}"}), 500
+
+
+@app.get("/admin/flags/export")
+def admin_export_flags_excel():
+    """Export all flagged issues as an Excel (.xlsx) file."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+
+    from openpyxl import Workbook
+
+    flags = get_flags_data()
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Flagged Issues"
+    ws.append(["Started At", "Submitted At", "Patient Name", "Issue"])
+    for flag in flags:
+        ws.append([
+            flag.get("started_at", ""),
+            flag.get("submitted_at", ""),
+            flag.get("patient_name", ""),
+            flag.get("issue_text", ""),
+        ])
+
+    buffer = io.BytesIO()
+    wb.save(buffer)
+    buffer.seek(0)
+
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    return send_file(
+        buffer,
+        as_attachment=True,
+        download_name=f"flagged_issues_{timestamp}.xlsx",
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    )
+
+
+@app.post("/admin/flags/delete/<filename>")
+def admin_delete_flag(filename):
+    """Delete a single flagged-issue file."""
+    if not session.get("admin_authenticated"):
+        return redirect(url_for("admin_login"))
+
+    data_dir = data_root() / "flags"
+    file_path = data_dir / filename
+
+    if not file_path.exists() or not file_path.suffix == ".json":
+        return jsonify({"success": False, "error": "File not found"}), 404
+
+    try:
+        file_path.resolve().relative_to(data_dir.resolve())
+    except ValueError:
+        return jsonify({"success": False, "error": "Invalid file path"}), 400
+
+    try:
         file_path.unlink()
         return jsonify({"success": True, "message": f"Successfully deleted {filename}"})
     except OSError as e:
