@@ -432,31 +432,6 @@
       </form>
     </div>
 
-    <button type="button" id="flagIssueBtn"
-            style="position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 900; background:#b00020; color:#fff; border:none; padding:0.6rem 1.1rem; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.25); cursor:pointer;">
-      🚩 Flag Issues
-    </button>
-
-    <!-- Flag Issues Modal (intentionally outside #pa-form so it never contributes to form payloads) -->
-    <div id="flag-issue-modal" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 1000;">
-      <div style="background:white; margin: 4rem auto; padding: 2rem; border-radius: 8px; max-width: 500px;">
-        <h3>Flag Issues</h3>
-        <div id="flag-issue-errors" class="error" style="display:none; margin-bottom:0.75rem;"></div>
-        <div style="margin-bottom:1rem;">
-          <label for="flag_patient_name">Patient Name</label>
-          <input id="flag_patient_name" type="text" style="width:100%;" placeholder="Enter patient name" />
-        </div>
-        <div style="margin-bottom:1rem;">
-          <label for="flag_issue_text">Describe the issue(s)</label>
-          <textarea id="flag_issue_text" rows="5" style="width:100%;" placeholder="Describe what you found..."></textarea>
-        </div>
-        <div style="display:flex; justify-content:flex-end; gap:0.5rem;">
-          <button type="button" class="secondary" id="flag-issue-cancel-btn">Cancel</button>
-          <button type="button" id="flag-issue-submit-btn">Submit</button>
-        </div>
-      </div>
-    </div>
-
     <script src="{{ url_for('static', filename='app.js') }}"></script>
   </body>
 </html>

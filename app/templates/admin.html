@@ -347,64 +347,6 @@
         </div>
         {% endif %}
 
-        <section style="margin-top: 3rem;">
-            <h2 style="border-top: 2px solid #eee; padding-top: 2rem;">Flagged Issues</h2>
-            <div class="stats-bar">
-                <div>
-                    🚩 <strong>{{ flags|length }}</strong> flagged issue(s)
-                </div>
-                <div>
-                    {% if flags %}
-                    <a href="{{ url_for('admin_export_flags_excel') }}" class="btn btn-success btn-sm">
-                        📊 Download as Excel
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
-
-            {% if flags %}
-            <div class="table-responsive">
-                <table class="submissions-table">
-                    <thead>
-                        <tr>
-                            <th>Started</th>
-                            <th>Submitted</th>
-                            <th>Patient Name</th>
-                            <th>Flagged By</th>
-                            <th>Issue</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for flag in flags %}
-                        <tr>
-                            <td class="date-cell">
-                                {{ flag.started_at.replace('T', ' ').split('.')[0] if flag.started_at else 'N/A' }}
-                            </td>
-                            <td class="date-cell">
-                                {{ flag.submitted_at.replace('T', ' ').split('.')[0] if flag.submitted_at else 'N/A' }}
-                            </td>
-                            <td>{{ flag.patient_name or 'N/A' }}</td>
-                            <td>{{ flag.username or 'N/A' }}</td>
-                            <td style="white-space: pre-wrap; max-width: 400px;">{{ flag.issue_text }}</td>
-                            <td class="actions-cell">
-                                <button onclick="deleteFlag('{{ flag.filename }}', '{{ flag.patient_name }}')"
-                                        class="btn btn-danger btn-sm">
-                                    🗑️ Delete
-                                </button>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            {% else %}
-            <div class="no-submissions">
-                <p>No flagged issues.</p>
-            </div>
-            {% endif %}
-        </section>
-
     </div>
     
     <script>
@@ -532,52 +474,6 @@
                     deleteAllBtn.disabled = false;
                     deleteAllBtn.innerHTML = '🗑️ Delete All';
                 }
-            });
-        }
-
-        // Delete a flagged-issue file
-        function deleteFlag(filename, patientName) {
-            const confirmMessage = `Are you sure you want to delete the flagged issue for "${patientName}"?\n\nThis action cannot be undone.`;
-
-            if (!confirm(confirmMessage)) {
-                return;
-            }
-
-            const deleteButtons = document.querySelectorAll(`button[onclick*="${filename}"]`);
-            deleteButtons.forEach(btn => {
-                btn.disabled = true;
-                btn.innerHTML = '⏳ Deleting...';
-            });
-
-            fetch(`{{ url_for('admin_delete_flag', filename='') }}${filename}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    const row = document.querySelector(`button[onclick*="${filename}"]`).closest('tr');
-                    if (row) {
-                        row.remove();
-                    }
-                    window.location.reload();
-                } else {
-                    alert(`Failed to delete flagged issue: ${data.error}`);
-                    deleteButtons.forEach(btn => {
-                        btn.disabled = false;
-                        btn.innerHTML = '🗑️ Delete';
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while deleting the flagged issue. Please try again.');
-                deleteButtons.forEach(btn => {
-                    btn.disabled = false;
-                    btn.innerHTML = '🗑️ Delete';
-                });
             });
         }
 
