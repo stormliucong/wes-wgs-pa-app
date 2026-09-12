@@ -1,0 +1,73 @@
+{
+  "started_at": "2026-09-12T00:26:53.033000-04:00",
+  "submitted_at": "2026-09-12T00:30:45.095372-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Barbara",
+    "patient_last_name": "Rogers",
+    "patient_dob": "2019-02-20",
+    "sex": "Female",
+    "member_id": "408991790",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jennifer Rogers",
+    "subscriber_dob": "1995-02-04",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "5014216033",
+    "provider_phone": "(475) 997-4831",
+    "provider_fax": "(860) 861-2735",
+    "provider_email": "",
+    "provider_address": "6087 West St, Waterbury, CT 06842",
+    "lab_name": "Invitae",
+    "lab_npi": "2443800292",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-21",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q22.5",
+      "Q87.89",
+      "F80.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "1cc6991b-9f98-4dcb-aff4-195d456d82a8"
+  },
+  "task_id": "c9a9fd0d-d1ab-42e2-81e6-559b612a5d35",
+  "patient_id": "PAT-7744",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,73 @@
+{
+  "started_at": "2026-09-03T11:20:54.635000-04:00",
+  "submitted_at": "2026-09-03T11:25:25.014671-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Veronica",
+    "patient_last_name": "Vaughn",
+    "patient_dob": "2012-05-04",
+    "sex": "Female",
+    "member_id": "773750538",
+    "patient_address": "217 Broad St, Milford, CT 06849",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "7483383575",
+    "provider_phone": "860-832-3843",
+    "provider_fax": "860-923-5052",
+    "provider_email": "",
+    "provider_address": "738 School St, Hamden, CT 06512",
+    "lab_name": "GeneDx",
+    "lab_npi": "2022705570",
+    "lab_address": "1077 Meadow Ln, Hartford, CT 06564",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-11-03",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561e",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": true,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q17.2",
+      "F79",
+      "Q61.3"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-12"
+    ],
+    "form_id": "0fadc5be-539c-4c0b-88ab-74888c7fc33f"
+  },
+  "task_id": "584b810a-6469-497c-b4fe-c369d4aba315",
+  "patient_id": "PAT-9321",
+  "sample_type": "2b",
+  "llm": "gemini-3-flash-preview"
+}

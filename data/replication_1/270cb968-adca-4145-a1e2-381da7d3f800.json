@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T10:40:52.817000-04:00",
+  "submitted_at": "2026-09-03T10:42:23.013772-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Leona",
+    "patient_last_name": "Huxley",
+    "patient_dob": "2000-01-01",
+    "sex": "Female",
+    "member_id": "123456789",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "John Doe",
+    "provider_npi": "1234567890",
+    "provider_phone": "5555551234",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Main St",
+    "lab_name": "Lab Name Dummy",
+    "lab_npi": "0987654321",
+    "lab_address": "456 Lab Rd",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2023-01-15",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": true,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Agent Signature",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "F84.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "270cb968-adca-4145-a1e2-381da7d3f800"
+  },
+  "task_id": "153db4f2-502a-4d17-81bc-8fcce28ba4e4",
+  "patient_id": "PAT-4770",
+  "sample_type": "2b",
+  "llm": "gemini-flash-latest"
+}

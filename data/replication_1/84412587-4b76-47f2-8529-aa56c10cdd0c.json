@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T11:46:28.365000-04:00",
+  "submitted_at": "2026-09-03T11:53:51.683066-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Callum",
+    "patient_last_name": "Westley",
+    "patient_dob": "2018-05-03",
+    "sex": "Male",
+    "member_id": "735185564",
+    "patient_address": "2130 Pine St, East Hartford, CT 06131",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Betty Young",
+    "provider_npi": "7503812132",
+    "provider_phone": "(475) 721-7105",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "1223 Pine St, New Britain, CT 06255",
+    "lab_name": "LabCorp",
+    "lab_npi": "2778735637",
+    "lab_address": "9627 Union St, Shelton, CT 06221",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-12",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Betty Young",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "84412587-4b76-47f2-8529-aa56c10cdd0c"
+  },
+  "task_id": "d88d7d42-d4e9-40ef-b4ab-a1d2ced864bf",
+  "patient_id": "PAT-1773",
+  "sample_type": "2a",
+  "llm": "gemini-3-flash-preview"
+}

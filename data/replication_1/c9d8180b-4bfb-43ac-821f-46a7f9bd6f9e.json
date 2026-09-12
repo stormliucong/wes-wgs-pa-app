@@ -1,0 +1,73 @@
+{
+  "started_at": "2026-09-03T16:14:38.008000-04:00",
+  "submitted_at": "2026-09-03T16:19:05.685318-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Deborah",
+    "patient_last_name": "Evans",
+    "patient_dob": "2018-04-12",
+    "sex": "Female",
+    "member_id": "447166865",
+    "patient_address": "4534 School St, Hamden, CT 06511",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Zachary Evans",
+    "subscriber_dob": "1994-02-11",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "2187418922",
+    "provider_phone": "(203) 559-4535",
+    "provider_fax": "(203) 389-1426",
+    "provider_email": "",
+    "provider_address": "3240 Oak Ave, Milford, CT 06973",
+    "lab_name": "LabCorp",
+    "lab_npi": "3487273633",
+    "lab_address": "8260 Broad St, Manchester, CT 06353",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-25",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q16.0",
+      "Q22.0",
+      "Q39.0"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "negative"
+    ],
+    "prior_test_date": [
+      "2025-10-01"
+    ],
+    "form_id": "c9d8180b-4bfb-43ac-821f-46a7f9bd6f9e"
+  },
+  "task_id": "e73c778b-b193-4a17-ad60-0e383798d8d4",
+  "patient_id": "PAT-3499",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T10:40:20.422000-04:00",
+  "submitted_at": "2026-09-03T10:41:54.296490-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Pierce",
+    "patient_last_name": "Kingsley",
+    "patient_dob": "1990-01-01",
+    "sex": "Male",
+    "member_id": "123456789",
+    "patient_address": "123 Main Street",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Dr. John Doe",
+    "provider_npi": "1234567890",
+    "provider_phone": "5555555555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "456 Oak Avenue",
+    "lab_name": "",
+    "lab_npi": "0987654321",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2023-01-15",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": true,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Dr. John Doe",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "F84.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d3a8ba0f-2328-475a-8ce0-416e5daae3b6"
+  },
+  "task_id": "f323dff0-e0ca-4cf7-9fe7-dd19cc783c95",
+  "patient_id": "PAT-6569",
+  "sample_type": "2a",
+  "llm": "gemini-flash-latest"
+}

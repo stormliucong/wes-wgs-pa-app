@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-11T23:03:38.014000-04:00",
+  "submitted_at": "2026-09-11T23:07:40.256006-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Roman",
+    "patient_last_name": "Easton",
+    "patient_dob": "2018-08-15",
+    "sex": "Male",
+    "member_id": "200003421",
+    "patient_address": "900 Easton View Drive, Lansing, MI 48908",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Shelly Easton",
+    "subscriber_dob": "1982-05-23",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "5770032902",
+    "provider_phone": "(555) 555-1234",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "455 Torres Lane, Ste 80, Lansing, MI 48909",
+    "lab_name": "Invitae",
+    "lab_npi": "7572894897",
+    "lab_address": "1400 16th Street, San Francisco, CA 94103",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-09-01",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q04.0",
+      "F79"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "8e5ae117-df72-4142-929f-9454380ca511"
+  },
+  "task_id": "ce64f96d-21e4-4974-80ee-b8cf09382538",
+  "patient_id": "PAT-9796",
+  "sample_type": "2c",
+  "llm": "claude-opus-4-5-20251101"
+}

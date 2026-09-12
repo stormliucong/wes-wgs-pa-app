@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-03T11:46:55.664000-04:00",
+  "submitted_at": "2026-09-03T11:50:44.659015-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Leo",
+    "patient_last_name": "Vaughn",
+    "patient_dob": "2021-03-26",
+    "sex": "Male",
+    "member_id": "357990955",
+    "patient_address": "7711 Hill St, Stamford, CT 06286",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kaia Vaughn",
+    "subscriber_dob": "1987-04-08",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "8722186493",
+    "provider_phone": "(860) 671-8817",
+    "provider_fax": "(475) 783-2799",
+    "provider_email": "",
+    "provider_address": "5115 Spring St, East Hartford, CT 06790",
+    "lab_name": "LabCorp",
+    "lab_npi": "8340196672",
+    "lab_address": "4185 Washington Ave, Newington, CT 06095",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-11",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008X",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q04.2",
+      "F71"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-17"
+    ],
+    "form_id": "82101801-0aab-459a-b8f5-fe209cbc4d82"
+  },
+  "task_id": "3f34637b-bc7e-454d-8a7d-948729c28457",
+  "patient_id": "PAT-4446",
+  "sample_type": "1",
+  "llm": "gemini-3-flash-preview"
+}

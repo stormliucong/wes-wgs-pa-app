@@ -43,6 +43,8 @@ Flask-based web form + data generation + browser automation + evaluation pipelin
   - `gemini_flash_ablation_70/` — Submission JSONs from ablation 1 at max_steps=70 *untracked*
   - `ablation_1_85/` — Submission JSONs from ablation 1 at max_steps=85 *untrakced*
   - `gemini_flash_ablation_100/` — Submission JSONs from ablation 1 at max_steps=100 *untracked*
+  - `replication_1/` — Human-baseline replication submissions, batch 1 *(committed)*
+  - `replication_2/` — Human-baseline replication submissions, batch 2 *(committed)*
 
   - **`results/`** *(partially committed — see Data Policy)*
     - `exp_results.xlsx` — Main experiment evaluation output (multiple sheets, open in Excel for details)
@@ -59,7 +61,7 @@ Flask-based web form + data generation + browser automation + evaluation pipelin
 - `requirements.txt` — Python dependencies
 
 ## Data Policy
-- `data/patient_data/` is committed; everything else under `data/` is gitignored by default.
+- `data/patient_data/`, `data/replication_1/`, and `data/replication_2/` are committed; everything else under `data/` is gitignored by default.
 - Exceptions (force-added): `data/results/exp_results.xlsx`, `data/results/submitted_summaries.json`, `data/results/non_submitted_summaries.json`, and all files under `data/results/ablation_study/`.
 
 ## Setup

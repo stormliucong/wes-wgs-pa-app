@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T23:04:20.851000-04:00",
+  "submitted_at": "2026-09-11T23:08:30.978642-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Talia",
+    "patient_last_name": "Conrad",
+    "patient_dob": "2019-08-12",
+    "sex": "Female",
+    "member_id": "456567251",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Pierce Conrad",
+    "subscriber_dob": "1985-01-01",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "1797480357",
+    "provider_phone": "5555551234",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Dr, Suite 100, Boston, MA 02115",
+    "lab_name": "Invitae",
+    "lab_npi": "7392904652",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q89.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "7d84f3d9-d14c-4072-82a3-633083e34e92"
+  },
+  "task_id": "4016c004-9838-4fc1-85f4-2896251192e0",
+  "patient_id": "PAT-1547",
+  "sample_type": "3a",
+  "llm": "claude-opus-4-5-20251101"
+}

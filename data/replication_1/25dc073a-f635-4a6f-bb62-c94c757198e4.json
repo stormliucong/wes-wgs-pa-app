@@ -1,0 +1,73 @@
+{
+  "started_at": "2026-09-03T19:30:14.570000-04:00",
+  "submitted_at": "2026-09-03T19:35:02.244277-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Asher",
+    "patient_last_name": "Caldwell",
+    "patient_dob": "2012-02-10",
+    "sex": "Male",
+    "member_id": "777730415",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Oliver Caldwell",
+    "subscriber_dob": "1987-08-14",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "1234567894",
+    "provider_phone": "(555) 234-5678",
+    "provider_fax": "(555) 234-5679",
+    "provider_email": "nancy.moore@clinic.org",
+    "provider_address": "789 Genomic Way, Chicago, IL 60601",
+    "lab_name": "GeneDx",
+    "lab_npi": "1234567893",
+    "lab_address": "207 Perry Pkwy, Gaithersburg, MD 20877",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-05",
+    "cpt_codes": [
+      "81415, 81416×2"
+    ],
+    "internal_test_code": "896a",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "R62.50",
+      "R62.59",
+      "F88"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "25dc073a-f635-4a6f-bb62-c94c757198e4"
+  },
+  "task_id": "ad433787-511d-4b26-9448-6c406826f46a",
+  "patient_id": "PAT-4125",
+  "sample_type": "1",
+  "llm": "claude-opus-4-5-20251101"
+}

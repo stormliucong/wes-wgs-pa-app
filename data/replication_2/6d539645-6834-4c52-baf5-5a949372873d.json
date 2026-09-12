@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T22:38:56.126000-04:00",
+  "submitted_at": "2026-09-11T22:45:26.991431-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Skye",
+    "patient_last_name": "Ulrich",
+    "patient_dob": "2017-05-11",
+    "sex": "Male",
+    "member_id": "413861344",
+    "patient_address": "6517 River Rd Windsor CT 06660",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Theo Ulrich",
+    "subscriber_dob": "1983-07-30",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "8573120813",
+    "provider_phone": "(959) 732-6549",
+    "provider_fax": "(860) 735-2679",
+    "provider_email": "",
+    "provider_address": "4181 North St, Middletown, CT 06640",
+    "lab_name": "Ambry",
+    "lab_npi": "5938194590",
+    "lab_address": "4484 Washington Ave, Middletown, CT 06582",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q04.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-09"
+    ],
+    "form_id": "6d539645-6834-4c52-baf5-5a949372873d"
+  },
+  "task_id": "181b608e-3719-4cd0-b107-329cbb865354",
+  "patient_id": "PAT-5084",
+  "sample_type": "4",
+  "llm": "claude-opus-4-5-20251101"
+}

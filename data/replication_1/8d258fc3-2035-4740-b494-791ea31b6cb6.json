@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T11:46:20.475000-04:00",
+  "submitted_at": "2026-09-03T11:52:59.782549-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Ivy",
+    "patient_last_name": "Farnham",
+    "patient_dob": "2012-02-15",
+    "sex": "Female",
+    "member_id": "302788825",
+    "patient_address": "7202 State St, Windsor, CT 06097",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Vivienne Farnham",
+    "subscriber_dob": "1978-01-27",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "4025851546",
+    "provider_phone": "860-306-5415",
+    "provider_fax": "860-268-9705",
+    "provider_email": "",
+    "provider_address": "7075 Union St, Trumbull, CT 06841",
+    "lab_name": "Invitae",
+    "lab_npi": "6080446342",
+    "lab_address": "6497 South St, Greenwich, CT 06320",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-09-03",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q04.2"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-01"
+    ],
+    "form_id": "8d258fc3-2035-4740-b494-791ea31b6cb6"
+  },
+  "task_id": "5b0a4559-d7a0-4d2d-bf7b-02e981a7dd5e",
+  "patient_id": "PAT-9961",
+  "sample_type": "2c",
+  "llm": "gemini-3-flash-preview"
+}

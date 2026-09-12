@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-03T13:35:48.287000-04:00",
+  "submitted_at": "2026-09-03T13:43:37.922460-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Julie",
+    "patient_last_name": "Martinez",
+    "patient_dob": "2016-08-04",
+    "sex": "Female",
+    "member_id": "581563888",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "2119549567",
+    "provider_phone": "959-581-7672",
+    "provider_fax": "860-355-9727",
+    "provider_email": "",
+    "provider_address": "7738 Pine St, West Hartford, CT 06329",
+    "lab_name": "GeneDx",
+    "lab_npi": "4948420522",
+    "lab_address": "4419 Union St, Meriden, CT 06166",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-20",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "896a",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": false,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q89.9"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-08-18"
+    ],
+    "form_id": "e474935d-3cb3-4520-8f30-f936387a25fa"
+  },
+  "patient_id": "PAT-5187",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

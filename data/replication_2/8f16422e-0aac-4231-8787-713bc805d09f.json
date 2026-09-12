@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-12T00:29:28.401000-04:00",
+  "submitted_at": "2026-09-12T00:32:53.502860-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Jason",
+    "patient_last_name": "Lopez",
+    "patient_dob": "2018-09-19",
+    "sex": "Male",
+    "member_id": "769088212",
+    "patient_address": "4765 Forest Ave, Shelton, CT 06192",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Sandra Lopez",
+    "subscriber_dob": "1993-04-15",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Sandra King",
+    "provider_npi": "8866293719",
+    "provider_phone": "4756199365",
+    "provider_fax": "2036634870",
+    "provider_email": "",
+    "provider_address": "310 Park Rd, Norwich, CT 06148",
+    "lab_name": "Invitae",
+    "lab_npi": "4838125414",
+    "lab_address": "1403 Highland Ave, Bridgeport, CT 06849",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-30",
+    "cpt_codes": [
+      "81415, 81416, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sandra King",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "F71"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "negative"
+    ],
+    "prior_test_date": [
+      "2025-09-12"
+    ],
+    "form_id": "8f16422e-0aac-4231-8787-713bc805d09f"
+  },
+  "task_id": "cde059ee-fa35-478c-856a-6ac2abdc98ea",
+  "patient_id": "PAT-6255",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

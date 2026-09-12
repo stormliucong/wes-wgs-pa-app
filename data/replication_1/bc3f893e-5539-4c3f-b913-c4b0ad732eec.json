@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T12:08:18.768000-04:00",
+  "submitted_at": "2026-09-03T12:15:46.084471-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Callum",
+    "patient_last_name": "Easton",
+    "patient_dob": "2020-02-28",
+    "sex": "Male",
+    "member_id": "965922300",
+    "patient_address": "6183 School St, Trumbull, CT 06136",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "9097042853",
+    "provider_phone": "(959) 882-2393",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "8889 West St, Stratford, CT 06471",
+    "lab_name": "GeneDx",
+    "lab_npi": "9450908584",
+    "lab_address": "8271 Broad St, Danbury, CT 06007",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-09-03",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "R62.50"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "bc3f893e-5539-4c3f-b913-c4b0ad732eec"
+  },
+  "task_id": "123f7b47-5a47-44d6-ac4c-509c87e955ab",
+  "patient_id": "PAT-6211",
+  "sample_type": "1",
+  "llm": "gemini-3-flash-preview"
+}

@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T23:08:50.239000-04:00",
+  "submitted_at": "2026-09-11T23:13:49.701638-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Declan",
+    "patient_last_name": "Emerson",
+    "patient_dob": "2013-09-20",
+    "sex": "Male",
+    "member_id": "769645176",
+    "patient_address": "2579 Broad St, Middletown, CT 06935",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Delilah Emerson",
+    "subscriber_dob": "1979-03-23",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "4440061066",
+    "provider_phone": "(860) 281-7148",
+    "provider_fax": "(475) 771-4656",
+    "provider_email": "",
+    "provider_address": "176 Church St, East Hartford, CT 06660",
+    "lab_name": "Invitae",
+    "lab_npi": "6581639979",
+    "lab_address": "5851 Main St, Milford, CT 06908",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-21",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": true,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "F84.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "d74b4ad2-e942-4032-8247-2240704972e2"
+  },
+  "task_id": "194813fb-cfb7-4cf7-b302-943cf1bdff45",
+  "patient_id": "PAT-4340",
+  "sample_type": "1",
+  "llm": "claude-opus-4-5-20251101"
+}

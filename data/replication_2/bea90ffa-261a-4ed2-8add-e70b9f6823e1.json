@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-12T00:22:51.199000-04:00",
+  "submitted_at": "2026-09-12T00:27:38.641263-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Pierce",
+    "patient_last_name": "Kingsley",
+    "patient_dob": "2016-06-10",
+    "sex": "Male",
+    "member_id": "265133598",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Tristan Kingsley",
+    "subscriber_dob": "2005-03-02",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Michael Smith",
+    "provider_npi": "9021719434",
+    "provider_phone": "959-595-7665",
+    "provider_fax": "203-803-8558",
+    "provider_email": "",
+    "provider_address": "Unknown Address",
+    "lab_name": "LabCorp",
+    "lab_npi": "9788191165",
+    "lab_address": "Unknown Address",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-01",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "620024",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": false,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Michael Smith",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "F79"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-17"
+    ],
+    "form_id": "bea90ffa-261a-4ed2-8add-e70b9f6823e1"
+  },
+  "patient_name": "Pierce Kingsley",
+  "patient_id": "PAT-6569",
+  "llm": "gemini-3-pro-preview"
+}

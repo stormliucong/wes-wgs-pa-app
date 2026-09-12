@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-03T11:46:28.855000-04:00",
+  "submitted_at": "2026-09-03T11:50:37.638603-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Jasper",
+    "patient_last_name": "Somerset",
+    "patient_dob": "2013-04-07",
+    "sex": "Male",
+    "member_id": "926613446",
+    "patient_address": "2972 Oak Ave, Stratford, CT 06253",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Veronica Somerset",
+    "subscriber_dob": "1979-09-25",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "9315266543",
+    "provider_phone": "(203) 444-5837",
+    "provider_fax": "(203) 528-1260",
+    "provider_email": "",
+    "provider_address": "1450 Washington Ave, Windsor, CT 06924",
+    "lab_name": "GeneDx",
+    "lab_npi": "6878614537",
+    "lab_address": "7324 Maple St, Norwalk, CT 06884",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-01",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "Patient has congenital hypotonia, delayed gross motor skills, and congenital lactase deficiency. Parents are first cousins; family history of early-life low muscle tone in sibling and lactose intolerance in paternal uncle.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "P94.2",
+      "E73.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "75188ebb-3327-405c-814d-cc630a4f3b02"
+  },
+  "task_id": "c2ea3943-8df6-4989-bafb-2ac322f55023",
+  "patient_id": "PAT-7996",
+  "sample_type": "1",
+  "llm": "gemini-3-flash-preview"
+}

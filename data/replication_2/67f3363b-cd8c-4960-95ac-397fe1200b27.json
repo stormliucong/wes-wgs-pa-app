@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-12T00:26:59.854000-04:00",
+  "submitted_at": "2026-09-12T00:30:04.828557-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Brian",
+    "patient_last_name": "Hall",
+    "patient_dob": "2013-07-19",
+    "sex": "Male",
+    "member_id": "603007585",
+    "patient_address": "4419 West St, Newington, CT 06455",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Julie Hall",
+    "subscriber_dob": "1988-07-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Patricia Anderson",
+    "provider_npi": "6607527471",
+    "provider_phone": "8608245908",
+    "provider_fax": "8608783707",
+    "provider_email": "",
+    "provider_address": "7691 Sunset Ave, Windsor, CT 06247",
+    "lab_name": "Ambry",
+    "lab_npi": "6194274032",
+    "lab_address": "698 Pleasant St, New Britain, CT 06744",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-16",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": false,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Patricia Anderson",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q04.3"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "negative"
+    ],
+    "prior_test_date": [
+      "2025-09-16"
+    ],
+    "form_id": "67f3363b-cd8c-4960-95ac-397fe1200b27"
+  },
+  "patient_name": "Brian Hall",
+  "patient_id": "PAT-9280",
+  "llm": "gemini-3-pro-preview"
+}

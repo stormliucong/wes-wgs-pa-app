@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T23:03:47.071000-04:00",
+  "submitted_at": "2026-09-11T23:09:07.563519-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Sarah",
+    "patient_last_name": "Ross",
+    "patient_dob": "2020-08-14",
+    "sex": "Female",
+    "member_id": "192805061",
+    "patient_address": "4468 Union St Hartford CT",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Stephanie Ross",
+    "subscriber_dob": "1995-04-28",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "1795342736",
+    "provider_phone": "(203) 567-1897",
+    "provider_fax": "(959) 438-4493",
+    "provider_email": "",
+    "provider_address": "7844 South St Glastonbury CT 06997",
+    "lab_name": "Ambry",
+    "lab_npi": "8867546936",
+    "lab_address": "6811 Water St Waterbury CT 06633",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-27",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": true,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "E70.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "42fdb3fd-e78f-4083-a683-4030a38d358f"
+  },
+  "task_id": "4c678093-7767-41de-867c-e244236fbf12",
+  "patient_id": "PAT-1269",
+  "sample_type": "1",
+  "llm": "claude-opus-4-5-20251101"
+}

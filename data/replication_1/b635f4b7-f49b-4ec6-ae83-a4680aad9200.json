@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T16:12:39.648000-04:00",
+  "submitted_at": "2026-09-03T16:16:43.577679-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Tristan",
+    "patient_last_name": "Bexley",
+    "patient_dob": "2020-10-26",
+    "sex": "Male",
+    "member_id": "319381947",
+    "patient_address": "4038 State St, Glastonbury, CT 06259",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elodie Bexley",
+    "subscriber_dob": "1986-11-03",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "5181439496",
+    "provider_phone": "(475) 995-8043",
+    "provider_fax": "(475) 247-6360",
+    "provider_email": "",
+    "provider_address": "610 Forest Ave, Trumbull, CT 06330",
+    "lab_name": "Invitae",
+    "lab_npi": "9658314537",
+    "lab_address": "9756 Highland Ave, Danbury, CT 06994",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-18",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q04.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "b635f4b7-f49b-4ec6-ae83-a4680aad9200"
+  },
+  "task_id": "3ecb2131-6e82-44d1-8340-8182793cf3c3",
+  "patient_id": "PAT-6433",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

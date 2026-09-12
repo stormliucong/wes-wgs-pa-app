@@ -1,0 +1,73 @@
+{
+  "started_at": "2026-09-12T00:27:08.860000-04:00",
+  "submitted_at": "2026-09-12T00:30:50.977075-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Colette",
+    "patient_last_name": "Huxley",
+    "patient_dob": "2019-05-22",
+    "sex": "Male",
+    "member_id": "775916795",
+    "patient_address": "8685 Center St, New London, CT 06018",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ophelia Huxley",
+    "subscriber_dob": "1985-03-07",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "2759078907",
+    "provider_phone": "9595216259",
+    "provider_fax": "9599064610",
+    "provider_email": "",
+    "provider_address": "4590 Highland Ave, Newington, CT 06122",
+    "lab_name": "Ambry",
+    "lab_npi": "5573539814",
+    "lab_address": "5449 North St, Bristol, CT 06243",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-10",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "G40",
+      "E72.20",
+      "E87.20"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "6f98a827-1894-467a-970a-33210b696c25"
+  },
+  "task_id": "3ea4bff3-b2c6-4cc7-9123-362d5d1c57c0",
+  "patient_id": "PAT-9452",
+  "sample_type": "4",
+  "llm": "gemini-3-pro-preview"
+}

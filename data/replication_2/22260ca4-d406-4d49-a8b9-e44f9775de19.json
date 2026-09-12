@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-12T00:22:48.690000-04:00",
+  "submitted_at": "2026-09-12T00:25:43.651312-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Gemma",
+    "patient_last_name": "Thatcher",
+    "patient_dob": "2022-01-08",
+    "sex": "Male",
+    "member_id": "715188477",
+    "patient_address": "4277 Pleasant St, Newington, CT 06833",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Layla Thatcher",
+    "subscriber_dob": "1987-12-06",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "2435565615",
+    "provider_phone": "(203) 834-6787",
+    "provider_fax": "(959) 642-4494",
+    "provider_email": "",
+    "provider_address": "6727 Maple St, Stamford, CT 06807",
+    "lab_name": "Invitae",
+    "lab_npi": "1183273850",
+    "lab_address": "6532 Main St, Middletown, CT 06212",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-12",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": true,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "P94.2",
+      "E73.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "22260ca4-d406-4d49-a8b9-e44f9775de19"
+  },
+  "patient_name": "Gemma Thatcher",
+  "patient_id": "PAT-9986",
+  "llm": "gemini-3-pro-preview"
+}

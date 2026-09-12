@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-03T13:35:48.250000-04:00",
+  "submitted_at": "2026-09-03T13:39:23.679040-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Miles",
+    "patient_last_name": "Ulrich",
+    "patient_dob": "2018-02-06",
+    "sex": "Male",
+    "member_id": "422456840",
+    "patient_address": "4272 River Rd, West Haven, CT 06334",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Atticus Ulrich",
+    "subscriber_dob": "1984-02-10",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "2247887464",
+    "provider_phone": "4757941377",
+    "provider_fax": "2033782499",
+    "provider_email": "",
+    "provider_address": "6984 Pleasant St, Meriden, CT 06123",
+    "lab_name": "GeneDx",
+    "lab_npi": "1497088097",
+    "lab_address": "6297 Second St, Waterbury, CT 06876",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-21",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": false,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q89.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "07eaae64-f917-4243-9aff-73b45676bb5c"
+  },
+  "patient_id": "PAT-5237",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

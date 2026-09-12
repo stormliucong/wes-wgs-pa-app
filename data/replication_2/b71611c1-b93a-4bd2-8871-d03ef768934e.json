@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T23:03:36.308000-04:00",
+  "submitted_at": "2026-09-11T23:10:39.514749-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Pierce",
+    "patient_last_name": "Fenwick",
+    "patient_dob": "2016-10-09",
+    "sex": "Male",
+    "member_id": "790252565",
+    "patient_address": "5329 North St Stratford CT 06800",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Dawson Fenwick",
+    "subscriber_dob": "2005-07-20",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "7337974243",
+    "provider_phone": "(860) 428-6125",
+    "provider_fax": "(959) 255-3017",
+    "provider_email": "",
+    "provider_address": "8507 Park Rd, Meriden, CT 06109",
+    "lab_name": "Invitae",
+    "lab_npi": "1977419993",
+    "lab_address": "1556 Second St, Milford, CT 06115",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-30",
+    "cpt_codes": [
+      "81415, 81416×2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-12"
+    ],
+    "form_id": "b71611c1-b93a-4bd2-8871-d03ef768934e"
+  },
+  "task_id": "553303fc-7c75-4882-9d13-647aa3a480b8",
+  "patient_id": "PAT-2525",
+  "sample_type": "2a",
+  "llm": "claude-opus-4-5-20251101"
+}

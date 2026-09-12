@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T11:20:54.553000-04:00",
+  "submitted_at": "2026-09-03T11:28:01.339942-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Freya",
+    "patient_last_name": "Hadley",
+    "patient_dob": "2022-08-06",
+    "sex": "Female",
+    "member_id": "199235966",
+    "patient_address": "3394 Union St, Norwich, CT 06765",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Joseph Harris",
+    "provider_npi": "9060471255",
+    "provider_phone": "8605550122",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Way, Norwich, CT 06360",
+    "lab_name": "Ambry",
+    "lab_npi": "3693556460",
+    "lab_address": "1 Enterprise Way, Aliso Viejo, CA 92656",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Acute scalp laceration with bleeding; Accidental exposure to penicillin requiring monitoring.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Joseph Harris",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "S01.01XA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "7bc99ccd-f940-4006-a09c-7e1d456913f6"
+  },
+  "task_id": "6c8978f8-c16b-453e-adcb-34592a196b2f",
+  "patient_id": "PAT-1699",
+  "sample_type": "3b",
+  "llm": "gemini-3-flash-preview"
+}

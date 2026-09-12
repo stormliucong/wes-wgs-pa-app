@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T23:03:38.983000-04:00",
+  "submitted_at": "2026-09-11T23:09:27.394737-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Weston",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2016-05-02",
+    "sex": "Male",
+    "member_id": "537017665",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hudson Whitaker",
+    "subscriber_dob": "1982-08-04",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "3882091018",
+    "provider_phone": "(860) 781-1293",
+    "provider_fax": "(475) 224-8024",
+    "provider_email": "",
+    "provider_address": "4905 Meadow Ln, Manchester, CT 06647",
+    "lab_name": "GeneDx",
+    "lab_npi": "7099523383",
+    "lab_address": "4491 West St, Hamden, CT 06379",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "T36.0X1A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5b9ba879-1cd9-47d7-b63c-6242ac1abe56"
+  },
+  "task_id": "4b69fd6e-60a8-416d-a7c7-fe8b3ec920ae",
+  "patient_id": "PAT-4609",
+  "sample_type": "3b",
+  "llm": "claude-opus-4-5-20251101"
+}

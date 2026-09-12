@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-12T00:29:41.890000-04:00",
+  "submitted_at": "2026-09-12T00:34:14.682622-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Declan",
+    "patient_last_name": "Emerson",
+    "patient_dob": "2013-09-20",
+    "sex": "Male",
+    "member_id": "769645176",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Delilah Emerson",
+    "subscriber_dob": "1979-03-23",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Thomas Taylor",
+    "provider_npi": "4440061066",
+    "provider_phone": "8602817148",
+    "provider_fax": "4757714656",
+    "provider_email": "",
+    "provider_address": "176 Church St, East Hartford, CT 06660",
+    "lab_name": "Invitae",
+    "lab_npi": "6581639979",
+    "lab_address": "5851 Main St, Milford, CT 06908",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-09-12",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Thomas Taylor",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q04.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-08"
+    ],
+    "form_id": "5f84912d-3fcd-4501-9f86-c2cc8e98edba"
+  },
+  "task_id": "a10fecfe-4cb6-4e43-9688-3ee89d4a3e6e",
+  "patient_id": "PAT-4340",
+  "sample_type": "1",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-11T23:41:23.666000-04:00",
+  "submitted_at": "2026-09-11T23:46:22.392493-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Maya",
+    "patient_last_name": "Nash",
+    "patient_dob": "2017-10-17",
+    "sex": "Female",
+    "member_id": "348470912",
+    "patient_address": "8222 Valley Rd, West Haven, CT 06191",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Ivy Nash",
+    "subscriber_dob": "1983-06-26",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Emily Davis",
+    "provider_npi": "3616555797",
+    "provider_phone": "(475) 539-8762",
+    "provider_fax": "(959) 697-1289",
+    "provider_email": "",
+    "provider_address": "863 River Rd, Glastonbury, CT 06781",
+    "lab_name": "GeneDx",
+    "lab_npi": "3671147548",
+    "lab_address": "5903 Church St, Bridgeport, CT 06472",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "8-year-old female with autosomal recessive polycystic kidney disease, congenital craniofacial malformation syndrome, plagiocephaly, motor development delay, clumsy, poor fine-motor control, enlarged echogenic kidneys with small cysts, episodic abdominal fullness, blood pressure elevations. Gene panel negative on 2026-01-10.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Emily Davis",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q61.11"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "negative"
+    ],
+    "prior_test_date": [
+      "2026-01-10"
+    ],
+    "form_id": "ced6b267-8d00-4936-b49e-06976ade54ea"
+  },
+  "patient_name": "Maya Nash",
+  "patient_id": "PAT-8732",
+  "llm": "gemini-3-flash-preview"
+}

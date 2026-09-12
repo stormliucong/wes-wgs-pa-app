@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-11T23:04:07.788000-04:00",
+  "submitted_at": "2026-09-11T23:09:50.025296-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Spencer",
+    "patient_last_name": "Ingram",
+    "patient_dob": "2011-02-11",
+    "sex": "Male",
+    "member_id": "892687863",
+    "patient_address": "1596 Oak Ave Middletown CT 06977",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jasper Ingram",
+    "subscriber_dob": "1976-12-20",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Lisa Garcia",
+    "provider_npi": "6553482502",
+    "provider_phone": "(203) 695-7637",
+    "provider_fax": "(860) 454-5830",
+    "provider_email": "",
+    "provider_address": "6701 Pleasant St New Britain CT 06501",
+    "lab_name": "Ambry",
+    "lab_npi": "6574626054",
+    "lab_address": "7230 Spring St Enfield CT 06268",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-22",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Lisa Garcia",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "E88.40",
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "94d534cd-c299-4451-8b26-fe118b6850c2"
+  },
+  "task_id": "2533b3f7-6a18-4b0d-9906-c730e861b388",
+  "patient_id": "PAT-9355",
+  "sample_type": "3a",
+  "llm": "claude-opus-4-5-20251101"
+}

@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T11:46:47.130000-04:00",
+  "submitted_at": "2026-09-03T11:53:15.042099-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Bridget",
+    "patient_last_name": "Dalton",
+    "patient_dob": "2013-09-12",
+    "sex": "Female",
+    "member_id": "671197360",
+    "patient_address": "703 East St, Norwich, CT 06206",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "8149497344",
+    "provider_phone": "(475) 391-2464",
+    "provider_fax": "(203) 702-5469",
+    "provider_email": "",
+    "provider_address": "6019 Franklin St, Hamden, CT 06010",
+    "lab_name": "Ambry",
+    "lab_npi": "3525472474",
+    "lab_address": "1809 Maple St, Trumbull, CT 06178",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-15",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q24.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "0c2ad94d-1365-43b1-8808-ee740400e59d"
+  },
+  "task_id": "a9e98d05-a31c-4126-bf1a-3eca57463b8a",
+  "patient_id": "PAT-5578",
+  "sample_type": "2a",
+  "llm": "gemini-3-flash-preview"
+}

@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-11T23:04:15.160000-04:00",
+  "submitted_at": "2026-09-11T23:08:47.064854-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Tristan",
+    "patient_last_name": "Bexley",
+    "patient_dob": "2020-10-26",
+    "sex": "Male",
+    "member_id": "319381947",
+    "patient_address": "4038 State St, Glastonbury, CT 06259",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elodie Bexley",
+    "subscriber_dob": "1986-11-03",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Helen Robinson",
+    "provider_npi": "5181439496",
+    "provider_phone": "(475) 995-8043",
+    "provider_fax": "(475) 247-6360",
+    "provider_email": "",
+    "provider_address": "610 Forest Ave, Trumbull, CT 06330",
+    "lab_name": "Invitae",
+    "lab_npi": "9658314537",
+    "lab_address": "9756 Highland Ave, Danbury, CT 06994",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-18",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Helen Robinson",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q04.2"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-17"
+    ],
+    "form_id": "d9a75a55-4422-4c2a-b953-606ea7a13188"
+  },
+  "patient_name": "Tristan Bexley",
+  "patient_id": "PAT-6433",
+  "llm": "claude-opus-4-5-20251101"
+}

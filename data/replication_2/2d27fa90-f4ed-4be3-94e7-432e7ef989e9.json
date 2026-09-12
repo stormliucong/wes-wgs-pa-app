@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-11T22:39:03.982000-04:00",
+  "submitted_at": "2026-09-11T22:45:16.981881-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Colton",
+    "patient_last_name": "Abbott",
+    "patient_dob": "2012-01-29",
+    "sex": "Male",
+    "member_id": "474503605",
+    "patient_address": "8713 Franklin St Meriden CT",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Gemma Abbott",
+    "subscriber_dob": "1977-05-05",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "5365782466",
+    "provider_phone": "4757652534",
+    "provider_fax": "8602026732",
+    "provider_email": "",
+    "provider_address": "9305 Forest Ave, Stratford, CT 06151",
+    "lab_name": "Invitae",
+    "lab_npi": "9431232312",
+    "lab_address": "5281 West St, Middletown, CT 06511",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-07",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": true,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "P94.2",
+      "E73.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "2d27fa90-f4ed-4be3-94e7-432e7ef989e9"
+  },
+  "task_id": "c0fea872-06d8-4cdd-a5e0-1b25714f4fdb",
+  "patient_id": "PAT-4489",
+  "sample_type": "1",
+  "llm": "claude-opus-4-5-20251101"
+}

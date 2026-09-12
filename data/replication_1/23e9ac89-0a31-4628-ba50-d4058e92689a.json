@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T16:13:50.611000-04:00",
+  "submitted_at": "2026-09-03T16:17:24.260231-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Leo",
+    "patient_last_name": "Nash",
+    "patient_dob": "2011-03-08",
+    "sex": "Male",
+    "member_id": "999355615",
+    "patient_address": "8124 North St, Glastonbury, CT 06175",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Griffin Nash",
+    "subscriber_dob": "1977-12-06",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "7333463365",
+    "provider_phone": "(203) 271-4420",
+    "provider_fax": "(475) 276-2258",
+    "provider_email": "",
+    "provider_address": "6216 Sunset Ave, Hamden, CT 06580",
+    "lab_name": "Invitae",
+    "lab_npi": "5271230334",
+    "lab_address": "5067 High St, New Britain, CT 06698",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2025-09-27",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q39.1"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2024-01-01"
+    ],
+    "form_id": "23e9ac89-0a31-4628-ba50-d4058e92689a"
+  },
+  "task_id": "05d5e6be-381f-48b0-9c0d-d53bc5da9115",
+  "patient_id": "PAT-3796",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

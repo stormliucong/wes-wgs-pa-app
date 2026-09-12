@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T11:20:53.919000-04:00",
+  "submitted_at": "2026-09-03T11:26:37.354043-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Sabrina",
+    "patient_last_name": "Voss",
+    "patient_dob": "2011-10-29",
+    "sex": "Female",
+    "member_id": "700826655",
+    "patient_address": "5953 Oak Ave",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Roman Voss",
+    "subscriber_dob": "1978-01-17",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Maria Martinez",
+    "provider_npi": "7067147378",
+    "provider_phone": "8607369177",
+    "provider_fax": "9595889143",
+    "provider_email": "",
+    "provider_address": "789 Pine St, Hartford, CT",
+    "lab_name": "Invitae",
+    "lab_npi": "7625458478",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-02",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Maria Martinez",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "F71"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-26"
+    ],
+    "form_id": "775716ec-4476-41f8-9389-e26643090893"
+  },
+  "task_id": "f3800bfe-95a2-4750-bba7-34294d4dee0d",
+  "patient_id": "PAT-2434",
+  "sample_type": "3a",
+  "llm": "gemini-3-flash-preview"
+}

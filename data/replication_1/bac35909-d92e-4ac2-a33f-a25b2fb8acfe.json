@@ -1,0 +1,75 @@
+{
+  "started_at": "2026-09-03T16:12:51.807000-04:00",
+  "submitted_at": "2026-09-03T16:18:15.524695-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Edward",
+    "patient_last_name": "Bailey",
+    "patient_dob": "2012-05-18",
+    "sex": "Male",
+    "member_id": "515943137",
+    "patient_address": "6877 Church St, Norwalk, CT 06133",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nicole Bailey",
+    "subscriber_dob": "1987-09-06",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "2609424708",
+    "provider_phone": "(203) 728-5253",
+    "provider_fax": "(860) 906-2516",
+    "provider_email": "",
+    "provider_address": "6631 Hill St, New London, CT 06764",
+    "lab_name": "Ambry",
+    "lab_npi": "5301446795",
+    "lab_address": "4789 Park Rd, Windsor, CT 06177",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-11-22",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q04.2",
+      "F71",
+      "Q39.0",
+      "Q67.3",
+      "Q75.1"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-29"
+    ],
+    "form_id": "bac35909-d92e-4ac2-a33f-a25b2fb8acfe"
+  },
+  "task_id": "67263bec-0dc9-47e0-9a76-ddb0e1f4550f",
+  "patient_id": "PAT-8415",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}

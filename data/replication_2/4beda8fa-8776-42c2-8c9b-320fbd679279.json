@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T22:39:04.322000-04:00",
+  "submitted_at": "2026-09-11T22:45:10.053322-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Elizabeth",
+    "patient_last_name": "Mitchell",
+    "patient_dob": "2018-03-08",
+    "sex": "Female",
+    "member_id": "605640254",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Deborah Mitchell",
+    "subscriber_dob": "1993-05-02",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Paul Allen",
+    "provider_npi": "5441499426",
+    "provider_phone": "(555) 555-5555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Drive, Boston, MA 02115",
+    "lab_name": "GeneDx",
+    "lab_npi": "7793298740",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-09-12",
+    "cpt_codes": [
+      "81415, 81416, 81416"
+    ],
+    "internal_test_code": "896a",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Paul Allen",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "4beda8fa-8776-42c2-8c9b-320fbd679279"
+  },
+  "task_id": "c9cc5522-a5cc-4a46-ad6e-ef5836b29f71",
+  "patient_id": "PAT-7005",
+  "sample_type": "1",
+  "llm": "claude-opus-4-5-20251101"
+}

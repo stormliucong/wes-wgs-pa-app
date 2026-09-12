@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-12T00:22:57.333000-04:00",
+  "submitted_at": "2026-09-12T00:27:20.579925-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Maya",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2021-11-26",
+    "sex": "Female",
+    "member_id": "484360657",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "3468920451",
+    "provider_phone": "(203) 870-7183",
+    "provider_fax": "(475) 651-4015",
+    "provider_email": "",
+    "provider_address": "4423 Broad St, New Britain, CT 06653",
+    "lab_name": "LabCorp",
+    "lab_npi": "6592503486",
+    "lab_address": "8762 School St, Danbury, CT 06002",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-12-23",
+    "cpt_codes": [
+      "81415; 81416(x2)"
+    ],
+    "internal_test_code": "620022",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q04.2"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-02"
+    ],
+    "form_id": "5e23fd4c-4f10-43d9-8398-d7facbad54f6"
+  },
+  "patient_name": "Maya Merrick",
+  "patient_id": "PAT-4452",
+  "llm": "gemini-3-pro-preview"
+}

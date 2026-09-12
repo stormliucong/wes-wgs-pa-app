@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-11T23:03:45.536000-04:00",
+  "submitted_at": "2026-09-11T23:11:05.372330-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Barbara",
+    "patient_last_name": "Rogers",
+    "patient_dob": "2019-02-20",
+    "sex": "Female",
+    "member_id": "408991790",
+    "patient_address": "2737 Franklin St, Manchester, CT 06008",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Jennifer Rogers",
+    "subscriber_dob": "1995-02-04",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "5014216033",
+    "provider_phone": "(475) 997-4831",
+    "provider_fax": "(860) 861-2735",
+    "provider_email": "",
+    "provider_address": "6087 West St, Waterbury, CT 06842",
+    "lab_name": "Invitae",
+    "lab_npi": "2443800292",
+    "lab_address": "811 Cedar St, Hamden, CT 06202",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-21",
+    "cpt_codes": [
+      "81415, 81416×2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q22.5",
+      "Q87.0"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "78e10804-fa70-4c13-b4a3-5a243a7fe63c"
+  },
+  "task_id": "6b8823f0-b520-4a0b-830f-ea4f186d5913",
+  "patient_id": "PAT-7744",
+  "sample_type": "3a",
+  "llm": "claude-opus-4-5-20251101"
+}

@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-03T18:42:54.106000-04:00",
+  "submitted_at": "2026-09-03T18:49:17.501863-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Weston",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2016-05-02",
+    "sex": "Male",
+    "member_id": "537017665",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "3882091018",
+    "provider_phone": "(555) 555-1234",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Dr, Suite 100, City, ST 12345",
+    "lab_name": "GeneDx",
+    "lab_npi": "7099523383",
+    "lab_address": "",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425, 81426, 81426"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Patient presents with antibiotic toxic exposure, superficial burn of head/face/neck, and scalp laceration. WGS Trio testing requested to evaluate potential underlying genetic susceptibility.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "T36.91XA",
+      "T20.0XXA"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "2761b5ea-ef16-4ece-843f-539400cf214b"
+  },
+  "task_id": "2a3e8669-ef7f-4aa2-a719-ab115248ac44",
+  "patient_id": "PAT-4609",
+  "sample_type": "3b",
+  "llm": "claude-opus-4-5-20251101"
+}

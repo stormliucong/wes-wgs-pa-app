@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T19:29:58.576000-04:00",
+  "submitted_at": "2026-09-03T19:34:04.080135-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Beckett",
+    "patient_last_name": "Iverson",
+    "patient_dob": "2013-06-28",
+    "sex": "Male",
+    "member_id": "254677987",
+    "patient_address": "9579 High St, Torrington, CT 06445",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Emery Iverson",
+    "subscriber_dob": "1979-09-01",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "2094949686",
+    "provider_phone": "(860) 663-9374",
+    "provider_fax": "(959) 270-7927",
+    "provider_email": "",
+    "provider_address": "6682 Elm St, Glastonbury, CT 06608",
+    "lab_name": "LabCorp",
+    "lab_npi": "8157210169",
+    "lab_address": "9778 State St, Waterbury, CT 06913",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-12-21",
+    "cpt_codes": [
+      "81415; 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-12-23"
+    ],
+    "form_id": "48a67d9d-26c2-4b63-b717-b91affa6f60f"
+  },
+  "task_id": "018608b8-c222-4f4a-9cfd-e9503889ca32",
+  "patient_id": "PAT-7854",
+  "sample_type": "2b",
+  "llm": "claude-opus-4-5-20251101"
+}

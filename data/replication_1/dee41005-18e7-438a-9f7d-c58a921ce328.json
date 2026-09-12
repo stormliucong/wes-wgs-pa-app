@@ -1,0 +1,73 @@
+{
+  "started_at": "2026-09-03T18:42:56.816000-04:00",
+  "submitted_at": "2026-09-03T18:48:09.147627-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Kira",
+    "patient_last_name": "Thatcher",
+    "patient_dob": "2016-07-18",
+    "sex": "Female",
+    "member_id": "324288628",
+    "patient_address": "3984 Finwood Rd, Northfield, OH 44067",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Bianca Thatcher",
+    "subscriber_dob": "1984-05-22",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "9466746055",
+    "provider_phone": "5636893827",
+    "provider_fax": "5636893828",
+    "provider_email": "sclark@maplevalleypediatrics.net",
+    "provider_address": "58 Maple Ln, Madison, WI 53703",
+    "lab_name": "LabCorp",
+    "lab_npi": "3384022186",
+    "lab_address": "1447 York Court, Burlington, NC 27215",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-11-01",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "WGS003X",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q75.8",
+      "Q87.0",
+      "R62.0"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-14"
+    ],
+    "form_id": "dee41005-18e7-438a-9f7d-c58a921ce328"
+  },
+  "task_id": "3e27233a-9282-404b-82e9-732746d3fdb0",
+  "patient_id": "PAT-9220",
+  "sample_type": "2c",
+  "llm": "claude-opus-4-5-20251101"
+}

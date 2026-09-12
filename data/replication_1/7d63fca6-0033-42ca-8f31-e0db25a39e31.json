@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-03T16:12:43.441000-04:00",
+  "submitted_at": "2026-09-03T16:14:43.646609-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Brian",
+    "patient_last_name": "Hall",
+    "patient_dob": "2013-07-19",
+    "sex": "Male",
+    "member_id": "603007585",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Dr. Smith",
+    "provider_npi": "1234567890",
+    "provider_phone": "(555) 555-5555",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Main St",
+    "lab_name": "",
+    "lab_npi": "0987654321",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2024-01-01",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": false,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Dr. Smith",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "F88"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "7d63fca6-0033-42ca-8f31-e0db25a39e31"
+  },
+  "patient_id": "PAT-9280",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-12T00:23:01.281000-04:00",
+  "submitted_at": "2026-09-12T00:27:36.236266-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Weston",
+    "patient_last_name": "Carrow",
+    "patient_dob": "2022-01-27",
+    "sex": "Male",
+    "member_id": "721127180",
+    "patient_address": "3020 Forest Ave, Hartford, CT 06011",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Skye Carrow",
+    "subscriber_dob": "1987-07-28",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Anthony Walker",
+    "provider_npi": "5765587415",
+    "provider_phone": "9595313729",
+    "provider_fax": "8607722450",
+    "provider_email": "",
+    "provider_address": "9440 Oak Ave, Bridgeport, CT 06725",
+    "lab_name": "Ambry",
+    "lab_npi": "5142492116",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-23",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Superficial burn of head and face; concussion without loss of consciousness; accidental exposure to penicillin.",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": false,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Anthony Walker",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "T20.10XA",
+      "S06.0X0A",
+      "T36.0X1A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5ca521ec-d48a-44d0-b8ba-b98c550331e5"
+  },
+  "patient_name": "Weston Carrow",
+  "patient_id": "PAT-4939",
+  "llm": "gemini-3-pro-preview"
+}

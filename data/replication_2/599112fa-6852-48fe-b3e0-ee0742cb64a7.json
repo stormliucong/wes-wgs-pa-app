@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T22:39:06.267000-04:00",
+  "submitted_at": "2026-09-11T22:44:33.760940-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Cora",
+    "patient_last_name": "Locke",
+    "patient_dob": "2018-09-03",
+    "sex": "Female",
+    "member_id": "436357664",
+    "patient_address": "3979 Center St Greenwich CT 06071",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nolan Locke",
+    "subscriber_dob": "1984-05-25",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "7736419890",
+    "provider_phone": "1728490321",
+    "provider_fax": "0198432675",
+    "provider_email": "",
+    "provider_address": "1725 Hightop Ln Hartford CT 06023",
+    "lab_name": "GeneDx",
+    "lab_npi": "7716036320",
+    "lab_address": "207 Perry Pkwy Gaithersburg MD 20877",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-29",
+    "cpt_codes": [
+      "81415, 81416×2"
+    ],
+    "internal_test_code": "561a",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q39.1"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "599112fa-6852-48fe-b3e0-ee0742cb64a7"
+  },
+  "task_id": "6b6e4102-0692-44d8-852f-11b2b523bcc2",
+  "patient_id": "PAT-1851",
+  "sample_type": "3a",
+  "llm": "claude-opus-4-5-20251101"
+}

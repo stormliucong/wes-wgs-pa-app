@@ -1,7 +1,11 @@
-# Ignore all data subdirectories except data/patient_data
+# Ignore all data subdirectories except data/patient_data, data/replication_1, data/replication_2
 /data/*
 !/data/patient_data/
 !/data/patient_data/**
+!/data/replication_1/
+!/data/replication_1/**
+!/data/replication_2/
+!/data/replication_2/**
 data/batch_input/
 
 # Common Python ignores

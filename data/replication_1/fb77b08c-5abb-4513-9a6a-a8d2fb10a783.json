@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-03T11:46:29.873000-04:00",
+  "submitted_at": "2026-09-03T11:53:05.959530-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Weston",
+    "patient_last_name": "Whitaker",
+    "patient_dob": "2016-05-02",
+    "sex": "Male",
+    "member_id": "537017665",
+    "patient_address": "7510 Franklin St, Greenwich, CT 06118",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Hudson Whitaker",
+    "subscriber_dob": "1982-08-04",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Angela Thompson",
+    "provider_npi": "3882091018",
+    "provider_phone": "2035550122",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Dr, Greenwich, CT 06830",
+    "lab_name": "GeneDx",
+    "lab_npi": "7099523383",
+    "lab_address": "207 Perry Pkwy, Gaithersburg, MD 20877",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81425, 81426x2"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Angela Thompson",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q87.89",
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "fb77b08c-5abb-4513-9a6a-a8d2fb10a783"
+  },
+  "task_id": "f73b6c81-cac1-49c0-af5d-d6acc0b54555",
+  "patient_id": "PAT-4609",
+  "sample_type": "3b",
+  "llm": "gemini-3-flash-preview"
+}

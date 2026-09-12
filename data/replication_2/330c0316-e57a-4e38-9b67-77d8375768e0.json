@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-11T23:41:29.693000-04:00",
+  "submitted_at": "2026-09-11T23:46:56.063422-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Talia",
+    "patient_last_name": "Dunley",
+    "patient_dob": "2017-06-05",
+    "sex": "Male",
+    "member_id": "666758399",
+    "patient_address": "2090 Broad St, Stamford, CT 06835",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "5463714996",
+    "provider_phone": "8602149476",
+    "provider_fax": "4758056825",
+    "provider_email": "",
+    "provider_address": "1826 Spring St, Greenwich, CT 06291",
+    "lab_name": "GeneDx",
+    "lab_npi": "1424813286",
+    "lab_address": "1826 Spring St, Greenwich, CT 06291",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "561b",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q21.1"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-05"
+    ],
+    "form_id": "330c0316-e57a-4e38-9b67-77d8375768e0"
+  },
+  "patient_name": "Talia Dunley",
+  "patient_id": "PAT-8231",
+  "llm": "gemini-3-flash-preview"
+}

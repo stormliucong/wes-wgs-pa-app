@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T13:36:01.242000-04:00",
+  "submitted_at": "2026-09-03T13:40:38.658784-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Callum",
+    "patient_last_name": "Irwin",
+    "patient_dob": "2021-12-21",
+    "sex": "Male",
+    "member_id": "779844646",
+    "patient_address": "6117 East St, Shelton, CT 06916",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Nora Irwin",
+    "subscriber_dob": "1987-11-29",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "5580254047",
+    "provider_phone": "(203) 806-3819",
+    "provider_fax": "(860) 966-9101",
+    "provider_email": "",
+    "provider_address": "386 East St, Milford, CT 06506",
+    "lab_name": "GeneDx",
+    "lab_npi": "2495915545",
+    "lab_address": "362 Broad St, Enfield, CT 06765",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-12",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "896a",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": false,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q67.0",
+      "Q17.9"
+    ],
+    "prior_test_type": [
+      "Gene Panel"
+    ],
+    "prior_test_result": [
+      "negative"
+    ],
+    "prior_test_date": [
+      "2025-09-21"
+    ],
+    "form_id": "30630064-a76d-4d33-bcb1-ce4a423dd450"
+  },
+  "patient_id": "PAT-8676",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

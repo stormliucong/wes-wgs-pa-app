@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-12T00:23:28.256000-04:00",
+  "submitted_at": "2026-09-12T00:28:07.689011-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Miles",
+    "patient_last_name": "Ulrich",
+    "patient_dob": "2018-02-06",
+    "sex": "Male",
+    "member_id": "422456840",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Karen White",
+    "provider_npi": "2247887464",
+    "provider_phone": "(475) 794-1377",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "6984 Pleasant St, Meriden, CT 06123",
+    "lab_name": "",
+    "lab_npi": "1497088097",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-21",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Karen White",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "E73.0",
+      "G40.409"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "9fe729f3-8c3d-4469-a856-141c5da4fdcd"
+  },
+  "patient_name": "Miles Ulrich",
+  "patient_id": "PAT-5237",
+  "llm": "gemini-3-pro-preview"
+}

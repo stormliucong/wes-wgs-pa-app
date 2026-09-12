@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T11:46:28.792000-04:00",
+  "submitted_at": "2026-09-03T11:52:37.022261-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Layla",
+    "patient_last_name": "Quinlan",
+    "patient_dob": "2022-06-08",
+    "sex": "Female",
+    "member_id": "656762335",
+    "patient_address": "7118 Spring St, New Britain, CT 06504",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Anya Quinlan",
+    "subscriber_dob": "1988-05-11",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "9720268953",
+    "provider_phone": "9592481927",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "4283 Sunset Ave, Manchester, CT 06511",
+    "lab_name": "GeneDx",
+    "lab_npi": "7233217781",
+    "lab_address": "9892 Center St, West Haven, CT 06369",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-14",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "896b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e7c671e3-d583-43f2-97d8-9f001ed88302"
+  },
+  "task_id": "5c48b0e1-ea70-4736-8367-6b5f5cb96d27",
+  "patient_id": "PAT-5022",
+  "sample_type": "3a",
+  "llm": "gemini-3-flash-preview"
+}

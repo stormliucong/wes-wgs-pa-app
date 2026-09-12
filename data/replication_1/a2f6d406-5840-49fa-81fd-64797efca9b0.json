@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T13:35:56.870000-04:00",
+  "submitted_at": "2026-09-03T13:41:39.415256-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Nora",
+    "patient_last_name": "Irwin",
+    "patient_dob": "2022-01-28",
+    "sex": "Female",
+    "member_id": "687739920",
+    "patient_address": "466 East St, Newington, CT 06068",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Esme Irwin",
+    "subscriber_dob": "1987-05-01",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "4329020163",
+    "provider_phone": "(475) 283-9545",
+    "provider_fax": "(475) 913-2565",
+    "provider_email": "",
+    "provider_address": "N/A",
+    "lab_name": "Ambry",
+    "lab_npi": "4689026122",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-13",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": true,
+    "other_details": "Accidental ingestion of penicillin-class antibiotic, concussion",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "T36.0X1A",
+      "S06.0X0A"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "a2f6d406-5840-49fa-81fd-64797efca9b0"
+  },
+  "patient_id": "PAT-4918",
+  "sample_type": "3b",
+  "llm": "gemini-3-pro-preview"
+}

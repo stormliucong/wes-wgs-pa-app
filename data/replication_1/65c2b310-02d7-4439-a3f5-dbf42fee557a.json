@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T19:29:52.275000-04:00",
+  "submitted_at": "2026-09-03T19:35:09.903149-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Felix",
+    "patient_last_name": "Seymour",
+    "patient_dob": "2011-01-24",
+    "sex": "Male",
+    "member_id": "946716197",
+    "patient_address": "5079 Water St, Stratford, CT 06275",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Brooks Seymour",
+    "subscriber_dob": "1976-09-26",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Patricia Anderson",
+    "provider_npi": "5328141595",
+    "provider_phone": "(860) 321-7980",
+    "provider_fax": "(203) 234-7461",
+    "provider_email": "",
+    "provider_address": "8098 West St, Glastonbury, CT 06320",
+    "lab_name": "LabCorp",
+    "lab_npi": "5169452326",
+    "lab_address": "1764 Court St, Meriden, CT 06613",
+    "test_type": "WGS",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "WGS008",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Patricia Anderson",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q04.9"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-09-07"
+    ],
+    "form_id": "65c2b310-02d7-4439-a3f5-dbf42fee557a"
+  },
+  "task_id": "2c41f86a-8a72-4048-929e-b20215b99400",
+  "patient_id": "PAT-2049",
+  "sample_type": "4",
+  "llm": "claude-opus-4-5-20251101"
+}

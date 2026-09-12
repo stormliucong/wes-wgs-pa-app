@@ -1,0 +1,74 @@
+{
+  "started_at": "2026-09-12T00:23:02.159000-04:00",
+  "submitted_at": "2026-09-12T00:27:43.818418-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Spencer",
+    "patient_last_name": "Goodwin",
+    "patient_dob": "2021-06-04",
+    "sex": "Male",
+    "member_id": "899223187",
+    "patient_address": "6418 Washington Ave, East Hartford, CT 06843",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Mina Goodwin",
+    "subscriber_dob": "1987-06-19",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "",
+    "provider_name": "Matthew Wright",
+    "provider_npi": "5926918713",
+    "provider_phone": "(959) 901-3232",
+    "provider_fax": "(203) 575-8312",
+    "provider_email": "",
+    "provider_address": "4075 Forest Ave, Waterbury, CT 06619",
+    "lab_name": "GeneDx",
+    "lab_npi": "7962073905",
+    "lab_address": "5869 Sunset Ave, Trumbull, CT 06801",
+    "test_type": "WGS",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-20",
+    "cpt_codes": [
+      "81425, 81426"
+    ],
+    "internal_test_code": "J744a",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Matthew Wright",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q89.7",
+      "Q39.0",
+      "F80.9",
+      "Q16.0",
+      "Q10.3"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "negative"
+    ],
+    "prior_test_date": [
+      "2025-12-06"
+    ],
+    "form_id": "921d649e-3f5f-48b2-906d-7f0483cabaf4"
+  },
+  "patient_name": "Spencer Goodwin",
+  "patient_id": "PAT-5120",
+  "llm": "gemini-3-pro-preview"
+}

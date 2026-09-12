@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T23:15:31.719000-04:00",
+  "submitted_at": "2026-09-11T23:20:56.370533-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Aiden",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2014-06-10",
+    "sex": "Male",
+    "member_id": "588755949",
+    "patient_address": "3163 Broad St, Shelton, CT 06267",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Atticus Valentine",
+    "subscriber_dob": "1985-01-15",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "2910040282",
+    "provider_phone": "(555) 123-4567",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 Medical Center Drive, Hartford, CT 06101",
+    "lab_name": "GeneDx",
+    "lab_npi": "9683385499",
+    "lab_address": "",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-21",
+    "cpt_codes": [
+      "81415, 81416x1"
+    ],
+    "internal_test_code": "896e",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "F71"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2026-01-24"
+    ],
+    "form_id": "4e93d7a4-9dbc-4a43-a021-3183a0ec9823"
+  },
+  "task_id": "7fac7626-9d8f-4aab-adf2-3401b150bc5f",
+  "patient_id": "PAT-3878",
+  "sample_type": "2a",
+  "llm": "claude-opus-4-5-20251101"
+}

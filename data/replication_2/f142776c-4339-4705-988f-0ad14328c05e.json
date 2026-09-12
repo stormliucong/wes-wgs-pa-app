@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-11T23:52:38.997000-04:00",
+  "submitted_at": "2026-09-11T23:57:26.995113-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Aiden",
+    "patient_last_name": "Valentine",
+    "patient_dob": "2014-06-10",
+    "sex": "Male",
+    "member_id": "588755949",
+    "patient_address": "3163 Broad St, Shelton, CT 06267",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Atticus Valentine",
+    "subscriber_dob": "2004-06-17",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "2910040282",
+    "provider_phone": "4758623423",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "123 East St, East Hartford, CT 06518",
+    "lab_name": "GeneDx",
+    "lab_npi": "9683385499",
+    "lab_address": "5187 Oak Ave, Windsor, CT 06375",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Expedited",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-21",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "896e",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f142776c-4339-4705-988f-0ad14328c05e"
+  },
+  "task_id": "533457e5-8a7b-4636-b094-dfd52069df1a",
+  "patient_id": "PAT-3878",
+  "sample_type": "2a",
+  "llm": "gemini-3-flash-preview"
+}

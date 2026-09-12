@@ -1,0 +1,73 @@
+{
+  "started_at": "2026-09-03T11:46:53.689000-04:00",
+  "submitted_at": "2026-09-03T11:51:17.413753-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Atticus",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2012-04-10",
+    "sex": "Male",
+    "member_id": "781478928",
+    "patient_address": "210 School St, West Haven, CT 06243",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Milo Merrick",
+    "subscriber_dob": "1978-08-20",
+    "subscriber_relation": "Guardian",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "5945589298",
+    "provider_phone": "(203) 770-7290",
+    "provider_fax": "(475) 498-9199",
+    "provider_email": "",
+    "provider_address": "4476 Second St, Stamford, CT 06645",
+    "lab_name": "Ambry",
+    "lab_npi": "8952826537",
+    "lab_address": "9064 West St, New London, CT 06296",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-09-03",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "G40.909",
+      "E72.20",
+      "E87.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "00f7432a-b40d-4470-bb2d-37cf26310ce9"
+  },
+  "task_id": "046f57dd-d628-4674-805c-19dd3fa83354",
+  "patient_id": "PAT-7929",
+  "sample_type": "2c",
+  "llm": "gemini-3-flash-preview"
+}

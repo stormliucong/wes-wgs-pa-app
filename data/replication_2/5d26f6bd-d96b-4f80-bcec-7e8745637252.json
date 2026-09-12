@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-12T00:29:00.860000-04:00",
+  "submitted_at": "2026-09-12T00:33:54.137528-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Atticus",
+    "patient_last_name": "Merrick",
+    "patient_dob": "2012-04-10",
+    "sex": "Male",
+    "member_id": "781478928",
+    "patient_address": "210 School St, West Haven, CT 06243",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Milo Merrick",
+    "subscriber_dob": "1978-08-20",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Christopher Lee",
+    "provider_npi": "5945589298",
+    "provider_phone": "(203) 770-7290",
+    "provider_fax": "(475) 498-9199",
+    "provider_email": "",
+    "provider_address": "4476 Second St, Stamford, CT 06645",
+    "lab_name": "Ambry",
+    "lab_npi": "8952826537",
+    "lab_address": "9064 West St, New London, CT 06296",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-09-12",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": false,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Christopher Lee",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "5d26f6bd-d96b-4f80-bcec-7e8745637252"
+  },
+  "task_id": "46895ae0-8628-4d72-9bbf-8962738bf0db",
+  "patient_id": "PAT-7929",
+  "sample_type": "2c",
+  "llm": "gemini-3-pro-preview"
+}

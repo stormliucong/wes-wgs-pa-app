@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-03T13:35:48.424000-04:00",
+  "submitted_at": "2026-09-03T13:43:56.551486-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Julie",
+    "patient_last_name": "Allen",
+    "patient_dob": "2017-01-27",
+    "sex": "Female",
+    "member_id": "734937966",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Katherine Allen",
+    "subscriber_dob": "1991-09-16",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Robert Miller",
+    "provider_npi": "7232963553",
+    "provider_phone": "(475) 247-7427",
+    "provider_fax": "(959) 234-9891",
+    "provider_email": "",
+    "provider_address": "186 East St, Hamden, CT 06827",
+    "lab_name": "Ambry",
+    "lab_npi": "1404851332",
+    "lab_address": "7172 Sunset Ave, Greenwich, CT 06307",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-01-15",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": false,
+    "consent_ack": true,
+    "provider_signature": "Robert Miller",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q22.5"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "082c5da5-e6ab-4c05-806e-cdaf3aefc733"
+  },
+  "patient_id": "PAT-6461",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

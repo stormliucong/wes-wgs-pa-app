@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T11:21:01.575000-04:00",
+  "submitted_at": "2026-09-03T11:28:30.882564-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Colton",
+    "patient_last_name": "Abbott",
+    "patient_dob": "2012-01-29",
+    "sex": "Male",
+    "member_id": "474503605",
+    "patient_address": "8713 Franklin St, Meriden, CT 06519",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "Sarah Johnson",
+    "provider_npi": "5365782466",
+    "provider_phone": "(860) 555-1212",
+    "provider_fax": "(860) 555-1213",
+    "provider_email": "sjohnson@manchesterhealth.org",
+    "provider_address": "9305 Forest Ave, Stratford, CT 06151",
+    "lab_name": "Invitae",
+    "lab_npi": "9431232312",
+    "lab_address": "5281 West St, Middletown, CT 06511",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-07",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "80002",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Sarah Johnson",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "P94.2"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "2974099f-0115-4c1a-85a3-8bbcb5806b63"
+  },
+  "task_id": "258c0848-0194-4cd4-87f9-6ce5e88a7d79",
+  "patient_id": "PAT-4489",
+  "sample_type": "1",
+  "llm": "gemini-3-flash-preview"
+}

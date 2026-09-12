@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-03T18:47:15.037000-04:00",
+  "submitted_at": "2026-09-03T18:52:03.415655-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Jasper",
+    "patient_last_name": "Iverson",
+    "patient_dob": "2021-06-01",
+    "sex": "Male",
+    "member_id": "236145810",
+    "patient_address": "7464 East St, West Hartford, CT 06854",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Beckett Iverson",
+    "subscriber_dob": "1988-01-11",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Susan Clark",
+    "provider_npi": "9455821233",
+    "provider_phone": "(475) 741-5110",
+    "provider_fax": "(959) 810-6215",
+    "provider_email": "",
+    "provider_address": "502 Elm St, Milford, CT 06810",
+    "lab_name": "Invitae",
+    "lab_npi": "6757752464",
+    "lab_address": "5850 Valley Rd, West Hartford, CT 06276",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-26",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "80001",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Susan Clark",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "E73.0",
+      "R56.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "e2d55360-8fd2-4eaa-89ae-be0931a2a347"
+  },
+  "task_id": "33386376-c64f-4f5c-9ae7-fd88270744bc",
+  "patient_id": "PAT-4731",
+  "sample_type": "1",
+  "llm": "claude-opus-4-5-20251101"
+}

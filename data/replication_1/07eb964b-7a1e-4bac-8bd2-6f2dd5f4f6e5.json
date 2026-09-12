@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-03T11:46:31.636000-04:00",
+  "submitted_at": "2026-09-03T11:52:27.896720-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Hugo",
+    "patient_last_name": "Winslow",
+    "patient_dob": "2020-04-24",
+    "sex": "Female",
+    "member_id": "135138924",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Tristan Winslow",
+    "subscriber_dob": "1986-05-03",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "8243285271",
+    "provider_phone": "(860) 692-3077",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "2258 Forest Ave, Hamden, CT 06855",
+    "lab_name": "Ambry",
+    "lab_npi": "3780933783",
+    "lab_address": "554 North St, West Hartford, CT 06993",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-04",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "9995",
+    "genetic_disorder": true,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "Q87.89"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "07eb964b-7a1e-4bac-8bd2-6f2dd5f4f6e5"
+  },
+  "task_id": "7df0df7f-507c-4765-992d-577da8085510",
+  "patient_id": "PAT-1372",
+  "sample_type": "4",
+  "llm": "gemini-3-flash-preview"
+}

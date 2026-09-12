@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-11T22:38:55.920000-04:00",
+  "submitted_at": "2026-09-11T22:45:07.271410-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Hudson",
+    "patient_last_name": "Bexley",
+    "patient_dob": "2022-02-21",
+    "sex": "Male",
+    "member_id": "403027933",
+    "patient_address": "80 Cedarwood Path, Kearny, NJ 07032",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Tristan Bexley",
+    "subscriber_dob": "1987-11-04",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "",
+    "provider_name": "Donna Scott",
+    "provider_npi": "2080449963",
+    "provider_phone": "(959) 858-9105",
+    "provider_fax": "(959) 584-7047",
+    "provider_email": "",
+    "provider_address": "6675 Pleasant St, Bridgeport, CT 06161",
+    "lab_name": "GeneDx",
+    "lab_npi": "2741102194",
+    "lab_address": "8637 Valley Rd, New Britain, CT 06147",
+    "test_type": "WGS",
+    "test_configuration": "Proband",
+    "urgency": "Expedited",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-01-28",
+    "cpt_codes": [
+      "81425"
+    ],
+    "internal_test_code": "TH78b",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Donna Scott",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "E70.0",
+      "G40.909"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "92110a3c-9d2b-4e80-8378-6c6f30de4a75"
+  },
+  "task_id": "26cfd233-8cc9-476f-af1d-06ddedaffca8",
+  "patient_id": "PAT-9244",
+  "sample_type": "1",
+  "llm": "claude-opus-4-5-20251101"
+}

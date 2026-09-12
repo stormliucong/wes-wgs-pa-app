@@ -1,0 +1,74 @@
+{
+  "started_at": "2026-09-12T00:29:09.466000-04:00",
+  "submitted_at": "2026-09-12T00:32:51.699802-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Brenda",
+    "patient_last_name": "Gonzalez",
+    "patient_dob": "2016-03-24",
+    "sex": "Female",
+    "member_id": "203290935",
+    "patient_address": "3714 Valley Rd, Stratford, CT 06506",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Mark Gonzalez",
+    "subscriber_dob": "1991-09-25",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Mark Lewis",
+    "provider_npi": "4865474052",
+    "provider_phone": "(959) 848-7957",
+    "provider_fax": "(959) 616-7056",
+    "provider_email": "",
+    "provider_address": "1361 School St, Hartford, CT 06732",
+    "lab_name": "Ambry",
+    "lab_npi": "2812780605",
+    "lab_address": "1402 Forest Ave, East Hartford, CT 06236",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Expedited",
+    "specimen_type": "Blood",
+    "collection_date": "2026-02-01",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "9999R",
+    "genetic_disorder": false,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Mark Lewis",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q21.11",
+      "Q66.89",
+      "F72",
+      "Q87.1"
+    ],
+    "prior_test_type": [
+      "Single Gene"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-11-02"
+    ],
+    "form_id": "028d312e-f216-45da-9a49-a7bf3931e9a0"
+  },
+  "task_id": "38b77aec-dfe3-4e92-a190-495d00eac9c3",
+  "patient_id": "PAT-7628",
+  "sample_type": "3a",
+  "llm": "gemini-3-pro-preview"
+}

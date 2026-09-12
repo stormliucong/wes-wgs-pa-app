@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-11T23:03:43.387000-04:00",
+  "submitted_at": "2026-09-11T23:10:06.884451-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Damian",
+    "patient_last_name": "Fairmont",
+    "patient_dob": "2018-09-20",
+    "sex": "Male",
+    "member_id": "182801640",
+    "patient_address": "3155 Oak Ave Norwich CT 06856",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Elias Fairmont",
+    "subscriber_dob": "1984-03-24",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Nancy Moore",
+    "provider_npi": "8719721982",
+    "provider_phone": "(203)908-2585",
+    "provider_fax": "(860)764-3882",
+    "provider_email": "",
+    "provider_address": "6101 Park Rd Hamden CT 06461",
+    "lab_name": "Ambry",
+    "lab_npi": "6995216832",
+    "lab_address": "2198 Forest Ave New London CT 06693",
+    "test_type": "WES",
+    "test_configuration": "Proband",
+    "urgency": "Regular",
+    "specimen_type": "Saliva",
+    "collection_date": "2026-02-11",
+    "cpt_codes": [
+      "81415"
+    ],
+    "internal_test_code": "9993",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": false,
+    "neurological": true,
+    "metabolic": true,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": true,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Nancy Moore",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "E88.40",
+      "G40.409"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "504c5470-fea5-4ad3-967d-1a2200c811bd"
+  },
+  "task_id": "105247e4-e46f-439f-93e6-2d40c291cf31",
+  "patient_id": "PAT-6070",
+  "sample_type": "1",
+  "llm": "claude-opus-4-5-20251101"
+}

@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-03T12:08:20.216000-04:00",
+  "submitted_at": "2026-09-03T12:13:09.627445-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Beckett",
+    "patient_last_name": "Iverson",
+    "patient_dob": "2013-06-28",
+    "sex": "Male",
+    "member_id": "254677987",
+    "patient_address": "",
+    "primary_subscriber_is_patient": "yes",
+    "subscriber_name": "",
+    "subscriber_dob": "",
+    "subscriber_relation": "",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "2094949686",
+    "provider_phone": "(860) 663-9374",
+    "provider_fax": "",
+    "provider_email": "",
+    "provider_address": "6682 Elm St, Glastonbury, CT 06608",
+    "lab_name": "LabCorp",
+    "lab_npi": "8157210169",
+    "lab_address": "9778 State St, Waterbury, CT 06913",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-12-21",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": false,
+    "mca": false,
+    "dd_or_id": false,
+    "dysmorphic": true,
+    "neurological": true,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-09-03",
+    "icd_codes": [
+      "G40.909",
+      "Q04.3"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "f900a5cb-5994-4c85-a1c4-35317bb02125"
+  },
+  "task_id": "e38b5f52-1c04-4cfd-8b3e-023417cc103a",
+  "patient_id": "PAT-7854",
+  "sample_type": "2b",
+  "llm": "gemini-3-flash-preview"
+}

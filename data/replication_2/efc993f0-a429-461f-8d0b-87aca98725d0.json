@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-12T00:26:02.735000-04:00",
+  "submitted_at": "2026-09-12T00:29:21.618012-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Nolan",
+    "patient_last_name": "Osborn",
+    "patient_dob": "2017-04-01",
+    "sex": "Male",
+    "member_id": "616647970",
+    "patient_address": "6940 Park Rd, New Haven, CT 06232",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Kieran Osborn",
+    "subscriber_dob": "1983-12-22",
+    "subscriber_relation": "Parent",
+    "subscriber_relation_other": "",
+    "provider_name": "Steven Torres",
+    "provider_npi": "5980234579",
+    "provider_phone": "(959) 818-6865",
+    "provider_fax": "(860) 289-6953",
+    "provider_email": "",
+    "provider_address": "4468 Center St, Newington, CT 06705",
+    "lab_name": "Invitae",
+    "lab_npi": "4398284930",
+    "lab_address": "8396 Pleasant St, Waterbury, CT 06465",
+    "test_type": "WES",
+    "test_configuration": "Trio",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2026-02-07",
+    "cpt_codes": [
+      "81415, 81416x2"
+    ],
+    "internal_test_code": "80003",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": true,
+    "neurological": false,
+    "metabolic": false,
+    "autism": true,
+    "early_onset": false,
+    "prior_test_negative": true,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "Steven Torres",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q61.2"
+    ],
+    "prior_test_type": [
+      "CMA"
+    ],
+    "prior_test_result": [
+      "Negative"
+    ],
+    "prior_test_date": [
+      "2025-10-15"
+    ],
+    "form_id": "efc993f0-a429-461f-8d0b-87aca98725d0"
+  },
+  "patient_name": "Nolan Osborn",
+  "patient_id": "PAT-5117",
+  "llm": "gemini-3-pro-preview"
+}

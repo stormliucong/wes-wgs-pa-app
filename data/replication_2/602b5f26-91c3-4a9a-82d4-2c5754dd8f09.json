@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-09-12T00:30:36.320000-04:00",
+  "submitted_at": "2026-09-12T00:33:14.142758-04:00",
+  "username": "user2",
+  "payload": {
+    "patient_first_name": "Beckett",
+    "patient_last_name": "Iverson",
+    "patient_dob": "2013-06-28",
+    "sex": "Male",
+    "member_id": "254677987",
+    "patient_address": "9579 High St, Torrington, CT 06445",
+    "primary_subscriber_is_patient": "no",
+    "subscriber_name": "Emery Iverson",
+    "subscriber_dob": "1979-09-01",
+    "subscriber_relation": "Other",
+    "subscriber_relation_other": "",
+    "provider_name": "James Rodriguez",
+    "provider_npi": "2094949686",
+    "provider_phone": "8606639374",
+    "provider_fax": "9592707927",
+    "provider_email": "",
+    "provider_address": "6682 Elm St, Glastonbury, CT 06608",
+    "lab_name": "LabCorp",
+    "lab_npi": "8157210169",
+    "lab_address": "9778 State St, Waterbury, CT 06913",
+    "test_type": "WES",
+    "test_configuration": "Duo",
+    "urgency": "Regular",
+    "specimen_type": "Buccal",
+    "collection_date": "2025-12-21",
+    "cpt_codes": [
+      "81415, 81416"
+    ],
+    "internal_test_code": "620023",
+    "genetic_disorder": true,
+    "mca": true,
+    "dd_or_id": true,
+    "dysmorphic": false,
+    "neurological": false,
+    "metabolic": false,
+    "autism": false,
+    "early_onset": false,
+    "prior_test_negative": false,
+    "family_history": false,
+    "rationale_other": false,
+    "other_details": "",
+    "mn_suspected_genetic": true,
+    "mn_results_influence_management": true,
+    "mn_genetic_counseling": true,
+    "consent_ack": true,
+    "provider_signature": "James Rodriguez",
+    "signature_date": "2026-09-12",
+    "icd_codes": [
+      "Q89.9"
+    ],
+    "prior_test_type": [
+      ""
+    ],
+    "prior_test_result": [
+      ""
+    ],
+    "prior_test_date": [
+      ""
+    ],
+    "form_id": "602b5f26-91c3-4a9a-82d4-2c5754dd8f09"
+  },
+  "task_id": "aadba519-f417-4798-a775-cd1be151ae5d",
+  "patient_id": "PAT-7854",
+  "sample_type": "2b",
+  "llm": "gemini-3-pro-preview"
+}
